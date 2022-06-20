@@ -1,0 +1,30 @@
+{{ define "main" }}
+  <article class="post-single">
+    <header class="post-title">
+      <p>
+        {{ partial "description" . }}
+      </p>
+      <h1 data-pagefind-meta="title">{{ .Title }}</h1>
+    </header>
+    <section class="post-content" data-pagefind-body>{{ .Content }}</section>
+  </article>
+
+  <!-- Post Tags -->
+  {{ if .Params.tags }}
+  <footer class="post-tags" data-pagefind-meta="tags">
+    {{ partial "tags" . }}
+  </footer>
+  {{ end }}
+
+  <!-- Post Nav -->
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ if and (gt (len $pages) 1) (in $pages . ) }}
+  <nav class="post-nav">
+    {{ with $pages.Next . }}
+    <a class="prev" href="{{ .Permalink }}"><span>←</span><span>{{ .Name }}</span></a>
+    {{ end }} {{ with $pages.Prev . }}
+    <a class="next" href="{{ .Permalink }}"><span>{{ .Name }}</span><span>→</span></a>
+    {{ end }}
+  </nav>
+  {{ end }}
+{{ end }}

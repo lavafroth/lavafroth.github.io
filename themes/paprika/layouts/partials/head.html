@@ -1,0 +1,45 @@
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+
+  <!-- Title -->
+  <title>{{ if not .IsHome }}{{ .Title }} - {{ end }}{{ site.Title }}</title>
+
+  <!-- Meta -->
+  <meta name="description" content='{{ cond (eq .Kind "page") .Summary .Site.Params.description }}' />
+  <meta name="author" content="{{ site.Params.Author }}" />
+
+  <!-- Styles -->
+  {{ $app_css := resources.Get "app.css" | minify }}
+  <link rel="preload stylesheet" as="style" href="{{ $app_css.Permalink }}" />
+  <noscript>
+  {{ $noscript_css := resources.Get "noscript.css" | minify }}
+  <link rel="preload stylesheet" as="style" href="{{ $noscript_css.Permalink }}" />
+  </noscript>
+
+  {{ $font := resources.Get "LeagueGothic.ttf" }}
+  <link rel="prefetch" as="font" href="{{ $font.Permalink }}" />
+
+	{{ range .Site.Params.socials }}
+  <link rel="preload" as="image" href="{{ printf `%s.svg` .platform | absURL }}" />
+  {{ end }}
+  {{ range .Site.Menus.main }}
+  <link rel="preload" as="image" href="{{ printf `%s.svg` .Name | absURL }}" />
+  {{ end }}
+
+  <!-- Favicon -->
+  <link rel="icon" href="{{ `favicon.png` | absURL }}" />
+  <link rel="blog-icon" href="{{ `icon.png` | absURL }}" />
+
+  <!-- RSS -->
+  {{ range .AlternativeOutputFormats }}
+  <link
+    rel="{{ .Rel }}"
+    type="{{ .MediaType.Type }}"
+    href="{{ .Permalink }}"
+    title="{{ site.Title }}"
+  />
+  {{ end }}
+
+</head>

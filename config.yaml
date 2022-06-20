@@ -1,0 +1,35 @@
+baseURL: https://lavafroth.is-a.dev/
+pageinate: 5
+relativeURLs: true
+languageCode: en-us
+title: lavafroth
+theme: paprika
+taxonomies:
+  tag: tags
+menu:
+  main:
+    - identifier: art
+      name: art
+      url: /art/
+    - identifier: about
+      name: about
+      url: /about/
+params:
+  description: "Hacker. Artist."
+  socials:
+    - platform: github
+      url: https://github.com/lavafroth
+markup:
+  highlight:
+    anchorLineNos: false
+    codeFences: true
+    guessSyntax: false
+    hl_Lines: ""
+    hl_inline: false
+    lineAnchors: ""
+    lineNos: false
+    lineNumbersInTable: true
+    noClasses: true
+    noHl: false
+    style: monokai
+    tabWidth: 4

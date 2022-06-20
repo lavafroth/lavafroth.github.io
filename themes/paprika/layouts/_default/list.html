@@ -1,0 +1,43 @@
+{{ define "main" }}
+
+<!-- $pages -->
+{{ $pages := union .RegularPages .Sections }}
+<!---->{{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+<link href="/pagefind/pagefind-ui.css" rel="stylesheet">
+<script src="/pagefind/pagefind-ui.js" type="text/javascript"></script>
+<div id="search"></div>
+<script>
+    window.addEventListener('DOMContentLoaded', (event) => {
+        new PagefindUI({ element: "#search" });
+    });
+</script>
+
+<section class="post-content">
+    {{.Content}}
+</section>
+
+<!-- Articles -->
+{{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
+<article class="post-entry">
+  <h2>{{ .Title }}</h2>
+  {{ partial "description" . }}<br>
+  {{ partial "tags" . }}
+  <a class="post-link" href="{{ .Permalink }}"></a>
+</article>
+{{ end }}
+
+<!-- Main Nav -->
+{{ if gt $paginator.TotalPages 1 }}
+  <nav class="main-nav">
+  {{ if $paginator.HasPrev }}
+  <a class="prev" href="{{ $paginator.Prev.URL }}">← Previous Page</a>
+  {{ end }}
+  {{ if $paginator.HasNext }}
+  <a class="next" href="{{ $paginator.Next.URL }}">Next Page →</a>
+  {{ end }}
+</nav>
+{{ end }}
+
+{{ end }}

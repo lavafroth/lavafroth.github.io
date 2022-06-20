@@ -1,0 +1,34 @@
+{{ define "main" }}
+
+<!-- $pages -->
+{{ $pages := union .RegularPages .Sections }}
+<!---->{{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ end }}
+
+<section class="post-content">
+  {{.Content}}
+</section>
+
+<!-- Articles -->
+{{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
+<article class="post-entry">
+  <h2>{{ .Title }}</h2>
+  <br>
+  <img src="{{ .Params.image }}" style="border-radius: 1rem">
+  <a href="{{ .Permalink }}" class="post-link"></a>
+</article>
+{{ end }}
+
+<!-- Main Nav -->
+{{ if gt $paginator.TotalPages 1 }}
+  <nav class="main-nav">
+  {{ if $paginator.HasPrev }}
+  <a class="prev" href="{{ $paginator.Prev.URL }}">← Previous Page</a>
+  {{ end }}
+  {{ if $paginator.HasNext }}
+  <a class="next" href="{{ $paginator.Next.URL }}">Next Page →</a>
+  {{ end }}
+</nav>
+{{ end }}
+
+{{ end }}

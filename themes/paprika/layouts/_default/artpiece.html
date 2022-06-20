@@ -1,0 +1,42 @@
+{{ define "main" }}
+
+<article class="post-single">
+  <header class="post-title">
+    <p>
+    {{ .Date | time.Format ":date_medium" }}
+    </p>
+    <h1>{{ .Title }}</h1>
+  </header>
+  <section class="post-content">{{ .Content }}
+    <img src="{{ .Params.image }}" style="border-radius: 1rem">
+    {{ if .Params.timelapse }}
+      <h4>Timelapse video<h4>
+      <video width=100% controls autoplay>
+          <source src="{{ .Params.timelapse | absURL }}">
+          Your browser does not support the video tag.  
+      </video>
+    {{ end }}
+  </section>
+
+  <!-- Post Tags -->
+  {{ if .Params.tags }}
+  <footer class="post-tags">
+    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+      <a href="{{ $href }}">{{ . }}</a>
+    {{ end }}
+  </footer>
+  {{ end }}
+
+  <!-- Post Nav -->
+  {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ if and (gt (len $pages) 1) (in $pages . ) }}
+  <nav class="post-nav">
+    {{ with $pages.Next . }}
+    <a class="prev" href="{{ .Permalink }}"><span>←</span><span>{{ .Name }}</span></a>
+    {{ end }} {{ with $pages.Prev . }}
+    <a class="next" href="{{ .Permalink }}"><span>{{ .Name }}</span><span>→</span></a>
+    {{ end }}
+  </nav>
+  {{ end }}
+</article>
+{{ end }}

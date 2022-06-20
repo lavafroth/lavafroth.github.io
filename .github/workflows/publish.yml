@@ -1,0 +1,38 @@
+name: github pages
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          submodules: true
+          fetch-depth: 0
+
+      - name: Setup Hugo
+        uses: peaceiris/actions-hugo@v2
+        with:
+          hugo-version: 'latest'
+          extended: true
+
+      - name: Build
+        run: hugo -D --minify
+
+      - name: Download pagefind binary
+        run: "wget https://github.com/CloudCannon/pagefind/releases/download/v1.0.3/pagefind-v1.0.3-x86_64-unknown-linux-musl.tar.gz && tar xf pagefind-*.tar.gz"
+
+      - name: Build search index
+        run: "./pagefind"
+      
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v3
+        if: github.ref == 'refs/heads/main'
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./public
