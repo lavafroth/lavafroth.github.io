@@ -1,0 +1,3 @@
+{{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+<span class="list-tag">{{ . }}</span>
+{{ end }}
