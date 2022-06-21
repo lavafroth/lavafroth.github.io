@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous" />
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2" crossorigin="anonymous"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
     <title>Portfolio</title>
     <style>
   body .lava {
@@ -18,7 +18,7 @@
     position: relative;
     grid-area: lava;
     min-height: 12rem;
-    border-radius: 2em;
+    border-radius: 1rem;
   }
   body .lava .bubbles {
     position: absolute;
@@ -39,7 +39,11 @@
             animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
     transform: translate(-50%, 100%);
   }
-  
+  .header {
+    font-family: 'League Gothic', sans-serif;text-transform: uppercase;
+    text-transform: uppercase;
+    letter-spacing: 1rem;
+  }
   @-webkit-keyframes bubble-size {
     0%, 75% {
       width: var(--size, 4rem);
@@ -83,8 +87,8 @@
     <div class="container-fluid">
         <div class="lava" style="overflow: hidden;">
             <div style="z-index: 1000;">
-                <figure class="text-center display-4 rounded-pill pt-5" style="font-family: 'Comfortaa', cursive;">
-                    LavaFroth
+                <figure class="text-center display-4 rounded-pill pt-5 header">
+                    lavafroth
                 </figure>
                 <figure class="text-center">
                     <span class="badge rounded-pill bg-success">C</span>
@@ -233,56 +237,61 @@
             </svg>
         </div>
 
-        <nav class="navbar sticky-top justify-content-center bg-white" id="nav">
-            <div class="navbar-brand lead">A self taught</div>
-            <ul class="nav nav-pills">
-                <li class="nav-item">
-                    <a href="#programmer" class="nav-link">programmer</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#hacker" class="nav-link">hacker</a>
-                </li>
-                <li class="nav-item">
-                    <a href="#floss" class="nav-link">open-sourcerer</a>
-                </li>
-            </ul>
-        </nav>
-        <div data-bs-spy="scroll" data-bs-target="#nav" data-bs-offset="0" tabindex="0">
-            <h6 id="programmer">Programmer</h6>
-            <p> 
-                It all started when I was a bored eight-year-old kid wanting to make computer malware
-                to annoy family members. I learned batch programming, a little bit of web design here,
-                some C there and eventually a four-semester course on Java thanks to school. Despite
-                having learnt quite a handful of languages over the years, I proudly choose <em>Go</em>
-                as my weapon of choice since it is faster than Python, and more productive than C,
-                therefore possessing a balanced profile.
-                
-            </p>
-            <h6 id="hacker">Hacker</h6>
-            <p> 
-                Even more than creating technology, I feel a greater sense of joy in ripping technology
-                apart and taking a look inside. My first read on hacking, <em>"Hacking: The Art of Exploitation" </em>by<em> Jon Erickson</em>, was probably one of the most
-                influencing books I have read till date. By the age of ten, I switched over to linux (albeit, Ubuntu)
-                since I found it more flexible for programming and writing tools and exploits. Three years later,
-                I stumbled upon <em>Kali</em> by <em>Offensive Security</em> and stuck with it for the next two years.
+
+        <ul class="nav nav-pills mb-3 mt-3 nav-fill" id="pills-tab" role="tablist">
+          <li class="nav-item">
+            <div class="nav-brand pt-2 px-3">A self taught</div>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">
+              programmer
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">
+              hacker
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
+            <button class="nav-link" id="pills-contact-tab" data-bs-toggle="pill" data-bs-target="#pills-contact" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">open-sourcerer</button>
+          </li>
+        </ul>
+        <div class="tab-content" id="pills-tabContent">
+          <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab" tabindex="0">
+            How lethal can a bored eight-year-old with an urge to destroy technology be? Well,
+            fasten your seatbelts, I've got first-hand experience. It started when I wanted to make
+            <em>"fake"</em> computer malware to annoy family members. I learned batch programming,
+            a little bit of web design here, some <code>C</code> there. Eventually, I spent eight semesters
+            on a Java course from school, although, I don't seem to have learnt a lot of new concepts there.
+            Despite having learnt quite a handful of languages over the years, I prefer <code>Go</code>
+            as my weapon of choice because of its balanced profile, faster than <code>Python</code> while being more productive than <code>C</code>.
+          </div>
+          <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab" tabindex="0">
+            <p > 
+              If it wasn't evident enough, even more than building technology, I feel a greater sense of joy in ripping technology
+              apart to look inside or sometimes wreak chaos. My first read on hacking, <em>"Hacking: The Art of Exploitation" </em>
+              by<em> Jon Erickson</em>, was probably one of the most influencing books I have read. By the age of twelve, I was dabbling
+              my fingers into Linux (albeit, Ubuntu) since I found it more flexible for programming.
+              Three years later, I stumbled upon <em>Kali</em> by <em>Offensive Security</em> and stuck with it for the next two years
+              All this while I learned a lot about the Linux environment and how operating systems work under the hood. This was made
+              possible thanks to the open (libre) nature of the Linux kernel.
             </p>
             <p>
-                Although the switching to Ubuntu and later Kali from Windows was very educational, the final
-                distro-hop came in switching to Arch Linux. Since then, I stopped distro-hopping
-                and started creating tools and custom exploits for different services.
+              The switch to Linux from Windows was very educational but I stopped distro-hopping after switching to pure Arch Linux.
+              Since then, I started using frameworks like <em>Blackarch</em>, learning <code>Go</code> and creating custom exploit tools
+              for different services.
             </p>
-            <h6 id="floss">Open-Sourcerer</h6>
-            <p> 
-                Having been in the Linux realm for quite a while, I began distributing the software I wrote under
-                open-source licenses on GitHub and BitBucket. I believe knowledge is a flow and it can't be stocked
-                or kept under wraps and the open-source community is one of the most apt representations
-                of that very idea. Being a part of the Twenty-First Century, we must accept the fact that
-                expertise and thorough knowledge in a field is more important than certifications and degrees.
-                I would not only thank the Linux community but also institutions like Harvard and MIT, organizations
-                like Khan Academy who provide OpenCourseWare, as in, free course material that really helped me
-                thrive despite my financial weakness.
-            </p>
-            </div>
+          </div>
+          <div class="tab-pane fade" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab" tabindex="0">
+            Having been in the Linux realm for quite a while, I began distributing the software I wrote under
+            open-source licenses on GitHub and BitBucket. I believe knowledge is a flow and it can't be stocked
+            or kept under wraps and the open-source community is one of the most apt representations
+            of that very idea. Being a part of the Twenty-First Century, we must accept the fact that
+            expertise and thorough knowledge in a field is more important than certifications and degrees.
+            I would not only thank the Linux community but also institutions like Harvard and MIT, organizations
+            like Khan Academy who provide OpenCourseWare, as in, free course material that really helped me
+            thrive despite my financial weakness.
+          </div>
         </div>
 </body>
 </html>
