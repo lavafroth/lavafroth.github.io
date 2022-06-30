@@ -11,6 +11,42 @@
     <link href="https://fonts.googleapis.com/css2?family=League+Gothic&display=swap" rel="stylesheet">
     <title>Portfolio</title>
     <style>
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 0 4px;
+}
+
+.column {
+  /* Gotta change these to 25% ... */
+  flex: 50%;
+  max-width: 50%;
+  /* In case we need extra real estate */
+  padding: 0 0.25rem;
+}
+
+.column img {
+  margin-top: 0.5rem;
+  vertical-align: middle;
+  width: 100%;
+}
+
+@media screen and (max-width: 800px) {
+  .column {
+    flex: 50%;
+    max-width: 50%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .column {
+    flex: 100%;
+    max-width: 100%;
+  }
+}
+
+
   body .lava {
     z-index: 1;
     --lava-background: linear-gradient(-20deg, #fc6076 0%, #ff9a44 80%, #f6d365 100%);
@@ -298,9 +334,9 @@
           </div>
           <div class="tab-pane fade" id="nav-art" role="tabpanel" aria-labelledby="nav-art-tab" tabindex="0">
             <p>
-              All the art I make is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">
-                Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license
-              </a> unless specified otherwise. Please read the legal code before redistributing, adapting
+              All the art I make is licensed under
+	      <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license</a>
+	      unless specified otherwise. Please read the legal code before redistributing, adapting
               or remixing them.
             </p>
             
@@ -309,7 +345,7 @@
                 <img src="https://i.ytimg.com/vi_webp/WvtBKHwCaM8/maxresdefault.webp" class="card-img-top" alt="Tyler Joseph Painting Timelapse | Krita">
                 <div class="card-body">
                   <h5 class="card-title">Tyler Joseph's Portrait</h5>
-                  <p class="card-text">A painting of the lead vocalist of twenty øne piløts. A timelapse video of the painting is also available over at YouTube.</p>
+                  <p class="card-text">A painting of the lead vocalist of Twenty Øne Piløts. A timelapse video of the painting is also available over at YouTube.</p>
                   <a href="https://youtu.be/WvtBKHwCaM8" class="btn btn-primary">Watch the timelapse</a>
                 </div>
               </div>
@@ -319,13 +355,15 @@
             <p>
               Although these aren't professional certifications, here are some for skeptics to munch on.
             </p>
-            <div class="container">
-              <div class="row">
-                <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-6X9OWVY0HI.png" alt="TryHackMe Advent of Cyber 2020 Certificate" class="col-md m-2">
-                <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-HOXLPGFBZN.png" alt="TryHackMe Advent of Cyber 2021 Certificate" class="col-md m-2">
-                <img src="https://certificates.cs50.io/c7c6fbaa-40da-4c14-846d-d4fd01c1bd6f.png?size=letter" alt="CS50x 2022 Certificate" class="col-md m-2">
-                </div>
-            </div>
+
+	    <div class="row">
+		<div class="column">
+                <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-6X9OWVY0HI.png" alt="TryHackMe Advent of Cyber 2020 Certificate">
+                <img src="https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-HOXLPGFBZN.png" alt="TryHackMe Advent of Cyber 2021 Certificate">
+		</div>
+		<div class="column">
+                <img src="https://certificates.cs50.io/c7c6fbaa-40da-4c14-846d-d4fd01c1bd6f.png?size=letter" alt="CS50x 2022 Certificate">
+		</div>
           </div>
 </body>
 </html>
