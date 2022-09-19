@@ -15,11 +15,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-  <title>lavafroth</title>
+  <title>RingZer0 CTF I Saw a Little Elf - lavafroth</title>
 
   
   
-  <meta name="description" content="" />
+  <meta name="description" content="package main import ( &#34;bytes&#34; &#34;encoding/base64&#34; &#34;fmt&#34; &#34;github.com/PuerkitoBio/goquery&#34; &#34;io/ioutil&#34; &#34;log&#34; &#34;net/http&#34; &#34;os/exec&#34; &#34;strings&#34; ) const uri = &#34;http://challenges.ringzer0team.com:10015/&#34; // Helper function to wipe a character set // from a given string. func WipeSet(s, set string) string { for _, char := range set { s = strings.Replace(s, string(char), &#34;&#34;, -1) } return s } func main() { // Fetch the challenge page. resp, err := http.Get(uri) if err != nil { log." />
   <meta name="author" content="" />
   
 
@@ -27,6 +27,13 @@
   
   <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/app.css" />
 
+  
+  <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://lavafroth.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
   
 
   
@@ -44,13 +51,6 @@
   <meta name="generator" content="Hugo 0.103.1" />
 
   
-  
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://lavafroth.github.io/index.xml"
-    title="lavafroth"
-  />
   
 </head>
 
@@ -78,9 +78,9 @@
 
     
     
-    <a class="sidebar-nav-item" href="./about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
     
-    <a class="sidebar-nav-item" href="./art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
     
 </nav>
 
@@ -251,87 +251,131 @@
 
     <main class="main">
 
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Aug 19, 2022</time>
+      
+    </p>
+    <h1>RingZer0 CTF I Saw a Little Elf</h1>
+  </header>
+  <section class="post-content"><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;bytes&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;encoding/base64&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;github.com/PuerkitoBio/goquery&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;io/ioutil&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;net/http&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;os/exec&#34;</span>
+</span></span><span style="display:flex;"><span>	<span style="color:#e6db74">&#34;strings&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#a6e22e">uri</span> = <span style="color:#e6db74">&#34;http://challenges.ringzer0team.com:10015/&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Helper function to wipe a character set
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// from a given string.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">WipeSet</span>(<span style="color:#a6e22e">s</span>, <span style="color:#a6e22e">set</span> <span style="color:#66d9ef">string</span>) <span style="color:#66d9ef">string</span> {
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">_</span>, <span style="color:#a6e22e">char</span> <span style="color:#f92672">:=</span> <span style="color:#66d9ef">range</span> <span style="color:#a6e22e">set</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">s</span> = <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Replace</span>(<span style="color:#a6e22e">s</span>, string(<span style="color:#a6e22e">char</span>), <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">return</span> <span style="color:#a6e22e">s</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Fetch the challenge page.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">resp</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(<span style="color:#a6e22e">uri</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Create a new goquery document from the response body.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">doc</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">goquery</span>.<span style="color:#a6e22e">NewDocumentFromReader</span>(<span style="color:#a6e22e">resp</span>.<span style="color:#a6e22e">Body</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#a6e22e">challenge</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">WipeSet</span>(
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Split lines and grap the one
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// having the message content.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Split</span>(
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// Read the text value in the &#34;message&#34; div
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">FindMatcher</span>(<span style="color:#a6e22e">goquery</span>.<span style="color:#a6e22e">Single</span>(<span style="color:#e6db74">&#34;.message&#34;</span>)).<span style="color:#a6e22e">Text</span>(), <span style="color:#e6db74">&#34;\n&#34;</span>)[<span style="color:#ae81ff">2</span>],
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Wipe unnecessary tabs, newlines and spaces.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#e6db74">&#34;\n\t &#34;</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">var</span> <span style="color:#a6e22e">Bytes</span> []<span style="color:#66d9ef">byte</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">for</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Keep base64 decoding the challenge string
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">Bytes</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">base64</span>.<span style="color:#a6e22e">StdEncoding</span>.<span style="color:#a6e22e">DecodeString</span>(<span style="color:#a6e22e">challenge</span>)
+</span></span><span style="display:flex;"><span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// until we find that the bytes, in revese
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// have the ELF (Executable and Linkable Format) header.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">bytes</span>.<span style="color:#a6e22e">Compare</span>(<span style="color:#a6e22e">Bytes</span>[len(<span style="color:#a6e22e">Bytes</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">4</span>:], []<span style="color:#66d9ef">byte</span>{<span style="color:#ae81ff">0x46</span>, <span style="color:#ae81ff">0x4c</span>, <span style="color:#ae81ff">0x45</span>, <span style="color:#ae81ff">0x7f</span>}) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span> {
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// On getting such a byte sequence, we reverse it ...
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">for</span> <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> <span style="color:#f92672">:=</span> <span style="color:#ae81ff">0</span>, len(<span style="color:#a6e22e">Bytes</span>)<span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>; <span style="color:#a6e22e">i</span> &lt; <span style="color:#a6e22e">j</span>; <span style="color:#a6e22e">i</span>, <span style="color:#a6e22e">j</span> = <span style="color:#a6e22e">i</span><span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>, <span style="color:#a6e22e">j</span><span style="color:#f92672">-</span><span style="color:#ae81ff">1</span> {
+</span></span><span style="display:flex;"><span>				<span style="color:#a6e22e">Bytes</span>[<span style="color:#a6e22e">i</span>], <span style="color:#a6e22e">Bytes</span>[<span style="color:#a6e22e">j</span>] = <span style="color:#a6e22e">Bytes</span>[<span style="color:#a6e22e">j</span>], <span style="color:#a6e22e">Bytes</span>[<span style="color:#a6e22e">i</span>]
+</span></span><span style="display:flex;"><span>			}
+</span></span><span style="display:flex;"><span>			<span style="color:#75715e">// ... and exit the loop.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>			<span style="color:#66d9ef">break</span>
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Otherwise set the challenge to be
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// this new base64 string.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">challenge</span> = string(<span style="color:#a6e22e">Bytes</span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Write the ELF bytes into a file called &#34;exe&#34;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">ioutil</span>.<span style="color:#a6e22e">WriteFile</span>(<span style="color:#e6db74">&#34;exe&#34;</span>, <span style="color:#a6e22e">Bytes</span>, <span style="color:#ae81ff">0</span><span style="color:#a6e22e">o700</span>); <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Grab its output and store it as the secret
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">secret</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">exec</span>.<span style="color:#a6e22e">Command</span>(<span style="color:#e6db74">&#34;./exe&#34;</span>).<span style="color:#a6e22e">Output</span>()
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatal</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Fetch the page with the flag
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">flagPage</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">http</span>.<span style="color:#a6e22e">Get</span>(
+</span></span><span style="display:flex;"><span>		<span style="color:#75715e">// Format the url with the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// r parameter for the challenge
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#75715e">// response as the secret
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>		<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Sprintf</span>(<span style="color:#e6db74">&#34;%s?r=%s&#34;</span>, <span style="color:#a6e22e">uri</span>, <span style="color:#a6e22e">WipeSet</span>(string(<span style="color:#a6e22e">secret</span>), <span style="color:#e6db74">&#34;\n&#34;</span>)),
+</span></span><span style="display:flex;"><span>	)
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>		<span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span>	}
+</span></span><span style="display:flex;"><span>	<span style="color:#66d9ef">defer</span> <span style="color:#a6e22e">flagPage</span>.<span style="color:#a6e22e">Body</span>.<span style="color:#a6e22e">Close</span>()
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Create a new goquery document from this response&#39;s body.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">doc</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">goquery</span>.<span style="color:#a6e22e">NewDocumentFromReader</span>(<span style="color:#a6e22e">flagPage</span>.<span style="color:#a6e22e">Body</span>)
+</span></span><span style="display:flex;"><span>	<span style="color:#75715e">// Print the text in the &#34;alert-info&#34; div, which is the flag.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>	<span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Println</span>(<span style="color:#a6e22e">doc</span>.<span style="color:#a6e22e">FindMatcher</span>(<span style="color:#a6e22e">goquery</span>.<span style="color:#a6e22e">Single</span>(<span style="color:#e6db74">&#34;.alert-info&#34;</span>)).<span style="color:#a6e22e">Text</span>())
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div></section>
 
-
-
-
-
- 
-
-
-
- 
-<article class="post-entry">
-  <h2>Google CTF 2022 Treebox</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/google-ctf-2022-treebox/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF I Saw a Little Elf</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-i-saw-a-little-elf/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Hash Me Reloaded</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-hash-me-reloaded/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Hash Me Please</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-hash-me-please/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Oh my God, they killed Kenny!</h2>
-  <time>Aug 2, 2022</time>
-  <a href="https://lavafroth.github.io/post/oh-my-god-they-killed-kenny/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 3</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 2</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 1</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Operation Oni, Operation Orchid - Forensics Challenges | PicoCTF 2022</h2>
-  <time>Mar 18, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>PicoCTF web challenge: JAuth</h2>
-  <time>Feb 22, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-web-challenge-jauth/"></a>
-</article>
-
-
-
-
-<nav class="main-nav">
   
   
-  <a class="next" href="./page/2/">Next Page →</a>
+
   
-</nav>
-
-
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="https://lavafroth.github.io/post/google-ctf-2022-treebox/"><span>←</span><span>Google CTF 2022 Treebox</span></a>
+     
+    <a class="next" href="https://lavafroth.github.io/post/r0-hash-me-reloaded/"><span>RingZer0 CTF Hash Me Reloaded</span><span>→</span></a>
+    
+  </nav>
+  
+</article>
 </main>
 
     <footer class="footer">

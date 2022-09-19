@@ -1,14 +1,144 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.github.io/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><lastBuildDate>Sun, 24 Jul 2022 12:29:56 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>RingZer0 CTF Bash Jail 3</title><link>https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/</link><pubDate>Sun, 24 Jul 2022 12:29:56 +0530</pubDate><guid>https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/</guid><description>The challenge Logging into the box we are told that the flag is located at /home/level3/flag.txt.
-function check_space { if [[ $1 == *[bdksc]* ]] then return 0 fi return 1 } while : do echo &amp;#34;Your input:&amp;#34; read input if check_space &amp;#34;$input&amp;#34; then echo -e &amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39; else output=`$input` &amp;amp;&amp;gt;/dev/null echo &amp;#34;Command executed&amp;#34; fi done We are also told that this prompt is launched using ./prompt.sh 2&amp;gt;/dev/null which means we cannot exfiltrate the flag from stderr since it is blocked.</description></item><item><title>RingZer0 CTF Bash Jail 2</title><link>https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/</link><pubDate>Sun, 24 Jul 2022 12:28:56 +0530</pubDate><guid>https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/</guid><description>The challenge Logging into the box we are told that the flag is located at /home/level2/flag.txt
-Challenge bash code: function check_space { if [[ $1 == *[bdks&amp;#39;;&amp;#39;&amp;#39;&amp;amp;&amp;#39;&amp;#39; &amp;#39;]* ]] then return 0 fi return 1 } while : do echo &amp;#34;Your input:&amp;#34; read input if check_space &amp;#34;$input&amp;#34; then echo -e &amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39; else output=&amp;#34;echo Your command is: $input&amp;#34; eval $output fi done Inference: This time, the check_space function returns a 1 if there are any characters in the input string among b,d,k,s, a semicolon, an ampersand and a whitespace.</description></item><item><title>RingZer0 CTF Bash Jail 1</title><link>https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/</link><pubDate>Sun, 24 Jul 2022 12:27:56 +0530</pubDate><guid>https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/</guid><description>The challenge Upon SSHing into the box, we are told that the flag is located at /home/level1/flag.txt
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on lavafroth</title>
+    <link>https://lavafroth.github.io/post/</link>
+    <description>Recent content in Posts on lavafroth</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 19 Aug 2022 10:04:36 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Google CTF 2022 Treebox</title>
+      <link>https://lavafroth.github.io/post/google-ctf-2022-treebox/</link>
+      <pubDate>Fri, 19 Aug 2022 10:04:36 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/google-ctf-2022-treebox/</guid>
+      <description>This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&amp;rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at flag. We also can&amp;rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the sys module is already imported.</description>
+    </item>
+    
+    <item>
+      <title>RingZer0 CTF I Saw a Little Elf</title>
+      <link>https://lavafroth.github.io/post/r0-i-saw-a-little-elf/</link>
+      <pubDate>Fri, 19 Aug 2022 09:57:34 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/r0-i-saw-a-little-elf/</guid>
+      <description>package main import ( &amp;#34;bytes&amp;#34; &amp;#34;encoding/base64&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.com/PuerkitoBio/goquery&amp;#34; &amp;#34;io/ioutil&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;os/exec&amp;#34; &amp;#34;strings&amp;#34; ) const uri = &amp;#34;http://challenges.ringzer0team.com:10015/&amp;#34; // Helper function to wipe a character set // from a given string. func WipeSet(s, set string) string { for _, char := range set { s = strings.Replace(s, string(char), &amp;#34;&amp;#34;, -1) } return s } func main() { // Fetch the challenge page. resp, err := http.Get(uri) if err != nil { log.</description>
+    </item>
+    
+    <item>
+      <title>RingZer0 CTF Hash Me Reloaded</title>
+      <link>https://lavafroth.github.io/post/r0-hash-me-reloaded/</link>
+      <pubDate>Fri, 19 Aug 2022 09:57:15 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/r0-hash-me-reloaded/</guid>
+      <description>package main import ( &amp;#34;crypto/sha512&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.com/PuerkitoBio/goquery&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;strconv&amp;#34; &amp;#34;strings&amp;#34; ) const uri = &amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34; func main() { // Fetch the challenge page. resp, err := http.Get(uri) if err != nil { log.Fatalln(err) } defer resp.Body.Close() // Create a new goquery document from the response body. doc, err := goquery.NewDocumentFromReader(resp.Body) if err != nil { log.Fatalln(err) } // Read the following comments // according to their numberings // for a better understanding.</description>
+    </item>
+    
+    <item>
+      <title>RingZer0 CTF Hash Me Please</title>
+      <link>https://lavafroth.github.io/post/r0-hash-me-please/</link>
+      <pubDate>Fri, 19 Aug 2022 09:57:00 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/r0-hash-me-please/</guid>
+      <description>package main import ( &amp;#34;crypto/sha512&amp;#34; &amp;#34;fmt&amp;#34; &amp;#34;github.com/PuerkitoBio/goquery&amp;#34; &amp;#34;log&amp;#34; &amp;#34;net/http&amp;#34; &amp;#34;strings&amp;#34; ) const uri = &amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34; func main() { // Fetch the challenge page. resp, err := http.Get(uri) if err != nil { log.Fatalln(err) } defer resp.Body.Close() // Create a new goquery document from the response body. doc, err := goquery.NewDocumentFromReader(resp.Body) if err != nil { log.Fatalln(err) } // Read the following comments // according to their numberings // for a better understanding.</description>
+    </item>
+    
+    <item>
+      <title>Oh my God, they killed Kenny!</title>
+      <link>https://lavafroth.github.io/post/oh-my-god-they-killed-kenny/</link>
+      <pubDate>Tue, 02 Aug 2022 09:26:51 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/oh-my-god-they-killed-kenny/</guid>
+      <description>Introduction Despite being infamous for its profanity and dark, satiric humor, I&amp;rsquo;ve been a huge fan of South Park over the years. Now, before you walk away saying, &amp;ldquo;Screw you guys, I&amp;rsquo;m going home&amp;rdquo;, I&amp;rsquo;d like you to try out a random episode of South Park. While you certainly can visit the official website to watch a random episode, today&amp;rsquo;s post will explain a tiny bash script to watch one without launching the browser.</description>
+    </item>
+    
+    <item>
+      <title>RingZer0 CTF Bash Jail 3</title>
+      <link>https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/</link>
+      <pubDate>Sun, 24 Jul 2022 12:29:56 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/</guid>
+      <description>The challenge Logging into the box we are told that the flag is located at /home/level3/flag.txt.
+function check_space { if [[ $1 == *[bdksc]* ]] then return 0 fi return 1 } while : do echo &amp;#34;Your input:&amp;#34; read input if check_space &amp;#34;$input&amp;#34; then echo -e &amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39; else output=`$input` &amp;amp;&amp;gt;/dev/null echo &amp;#34;Command executed&amp;#34; fi done We are also told that this prompt is launched using ./prompt.sh 2&amp;gt;/dev/null which means we cannot exfiltrate the flag from stderr since it is blocked.</description>
+    </item>
+    
+    <item>
+      <title>RingZer0 CTF Bash Jail 2</title>
+      <link>https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/</link>
+      <pubDate>Sun, 24 Jul 2022 12:28:56 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/</guid>
+      <description>The challenge Logging into the box we are told that the flag is located at /home/level2/flag.txt
+Challenge bash code: function check_space { if [[ $1 == *[bdks&amp;#39;;&amp;#39;&amp;#39;&amp;amp;&amp;#39;&amp;#39; &amp;#39;]* ]] then return 0 fi return 1 } while : do echo &amp;#34;Your input:&amp;#34; read input if check_space &amp;#34;$input&amp;#34; then echo -e &amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39; else output=&amp;#34;echo Your command is: $input&amp;#34; eval $output fi done Inference: This time, the check_space function returns a 1 if there are any characters in the input string among b,d,k,s, a semicolon, an ampersand and a whitespace.</description>
+    </item>
+    
+    <item>
+      <title>RingZer0 CTF Bash Jail 1</title>
+      <link>https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/</link>
+      <pubDate>Sun, 24 Jul 2022 12:27:56 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/</guid>
+      <description>The challenge Upon SSHing into the box, we are told that the flag is located at /home/level1/flag.txt
 Challenge bash code:
 while : do echo &amp;#34;Your input:&amp;#34; read input output=`$input` done Inference and experimenation The script is reading an input, executes it and then stores it in the output variable without ever displaying the output to the console.
-I tried a dummy command to see if I could see its stderr since command substitution (backticks) only capture the stdout.</description></item><item><title>Operation Oni, Operation Orchid - Forensics Challenges | PicoCTF 2022</title><link>https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/</link><pubDate>Fri, 18 Mar 2022 07:10:17 +0530</pubDate><guid>https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/</guid><description>In this post, we&amp;rsquo;ll walk through the Operation Oni and Operation Orchid challenges from the PicoCTF competition held in March 2022. Both of these challenges involve the use of tools from The Sleuth Kit suite. In order to follow along, I&amp;rsquo;d recommend installing the suite of tools.
+I tried a dummy command to see if I could see its stderr since command substitution (backticks) only capture the stdout.</description>
+    </item>
+    
+    <item>
+      <title>Operation Oni, Operation Orchid - Forensics Challenges | PicoCTF 2022</title>
+      <link>https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/</link>
+      <pubDate>Fri, 18 Mar 2022 07:10:17 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/</guid>
+      <description>In this post, we&amp;rsquo;ll walk through the Operation Oni and Operation Orchid challenges from the PicoCTF competition held in March 2022. Both of these challenges involve the use of tools from The Sleuth Kit suite. In order to follow along, I&amp;rsquo;d recommend installing the suite of tools.
 Operation Oni The challenge has an associated instance which we&amp;rsquo;ll need to log into using SSH using the following command:
-ssh -i key_file -p 61948 ctf-player@saturn.</description></item><item><title>Liberating 14GiB of disk space</title><link>https://lavafroth.github.io/post/liberating-14gib-of-space/</link><pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate><guid>https://lavafroth.github.io/post/liberating-14gib-of-space/</guid><description>The idea is simple:
+ssh -i key_file -p 61948 ctf-player@saturn.</description>
+    </item>
+    
+    <item>
+      <title>PicoCTF web challenge: JAuth</title>
+      <link>https://lavafroth.github.io/post/picoctf-web-challenge-jauth/</link>
+      <pubDate>Tue, 22 Feb 2022 14:49:34 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/picoctf-web-challenge-jauth/</guid>
+      <description>The challenge description states that most web application developers use third party components without testing their security. It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at http://saturn.picoctf.net:52025/
+The goal is to become an admin. We are provied with the username test and the password Test123! to look around.
+The challenge is a dummy bank portal. On login, we see the message:</description>
+    </item>
+    
+    <item>
+      <title>Liberating 14GiB of disk space</title>
+      <link>https://lavafroth.github.io/post/liberating-14gib-of-space/</link>
+      <pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/liberating-14gib-of-space/</guid>
+      <description>The idea is simple:
 Remove all duplicates, including zero length files Fine tuning: Hand-pick and remove files deemed unnecessary Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.
 I chose jdupes as my weapon of choice for finding and removing the duplicates. It&amp;rsquo;s free and open-source and is cross platform.
-For a given folder we would run the following to wipe the duplicates:</description></item><item><title>PicoCTF web challenge: Notepad</title><link>https://lavafroth.github.io/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.github.io/post/picoctf-web-challenge-notepad/</guid><description>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet. After submitting the query, we are redirected to an html page containing the content of the post.
+For a given folder we would run the following to wipe the duplicates:</description>
+    </item>
+    
+    <item>
+      <title>PicoCTF web challenge: Notepad</title>
+      <link>https://lavafroth.github.io/post/picoctf-web-challenge-notepad/</link>
+      <pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/picoctf-web-challenge-notepad/</guid>
+      <description>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet. After submitting the query, we are redirected to an html page containing the content of the post.
 The first thing I tried was triggering XSS (cross site scripting) with the following:
 &amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt; The application source directory tree looks like the following:
-. ├── app.py ├── Dockerfile ├── flag.txt ├── static └── templates ├── errors │ ├── bad_content.</description></item></channel></rss>
+. ├── app.py ├── Dockerfile ├── flag.txt ├── static └── templates ├── errors │ ├── bad_content.</description>
+    </item>
+    
+    <item>
+      <title>Gadgeting in Python Jails</title>
+      <link>https://lavafroth.github.io/post/gadgeting-in-python-jails/</link>
+      <pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/gadgeting-in-python-jails/</guid>
+      <description>We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail. Additionally some might even keep builtins and eval out of reach.
+Here is a cool video explanation by @pwnfunction on server side template injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution. Kudos to him for sharing this technique.</description>
+    </item>
+    
+  </channel>
+</rss>

