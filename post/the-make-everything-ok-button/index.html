@@ -15,11 +15,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-  <title>lavafroth</title>
+  <title>The Make Everything Ok Button - lavafroth</title>
 
   
   
-  <meta name="description" content="" />
+  <meta name="description" content="Disclaimer Before I begin, I must warn you that DeepFaceLab is just a tool and it is neither good nor bad. If you use the tool independently or in conjuction with my Docker image, make sure it is for personal education only. Neither the tool nor the image is meant to be used for making illicit or obscene imagery. If you dare to go beyond the words in this disclaimer, you and only you shall be liable for your actions." />
   <meta name="author" content="" />
   
 
@@ -27,6 +27,13 @@
   
   <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/app.css" />
 
+  
+  <link rel="preload stylesheet" as="style" href="https://lavafroth.github.io/an-old-hope.min.css" />
+  <script
+    defer
+    src="https://lavafroth.github.io/highlight.min.js"
+    onload="hljs.initHighlightingOnLoad();"
+  ></script>
   
 
   
@@ -44,13 +51,6 @@
   <meta name="generator" content="Hugo 0.104.3" />
 
   
-  
-  <link
-    rel="alternate"
-    type="application/rss&#43;xml"
-    href="https://lavafroth.github.io/index.xml"
-    title="lavafroth"
-  />
   
 </head>
 
@@ -251,51 +251,80 @@
 
     <main class="main">
 
+<article class="post-single">
+  <header class="post-title">
+    <p>
+      <time>Oct 9, 2022</time>
+      
+    </p>
+    <h1>The Make Everything Ok Button</h1>
+  </header>
+  <section class="post-content"><h1 id="disclaimer">Disclaimer</h1>
+<p>Before I begin, I must warn you that DeepFaceLab is just a tool and it is neither good nor
+bad. If you use the tool independently or in conjuction with my Docker image, make sure it
+is for personal education only. Neither the tool nor the image is meant to be used for making
+illicit or obscene imagery. If you dare to go beyond the words in this disclaimer, you and
+only you shall be liable for your actions.</p>
+<h1 id="you-know-the-drill">You know the drill</h1>
+<p>Everytime I have to install DeepFaceLab on any of my systems, it comes with a lot of hassle
+mostly due to incompatibilities between the GPU libraries and Python versions. Consequently,
+I have to go through the process of trial and error, witnessing my setups cough up blood in
+the process. This becomes further unbearable due to the loads of artifacts left on the host
+if I even get it working.</p>
+<p>Here&rsquo;s a meme I stole from the official DeepFaceLab&rsquo;s GitHub page.</p>
+<p><img src="https://raw.githubusercontent.com/iperov/DeepFaceLab/master/doc/meme1.jpg" alt="DeepFaceLab is working meme"></p>
+<p>The <code>DeepFaceLab_Linux</code> repository mentioned on the project&rsquo;s page uses conda to create a
+separate python environment with <code>cudatoolkit</code> and <code>cudnn</code>. I find setting up a project with
+conda troublesome. You cannot move the conda installation around, even if you get a project
+working, you aren&rsquo;t guaranteed reproducibility.</p>
+<p>I prefer such applications containerized on my system, residing elsewhere like
+<code>/var/lib/docker</code>. It should be relatively easy to package the application with the appropriate
+dependencies into a container without sacrificing GPU horsepower thanks to the recent upsurge
+in the popularity of <code>nvidia-container-toolkit</code>.</p>
+<h1 id="enter-deepfacelab-docker">Enter deepfacelab-docker</h1>
+<p><a href="https://github.com/xychelsea/deepfacelab-docker">This repository</a> provides an NVIDIA GPU enabled
+container with DeepFaceLab pre-installed on an Anaconda and TensorFlow container.</p>
+<blockquote>
+<p><em>Wait what? Anaconda inside a Docker container? Just why?</em></p>
+</blockquote>
+<p>If we take into account the overhead costs of installing Anaconda (or Miniconda for that matter)
+on the base system for managing python versions, there is no point in using Docker except to
+glue everything together into this monstrosity of a container.</p>
+<h1 id="enter-deepfacelab-docker-again">Enter deepfacelab-docker (again?)</h1>
+<p>Sick and tired of these roundabout solutions, I decided to come up with my own.
+I created a <code>Dockerfile</code> and a <code>docker-compose.yml</code>
+<a href="https://github.com/lavafroth/deepfacelab-docker">here</a> loosely based on the architecture of the
+<code>DeepFaceLab_Linux</code> build. This meant I had to use the <code>nvidia/cuda</code> base image with CUDA 10.1
+and CUDNN 7. The build sets up <code>python3.7</code> and installs the corresponding version of <code>pip</code>. Next,
+it installs <em>sane</em> requirements, ones that the application can work with, are compatible with the
+current python version and doesn&rsquo;t leak memory. <a href="https://github.com/nagadit/DeepFaceLab_Linux/issues/20#issuecomment-738114713">These two invaluable comments</a>
+significantly eased the process of figuring the correct requirements. Lastly, it set up the
+environment variables and the workspace.</p>
+<h1 id="how-do-i-use-it">How do I use it?</h1>
+<p>It&rsquo;s simple, make sure you have <code>nvidia-container-toolkit</code>, <code>docker</code> and <code>docker-compose</code> installed.
+Clone my repository and run the docker compose commands:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>git clone https://github.com/lavafroth/deepfacelab-docker.git
+</span></span><span style="display:flex;"><span>docker-compose run app
+</span></span></code></pre></div><p>Place the <code>data_src</code> and <code>data_dst</code> videos in the <code>workspace</code> directory and inside the container,
+run the scripts in the <code>scripts</code> directory.</p>
+<p>Although this is far from the definitive version of the <em>&ldquo;Make everything OK&rdquo;</em> button, I hope that
+this image somewhat reduces the overhead of setting up DeepFaceLab, making it quicker to get <em>real work</em> done.</p>
+<p>Happy faking!</p>
+</section>
 
-
-
-
-
- 
-
-
-
- 
-<article class="post-entry">
-  <h2>PicoCTF web challenge: JAuth</h2>
-  <time>Feb 22, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-web-challenge-jauth/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Liberating 14GiB of disk space</h2>
-  <time>Feb 21, 2022</time>
-  <a href="https://lavafroth.github.io/post/liberating-14gib-of-space/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>PicoCTF web challenge: Notepad</h2>
-  <time>Feb 21, 2022</time>
-  <a href="https://lavafroth.github.io/post/picoctf-web-challenge-notepad/"></a>
-</article>
-
-<article class="post-entry">
-  <h2>Gadgeting in Python Jails</h2>
-  <time>Dec 9, 2021</time>
-  <a href="https://lavafroth.github.io/post/gadgeting-in-python-jails/"></a>
-</article>
-
-
-
-
-<nav class="main-nav">
   
-  <a class="prev" href="../../">← Prev Page</a>
+  
+
   
   
-</nav>
-
-
+  
+  <nav class="post-nav">
+     
+    <a class="next" href="https://lavafroth.github.io/post/google-ctf-2022-treebox/"><span>Google CTF 2022 Treebox</span><span>→</span></a>
+    
+  </nav>
+  
+</article>
 </main>
 
     <footer class="footer">

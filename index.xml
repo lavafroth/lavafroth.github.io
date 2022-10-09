@@ -6,7 +6,16 @@
     <description>Recent content on lavafroth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 19 Aug 2022 10:04:36 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 09 Oct 2022 09:20:30 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The Make Everything Ok Button</title>
+      <link>https://lavafroth.github.io/post/the-make-everything-ok-button/</link>
+      <pubDate>Sun, 09 Oct 2022 09:20:30 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/the-make-everything-ok-button/</guid>
+      <description>Disclaimer Before I begin, I must warn you that DeepFaceLab is just a tool and it is neither good nor bad. If you use the tool independently or in conjuction with my Docker image, make sure it is for personal education only. Neither the tool nor the image is meant to be used for making illicit or obscene imagery. If you dare to go beyond the words in this disclaimer, you and only you shall be liable for your actions.</description>
+    </item>
+    
     <item>
       <title>Google CTF 2022 Treebox</title>
       <link>https://lavafroth.github.io/post/google-ctf-2022-treebox/</link>

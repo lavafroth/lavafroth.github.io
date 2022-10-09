@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lavafroth.github.io/post/google-ctf-2022-treebox/</loc>
-    <lastmod>2022-08-19T10:04:36+05:30</lastmod>
-  </url><url>
     <loc>https://lavafroth.github.io/</loc>
-    <lastmod>2022-08-19T10:04:36+05:30</lastmod>
+    <lastmod>2022-10-09T09:20:30+05:30</lastmod>
   </url><url>
     <loc>https://lavafroth.github.io/post/</loc>
+    <lastmod>2022-10-09T09:20:30+05:30</lastmod>
+  </url><url>
+    <loc>https://lavafroth.github.io/post/the-make-everything-ok-button/</loc>
+    <lastmod>2022-10-09T09:20:30+05:30</lastmod>
+  </url><url>
+    <loc>https://lavafroth.github.io/post/google-ctf-2022-treebox/</loc>
     <lastmod>2022-08-19T10:04:36+05:30</lastmod>
   </url><url>
     <loc>https://lavafroth.github.io/post/r0-i-saw-a-little-elf/</loc>
