@@ -15,12 +15,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-  <title>Art - lavafroth</title>
+  <title>Picoctf Cryptography Challenge Pixelated - lavafroth</title>
 
   
   
-  <meta name="description" content="All the art I make is licensed under Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license unless specified otherwise. Please read the legal code before redistributing, adapting or remixing them.
-Tyler Joseph&rsquo;s Portrait A painting of the lead vocalist of Twenty Øne Piløts. A timelapse video of the painting is also available over at Odysee." />
+  <meta name="description" content="Hey folks! It&rsquo;s been quite a while that I haven&rsquo;t made any CTF related post. Hope this post and the subsequent ones will help me regain my momentum.
+Introduction This challenge gives use two images and asks us if we can make a flag out of them. At first glance, both the images look like noise. Upon a quick web lookup of visual cryptography, it appears that these separate images, known as shares of the original image, can be overlayed on each other to reconstruct the original image." />
   <meta name="author" content="" />
   
 
@@ -79,9 +79,9 @@ Tyler Joseph&rsquo;s Portrait A painting of the lead vocalist of Twenty Øne Pil
 
     
     
-    <a class="sidebar-nav-item" href="../about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../about/" title="About me" style="background: url(/about.svg) center center no-repeat"></a>
     
-    <a class="sidebar-nav-item" href="../art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
+    <a class="sidebar-nav-item" href="../../art/" title="Digital art" style="background: url(/art.svg) center center no-repeat"></a>
     
 </nav>
 
@@ -255,15 +255,92 @@ Tyler Joseph&rsquo;s Portrait A painting of the lead vocalist of Twenty Øne Pil
 <article class="post-single">
   <header class="post-title">
     <p>
-      <time>Jul 23, 2022</time>
+      <time>Nov 22, 2022</time>
       
     </p>
-    <h1>Art</h1>
+    <h1>Picoctf Cryptography Challenge Pixelated</h1>
   </header>
-  <section class="post-content"><p>All the art I make is licensed under <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode">Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International license</a> unless specified otherwise. Please read the legal code before redistributing, adapting or remixing them.</p>
-<h2 id="tyler-josephs-portrait">Tyler Joseph&rsquo;s Portrait</h2>
-<p>A painting of the lead vocalist of Twenty Øne Piløts. A timelapse video of the painting is also available over at Odysee.</p>
-<p><a href="https://odysee.com/@lavafroth:d/lavafroth-painting-timelapse-truce:4"><img src="https://thumbs.odycdn.com/83a6db32f600860313fdc20769e09e08.webp" alt="Tyler Joseph&amp;rsquo;s Portrait"></a></p>
+  <section class="post-content"><p>Hey folks! It&rsquo;s been quite a while that I haven&rsquo;t made any CTF related post.
+Hope this post and the subsequent ones will help me regain my momentum.</p>
+<h1 id="introduction">Introduction</h1>
+<p>This challenge gives use two images and asks us if we can make a flag out of them.
+At first glance, both the images look like noise. Upon a quick web lookup of
+<a href="https://en.wikipedia.org/wiki/Visual_cryptography">visual cryptography</a>, it appears
+that these separate images, known as shares of the original image, can be overlayed
+on each other to reconstruct the original image.</p>
+<h1 id="solution">Solution</h1>
+<p>Now, I&rsquo;m pretty sure that there are online services that will automatically solve these
+but I decided to write some code to solve this locally. For the past week, I&rsquo;ve been
+learning the Rust programming language and this was the perfect excuse to test my knowledge.</p>
+<p>First, we will create a cargo project. Let&rsquo;s call it &ldquo;solve&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cargo new solve
+</span></span></code></pre></div><p>We&rsquo;ll then add the image library (crate) using cargo.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cargo add image
+</span></span></code></pre></div><p>Now let&rsquo;s get some Rust in action. We&rsquo;ll start by editing the <code>src/main.rs</code> file.
+First, we import the required types with the use statement.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">use</span> image::{GenericImageView, ImageBuffer, Pixel, RgbaImage};
+</span></span></code></pre></div><p>We&rsquo;ll now write the main function. Let&rsquo;s open the images and store handles to them
+in variables <code>a</code> and <code>b</code>.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> image::open(<span style="color:#e6db74">&#34;scrambled1.png&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> b <span style="color:#f92672">=</span> image::open(<span style="color:#e6db74">&#34;scrambled2.png&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>For sanity check, let&rsquo;s make sure that the dimensions are the same for both the images.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">if</span> a.dimensions() <span style="color:#f92672">!=</span> b.dimensions() {
+</span></span><span style="display:flex;"><span>    panic!(<span style="color:#e6db74">&#34;Image dimensions don&#39;t match.&#34;</span>);
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>Next, we&rsquo;ll create an image buffer for reconstructing the composite image.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> imgbuf: <span style="color:#a6e22e">RgbaImage</span> <span style="color:#f92672">=</span> ImageBuffer::new(a.width(), a.height());
+</span></span></code></pre></div><p>Looping over the pixels in the shares,</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">for</span> ((x, y, p), (_, _, q)) <span style="color:#66d9ef">in</span> a.pixels().zip(b.pixels()) {
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>we sum the values in each channel &hellip;</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#f92672">&amp;</span>p.channels()
+</span></span><span style="display:flex;"><span>    .iter()
+</span></span><span style="display:flex;"><span>    .zip(q.channels().iter())
+</span></span><span style="display:flex;"><span>    .map(<span style="color:#f92672">|</span>(c0, c1)<span style="color:#f92672">|</span> c0.checked_add(<span style="color:#f92672">*</span>c1).unwrap_or(<span style="color:#f92672">*</span>c0))
+</span></span><span style="display:flex;"><span>    .collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;&gt;</span>(),
+</span></span></code></pre></div><p>&hellip; and place the new pixel into the image buffer.</p>
+<pre tabindex="0"><code>for ((x, y, p), (_, _, q)) in a.pixels().zip(b.pixels()) {
+	imgbuf.put_pixel(x, y, *Pixel::from_slice(
+		// --snip--
+	    ),
+        );
+}
+</code></pre><p>Finally, we save the image buffer into &ldquo;flag.png&rdquo;.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span>imgbuf.save(<span style="color:#e6db74">&#34;flag.png&#34;</span>).unwrap();
+</span></span></code></pre></div><p>The entire code looks like the following:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-rust" data-lang="rust"><span style="display:flex;"><span><span style="color:#66d9ef">fn</span> <span style="color:#a6e22e">main</span>() {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> a <span style="color:#f92672">=</span> image::open(<span style="color:#e6db74">&#34;scrambled1.png&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">let</span> b <span style="color:#f92672">=</span> image::open(<span style="color:#e6db74">&#34;scrambled2.png&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// the shares must have the same dimensions
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> a.dimensions() <span style="color:#f92672">!=</span> b.dimensions() {
+</span></span><span style="display:flex;"><span>        panic!(<span style="color:#e6db74">&#34;Image dimensions don&#39;t match.&#34;</span>);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// create an empty buffer for the composite image
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">let</span> <span style="color:#66d9ef">mut</span> imgbuf: <span style="color:#a6e22e">RgbaImage</span> <span style="color:#f92672">=</span> ImageBuffer::new(a.width(), a.height());
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> ((x, y, p), (_, _, q)) <span style="color:#66d9ef">in</span> a.pixels().zip(b.pixels()) {
+</span></span><span style="display:flex;"><span>        imgbuf.put_pixel(
+</span></span><span style="display:flex;"><span>            x,
+</span></span><span style="display:flex;"><span>            y,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">*</span>Pixel::from_slice(
+</span></span><span style="display:flex;"><span>                <span style="color:#f92672">&amp;</span>p.channels()
+</span></span><span style="display:flex;"><span>                    .iter()
+</span></span><span style="display:flex;"><span>                    .zip(q.channels().iter())
+</span></span><span style="display:flex;"><span>                    .map(<span style="color:#f92672">|</span>(c0, c1)<span style="color:#f92672">|</span> c0.checked_add(<span style="color:#f92672">*</span>c1).unwrap_or(<span style="color:#f92672">*</span>c0))
+</span></span><span style="display:flex;"><span>                    .collect::<span style="color:#f92672">&lt;</span>Vec<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">u8</span><span style="color:#f92672">&gt;&gt;</span>(),
+</span></span><span style="display:flex;"><span>            ),
+</span></span><span style="display:flex;"><span>        );
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    imgbuf.save(<span style="color:#e6db74">&#34;flag.png&#34;</span>).unwrap();
+</span></span><span style="display:flex;"><span>}
+</span></span></code></pre></div><p>After saving this file and placing the images in the current directory, let&rsquo;s
+compile and run the program.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-sh" data-lang="sh"><span style="display:flex;"><span>cargo run
+</span></span></code></pre></div><p>If we check out the image in &ldquo;flag.png&rdquo;, it shows us the flag in pixelated text.</p>
+<p><img src="../../picoctf-cryptography-challenge-pixelated.png" alt="flag.png"></p>
 </section>
 
   
@@ -271,6 +348,12 @@ Tyler Joseph&rsquo;s Portrait A painting of the lead vocalist of Twenty Øne Pil
 
   
   
+  
+  <nav class="post-nav">
+     
+    <a class="next" href="https://lavafroth.github.io/post/the-make-everything-ok-button/"><span>The Make Everything Ok Button</span><span>→</span></a>
+    
+  </nav>
   
 </article>
 </main>
