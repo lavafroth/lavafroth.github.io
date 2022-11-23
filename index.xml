@@ -8,12 +8,12 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 22 Nov 2022 09:25:20 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Picoctf Cryptography Challenge Pixelated</title>
+      <title>PicoCTF cryptography challenge - Pixelated</title>
       <link>https://lavafroth.github.io/post/picoctf-cryptography-challenge-pixelated/</link>
       <pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate>
       
       <guid>https://lavafroth.github.io/post/picoctf-cryptography-challenge-pixelated/</guid>
-      <description>Hey folks! It&amp;rsquo;s been quite a while that I haven&amp;rsquo;t made any CTF related post. Hope this post and the subsequent ones will help me regain my momentum.
+      <description>Hey folks! It&amp;rsquo;s been quite a while since I&amp;rsquo;ve made any CTF related posts. Hope this post and the subsequent ones will help me regain some momentum.
 Introduction This challenge gives use two images and asks us if we can make a flag out of them. At first glance, both the images look like noise. Upon a quick web lookup of visual cryptography, it appears that these separate images, known as shares of the original image, can be overlayed on each other to reconstruct the original image.</description>
     </item>
     
