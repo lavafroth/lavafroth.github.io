@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://lavafroth.github.io/</loc>
-    <lastmod>2022-11-22T09:25:20+05:30</lastmod>
+    <loc>https://lavafroth.github.io/post/a-reasonably-private-firefox-setup/</loc>
+    <lastmod>2022-12-21T12:50:52+05:30</lastmod>
   </url><url>
-    <loc>https://lavafroth.github.io/post/picoctf-cryptography-challenge-pixelated/</loc>
-    <lastmod>2022-11-22T09:25:20+05:30</lastmod>
+    <loc>https://lavafroth.github.io/</loc>
+    <lastmod>2022-12-21T12:50:52+05:30</lastmod>
   </url><url>
     <loc>https://lavafroth.github.io/post/</loc>
+    <lastmod>2022-12-21T12:50:52+05:30</lastmod>
+  </url><url>
+    <loc>https://lavafroth.github.io/post/picoctf-cryptography-challenge-pixelated/</loc>
     <lastmod>2022-11-22T09:25:20+05:30</lastmod>
   </url><url>
     <loc>https://lavafroth.github.io/post/the-make-everything-ok-button/</loc>

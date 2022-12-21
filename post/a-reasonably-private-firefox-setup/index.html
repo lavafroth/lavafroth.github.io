@@ -15,11 +15,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
   
-  <title>Oh my God, they killed Kenny! - lavafroth</title>
+  <title>A Reasonably Private Firefox Setup - lavafroth</title>
 
   
   
-  <meta name="description" content="Introduction Despite being infamous for its profanity and dark, satiric humor, I&rsquo;ve been a huge fan of South Park over the years. Now, before you walk away saying, &ldquo;Screw you guys, I&rsquo;m going home&rdquo;, I&rsquo;d like you to try out a random episode of South Park. While you certainly can visit the official website to watch a random episode, today&rsquo;s post will explain a tiny bash script to watch one without launching the browser." />
+  <meta name="description" content="Privacy, something we expect as a default, is dwindling at an unimaginable rate when it comes to browsers.From amidst the sea of mostly chromium based browsers like Google Chrome, Opera and Edge, I&rsquo;d pick Firefox. Despite a handful of questionable decisions made in the past by the parent company, Mozilla, Firefox is miles ahead of other browsers when it comes to privacy and hardening. Here&rsquo;s how I prefer hardening my Firefox setup." />
   <meta name="author" content="" />
   
 
@@ -254,127 +254,85 @@
 <article class="post-single">
   <header class="post-title">
     <p>
-      <time>Aug 2, 2022</time>
+      <time>Dec 21, 2022</time>
       
     </p>
-    <h1>Oh my God, they killed Kenny!</h1>
+    <h1>A Reasonably Private Firefox Setup</h1>
   </header>
-  <section class="post-content"><h1 id="introduction">Introduction</h1>
-<p>Despite being infamous for its profanity and dark, satiric humor, I&rsquo;ve been a huge fan of South Park over the years. Now, before you walk away saying, <a href="https://www.youtube.com/watch?v=RXS1sJm7QEA">&ldquo;Screw you guys, I&rsquo;m going home&rdquo;</a>, I&rsquo;d like you to try out a random episode of <a href="https://www.southparkstudios.com">South Park</a>. While you certainly can visit the official website to watch a random episode, today&rsquo;s post will explain a tiny bash script to watch one without launching the browser.</p>
-<h3 id="prerequisites">Prerequisites:</h3>
+  <section class="post-content"><p>Privacy, something we expect as a default, is dwindling at an unimaginable rate
+when it comes to browsers.From amidst the sea of mostly chromium based browsers
+like Google Chrome, Opera and Edge, I&rsquo;d pick Firefox. Despite a handful of
+questionable decisions made in the past by the parent company, Mozilla, Firefox
+is miles ahead of other browsers when it comes to privacy and hardening. Here&rsquo;s
+how I prefer hardening my Firefox setup.</p>
+<p>Let&rsquo;s make the easiest first, visit <a href="about:preferences#home"><code>about:preferences#home</code></a>. Set <code>Homepage and new windows</code> to <code>about:profiles</code>. I&rsquo;ll talk more on this later. Set <code>New tabs</code> to <code>Blank Page</code>. Uncheck everything under the <code>Firefox Home Content</code>.</p>
+<h2 id="basic-preferences">Basic Preferences</h2>
+<p>Head to <a href="about:preferences#search"><code>about:preferences#search</code></a> and set the <code>Default Search Engine</code> to <code>DuckDuckGo</code>. If you prefer using something like Searx, Qwant or StartPage, feel free to use those but please, no Google or Bing. Uncheck everything under <code>Search Suggestions</code>.</p>
+<p>Now, go to <a href="about:preferences#privacy"><code>about:preferences#privacy</code></a>. Set <code>Enhanced Tracking Protection</code> to <code>Strict</code>. Scroll down and check the <code>Delete cookies and site data when Firefox is closed</code>. Uncheck <code>Ask to save logins and passwords for websites</code> and <code>Show alerts about passwords for breached websites</code> under <code>Login and Passwords</code>.</p>
+<p>For <code>History</code> settings, select the option from the dropdown that says Firefox will <code>Use custom settings for history</code>. Uncheck <code>Always use private browsing mode</code> if checked. Uncheck <code>Remember browsing and download history</code> and <code>Remember serach and form history</code>. Check <code>Clear history when Firefox closes</code>.</p>
+<p>For the <code>Address Bar</code> section uncheck <code>Browsing history</code> from the suggestion list.</p>
+<p>Under the permissions section, go to each entry&rsquo;s <code>settings</code> page and check <code>Block new requests</code>. You may not want to block certain permissions according to your workflow. However, I like my browser to be a tool to view pages on the internet and not an over-permissioned mess spying on me. Set <code>Autoplay</code> to <code>Block Audio and Video</code> because I find rickrolls more annoying than funny nowadays.</p>
+<p>Uncheck everything under <code>Firefox Data Collection and Use</code>. Uncheck <code>Block dangerous and deceptive content</code>. Now, this might sound counterintuitive but it gets clear if you click the <a href="https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work">Learn more</a> link. Here&rsquo;s an excerpt from the article.</p>
+<blockquote>
+<p>Firefox will submit some information about the file, including the name, origin, size and a cryptographic hash of the contents, to the Google Safe Browsing service which helps Firefox determine whether or not the file should be blocked.</p>
+</blockquote>
+<p>Honestly, I&rsquo;d not touch a privacy invasive company like Google with a 40 feet long pole.</p>
+<p>Under the <code>HTTPS-Only Mode</code> choose <code>Enable HTTPS-Only Mode in all windows</code>.</p>
+<p>I prefer a minimal use of extensions. Speaking of extensions, our first step is
+to get rid of the annoying Pocket extension.</p>
+<h2 id="additional-preferences">Additional Preferences</h2>
+<p>Head to <a href="about:config"><code>about:config</code></a> and accept the warning because we know what we&rsquo;re doing. Search for <code>extensions.pocket.enabled</code> and set it to false.</p>
+<p>Here&rsquo;s a list of config keys and respective values we need to set them to:</p>
+<h3 id="disable-telemetry">Disable Telemetry</h3>
 <ul>
-<li>A POSIX compliant shell</li>
-<li><code>mpv</code></li>
-<li><code>youtube-dl</code> or <code>yt-dlp</code></li>
-<li><code>jq</code></li>
-<li>busybox utilities like <code>curl</code> and <code>grep</code></li>
+<li><code>browser.ping-centre</code>: <code>false</code></li>
+<li><code>toolkit.telemetry.enabled</code>: <code>false</code></li>
+<li><code>toolkit.telemetry.server</code>: <code> </code> (Clear the URL)</li>
+<li><code>browser.tabs.crashReporting.sendReporting</code>: <code>false</code></li>
+<li><code>identity.fxaccouts.enabled</code>: <code>false</code></li>
 </ul>
-<h1 id="gone-scripting">Gone scripting</h1>
-<p>South Park&rsquo;s official website has a route called <code>random-episode</code> which redirects us to, well, a random episode.
-The catch, however, is that the redirection is done using javascript instead of regular HTTP status codes like 302.
-This meant, one couldn&rsquo;t simply run the following and expect to see a video.</p>
-<pre tabindex="0"><code>mpv https://southparkstudios.com/random-episode
-</code></pre><p>Let&rsquo;s try being a little creative to see what the page returns.</p>
-<pre tabindex="0"><code>curl -L https://southparkstudios.com/random-episode
-</code></pre><pre tabindex="0"><code>&lt;!doctype html&gt;
-&lt;html lang=&#34;us&#34; &gt;
-  &lt;head&gt;
-    &lt;meta charset=&#34;utf-8&#34;/&gt;
-    &lt;meta http-equiv=&#34;X-UA-Compatible&#34; content=&#34;IE=edge,chrome=1&#34;&gt;
-    &lt;link rel=&#34;preload&#34; href=&#34;/vendor-419c14eb.js&#34; as=&#34;script&#34;&gt;
-    &lt;link rel=&#34;preload&#34; href=&#34;/runtime-61730e26.js&#34; as=&#34;script&#34;&gt;
-    &lt;link rel=&#34;preload&#34; href=&#34;/southpark-b2cb20e3.js&#34; as=&#34;script&#34;&gt;
-    
-    &lt;title data-rh=&#34;true&#34;&gt;&lt;/title&gt;
-    &lt;meta data-rh=&#34;true&#34; name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1, user-scalable=1, maximum-scale=2&#34;/&gt;
-    &lt;link rel=&#34;preload&#34; href=&#34;/base-087643ccf-2088-2022-08-01.css&#34; as=&#34;style&#34; /&gt;
-&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;/base-087643ccf-2088-2022-08-01.css&#34; /&gt;
-    &lt;link rel=&#34;preload&#34; href=&#34;/southpark-3cae333ebec806351bb5.css&#34; as=&#34;style&#34; /&gt;
-&lt;link rel=&#34;stylesheet&#34; type=&#34;text/css&#34; href=&#34;/southpark-3cae333ebec806351bb5.css&#34; /&gt;
-  &lt;/head&gt;
-  &lt;body class=&#34;&#34;&gt;
-    &lt;div id=&#34;app&#34;&gt;&lt;main role=&#34;main&#34;&gt;&lt;div class=&#34;page-content&#34;&gt;&lt;/div&gt;&lt;/main&gt;&lt;/div&gt;
-    &lt;script&gt;
-      window.__DATA__ = {&#34;type&#34;:&#34;Page&#34;,&#34;props&#34;:{&#34;bentoURL&#34;:&#34;https:\u002F\u002Fbtg.mtvnservices.com\u002Faria\u002Fbentojs.js?site=webplex-southpark-intl&amp;v=3.2.0&#34;,&#34;edenData&#34;:null,&#34;imageConfig&#34;:null,&#34;authSuiteConfig&#34;:{&#34;authSuiteEnv&#34;:{&#34;adobeUrl&#34;:&#34;https:\u002F\u002Fapi.auth.adobe.com&#34;,&#34;authSuiteUrl&#34;:&#34;https:\u002F\u002Fauth.mtvnservices.com&#34;,&#34;isisUrl&#34;:&#34;https:\u002F\u002Fmusicjsonpath-a.akamaihd.net&#34;,&#34;tveUrl&#34;:&#34;https:\u002F\u002Ftve.mtvnservices.com&#34;,&#34;xboxUrl&#34;:&#34;https:\u002F\u002Fxbox.mtvnservices.com&#34;}},&#34;featureFlags&#34;:{&#34;test1&#34;:true,&#34;test2&#34;:true,&#34;isContinueWatchingEnabled&#34;:true,&#34;isPublicShowPagesEnabled&#34;:true,&#34;isCompositeUserSelectionEnabled&#34;:true,&#34;isUserWatchlistEnabled&#34;:true},&#34;edenConfig&#34;:null,&#34;helmet&#34;:{&#34;helmet&#34;:{&#34;base&#34;:{},&#34;bodyAttributes&#34;:{},&#34;htmlAttributes&#34;:{},&#34;link&#34;:{},&#34;meta&#34;:{},&#34;noscript&#34;:{},&#34;script&#34;:{},&#34;style&#34;:{},&#34;title&#34;:{}}}},&#34;children&#34;:[{&#34;type&#34;:&#34;MainContainer&#34;,&#34;children&#34;:[{&#34;type&#34;:&#34;RandomEpisodeQueue&#34;,&#34;props&#34;:{&#34;items&#34;:{&#34;items&#34;:[{&#34;shortId&#34;:&#34;1nq9xv&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F1nq9xv\u002Fsouth-park-broadway-bro-down-season-15-ep-11&#34;},{&#34;shortId&#34;:&#34;rxb67x&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Frxb67x\u002Fsouth-park-the-entity-season-5-ep-11&#34;},{&#34;shortId&#34;:&#34;u1yv8w&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fu1yv8w\u002Fsouth-park-canada-on-strike-season-12-ep-4&#34;},{&#34;shortId&#34;:&#34;2b4m4s&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F2b4m4s\u002Fsouth-park-ass-burgers-season-15-ep-8&#34;},{&#34;shortId&#34;:&#34;uvp08l&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fuvp08l\u002Fsouth-park-ginger-kids-season-9-ep-11&#34;},{&#34;shortId&#34;:&#34;aba4sz&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Faba4sz\u002Fsouth-park-freak-strike-season-6-ep-3&#34;},{&#34;shortId&#34;:&#34;hmaufp&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fhmaufp\u002Fsouth-park-poor-and-stupid-season-14-ep-8&#34;},{&#34;shortId&#34;:&#34;u9u3rq&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fu9u3rq\u002Fsouth-park-butt-out-season-7-ep-13&#34;},{&#34;shortId&#34;:&#34;97d61n&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F97d61n\u002Fsouth-park-succubus-season-3-ep-3&#34;},{&#34;shortId&#34;:&#34;oki0th&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Foki0th\u002Fsouth-park-pinewood-derby-season-13-ep-6&#34;},{&#34;shortId&#34;:&#34;z31od5&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fz31od5\u002Fsouth-park-preschool-season-8-ep-10&#34;},{&#34;shortId&#34;:&#34;81p0af&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F81p0af\u002Fsouth-park-dances-with-smurfs-season-13-ep-13&#34;},{&#34;shortId&#34;:&#34;qly8oc&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fqly8oc\u002Fsouth-park-a-ladder-to-heaven-season-6-ep-12&#34;},{&#34;shortId&#34;:&#34;5fuujn&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F5fuujn\u002Fsouth-park-trapper-keeper-season-4-ep-12&#34;},{&#34;shortId&#34;:&#34;me0b40&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fme0b40\u002Fsouth-park-casa-bonita-season-7-ep-11&#34;},{&#34;shortId&#34;:&#34;avmdp8&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Favmdp8\u002Fsouth-park-coon-vs-coon-friends-season-14-ep-13&#34;},{&#34;shortId&#34;:&#34;327ba3&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F327ba3\u002Fsouth-park-eek-a-penis-season-12-ep-5&#34;},{&#34;shortId&#34;:&#34;xenush&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fxenush\u002Fsouth-park-pee-season-13-ep-14&#34;},{&#34;shortId&#34;:&#34;scexjh&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fscexjh\u002Fsouth-park-starvin-marvin-season-1-ep-8&#34;},{&#34;shortId&#34;:&#34;9do3gw&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F9do3gw\u002Fsouth-park-margaritaville-season-13-ep-3&#34;},{&#34;shortId&#34;:&#34;n9jsjf&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fn9jsjf\u002Fsouth-park-tonsil-trouble-season-12-ep-1&#34;},{&#34;shortId&#34;:&#34;44i3y3&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F44i3y3\u002Fsouth-park-tom-s-rhinoplasty-season-1-ep-11&#34;},{&#34;shortId&#34;:&#34;1jbnuo&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F1jbnuo\u002Fsouth-park-lil-crime-stoppers-season-7-ep-6&#34;},{&#34;shortId&#34;:&#34;dumjvr&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fdumjvr\u002Fsouth-park-cartman-s-mom-is-a-dirty-slut-season-1-ep-13&#34;},{&#34;shortId&#34;:&#34;ex6roo&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fex6roo\u002Fsouth-park-a-history-channel-thanksgiving-season-15-ep-13&#34;},{&#34;shortId&#34;:&#34;06brb8&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F06brb8\u002Fsouth-park-probably-season-4-ep-10&#34;},{&#34;shortId&#34;:&#34;t746u2&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Ft746u2\u002Fsouth-park-proper-condom-use-season-5-ep-7&#34;},{&#34;shortId&#34;:&#34;d7grkc&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fd7grkc\u002Fsouth-park-the-passion-of-the-jew-season-8-ep-3&#34;},{&#34;shortId&#34;:&#34;7efemk&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F7efemk\u002Fsouth-park-tweek-vs-craig-season-3-ep-5&#34;},{&#34;shortId&#34;:&#34;akix98&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fakix98\u002Fsouth-park-pandemic-2-the-startling-season-12-ep-11&#34;},{&#34;shortId&#34;:&#34;x5mqiz&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fx5mqiz\u002Fsouth-park-medicinal-fried-chicken-season-14-ep-3&#34;},{&#34;shortId&#34;:&#34;ppnf3g&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fppnf3g\u002Fsouth-park-truth-and-advertising-season-19-ep-9&#34;},{&#34;shortId&#34;:&#34;iyw8ps&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fiyw8ps\u002Fsouth-park-cartman-finds-love-season-16-ep-7&#34;},{&#34;shortId&#34;:&#34;y3uvvc&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fy3uvvc\u002Fsouth-park-grounded-vindaloop-season-18-ep-7&#34;},{&#34;shortId&#34;:&#34;38exov&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F38exov\u002Fsouth-park-the-problem-with-a-poo-season-22-ep-3&#34;},{&#34;shortId&#34;:&#34;c5x1x5&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fc5x1x5\u002Fsouth-park-the-scoots-season-22-ep-5&#34;},{&#34;shortId&#34;:&#34;xj9ctz&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fxj9ctz\u002Fsouth-park-buddha-box-season-22-ep-8&#34;},{&#34;shortId&#34;:&#34;hjfzgc&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fhjfzgc\u002Fsouth-park-a-boy-and-a-priest-season-22-ep-2&#34;},{&#34;shortId&#34;:&#34;5b6ld6&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002F5b6ld6\u002Fsouth-park-tegridy-farms-season-22-ep-4&#34;},{&#34;shortId&#34;:&#34;ykf57h&#34;,&#34;path&#34;:&#34;\u002Fepisodes\u002Fykf57h\u002Fsouth-park-dead-kids-season-22-ep-1&#34;}],&#34;storageNamePrefix&#34;:&#34;default&#34;}}}]}]};
-      window.__PUSH_STATE__ = false;
-    &lt;/script&gt;
-    &lt;script src=&#34;/vendor-419c14eb.js&#34;&gt;&lt;/script&gt;
-    &lt;script src=&#34;/runtime-61730e26.js&#34;&gt;&lt;/script&gt;
-    &lt;script src=&#34;/southpark-b2cb20e3.js&#34;&gt;&lt;/script&gt;
-  &lt;/body&gt;
-&lt;/html&gt;
-</code></pre><p>On close inspection, we can observe that the JavaScript variable <code>window.__DATA__</code> holds
-information about the episodes in the JSON format. From here, we can grab the JSON data
-and parse it to get a random episode.</p>
-<p>We will pipe the page source through <code>grep</code> with the <code>-P</code> or <code>--perl-regexp</code> flag to match
-the beginning and the end of the JSON structure. We will also use the <code>-o</code> or
-<code>--only-matching</code> flag to pull the data matching our pattern.</p>
-<p>Then we will pipe this through <code>jq</code> to prettify the JSON for now.</p>
-<pre tabindex="0"><code>curl -fsSL https://www.southparkstudios.com/random-episode | \
-grep -Po &#39;{&#34;type.+}&#39; | \
-jq
-</code></pre><pre tabindex="0"><code>{
-  &#34;type&#34;: &#34;Page&#34;,
-  &#34;props&#34;: {
-    &#34;children&#34;: [
-    {
-      &#34;children&#34;: [
-        {
-          &#34;props&#34;: {
-            &#34;items&#34;: {
-              &#34;items&#34;: [
-                {
-                  &#34;shortId&#34;: &#34;1jaqiq&#34;,
-                  &#34;path&#34;: &#34;/episodes/1jaqiq/south-park-how-to-eat-with-your-butt-season-5-ep-10&#34;
-                },
-              ],
-            }
-          }
-        }
-      ]
-    }
-  ]
-}
-</code></pre><p>Here, I have deliberately removed some of the less important fields while preserving the structure of the data. This can perhaps be better understood using a flowchart diagram.</p>
-
-<div class="mermaid" align="center">
-flowchart LR;
-   subgraph C [children]
-        c1(child)
-        c2(...)
-   end
-   subgraph D [children]
-        d1(child)
-        d2(...)
-   end
-   subgraph G [items]
-        g1(item)
-        g2(...)
-   end
-   A[.] --> B[props]
-   B --> C
-   c1 --> D
-   d1 --> E[props]
-   E --> F[items]
-   F --> G
-   g1 --> H[shortId]
-   g1 --> I[path]
-</div>
-
-<p><code>jq</code> optionally takes a positional argument to specify what field of the JSON data we want to output. Now that we are somewhat confident about the structure, we can form a query for <code>jq</code> to reach the path field and use the <code>-r</code> flag to output the raw string.</p>
-<pre tabindex="0"><code class="language-javscript" data-lang="javscript">.children[0].children[0].props.items.items[0].path
-</code></pre><p>Gluing all of this together we can get the URL path to random episode using</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -fsSL https://www.southparkstudios.com/random-episode | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>grep -Po <span style="color:#e6db74">&#39;{&#34;type.+}&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>jq -r .children<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.children<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.props.items.items<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.path
-</span></span></code></pre></div><pre tabindex="0"><code>/episodes/wpmnpk/south-park-the-f-word-season-13-ep-12
-</code></pre><p>All we are left to do now is to append it to the site&rsquo;s domain name and pass it to <code>mpv</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>mpv https://southparkstudios.com<span style="color:#66d9ef">$(</span> <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>curl -fsSL https://www.southparkstudios.com/random-episode | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>grep -Po <span style="color:#e6db74">&#39;{&#34;type.+}&#39;</span> | <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span>jq -r .children<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.children<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.props.items.items<span style="color:#f92672">[</span>0<span style="color:#f92672">]</span>.path <span style="color:#ae81ff">\
-</span></span></span><span style="display:flex;"><span><span style="color:#ae81ff"></span><span style="color:#66d9ef">)</span>
-</span></span></code></pre></div></section>
+<h3 id="disable-location">Disable Location</h3>
+<ul>
+<li><code>geo.enabled</code>: <code>false</code></li>
+</ul>
+<h3 id="disable-queries-to-google-safebrowsing">Disable queries to Google Safebrowsing</h3>
+<ul>
+<li><code>browser.safebrowsing.malware.enabled</code>: <code>false</code></li>
+</ul>
+<h3 id="disable-dns-prefetch">Disable DNS prefetch</h3>
+<ul>
+<li><code>network.dns.disablePrefetch</code>: <code>true</code></li>
+<li><code>network.dns.disablePrefetchFromHTTPS</code>: <code>true</code></li>
+<li><code>network.dns.prefetch-next</code>: <code>true</code></li>
+</ul>
+<h3 id="disable-notifications">Disable notifications</h3>
+<ul>
+<li><code>dom.webnotification.enabled</code>: <code>false</code></li>
+</ul>
+<h3 id="block-battery-queries">Block battery queries</h3>
+<ul>
+<li><code>dom.battery.enabled</code>: <code>false</code>.</li>
+</ul>
+<h3 id="disable-referring-website-notifications">Disable referring website notifications</h3>
+<ul>
+<li><code>network.http.sendRefererHeader</code>: <code>false</code></li>
+</ul>
+<h3 id="disable-pdf-scripting-exploits">Disable PDF scripting exploits</h3>
+<ul>
+<li><code>pdfjs.enableScripting</code>: <code>false</code></li>
+</ul>
+<h3 id="disable-webgl">Disable WebGL</h3>
+<p>This might break some things like WebVNC and online games. Assuming you&rsquo;re privacy oriented, it&rsquo;s better off not using WebGL.</p>
+<ul>
+<li><code>webgl.disabled</code>: <code>true</code></li>
+</ul>
+<h2 id="extensions">Extensions</h2>
+<p>There&rsquo;s only one extension I use, <code>UBlock Origin</code>. It&rsquo;s a fantastic ad-blocker out of the box and its functionality can be extended to block a plethora of APIs and elements on a site. If you wish to be a UBO power-user, read more <a href="https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide">here</a>.</p>
+<h2 id="utilizing-profiles">Utilizing Profiles</h2>
+<p>Let&rsquo;s come back to why we set <code>Homepage and new windows</code> to <code>about:profiles</code> earlier. If we restart Firefox now, we&rsquo;ll be greeted with <code>About Profiles</code>. Here, we can create and use multiple profiles. These profiles, even when running simultaneously, are isolated from each other. This means YouTube doesn&rsquo;t get to know that you&rsquo;re also browsing Joshua Weissman&rsquo;s recipes.</p>
+<p>On a serious note, assume you have a personal GitHub account but also manage an organization account. You can use both of these accounts at the same time. On your home page, start by choosing <code>Create a New Profile</code> &gt; <code>Next</code>, setting a profile name (say, &lsquo;personal&rsquo;) and hitting <code>Next</code> once again. Now you can use <code>Launch profile in new browser</code> to have a slice completely isolated from your default browser profile.</p>
+<p>With that, I&rsquo;ll conclude this browser hardening post and although this is in no way exhaustive in terms of hardening techniques, I hope you have learnt something new from this post. Bye!</p>
+</section>
 
   
   
@@ -383,10 +341,8 @@ flowchart LR;
   
   
   <nav class="post-nav">
-    
-    <a class="prev" href="https://lavafroth.github.io/post/r0-hash-me-please/"><span>←</span><span>RingZer0 CTF Hash Me Please</span></a>
      
-    <a class="next" href="https://lavafroth.github.io/post/ringzer0ctf-bash-jail3/"><span>RingZer0 CTF Bash Jail 3</span><span>→</span></a>
+    <a class="next" href="https://lavafroth.github.io/post/picoctf-cryptography-challenge-pixelated/"><span>PicoCTF cryptography challenge - Pixelated</span><span>→</span></a>
     
   </nav>
   
