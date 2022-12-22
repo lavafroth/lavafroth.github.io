@@ -13,7 +13,8 @@
       <pubDate>Wed, 21 Dec 2022 12:50:52 +0530</pubDate>
       
       <guid>https://lavafroth.github.io/post/a-reasonably-private-firefox-setup/</guid>
-      <description>Privacy, something we expect as a default, is dwindling at an unimaginable rate when it comes to browsers.From amidst the sea of mostly chromium based browsers like Google Chrome, Opera and Edge, I&amp;rsquo;d pick Firefox. Despite a handful of questionable decisions made in the past by the parent company, Mozilla, Firefox is miles ahead of other browsers when it comes to privacy and hardening. Here&amp;rsquo;s how I prefer hardening my Firefox setup.</description>
+      <description>Privacy, something we expect as a default, is dwindling at an unimaginable rate when it comes to browsers. From amidst the sea of mostly chromium based browsers like Google Chrome, Opera and Edge, I&amp;rsquo;d pick Firefox despite the handful of questionable decisions made in the past by the parent company, Mozilla. Here&amp;rsquo;s how I prefer hardening my Firefox setup.
+Basic Preferences Let&amp;rsquo;s make the easiest first step, for each of the following preferences, either head to the specified category under the about:preferences page or click the headings themselves.</description>
     </item>
     
     <item>

@@ -19,7 +19,8 @@
 
   
   
-  <meta name="description" content="Privacy, something we expect as a default, is dwindling at an unimaginable rate when it comes to browsers.From amidst the sea of mostly chromium based browsers like Google Chrome, Opera and Edge, I&rsquo;d pick Firefox. Despite a handful of questionable decisions made in the past by the parent company, Mozilla, Firefox is miles ahead of other browsers when it comes to privacy and hardening. Here&rsquo;s how I prefer hardening my Firefox setup." />
+  <meta name="description" content="Privacy, something we expect as a default, is dwindling at an unimaginable rate when it comes to browsers. From amidst the sea of mostly chromium based browsers like Google Chrome, Opera and Edge, I&rsquo;d pick Firefox despite the handful of questionable decisions made in the past by the parent company, Mozilla. Here&rsquo;s how I prefer hardening my Firefox setup.
+Basic Preferences Let&rsquo;s make the easiest first step, for each of the following preferences, either head to the specified category under the about:preferences page or click the headings themselves." />
   <meta name="author" content="" />
   
 
@@ -260,26 +261,54 @@
     <h1>A Reasonably Private Firefox Setup</h1>
   </header>
   <section class="post-content"><p>Privacy, something we expect as a default, is dwindling at an unimaginable rate
-when it comes to browsers.From amidst the sea of mostly chromium based browsers
-like Google Chrome, Opera and Edge, I&rsquo;d pick Firefox. Despite a handful of
-questionable decisions made in the past by the parent company, Mozilla, Firefox
-is miles ahead of other browsers when it comes to privacy and hardening. Here&rsquo;s
+when it comes to browsers. From amidst the sea of mostly chromium based browsers
+like Google Chrome, Opera and Edge, I&rsquo;d pick Firefox despite the handful of
+questionable decisions made in the past by the parent company, Mozilla. Here&rsquo;s
 how I prefer hardening my Firefox setup.</p>
-<p>Let&rsquo;s make the easiest first, visit <a href="about:preferences#home"><code>about:preferences#home</code></a>. Set <code>Homepage and new windows</code> to <code>about:profiles</code>. I&rsquo;ll talk more on this later. Set <code>New tabs</code> to <code>Blank Page</code>. Uncheck everything under the <code>Firefox Home Content</code>.</p>
 <h2 id="basic-preferences">Basic Preferences</h2>
-<p>Head to <a href="about:preferences#search"><code>about:preferences#search</code></a> and set the <code>Default Search Engine</code> to <code>DuckDuckGo</code>. If you prefer using something like Searx, Qwant or StartPage, feel free to use those but please, no Google or Bing. Uncheck everything under <code>Search Suggestions</code>.</p>
-<p>Now, go to <a href="about:preferences#privacy"><code>about:preferences#privacy</code></a>. Set <code>Enhanced Tracking Protection</code> to <code>Strict</code>. Scroll down and check the <code>Delete cookies and site data when Firefox is closed</code>. Uncheck <code>Ask to save logins and passwords for websites</code> and <code>Show alerts about passwords for breached websites</code> under <code>Login and Passwords</code>.</p>
-<p>For <code>History</code> settings, select the option from the dropdown that says Firefox will <code>Use custom settings for history</code>. Uncheck <code>Always use private browsing mode</code> if checked. Uncheck <code>Remember browsing and download history</code> and <code>Remember serach and form history</code>. Check <code>Clear history when Firefox closes</code>.</p>
-<p>For the <code>Address Bar</code> section uncheck <code>Browsing history</code> from the suggestion list.</p>
-<p>Under the permissions section, go to each entry&rsquo;s <code>settings</code> page and check <code>Block new requests</code>. You may not want to block certain permissions according to your workflow. However, I like my browser to be a tool to view pages on the internet and not an over-permissioned mess spying on me. Set <code>Autoplay</code> to <code>Block Audio and Video</code> because I find rickrolls more annoying than funny nowadays.</p>
-<p>Uncheck everything under <code>Firefox Data Collection and Use</code>. Uncheck <code>Block dangerous and deceptive content</code>. Now, this might sound counterintuitive but it gets clear if you click the <a href="https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work">Learn more</a> link. Here&rsquo;s an excerpt from the article.</p>
+<p>Let&rsquo;s make the easiest first step, for each of the following preferences, either head to the specified category under the <a href="about:preferences"><code>about:preferences</code></a> page or click the headings themselves.</p>
+<h3 id="home-preferencesaboutpreferenceshome"><a href="about:preferences#home">Home Preferences</a></h3>
+<ul>
+<li>Set <code>Homepage and new windows</code> to <code>about:profiles</code>. I&rsquo;ll talk more on this later.</li>
+<li>Set <code>New tabs</code> to <code>Blank Page</code>.</li>
+<li>Uncheck everything under the <code>Firefox Home Content</code>.</li>
+</ul>
+<h3 id="search-preferencesaboutpreferencessearch"><a href="about:preferences#search">Search Preferences</a></h3>
+<ul>
+<li>Set the <code>Default Search Engine</code> to <code>DuckDuckGo</code>. If you prefer using something like SearX, Qwant or StartPage, feel free to use those but please, no Google, Bing or Yahoo.</li>
+<li>Uncheck everything under <code>Search Suggestions</code>.</li>
+</ul>
+<h3 id="privacy-preferencesaboutpreferencesprivacy"><a href="about:preferences#privacy">Privacy Preferences</a></h3>
+<ul>
+<li>Set <code>Enhanced Tracking Protection</code> to <code>Strict</code>.</li>
+<li>Scroll down and check the <code>Delete cookies and site data when Firefox is closed</code>. This does mean that you&rsquo;ll have to log into your accounts every browser session. I&rsquo;d rather sacrifice this slight convenience for better privacy.</li>
+<li>Uncheck <code>Ask to save logins and passwords for websites</code> and <code>Show alerts about passwords for breached websites</code> under <code>Login and Passwords</code>.</li>
+</ul>
+<h4 id="history-settings">History settings</h4>
+<ul>
+<li>Select the option from the dropdown that says Firefox will <code>Use custom settings for history</code>.</li>
+<li>Uncheck <code>Always use private browsing mode</code> if checked.</li>
+<li>Uncheck <code>Remember browsing and download history</code> and <code>Remember serach and form history</code>.</li>
+<li>Check <code>Clear history when Firefox closes</code>.</li>
+</ul>
+<h4 id="address-bar-settings">Address Bar Settings</h4>
+<ul>
+<li>Uncheck <code>Browsing history</code> from the suggestion list.</li>
+</ul>
+<h4 id="permission-settings">Permission Settings</h4>
+<p>Under this section, go to each entry&rsquo;s <code>settings</code> page and check <code>Block new requests</code>. You may not want to block certain permissions according to your workflow. However, I like my browser to be a tool to view pages on the internet and not an over-permissioned mess spying on me. Set <code>Autoplay</code> to <code>Block Audio and Video</code> because rickrolls are more annoying than funny nowadays.</p>
+<h4 id="data-collection-settings">Data Collection Settings</h4>
+<ul>
+<li>Uncheck everything under <code>Firefox Data Collection and Use</code>.</li>
+<li>Uncheck <code>Block dangerous and deceptive content</code>.</li>
+</ul>
+<p>Now, this might sound counterintuitive but it gets clear if you click the <a href="https://support.mozilla.org/en-US/kb/how-does-phishing-and-malware-protection-work">Learn more</a> link. Here&rsquo;s an excerpt from the article.</p>
 <blockquote>
 <p>Firefox will submit some information about the file, including the name, origin, size and a cryptographic hash of the contents, to the Google Safe Browsing service which helps Firefox determine whether or not the file should be blocked.</p>
 </blockquote>
-<p>Honestly, I&rsquo;d not touch a privacy invasive company like Google with a 40 feet long pole.</p>
+<p>I&rsquo;d not touch a privacy invasive company like Google with a 40 feet long pole.</p>
 <p>Under the <code>HTTPS-Only Mode</code> choose <code>Enable HTTPS-Only Mode in all windows</code>.</p>
-<p>I prefer a minimal use of extensions. Speaking of extensions, our first step is
-to get rid of the annoying Pocket extension.</p>
+<p>I prefer a minimal use of extensions. Speaking of extensions, a good first step is to disable the Pocket extension.</p>
 <h2 id="additional-preferences">Additional Preferences</h2>
 <p>Head to <a href="about:config"><code>about:config</code></a> and accept the warning because we know what we&rsquo;re doing. Search for <code>extensions.pocket.enabled</code> and set it to false.</p>
 <p>Here&rsquo;s a list of config keys and respective values we need to set them to:</p>
@@ -329,9 +358,16 @@ to get rid of the annoying Pocket extension.</p>
 <h2 id="extensions">Extensions</h2>
 <p>There&rsquo;s only one extension I use, <code>UBlock Origin</code>. It&rsquo;s a fantastic ad-blocker out of the box and its functionality can be extended to block a plethora of APIs and elements on a site. If you wish to be a UBO power-user, read more <a href="https://github.com/gorhill/uBlock/wiki/Dynamic-filtering:-quick-guide">here</a>.</p>
 <h2 id="utilizing-profiles">Utilizing Profiles</h2>
-<p>Let&rsquo;s come back to why we set <code>Homepage and new windows</code> to <code>about:profiles</code> earlier. If we restart Firefox now, we&rsquo;ll be greeted with <code>About Profiles</code>. Here, we can create and use multiple profiles. These profiles, even when running simultaneously, are isolated from each other. This means YouTube doesn&rsquo;t get to know that you&rsquo;re also browsing Joshua Weissman&rsquo;s recipes.</p>
-<p>On a serious note, assume you have a personal GitHub account but also manage an organization account. You can use both of these accounts at the same time. On your home page, start by choosing <code>Create a New Profile</code> &gt; <code>Next</code>, setting a profile name (say, &lsquo;personal&rsquo;) and hitting <code>Next</code> once again. Now you can use <code>Launch profile in new browser</code> to have a slice completely isolated from your default browser profile.</p>
-<p>With that, I&rsquo;ll conclude this browser hardening post and although this is in no way exhaustive in terms of hardening techniques, I hope you have learnt something new from this post. Bye!</p>
+<p>Let&rsquo;s come back to why we set <code>Homepage and new windows</code> to <code>about:profiles</code> earlier. If we restart Firefox now, we&rsquo;ll be greeted with <code>About Profiles</code>. Here, we can create and use multiple profiles. These profiles, even when running simultaneously, are isolated from each other.</p>
+<p>Assume you have a personal GitHub account but also manage an organization account. You want to sign into both of these accounts at the same time. On your home page, start by choosing <code>Create a New Profile</code> &gt; <code>Next</code> &gt; set a profile name (say, <em>personal</em>) &gt; <code>Next</code>. Now you can click <code>Launch profile in new browser</code> to have a slice completely isolated from your default browser profile.</p>
+<h2 id="alternatives-to-extensions">Alternatives To Extensions</h2>
+<p>Here are some sites that make up for the aforementioned lack of extensions:</p>
+<ul>
+<li><a href="https://12ft.io">https://12ft.io</a> removes paywall from news articles.</li>
+<li><a href="https://piped.video">https://piped.video</a> (or any other piped instance) provides a means to watch YouTube videos without sacrificing your privacy.</li>
+</ul>
+<p>Some people use Bitwarden&rsquo;s browser extension for password management. I prefer using old school KeePassXC on my host with the password database protected with a <em>strong</em> password.</p>
+<p>With that, I&rsquo;ll conclude this browser hardening post and although this is in no way exhaustive in terms of hardening techniques, I hope you have learnt something new from this post, although, if your threat model asks for it, you can always resort to the Tor Browser using Tails or Whonix. Bye!</p>
 </section>
 
   
