@@ -6,7 +6,19 @@
     <description>Recent content in Posts on lavafroth</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 09 Jan 2023 10:36:35 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 09 Feb 2023 16:39:08 +0530</lastBuildDate><atom:link href="https://lavafroth.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>PicoCTF Web Challenge: Some Assembly Required 3</title>
+      <link>https://lavafroth.github.io/post/picoctf-some-assembly-required-3/</link>
+      <pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate>
+      
+      <guid>https://lavafroth.github.io/post/picoctf-some-assembly-required-3/</guid>
+      <description>This is a web exploitation challenge from 2021. I know, it&amp;rsquo;s pretty old but it has less solves as of writing this post. So I figured, it&amp;rsquo;s worth talking about.
+We are told to visit http://mercury.picoctf.net:60022/index.html where we find a simple textbox prompting us to submit the flag.
+Looking at the page source (ctrl u), we see that it is sourcing javascript code from rTEuOmSfG3.js.
+&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;rTEuOmSfG3.</description>
+    </item>
+    
     <item>
       <title>Kringlecon 2022 Writeup</title>
       <link>https://lavafroth.github.io/post/kringlecon-2022-writeup/</link>
