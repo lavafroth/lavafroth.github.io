@@ -15,8 +15,8 @@
       <guid>https://lavafroth.github.io/post/picoctf-some-assembly-required-3/</guid>
       <description>This is a web exploitation challenge from 2021. I know, it&amp;rsquo;s pretty old but it has less solves as of writing this post. So I figured, it&amp;rsquo;s worth talking about.
 We are told to visit http://mercury.picoctf.net:60022/index.html where we find a simple textbox prompting us to submit the flag.
-Looking at the page source (ctrl u), we see that it is sourcing javascript code from rTEuOmSfG3.js.
-&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;meta charset=&amp;#34;UTF-8&amp;#34;&amp;gt; &amp;lt;script src=&amp;#34;rTEuOmSfG3.</description>
+Looking at the page source by pressing ctrl u, we see that it is sourcing javascript code from rTEuOmSfG3.js.
+&amp;lt;script src=&amp;#34;rTEuOmSfG3.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; While examining the javascript, we will notice that it is obfuscated and packed.</description>
     </item>
     
     <item>
