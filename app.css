@@ -189,13 +189,16 @@ img {
 }
 
 .logo {
+
+  z-index: 1000;
+  margin-top: 5rem;
+  margin-left: var(--gap);
   display: flex;
   min-width: var(--side);
   padding-right: var(--gap);
 }
 
 .site-name {
-  max-width: calc(100% - 2rem - 3rem);
   padding-bottom: 0.3rem;
   overflow: auto;
   font-size: 3.4rem;
@@ -245,8 +248,6 @@ img {
 .social a + a {
   margin-left: var(--gap);
 }
-
-
 
 .dark .social a {
   filter: invert(1);
@@ -699,6 +700,7 @@ img {
     min-height: 16rem;
     border-radius: 1rem;
 		width: 100%;
+		overflow: hidden;
   }
 	.lavasource {
 		width: 100%;
@@ -724,7 +726,7 @@ img {
     transform: translate(-50%, 100%);
   }
   .header {
-    font-family: 'League Gothic', sans-serif;text-transform: uppercase;
+    font-family: LeagueGothic;
     text-transform: uppercase;
     letter-spacing: 1rem;
   }
@@ -765,4 +767,7 @@ img {
       bottom: var(--distance, 10rem);
     }
   }
-
+@font-face {
+  font-family: LeagueGothic;
+  src: url(LeagueGothic.ttf);
+}
