@@ -1,16 +1,7 @@
-/*
- * Paper
- * A simple, clean, flexible Hugo theme
- * https://github.com/nanxiaobei/hugo-paper
- * Designed by 南小北 (https://lee.so/)
- * Updated in 2021.8.24
- */
-
 /* Theme
  -------------------------------------------------- */
 :root {
   --gap: 2.5rem;
-  /*--gap: 3.5rem;*/
   --y-gap: 8rem;
   --wide: 140rem;
   --narrow: 80rem;
