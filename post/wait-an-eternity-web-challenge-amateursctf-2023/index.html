@@ -47,7 +47,7 @@ with the <code>time</code> cookie set to a floating point number.</p><pre tabind
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-b <span style=color:#e6db74>&#34;time=-1000&#34;</span>
 </span></span></code></pre></div><p>The response says:</p><pre tabindex=0><code>you have not waited an eternity. you have only waited 1689657530.625615 seconds
 </code></pre><p>Notice how 1689657530.625615 in the second response is greater than 1689655538.27981 from the first response.
-This implies, for smaller values supplied to the <code>time</code> cookie, the time we have waited increases.</p><p>The last piece to the puzzle is that the number is a floating point number and according to the IEE 754 floating
+This implies, for smaller values supplied to the <code>time</code> cookie, the time we have waited increases.</p><p>The last piece to the puzzle is that the <code>time</code> cookie is a floating point number. According to the IEE 754 floating
 point specifications, these numbers must also be able to represent signed zeros, things that are not a number (NaN) and
 <em>signed infinities</em>. To wait an eternity, we can supply the most negative value possible, <code>-inf</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>curl <span style=color:#e6db74>&#34;https://waiting-an-eternity.amt.rs/secret-site?secretcode=5770011ff65738feaf0c1d009caffb035651bb8a7e16799a433a301c0756003a&#34;</span> <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span><span style=color:#ae81ff></span>-b <span style=color:#e6db74>&#34;time=-inf&#34;</span>
