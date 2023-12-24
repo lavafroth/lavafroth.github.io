@@ -77,21 +77,24 @@ what enum it is wrapped with.</p><p>Here&rsquo;s a rather contrived example rely
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#75715e>#[tokio::main]</span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>async</span> <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() -&gt; Result<span style=color:#f92672>&lt;</span>()<span style=color:#f92672>&gt;</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> things <span style=color:#f92672>=</span> [MyEnum::Left(String::from(<span style=color:#e6db74>&#34;asd&#34;</span>)), MyEnum::Right(<span style=color:#ae81ff>1337</span>)];
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> things <span style=color:#f92672>=</span> [
+</span></span><span style=display:flex><span>        MyEnum::Left(String::from(<span style=color:#e6db74>&#34;asd&#34;</span>)),
+</span></span><span style=display:flex><span>        MyEnum::Right(<span style=color:#ae81ff>1337</span>)
+</span></span><span style=display:flex><span>    ];
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> thing <span style=color:#66d9ef>in</span> things {
 </span></span><span style=display:flex><span>        println!(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, thing.dispatch().<span style=color:#66d9ef>await</span><span style=color:#f92672>?</span>);
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>    Ok(())
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><p>When the trait is defined in the API code the programmer can implement this on
-their enum, for example, <code>MyEnum</code> and can use it in their concurrency structure
+</span></span></code></pre></div><p>When the trait is defined in the API, the programmer can implement it on
+their enum (like <code>MyEnum</code>) and use it in their concurrency structure
 like the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>let</span> contraption <span style=color:#f92672>=</span> api::ConcurrencyBuilder::new()
 </span></span><span style=display:flex><span>                 .pool_size(n)
 </span></span><span style=display:flex><span>                 .layer(api::MultiplexBuilder::from(MyEnum))
 </span></span><span style=display:flex><span>                 .build();
 </span></span><span style=display:flex><span>contraption.spawn( <span style=color:#75715e>/* a collection of functions to begin with */</span> );
-</span></span></code></pre></div><p>The API-spawned coroutine calls the <code>dispatch</code> method on the object and executes the
+</span></span></code></pre></div><p>The API-managed coroutine calls the <code>dispatch</code> method on the object and executes the
 logic related to the variant.</p><h2 id=partially-open-loop>Partially Open Loop</h2><p>A partially open loop is a function, spawned off as a coroutine, that takes a
 collection of inputs and processes them to either produce outputs that it cannot
 further process or more inputs which are fed back into itself. This process
