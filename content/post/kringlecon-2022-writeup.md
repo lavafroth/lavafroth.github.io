@@ -113,7 +113,7 @@ The following are the questions, their answers and explanations.
 	Explanation: We can go to `File` > `Export Objects` > `HTTP ...`
 
 
-![Screenshot-from-2022-12-11-20-17-58.png](/Screenshot-from-2022-12-11-20-17-58.png)
+![Exporting HTTP objects](/kringlecon/2022/export-http-objects.png)
 
 
 2. What is the file name of the largest file we can export?
@@ -122,7 +122,7 @@ The following are the questions, their answers and explanations.
 
 	Explanation: In the export objects dialog, we notice the second entry with the largest size (808 kB) has the name `app.php`
 
-![Screenshot-from-2022-12-11-20-19-50.png](/Screenshot-from-2022-12-11-20-19-50.png)
+![Screenshot-from-2022-12-11-20-19-50.png](/kringlecon/2022/Screenshot-from-2022-12-11-20-19-50.png)
 
 3. What packet number starts that app.php file?
 
@@ -136,7 +136,7 @@ The following are the questions, their answers and explanations.
 
 	Explanation: We use the `http` filter in wireshark. We notice right at the first filtered entry, a GET request goes to `192.185.57.242`
 
-![Screenshot-from-2022-12-11-20-21-06.png](/Screenshot-from-2022-12-11-20-21-06.png)
+![Screenshot-from-2022-12-11-20-21-06.png](/kringlecon/2022/Screenshot-from-2022-12-11-20-21-06.png)
 
 5. What file is saved to the infected host?
 
@@ -144,7 +144,7 @@ The following are the questions, their answers and explanations.
 
 	Explanation: At packet 687, we can inspect the line-based text 	data for the HTTP response and the embedded script seems to save a blob to the file 'Ref_Sept24-2020.zip'.
 
-![Screenshot-from-2022-12-11-20-23-02.png](/Screenshot-from-2022-12-11-20-23-02.png)
+![Screenshot-from-2022-12-11-20-23-02.png](/kringlecon/2022/Screenshot-from-2022-12-11-20-23-02.png)
 
 
 ```js
@@ -196,7 +196,7 @@ If we look up the country codes at https://country-code.cl, we get our answer `I
 ### Jolly CI/CD
 We are dropped into a container environment as the user `samways`. If we talk to Tinsel Upatree, he tells us about a repository he accidentally committed to:
 
-![Screenshot-from-2022-12-09-14-16-18.png](/Screenshot-from-2022-12-09-14-16-18.png)
+![Screenshot-from-2022-12-09-14-16-18.png](/kringlecon/2022/Screenshot-from-2022-12-09-14-16-18.png)
 
 > WHOOPS! I didn't mean to commit that to http://gitlab.flag.net.internal/rings-of-powder/wordpress.flag.net.internal.git
 
@@ -798,11 +798,11 @@ That marks the end of this challenge exploiting	 AWS misconfigurations.
 
 We are given `boriaArtifacts.zip` which we download and unzip. From it, we open up the `victim.pcap` file in wireshark. We are supposed to find the top talker after the victim server `10.12.42.16` itself. It is claimed that this IP address has been acting naughty. In wireshark, we go to `Statistics` > `IPv4 Statistics` > `All Addresses`.
 
-![Screenshot-from-2022-12-11-20-53-37.png](/Screenshot-from-2022-12-11-20-53-37.png)
+![Screenshot-from-2022-12-11-20-53-37.png](/kringlecon/2022/Screenshot-from-2022-12-11-20-53-37.png)
 
 We sort by the column of packet `Count` in descending order.
 
-![Screenshot-from-2022-12-11-20-55-33.png](/Screenshot-from-2022-12-11-20-55-33.png)
+![Screenshot-from-2022-12-11-20-55-33.png](/kringlecon/2022/Screenshot-from-2022-12-11-20-55-33.png)
 
 Second to our victim server, we see the IP address `18.222.86.32` which is the answer to this challenge.
 
@@ -810,7 +810,7 @@ Second to our victim server, we see the IP address `18.222.86.32` which is the a
 
 As a continuation to the previous challenge, we are told that the first attack is a brute force login. We are instructed to find the first username tried. In wireshark, we use the filter `http.request.method==POST` and look at the first filetered packet (7279).
 
-![Screenshot-from-2022-12-11-20-58-32.png](/Screenshot-from-2022-12-11-20-58-32.png)
+![Screenshot-from-2022-12-11-20-58-32.png](/kringlecon/2022/Screenshot-from-2022-12-11-20-58-32.png)
 
 In the HTML form URL encoded field, we notice the username "alice", the answer to this challenge.
 
@@ -818,11 +818,11 @@ In the HTML form URL encoded field, we notice the username "alice", the answer t
 
 With the same PCAP file, we are asked to examine the next attack which is forced browsing where the naughty one is guessing URLs. We are asked to find the first successful URL path in this attack. With wireshark we filter on `http.request.method==GET`. This returns the HTTP requests where the method is `GET`.
 
-![Screenshot-from-2022-12-11-21-00-26.png](/Screenshot-from-2022-12-11-21-00-26.png)
+![Screenshot-from-2022-12-11-21-00-26.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-00-26.png)
 
 We start noticing a lot of random looking URL paths from time 175.37 seconds. Now, we filter on `http.response.code==200 && frame.time_relative > 175.37`. This shows us all the HTTP responses which had a status code of 200 (`OK`) after the relative time frame of 175.37 seconds.
 
-![Screenshot-from-2022-12-11-21-02-41.png](/Screenshot-from-2022-12-11-21-02-41.png)
+![Screenshot-from-2022-12-11-21-02-41.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-02-41.png)
 
 After around 7 entries (remember, another endpoint was simultaneously requesting for `login.html` and `admin.html`), we see that packet 26774 has an HTTP response with status code 200 and the request URI `http://www.toteslegit.us/proc`. Thus, our answer is `/proc`.
 
@@ -835,7 +835,7 @@ ip.addr == 169.254.169.254 && http.response.code==200
 ```
 
 
-![Screenshot-from-2022-12-12-10-01-44.png](/Screenshot-from-2022-12-12-10-01-44.png)
+![Screenshot-from-2022-12-12-10-01-44.png](/kringlecon/2022/Screenshot-from-2022-12-12-10-01-44.png)
 
 Looking at the request URI of fourth packet in the result (packet 32925), we get `http://169.254.169.254/latest/meta-data/identity-credentials/ec2/security-credentials/ec2-instance` which is the answer to this challenge.
 
@@ -1045,7 +1045,7 @@ That's it! All ten questions answered.
 
 This one challenge was something I found pretty tricky. Here's the layout of the pins, the top rows consisting of pins 1, 2, 3 and the next row having pins 6, 5, 5 from left to right respectively.
 
-![Boria-Mine-Door](/Screenshot-from-2022-12-10-15-58-41.png)
+![Boria-Mine-Door](/kringlecon/2022/Screenshot-from-2022-12-10-15-58-41.png)
 
 Looking at the pin1 frame source, we get the answer from an HTML comment.
 
@@ -1118,7 +1118,7 @@ We can finish off pin 3 which has two blue connection ends and allows inline scr
 <script>document.body.style.background='blue'</script>
 ```
 
-![Boria-Mine-Door-solved](/Screenshot-from-2022-12-10-16-44-36.png)
+![Boria-Mine-Door-solved](/kringlecon/2022/Screenshot-from-2022-12-10-16-44-36.png)
 
 That's all for the Boria mine doors. With the _**race-against-your-browser**_ technique, you can proudly brag that you didn't even need to modify the client side code for any of the challenges.
 
@@ -1179,9 +1179,9 @@ The presale price for a Sporc is 100 KringleCoin (KC). At this point, I checked 
 Looking at the source code of the presale page (hit `^u` or follow the images), especially `https://boredsporcrowboatsociety.com/bsrs.js`, we find that the root address of the Merkle tree is being sent in the AJAX POST request.
 
 
-![Screenshot-from-2022-12-12-10-45-37.png](/Screenshot-from-2022-12-12-10-45-37.png)
+![Screenshot-from-2022-12-12-10-45-37.png](/kringlecon/2022/Screenshot-from-2022-12-12-10-45-37.png)
 
-![Screenshot-from-2022-12-12-10-50-19.png](/Screenshot-from-2022-12-12-10-50-19.png)
+![Screenshot-from-2022-12-12-10-50-19.png](/kringlecon/2022/Screenshot-from-2022-12-12-10-50-19.png)
 
 Check out the last line of the following snippet from `bsrs.js`:
 
@@ -1264,7 +1264,7 @@ Bored Sporc Rowboat Society smart contract to buy a sporc for ourselves.
 
 In this challenge, we feed each of the four images to Glamtariel and the fountain by dragging and dropping.
 
-![Screenshot-from-2022-12-12-10-19-08.png](/Screenshot-from-2022-12-12-10-19-08.png)
+![Screenshot-from-2022-12-12-10-19-08.png](/kringlecon/2022/Screenshot-from-2022-12-12-10-19-08.png)
 
 They give us hints in ALL CAPS. One of these is TRAFFIC FLIES which hints us on
 inspecting the web traffic. We'll keep our browser's devtools network tab open
@@ -1273,14 +1273,14 @@ have to use later. Glamtariel also talks about not TAMPERing with the cookies
 and that is for good reason. If we try tampering with them, we are forced to
 start over. Once a new set of images appear, we repeat the drag'n'drop scheme.
 
-![Screenshot-from-2022-12-11-21-39-39.png](/Screenshot-from-2022-12-11-21-39-39.png)
+![Screenshot-from-2022-12-11-21-39-39.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-39-39.png)
 
 Midway through we see a strange eye image which Fountains asks us to click
 away. In the devtools network tab, we can right click on the image's request
 and open it in a new tab. The image path is
 `/static/images/stage2ring-eyecu_2022.png`.
 
-![stage2ring-eyecu_2022.png](/stage2ring-eyecu_2022.png)
+![stage2ring-eyecu_2022.png](/kringlecon/2022/stage2ring-eyecu_2022.png)
 
 Fountain drops a hint about the word APP. We now get a third set of items, four
 rings. We do the same drag'n'drop scheme. Now Glamtariel tells us about a
@@ -1292,7 +1292,7 @@ entity attack. Let's do another drag'n'drop and watch the network requests. We
 see a POST request flying through. We can right click on the request and choose
 `Edit and resend`.
 
-![Screenshot-from-2022-12-11-21-43-35.png](/Screenshot-from-2022-12-11-21-43-35.png)
+![Screenshot-from-2022-12-11-21-43-35.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-43-35.png)
 
 Referring to the TYPE hint as well as the Boria Mine Door XXE hint, we will
 replace the request's JSON body ...
@@ -1303,7 +1303,7 @@ replace the request's JSON body ...
 
 ... with XML. We will also use an XXE payload in the body.
 
-![Screenshot-from-2022-12-11-21-49-36.png](/Screenshot-from-2022-12-11-21-49-36.png)
+![Screenshot-from-2022-12-11-21-49-36.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-49-36.png)
 
 The body should now look like the following:
 
@@ -1335,7 +1335,7 @@ Well, that was a lot of explanation, wasn't it?
 
 Before sending the request, we must change the TYPE, i. e., the content type to `application/xml`.
 
-![Screenshot-from-2022-12-11-21-51-20.png](/Screenshot-from-2022-12-11-21-51-20.png)
+![Screenshot-from-2022-12-11-21-51-20.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-51-20.png)
 
 Firing the request, we get the following response:
 
@@ -1349,7 +1349,7 @@ Firing the request, we get the following response:
 
 We visit the site at the path `static/images/pholder-morethantopsupersecret63842.png` which shows us the image of a folder with the title `x_phial_pholder`.
 
-![pholder-morethantopsupersecret63842.png](/pholder-morethantopsupersecret63842.png)
+![pholder-morethantopsupersecret63842.png](/kringlecon/2022/pholder-morethantopsupersecret63842.png)
 
 We try requesting files like `app/static/images/x_phial_pholder/redring.txt`, `app/static/images/x_phial_pholder/bluering.txt` and `app/static/images/x_phial_pholder/silverring.txt`. For this, we repurpose the previous XXE technique replacing the filepath along the way.
 
@@ -1379,7 +1379,7 @@ We visit
 `static/images/x_phial_pholder_2022/redring-supersupersecret928164.png` and see
 a red ring with text on it saying `goldring_to_be_deleted.txt`.
 
-![redring-supersupersecret928164.png](/redring-supersupersecret928164.png)
+![redring-supersupersecret928164.png](/kringlecon/2022/redring-supersupersecret928164.png)
 
 By this time, we know the drill, we have to exfiltrate the contents of this
 file. So we use the path
@@ -1411,7 +1411,7 @@ princess wants and the `reqType` must be the XXE to the gold ring itself (get
 it? `REQ` `TYPE`?). `imgDrop` should have the name of the ring that the
 princess wished for before we changed the request from JSON to XML.
 
-![Screenshot-from-2022-12-11-21-40-24.png](/Screenshot-from-2022-12-11-21-40-24.png)
+![Screenshot-from-2022-12-11-21-40-24.png](/kringlecon/2022/Screenshot-from-2022-12-11-21-40-24.png)
 
 We know that the princess wants the silver ring, evident from her dialogues.
 when we drag'n'drop the silver ring to the princess, there is a post request
@@ -1444,7 +1444,7 @@ which returns the following:
 
 ```
 
-![goldring-morethansupertopsecret76394734.png](/goldring-morethansupertopsecret76394734.png)
+![goldring-morethansupertopsecret76394734.png](/kringlecon/2022/goldring-morethansupertopsecret76394734.png)
 
 We paste the name of this file `goldring-morethansupertopsecret76394734.png` in
 our objective and that finishes this challenge. Moral: don't underestimate NPC

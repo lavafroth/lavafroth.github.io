@@ -33,7 +33,7 @@ We begin with a small snowball fight mini-game called *Santa's Snowball Hero*
 where we can either team up with a random player to fight against santa or play
 in a private room.
 
-![](/kringlecon-2023/Screenshot-from-2023-12-12-11-46-21.png)
+![](/kringlecon/2023/Screenshot-from-2023-12-12-11-46-21.png)
 
 ### Messing with client side variables
 
@@ -42,7 +42,7 @@ Since the game is run in an iframe, we should select the correct context when
 running code in the devtools console. In our case, we must select the iframe
 either named `room/` or `hhc23-snowball.holidayhackchallenge.com`.
 
-![](/kringlecon-2023/Screenshot-from-2023-12-12-11-47-36.png)
+![](/kringlecon/2023/Screenshot-from-2023-12-12-11-47-36.png)
 
 Now we can peek into the sources tab in devtools which details the
 `snowball_fight.js` loaded for the game to run.
@@ -82,7 +82,7 @@ The code here takes the current URL location, adds the `singlePlayer` to `true`
 and sets the current location to the modified URL, causing the page to reload.
 This spawns Elf the Dwarf who, I have to admit, has the most overpowered attack.
 
-![](/kringlecon-2023/Screenshot-from-2023-12-12-11-48-45.png)
+![](/kringlecon/2023/Screenshot-from-2023-12-12-11-48-45.png)
 
 To break the already broken enough game, we add the following code to take no hits and stop every opponent from throwing snowballs.
 
@@ -101,7 +101,7 @@ santaThrowDelay = 100000;
 ## Linux 101
 
 This challenge comprises a bunch of command line objectives that have to be completed one after another.
-For distinguish one from the other,
+To distinguish one from the other,
 > the objectives will be present in blockquotes like this
 
 while my commentary will continue as normal text.
@@ -398,12 +398,17 @@ We can submit the same answers manually in the web form, 1 for hallucinated and 
 
 ## Azure 101
 
-You may not know this but the Azure cli help messages are very easy to access. First, try typing:
+This is akin to the previous challenge with a lot of instructions. For distinction,
+> the instructions will be in blockquotes
+
+while my commentary will continue as normal.
+
+> You may not know this but the Azure cli help messages are very easy to access. First, try typing:
 ```
 $ az help | less
 ```
 
-Next, you've already been configured with credentials. Use 'az' and your 'account' to 'show' your current details and make sure to pipe to less ( | less )
+> Next, you've already been configured with credentials. Use 'az' and your 'account' to 'show' your current details and make sure to pipe to less ( | less )
 
 ```
 $ az account show | less
@@ -424,7 +429,7 @@ $ az account show | less
 }
 ```
 
-Excellent! Now get a list of resource groups in Azure.
+> Excellent! Now get a list of resource groups in Azure.
 For more information:
 https://learn.microsoft.com/en-us/cli/azure/group?view=azure-cli-latest
 
@@ -457,13 +462,15 @@ az group list
 ]
 ```
 
-Ok, now use one of the resource groups to get a list of function apps. For more information:
+> Ok, now use one of the resource groups to get a list of function apps. For more information:
 https://learn.microsoft.com/en-us/cli/azure/functionapp?view=azure-cli-latest
 Note: Some of the information returned from this command relates to other cloud assets used by Santa and his elves.
 
 ```
 az functionapp list --resource-group northpole-rg1
 ```
+
+The output of this command is gigantic which is why I chose to clip some unnecessary fields in the resulting JSON.
 
 ```json
 [
@@ -486,17 +493,10 @@ az functionapp list --resource-group northpole-rg1
     "extendedLocation": null,
     "hostNameSslStates": [
       {
-        "certificateResourceId": null,
         "hostType": "Standard",
-        "ipBasedSslResult": null,
         "ipBasedSslState": "NotConfigured",
         "name": "northpole-ssh-certs-fa.azurewebsites.net",
         "sslState": "Disabled",
-        "thumbprint": null,
-        "toUpdate": null,
-        "toUpdateIpBasedSsl": null,
-        "virtualIPv6": null,
-        "virtualIp": null
       },
       {
         "certificateResourceId": null,
@@ -505,18 +505,12 @@ az functionapp list --resource-group northpole-rg1
         "ipBasedSslState": "NotConfigured",
         "name": "northpole-ssh-certs-fa.scm.azurewebsites.net",
         "sslState": "Disabled",
-        "thumbprint": null,
-        "toUpdate": null,
-        "toUpdateIpBasedSsl": null,
-        "virtualIPv6": null,
-        "virtualIp": null
       }
     ],
     "hostNames": [
       "northpole-ssh-certs-fa.azurewebsites.net"
     ],
     "hostNamesDisabled": false,
-    "hostingEnvironmentProfile": null,
     "httpsOnly": false,
     "hyperV": false,
     "id": "/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64/resourceGroups/northpole-rg1/providers/Microsoft.Web/sites/northpole-ssh-certs-fa",
@@ -526,8 +520,6 @@ az functionapp list --resource-group northpole-rg1
       "type": "SystemAssigned",
       "userAssignedIdentities": null
     },
-    "inProgressOperationId": null,
-    "isDefaultContainer": null,
     "isXenon": false,
     "keyVaultReferenceIdentity": "SystemAssigned",
     "kind": "functionapp,linux",
@@ -547,92 +539,8 @@ az functionapp list --resource-group northpole-rg1
       "acrUseManagedIdentityCreds": false,
       "acrUserManagedIdentityId": null,
       "alwaysOn": false,
-      "antivirusScanEnabled": null,
-      "apiDefinition": null,
-      "apiManagementConfig": null,
-      "appCommandLine": null,
-      "appSettings": null,
-      "autoHealEnabled": null,
-      "autoHealRules": null,
-      "autoSwapSlotName": null,
-      "azureMonitorLogCategories": null,
-      "azureStorageAccounts": null,
-      "connectionStrings": null,
-      "cors": null,
-      "customAppPoolIdentityAdminState": null,
-      "customAppPoolIdentityTenantState": null,
-      "defaultDocuments": null,
-      "detailedErrorLoggingEnabled": null,
-      "documentRoot": null,
-      "elasticWebAppScaleLimit": null,
-      "experiments": null,
-      "fileChangeAuditEnabled": null,
-      "ftpsState": null,
       "functionAppScaleLimit": 200,
-      "functionsRuntimeScaleMonitoringEnabled": null,
-      "handlerMappings": null,
-      "healthCheckPath": null,
-      "http20Enabled": true,
-      "http20ProxyFlag": null,
-      "httpLoggingEnabled": null,
-      "ipSecurityRestrictions": null,
-      "ipSecurityRestrictionsDefaultAction": null,
-      "javaContainer": null,
-      "javaContainerVersion": null,
-      "javaVersion": null,
-      "keyVaultReferenceIdentity": null,
-      "limits": null,
       "linuxFxVersion": "Python|3.11",
-      "loadBalancing": null,
-      "localMySqlEnabled": null,
-      "logsDirectorySizeLimit": null,
-      "machineKey": null,
-      "managedPipelineMode": null,
-      "managedServiceIdentityId": null,
-      "metadata": null,
-      "minTlsCipherSuite": null,
-      "minTlsVersion": null,
-      "minimumElasticInstanceCount": 0,
-      "netFrameworkVersion": null,
-      "nodeVersion": null,
-      "numberOfWorkers": 1,
-      "phpVersion": null,
-      "powerShellVersion": null,
-      "preWarmedInstanceCount": null,
-      "publicNetworkAccess": null,
-      "publishingPassword": null,
-      "publishingUsername": null,
-      "push": null,
-      "pythonVersion": null,
-      "remoteDebuggingEnabled": null,
-      "remoteDebuggingVersion": null,
-      "requestTracingEnabled": null,
-      "requestTracingExpirationTime": null,
-      "routingRules": null,
-      "runtimeADUser": null,
-      "runtimeADUserPassword": null,
-      "scmIpSecurityRestrictions": null,
-      "scmIpSecurityRestrictionsDefaultAction": null,
-      "scmIpSecurityRestrictionsUseMain": null,
-      "scmMinTlsVersion": null,
-      "scmType": null,
-      "sitePort": null,
-      "sitePrivateLinkHostEnabled": null,
-      "storageType": null,
-      "supportedTlsCipherSuites": null,
-      "tracingOptions": null,
-      "use32BitWorkerProcess": null,
-      "virtualApplications": null,
-      "vnetName": null,
-      "vnetPrivatePortsCount": null,
-      "vnetRouteAllEnabled": null,
-      "webSocketsEnabled": null,
-      "websiteTimeZone": null,
-      "winAuthAdminState": null,
-      "winAuthTenantState": null,
-      "windowsConfiguredStacks": null,
-      "windowsFxVersion": null,
-      "xManagedServiceIdentityId": null
     },
     "slotSwapStatus": null,
     "state": "Running",
@@ -646,15 +554,11 @@ az functionapp list --resource-group northpole-rg1
     "trafficManagerHostNames": null,
     "type": "Microsoft.Web/sites",
     "usageState": "Normal",
-    "virtualNetworkSubnetId": null,
-    "vnetContentShareEnabled": false,
-    "vnetImagePullEnabled": false,
-    "vnetRouteAllEnabled": false
   }
 ]
 ```
 
-Find a way to list the only VM in one of the resource groups you have access to.
+> Find a way to list the only VM in one of the resource groups you have access to.
 For more information:
 https://learn.microsoft.com/en-us/cli/azure/vm?view=azure-cli-latest
 
@@ -707,7 +611,7 @@ az vm list --resource-group northpole-rg2 | less
 ]
 ```
 
-Find a way to invoke a run-command against the only Virtual Machine (VM) so you can RunShellScript and get a directory listing to reveal a file on the Azure VM.
+> Find a way to invoke a run-command against the only Virtual Machine (VM) so you can RunShellScript and get a directory listing to reveal a file on the Azure VM.
 For more information:
 https://learn.microsoft.com/en-us/cli/azure/vm/run-command?view=azure-cli-latest#az-vm-run-command-invoke
 
@@ -735,6 +639,8 @@ az vm run-command invoke --resource-group northpole-rg2 --name NP-VM1 --command-
   ]
 }
 ```
+
+That finishes the Azure 101 tutorial. Onward with our mighty pirate ship! (Yeah you can actually sail an in-game ship.)
 
 # Island of Misfit Toys: Scaredly Kite Heights
 
