@@ -874,7 +874,11 @@ To know the destination of each block, we can press B (r) to shoot a music note 
 an animating motif appears nearby to mark its destination.
 
 Once all seven of the blocks are placed in the correct position, we are given the QR code in its
-entirety to scan. The QR code contains a link to https://8bitelf.com which has the text
+entirety to scan.
+
+![QR Code after finishing volume 1](/kringlecon/2023/elf_qr.png)
+
+The QR code contains a link to https://8bitelf.com which has the text
 
 ```
 flag:santaconfusedgivingplanetsqrcode
@@ -884,13 +888,15 @@ We can submit the flag in our objectives to mark this complete.
 
 ## Elf the Dwarf’s, Gloriously, Unfinished, Adventure! - Vol2
 
+![Tinsel Upatree tells us: "Did you know that many games had multiple versions released? Word is: volume 2 has 2 versions!"](/kringlecon/2023/elf-the-dwarf-vol2-00-tinsel-upatree.png)
+
 Hint:
+> 1) This feels the same, but different!
+> 2) If it feels like you are going crazy, you probably are! Or maybe, just maybe, you've not yet figured out where the hidden ROM is hiding.
+> 3) I think I may need to get a DIFFerent perspective.
+> 4) I wonder if someone can give me a few pointers to swap.
 
-```
-1) This feels the same, but different! 2) If it feels like you are going crazy, you probably are! Or maybe, just maybe, you've not yet figured out where the hidden ROM is hiding. 3) I think I may need to get a DIFFerent perspective. 4) I wonder if someone can give me a few pointers to swap.
-```
 
-Tinsel Upatree tells us: "Did you know that many games had multiple versions released? Word is: volume 2 has 2 versions!"
 
 To focus on the game, let's open the iframe in a new tab.
 
@@ -2100,7 +2106,7 @@ Employees
 
 I get the following table:
 
-![A table showing the first 10 employees]()
+![A table showing the first 10 employees](/kringlecon/2023/kusto-00-employees.png)
 
 The training prompt also states the following:
 
