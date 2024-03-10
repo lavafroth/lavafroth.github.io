@@ -4,6 +4,7 @@ date: 2023-07-08T09:29:34+05:30
 tags:
 - Meta
 - Workflow
+- NixOS
 draft: false
 ---
 
