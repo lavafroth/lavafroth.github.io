@@ -32,6 +32,14 @@ video {
   color: var(--lit);
   padding: 0.25rem .75rem;
   border-radius: 0.5rem;
+  z-index:3;
+  position: relative;
+}
+
+.list-tag::before {
+  content: ' ';
+  position: absolute;
+  z-index: 1;
 }
 
 @supports (bottom: constant(safe-area-inset-bottom)) {

@@ -12,9 +12,7 @@
   <!-- Post Tags -->
   {{ if .Params.tags }}
   <footer class="post-tags" data-pagefind-meta="tags">
-    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
-    <a href="{{ $href }}">{{ . }}</a>
-    {{ end }}
+    {{ partial "tags" . }}
   </footer>
   {{ end }}
 
