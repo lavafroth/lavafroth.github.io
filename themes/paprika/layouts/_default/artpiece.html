@@ -22,7 +22,7 @@
   {{ if .Params.tags }}
   <footer class="post-tags">
     {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
-    <a href="{{ $href }}">{{ . }}</a>
+      <a href="{{ $href }}">{{ . }}</a>
     {{ end }}
   </footer>
   {{ end }}
