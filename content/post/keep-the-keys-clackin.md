@@ -1,5 +1,5 @@
 ---
-title: "A Deeper Dive Into Building a Parser"
+title: "Keep the Keys Clackin'"
 date: 2024-05-27T08:59:29+05:30
 tags:
 - Wayland
