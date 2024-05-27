@@ -11,6 +11,7 @@
           devShells.default = pkgs.mkShell {
             packages = with pkgs;
             [
+              hugo
               (writeScriptBin "serve" ''
                 ${pkgs.hugo}/bin/hugo -D
                 ${pkgs.pagefind}/bin/pagefind --output-path "static/pagefind"
