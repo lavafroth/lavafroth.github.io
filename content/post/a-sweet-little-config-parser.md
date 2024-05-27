@@ -150,83 +150,8 @@ keys. However, pressing `Super` `a` shows us an overview of all the workspaces.
 Just like regular shorthands, we need to escape the dash used in the range. That's why, we're using the escaped
 version of `--overview` flag.
 
-## All Together Now!
+The observations we have made so far will be used to build the grammar in the project.
+The demo repo called [sweet](https://github.com/lavafroth/sweet) (simple wayland event encoding text) is available ~~to my mentors for now but it should be public soon~~ publicly now.
+~~I need to double check and make sure my mentors are aware when I make it fully public.~~
 
-We start by defining the shorthand bounds, that is. the curly braces.
-
-```ebnf
-shorthand_bounds =  { "{" | "}" }
-```
-
-As we mentioned before, we need to disallow some characters inside shorthands, like dashes and commas.
-
-```ebnf
-shorthand_deny  = { NEWLINE | shorthand_bounds | "," | "-" }
-```
-
-At the same time, we want to allow the escaped versions of the symbols.
-
-```ebnf
-shorthand_allow = { "\\," | "\\\\" | "\\{" | "\\}" | "\\-" }
-```
-
-We define a blanket symbol for bare keys as well as keys inside ranges.
-
-```ebnf
-key_range    =  { key_in_shorthand ~ "-" ~ key_in_shorthand }
-key_or_range = _{ key_range | key_in_shorthand }
-```
-
-To avoid redundancy, we consider shorthands with at least one variant to be
-legal.
-
-```ebnf
-shorthand = {
-    "{" ~ ((key_in_shorthand ~ "," ~ key_or_range) | key_range) ~ ("," ~ key_or_range)* ~ "}"
-}
-```
-
-Let's break this down, a shorthand must be enclosed within curly braces.
-
-```ebnf
-shorthand = {
-    "{" ~ "..." ~ "}"
-}
-```
-
-The first elements the parser should expect is one of the following:
-- Two bare keys
-- A bare key and a range of keys
-- A range of keys
-
-The first two possibilities are mapped out by `(key_in_shorthand ~ "," ~ key_or_range)` and
-the last one is tacked onto these by using the _OR_ semantic to include a range.
-
-```ebnf
-((key_in_shorthand ~ "," ~ key_or_range) | key_range)
-```
-
-Elements or ranges that follow do not require special attention. Since they can be zero or more
-of them, we use the asterisk around the trailing group.
-
-```ebnf
-("," ~ key_or_range)*
-```
-
-A binding is then composed of one or more modifiers (note the plus sign used here), a bare key or a shorthand and a command.
-
-```ebnf
-binding = {
-  modifier+ ~ shorthand ~ NEWLINE ~ WHITESPACE+ ~ command
-}
-```
-
-Obviously this is an oversimplification of the grammar actually defined in the project.
-The demo repo called SWEET (simple wayland event encoding text) is available to my mentors for now but it should be public soon.
-I need to double check and make sure my mentors are aware when I make it fully public.
-
-Also, I haven't talked about things like modes or `send` and `on_release` key attributes. I
-have glossed over the definition of a `command` used in defining a binding but I hope to talk more
-about them and their grammar representations in a different blog post.
-
-See you then!
+In the next post I'll talk about defining the grammar for regular keys. See you then!
