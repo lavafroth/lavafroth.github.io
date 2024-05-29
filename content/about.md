@@ -5,38 +5,37 @@ date: 2022-07-23T19:11:10+05:30
 ---
 
 Hi, this is Himadri. I'm a self taught programmer and a digital artist.
-I started by creating small pranks using the batch programming language to
-annoy my family members. With time, I delved into web design, learned C, and
-as with any other school I was taught Java for three years.
+You might have arrived here from my YouTube channel. If not, just know that I create
+high quality educational videos to explain computer science concepts, programming
+languages and the like.
 
-Among the handful of languages in my toolbelt, I prefer Rust as my weapon of
-choice for its speed, expressiveness and memory safety. Admittedly, I find
-greater joy in breaking technology than building it. Jon Erickson's book,
-"Hacking: The Art of Exploitation," was probably the most influential technical
-book I have read, which led me to try Linux at the young age of twelve. I was
-fascinated by its flexibility for programmers. I daily drove Ubuntu, Debian and
-Arch Linux respectively, each over a span of roughly two years before I finally
-switched to my current NixOS setup.
+As for my education, I had graduated high school in 2022. I'm on the lookout for
+universities that can provide more than subpar education. I'd appreciate it if the
+university can financially sponsor me to an extent given I come from a second world
+country.
 
-I like spending time building (blazingly fast) Rust tools, playing CTFs, writing
-custom exploits and playing [Ghostrunner](https://en.wikipedia.org/wiki/Ghostrunner).
+In terms of programming, I'm good with Java (since it was taught in school), C,
+and JavaScript. I'm great at writing Golang and Rust. I render my videos for YouTube
+with Python and the manim framework, therefore, I'd argue I'm sufficiently adept in it.
 
-The open-source community aptly reflects my beliefs about knowledge sharing - free
-and accessible to anyone. This community has shown me that expertise and thorough
-knowledge in a field hold greater importance than mere
-degrees. I am grateful to the various communities, institutions and non-profit
+I have been daily driving Linux since 2016. From Ubuntu to Kali, then back to Ubuntu,
+then Arch and finally NixOS. NixOS is stable enough for me, incredibly versatile
+and let's me declaratively configure all my setup.
+
+Depending on the time of the year, you'll find me either profusely contributing to
+open-source repositories or brushing up old skills. I'm a part of Google Summer of Code 2024.
+
+Most of my work is open source and under the public domain. If you find value in them,
+consider contributing to them, either by sharing your innovations on the work or by
+donating.
+
+A big thank you to all the institutions and non-profit
 organizations such as [Khan Academy](https://khanacademy.org),
-who provide [OpenCourseWare](https://en.wikipedia.org/wiki/OpenCourseWare) and
-financial assistance for their paid courses. To everyone who has helped me
-thrive, a massive thank you!
-
-Finally, Grandpa, if you're reading this, I want you to know that I won't
-patent my ideas. I will GPLv3 them to show some love to this incredible community.
+who provide [OpenCourseWare](https://en.wikipedia.org/wiki/OpenCourseWare).
 
 ## Certifications
 
-For the sake of transparency, here are the certifications I've achieved (not
-necessarily professional certificates).
+These are some certifications I've achieved.
 
 [![TryHackMe Advent Of Cyber 2020 Certificate](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-6X9OWVY0HI.png)](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-6X9OWVY0HI.png)
 
@@ -54,6 +53,6 @@ necessarily professional certificates).
 
 [![Himadri Bhattacharjee - Intro to Game AI and Reinforcement Learning](/intro-to-game-ai-and-reinforcement-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-game-ai-and-reinforcement-learning)
 
-## GPG Key 🔑
+## Send me a private message
 
-Want to reach out but need ultimate privacy? Grab my [GPG public key](/pub.asc) and send me an email encrypted with it.
+You can send me a private message by encrypting it with my [public SSH keys](https://api.github.com/users/lavafroth/keys) and mailing it to [107522312+lavafroth@users.noreply.github.com](mailto:107522312+lavafroth@users.noreply.github.com).
