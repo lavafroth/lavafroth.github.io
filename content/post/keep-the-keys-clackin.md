@@ -167,5 +167,7 @@ shorthand = {
 
 Here `("," ~ key_or_range)*` represents the zero or more keys or ranges that the user may supply after the starting sequence.
 
-That's all for today, I hope my explanation was not too convoluted. In the next post, I will talk about how I'm implementing
-the grammar for modifier keys and how they can be different from regular keys. See you soon!
+That's all for today, I hope my explanation was not too convoluted. In the next post, I will talk about the `send` and the `on_release`
+attributes that describe the timing of a keypress and how we handle the grammar for them.
+
+Talk to you then!
