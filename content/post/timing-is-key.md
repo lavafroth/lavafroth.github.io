@@ -87,40 +87,45 @@ pub enum Token {
 }
 ```
 
-Notice how the `Key` variant has a field called `attribute` of type `KeyAttribute`. This `KeyAttribute`
-itself is another enum represented by an underlying `u8` or a single byte.
+Notice how the `Key` variant has a field called `attribute` of type
+`KeyAttribute`. This `KeyAttribute` is a bitflag represented by a
+`u8` or a single byte. Why a single byte? Because it makes the underlying data
+fairly inexpensive to copy. Although a boolean value should ideally be represented
+by a single bit, most modern processor architectures use a single byte to represent them.
+Bitflags can help us shave off the unused space.
+We are using macros fromthe bitflag crate since Rust
+does not natively have C-styled bitflags.
 
 ```rust
-#[derive(Debug, Clone)]
-#[repr(u8)]
-pub enum KeyAttribute {
-    None,
-    Send,
-    OnRelease,
-    Both,
+bitflags::bitflags! {
+    #[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]
+    pub struct KeyAttribute: u8 {
+        const None = 0b00000000;
+        const Send = 0b00000001;
+        const OnRelease = 0b00000010;
+        const Both = Self::Send.bits() | Self::OnRelease.bits();
+    }
 }
 ```
 
-Why a single byte? First, it makes the underlying data fairly inexpensive to copy and second, the explicit
-`repr` attribute allows us to guarantee the results of a bitwise trick we're going to do next.
-
-According to the enum, the variant `None` is internally represented by a `0`, `Send` is represented as a `1`,
-`OnRelease` as `2`, etc. Since all we care about is whether an attribute is there or not, we can use a single bit
-as a bin for each attribute.
+According to the bitflag, the variant `None` is internally represented by a `0`,
+`Send` is represented as a `1`, `OnRelease` as `2`, etc. Since all we care about
+is whether an attribute is there or not, we can use a single bit as a bin for
+each attribute. Any time we see one of the variants, we bitwise or the current
+attribute set to flip the respective bit on.
 
 ```rust
 match inner.as_rule() {
-    Rule::send => attr |= 1,
-    Rule::on_release => attr |= 2,
+    Rule::send => attribute |= KeyAttribute::Send,
+    Rule::on_release => attribute |= KeyAttribute::OnRelease,
     Rule::key => key = pair_to_string(inner),
     _ => {}
 }
 ```
 
-Here, we are bitwise `or`ing the attribute with `1` any time the _"send rule"_ gets matched.
-We also bitwise `or` the attribute with `2` whenever we match an _"on release rule"_.
+This saves us from writing cumbersome if statements that would have made more
+sense if counting the occurrences was involved.
 
-All of this saves us from writing cumbersome if statements that make more sense if counting the occurrences was involved.
-
-That's all for today, I hope you were impressed by the bitwise trick. In the next post, I will talk about how I'm implementing
-the grammar for modifier keys and how they can be different from regular keys. See you soon!
+That's all for today, I hope you were impressed by the bitwise trick. In the
+next post, I will talk about how I'm implementing the grammar for modifier keys
+and how they can be different from regular keys. See you soon!
