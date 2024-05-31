@@ -1,6 +1,12 @@
 ---
 title: "Timing is Key: A Tale of Keystrokes and Timings"
 date: 2024-05-29T21:18:22+05:30
+tags:
+- Wayland
+- Rust
+- SWHKD
+- EBNF
+- Google Summer of Code
 draft: false
 ---
 
