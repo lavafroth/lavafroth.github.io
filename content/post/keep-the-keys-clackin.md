@@ -34,7 +34,7 @@ happens. The regex engine will simply match as much as it can, that is, the `.*`
 including the last _"e"_. Once it realizes that there are no characters left, it backtracks the `.*` to match slightly less
 upto the _"l"_ so that it can match the _"e"_.
 
-![](/swhkd_regex.gif)
+![](/swhkd-regex.gif)
 
 This backtracking causes the algorithm to have an exponential time complexity. We want to build a fast parser, one that doesn't
 hopefully get throttled by large files or multiple imports. The Extended Backus-Naur Form (EBNF) grammar in _pest.rs_ follows a simple

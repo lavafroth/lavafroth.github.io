@@ -25,6 +25,8 @@ The `send` and `on_release` attributes are extensions that could be added to reg
 the timing of an event. To make a binding respond to either key presses or releases, they are prefixed with the `~`
 or the `@` characters respectively.
 
+![](/swhkd-send-release.gif)
+
 For example, a bindings with that responds to `super` `a` can be made to respond specifically to the keypress instead
 of the key release like the following:
 
