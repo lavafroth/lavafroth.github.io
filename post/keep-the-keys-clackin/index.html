@@ -10,7 +10,7 @@ with a <em>&ldquo;e&rdquo;</em>:</p><pre tabindex=0><code class=language-regex d
 Intuitively we can conclude that the regular expression will match but we often misunderstand how the matching
 happens. The regex engine will simply match as much as it can, that is, the <code>.*</code> will match upto and
 including the last <em>&ldquo;e&rdquo;</em>. Once it realizes that there are no characters left, it backtracks the <code>.*</code> to match slightly less
-upto the <em>&ldquo;l&rdquo;</em> so that it can match the <em>&ldquo;e&rdquo;</em>.</p><p><img src=../../swhkd_regex.gif alt></p><p>This backtracking causes the algorithm to have an exponential time complexity. We want to build a fast parser, one that doesn&rsquo;t
+upto the <em>&ldquo;l&rdquo;</em> so that it can match the <em>&ldquo;e&rdquo;</em>.</p><p><img src=../../swhkd-regex.gif alt></p><p>This backtracking causes the algorithm to have an exponential time complexity. We want to build a fast parser, one that doesn&rsquo;t
 hopefully get throttled by large files or multiple imports. The Extended Backus-Naur Form (EBNF) grammar in <em>pest.rs</em> follows a simple
 greedy matching strategy which gives it a rather fast linear time complexity at the cost of us having to be a little bit more careful
 while defining our expressions.</p><h1 id=keys>Keys</h1><p>According to SWHKD&rsquo;s definition of bindings, a keybind declaration must at least be a regular key.

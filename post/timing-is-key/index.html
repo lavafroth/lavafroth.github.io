@@ -9,7 +9,7 @@ to them from time to time. In the last post, we talked about regular keys
 that form the foundation of bindings. However, we glossed over the <code>send</code> and
 <code>on_release</code> expressions in the code.</p><p>The <code>send</code> and <code>on_release</code> attributes are extensions that could be added to regular keys to be more specific about
 the timing of an event. To make a binding respond to either key presses or releases, they are prefixed with the <code>~</code>
-or the <code>@</code> characters respectively.</p><p>For example, a bindings with that responds to <code>super</code> <code>a</code> can be made to respond specifically to the keypress instead
+or the <code>@</code> characters respectively.</p><p><img src=../../swhkd-send-release.gif alt></p><p>For example, a bindings with that responds to <code>super</code> <code>a</code> can be made to respond specifically to the keypress instead
 of the key release like the following:</p><pre tabindex=0><code>super + ~a
   notify-send &#39;hello&#39;
 </code></pre><p>Now, to encode this as a formal grammar, we need to observe that these
