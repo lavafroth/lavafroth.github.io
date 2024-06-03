@@ -24,15 +24,10 @@ ASCII alphanumeric characters.</p><p>We change the expression from</p><div class
 </span></span></code></pre></div><p>to the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>key <span style=color:#f92672>=</span> { keys_always_escaped <span style=color:#f92672>|</span> <span style=color:#f92672>^</span><span style=color:#e6db74>&#34;enter&#34;</span> <span style=color:#f92672>|</span> <span style=color:#f92672>^</span><span style=color:#e6db74>&#34;return&#34;</span> <span style=color:#f92672>|</span> ASCII_ALPHANUMERIC }
 </span></span></code></pre></div><p>Don&rsquo;t worry, we will add other symbols like semicolons, parentheses and the like to this expression
 but we are starting off being a bit restrictive so that we can catch errors early.</p><p>We have to compensate for this change for the code side as well. This is the first time you&rsquo;ll see
-real code from the project besides the formal grammar.</p><p>Although we haven&rsquo;t talked about modifiers, I want you to know that since keys and modifiers are
-so related, the code side benefits from keeping them together. Thus, we define an enum called <code>Token</code>
-that models both modifiers and keys.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, Clone)]</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>enum</span> <span style=color:#a6e22e>Token</span> {
-</span></span><span style=display:flex><span>    Modifier(String),
-</span></span><span style=display:flex><span>    Key {
-</span></span><span style=display:flex><span>        key: String,
-</span></span><span style=display:flex><span>        attribute: <span style=color:#a6e22e>KeyAttribute</span>,
-</span></span><span style=display:flex><span>    },
+real code from the project besides the formal grammar.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>#[derive(Debug, Clone)]</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>Key</span> {
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> key: String,
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> attribute: <span style=color:#a6e22e>KeyAttribute</span>,
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Notice how the <code>Key</code> variant has a field called <code>attribute</code> of type
 <code>KeyAttribute</code>. This <code>KeyAttribute</code> is a bitflag represented by a
@@ -63,8 +58,10 @@ attribute set to flip the respective bit on.</p><div class=highlight><pre tabind
 </span></span></code></pre></div><p>This saves us from writing cumbersome if statements that would have made more
 sense if counting the occurrences was involved.</p><p>That&rsquo;s all for today, I hope you were impressed by the bitwise trick. In the
 next post, I will talk about how I&rsquo;m implementing the grammar for modifier keys
-and how they can be different from regular keys. See you soon!</p></section></article><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/wayland class=list-tag>Wayland</a>
+and how they can be different from regular keys. See you soon!</p></section></article><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/ebnf class=list-tag>EBNF</a>
+<a href=https://lavafroth.is-a.dev/tags/google-summer-of-code class=list-tag>Google Summer of Code</a>
 <a href=https://lavafroth.is-a.dev/tags/rust class=list-tag>Rust</a>
 <a href=https://lavafroth.is-a.dev/tags/swhkd class=list-tag>SWHKD</a>
-<a href=https://lavafroth.is-a.dev/tags/ebnf class=list-tag>EBNF</a>
-<a href=https://lavafroth.is-a.dev/tags/google-summer-of-code class=list-tag>Google Summer of Code</a></footer><nav class=post-nav><a class=next href=https://lavafroth.is-a.dev/post/keep-the-keys-clackin/><span>Keep the Keys Clackin'</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2024 <a href=https://lavafroth.is-a.dev/>lavafroth</a> | <a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a> | <a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a> | <a href=https://lavafroth.is-a.dev/privacy>Privacy</a> | <a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
+<a href=https://lavafroth.is-a.dev/tags/waycrate class=list-tag>Waycrate</a>
+<a href=https://lavafroth.is-a.dev/tags/wayland class=list-tag>Wayland</a></footer><nav class=post-nav><a class=prev href=https://lavafroth.is-a.dev/post/edge-cases-you-shall-not-pass/><span>←</span><span>Edge cases? You Shall Not Pass!</span></a>
+<a class=next href=https://lavafroth.is-a.dev/post/keep-the-keys-clackin/><span>Keep the Keys Clackin'</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2024 <a href=https://lavafroth.is-a.dev/>lavafroth</a> | <a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a> | <a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a> | <a href=https://lavafroth.is-a.dev/privacy>Privacy</a> | <a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
