@@ -2,11 +2,12 @@
 title: "Timing is Key: A Tale of Keystrokes and Timings"
 date: 2024-05-29T21:18:22+05:30
 tags:
-- Wayland
-- Rust
-- SWHKD
 - EBNF
 - Google Summer of Code
+- Rust
+- SWHKD
+- Waycrate
+- Wayland
 draft: false
 ---
 
@@ -74,18 +75,11 @@ but we are starting off being a bit restrictive so that we can catch errors earl
 We have to compensate for this change for the code side as well. This is the first time you'll see
 real code from the project besides the formal grammar.
 
-Although we haven't talked about modifiers, I want you to know that since keys and modifiers are
-so related, the code side benefits from keeping them together. Thus, we define an enum called `Token`
-that models both modifiers and keys.
-
 ```rust
 #[derive(Debug, Clone)]
-pub enum Token {
-    Modifier(String),
-    Key {
-        key: String,
-        attribute: KeyAttribute,
-    },
+pub struct Key {
+    pub key: String,
+    pub attribute: KeyAttribute,
 }
 ```
 
