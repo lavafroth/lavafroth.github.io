@@ -1,6 +1,6 @@
 ---
-title: "Preventing Infinite Recursions from Eating Your Lunch"
-date: 2024-07-04T08:45:49+05:30
+title: "Preventing Infinite Recursions From Eating Your Lunch"
+date: 2024-07-04T09:57:01+05:30
 tags:
 - EBNF
 - Google Summer of Code
