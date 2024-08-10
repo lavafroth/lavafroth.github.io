@@ -1,7 +1,14 @@
 ---
 title: "How I Use SWHKD in My Workflow"
 date: 2024-08-01T17:17:31+05:30
-draft: true
+tags:
+- SWHKD
+- Waycrate
+- Wayland
+- Google Summer of Code
+- Workflow
+- Video Editing
+draft: false
 ---
 
 SWHKD is the project that I have been working on for the past few months as a part of Google Summer of Code for this year.
