@@ -13,36 +13,21 @@ tags:
 draft: false
 ---
 
-# What is CUDA?
+> *TL;DR:* Save [this flake](#the-flake), run `nix develop` and [setup PyTorch as described](#setting-up-pytorch)
 
-CUDA, also known as Compute Unified Device Architecture
-> is a proprietary parallel computing platform and application programming interface that allows software to use certain types of graphics processing units for accelerated general-purpose processing, an approach called general-purpose computing on GPUs.
+[CUDA](https://en.wikipedia.org/wiki/CUDA) is a proprietary vendor lock-in for machine learning folks.
+Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
+processing. So if you're doing something serious, you have no other choice besides CUDA as of writing.
+Although, OpenAI's Triton and ZLUDA are worth keeping an eye on.
 
-according to Wikipedia.
+Unlike your average distro, Nix will store its packages and libraries (derivations) in the Nix store instead of
+locations like `/usr/bin`, `/usr/lib` and `/usr/lib64`. [This essentially prevents conflicts between installed packages](https://zero-to-nix.com/concepts/nix-store).
 
-According to me, it is a proprietary vendor lock-in for machine learning folks and the bane of my existence.
-There's no other API out there that competes with CUDA as of writing. I know that ZLUDA exists but it is not
-production ready and OpenAI's triton is mostly meh. Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
-processing. So if you're doing something serious, you have no other choice besides CUDA.
+# How not to add CUDA
 
-# NixOS vs your average distro
-
-Your average Linux distro will store its binaries in the `/usr/bin` path, libraries (shared objects)
-in `/usr/lib` and `/usr/lib64`, and header files in `/usr/include`.
-
-NixOS, built around the Nix package manager, stores all of these in `/nix/store`.
-This allows Nix to have more portable packages while completely sidestepping dependency
-collision. Imagine you need `ffmpeg` version 6.0.0 for one project and version 6.1.1 for another.
-We'll you can have both of them on your system simultaneously without any conficts. Each
-of these packages is stored in a different directory in the nix store. For example version 6.1.1
-would live in `/nix/store/35pinrj9082c83s2jiw2nrkz5171qhwx-ffmpeg-full-6.1.1-bin/bin/ffmpeg`
-while the other version might live in `/nix/store/someOtherHashIMadeUp-ffmpeg-full-6.0.0-bin/bin/ffmpeg`.
-
-# How NVIDIA ruins the day
-
-CUDA, being proprietary junk, does not allow you to redistribute binaries that are linked with its blobs.
-Thus, to enable CUDA and use it with something like PyTorch, we would have to [allow unfree packages as well as
-enable CUDA support](https://discourse.nixos.org/t/pytorch-and-cuda-torch-not-compiled-with-cuda-enabled/11272/2).
+CUDA, being proprietary junk, does not allow you to redistribute
+binaries that are linked with its blobs. Thus, for CUDA enabled PyTorch, we would have to [allow unfree
+packages and enable CUDA support](https://discourse.nixos.org/t/pytorch-and-cuda-torch-not-compiled-with-cuda-enabled/11272/2).
 
 ```nix
 import sources.nixpkgs {
@@ -53,13 +38,16 @@ import sources.nixpkgs {
 }
 ```
 
-Adding this to our `flake.nix` allows us the include the `linuxPackages.nvidia_x11`, `cudatoolkit` and `cudnn` packages in the package list.
+Adding this to our `flake.nix` allows us the include these packages:
+- `linuxPackages.nvidia_x11`
+- `cudatoolkit`
+- `cudnn`
 
-This provides two ways to install PyTorch:
-- Adding `python311Packages.pytorch` to build PyTorch from source with CUDA support. This will take time longer than the heat death of the universe and more likely freeze low end PCs.
+Now we can install PyTorch by either adding
+- `python311Packages.pytorch` to build PyTorch from source with CUDA support. This will take time longer than the heat death of the universe and more likely freeze low end PCs.
 Refer to [this hackernews post](https://news.ycombinator.com/item?id=32931486).
-- Adding `python311Packages.pytorch-bin` which some people claim to have slightly faster builds since it just
-fetches the PyTorch binary from the official website and patches it with the CUDA from `/nix/store`.
+- `python311Packages.pytorch-bin` which some people claim to have slightly faster builds at it
+fetches the PyTorch binary from pytorch.org and patches it with the CUDA from `/nix/store`.
 Refer to  [this reddit post](https://www.reddit.com/r/NixOS/comments/195pzdb/speeding_up_python311packagestorchwithcuda_build/).
 
 Both of these approaches are extremely slow, you might have to leave your PC overnight to actually get it to work.
@@ -67,14 +55,14 @@ Both of these approaches are extremely slow, you might have to leave your PC ove
 # Bending the rules
 
 To avoid all of the pain, we can build a lightweight sandbox that follows the normal Filesystem Hierarchy Standard with directories like `/usr/bin`, `/usr/lib`, etc.
-Nix allows you to create such isolated root filesystems using the `pkgs.buildFHSEnv` function. See more about it [here](https://ryantm.github.io/nixpkgs/builders/special/fhs-environments/).
+Nix allows you to create such isolated root filesystems using the [`pkgs.buildFHSEnv`](https://ryantm.github.io/nixpkgs/builders/special/fhs-environments/) function.
 
-It accepts a `name` for the environment, which I have set to a famous
-Linus Torvalds quote. We then define a list of `targetPkgs` with the things we'd need for basic NVIDIA support.
-
-Along with all the packages, you'll notice `micromamba` which will do most of the legwork when setting up PyTorch.
+It accepts a `name` for the environment and a list of `targetPkgs` with the things we'd need for basic NVIDIA support.
+Note the inclusion of `micromamba` which will do most of the legwork when setting up PyTorch.
 I've also included the `fish` shell because that's what I daily drive. You can remove that and the `runScript` attribute
 to use the default bash.
+
+## The flake
 
 ```nix
     {
@@ -87,7 +75,7 @@ to use the default bash.
           config.allowUnfree = true;
         };
       in {
-        devShells.${system}.default = (pkgs.buildFHSUserEnv {
+        devShells.${system}.default = (pkgs.buildFHSEnv {
           name = "nvidia-fuck-you";
           targetPkgs = pkgs: (with pkgs; [
             linuxPackages.nvidia_x11
@@ -119,10 +107,13 @@ to use the default bash.
     }
 ```
 
-Note that this is _NOT_ the same as containers. The most obvious way to tell is because
+> *Note:* This is _NOT_ the same as containers. The most obvious way to tell is because
 you can access your NVIDIA GPU as is, without any passthrough shenanigans.
 
 Enter this flake development environment using `nix develop`.
+
+# Setting up PyTorch
+
 Now that we have the scaffolding, we can use `micromamba` to install CUDA for our ML tooling.
 
 ```sh
@@ -146,7 +137,7 @@ Although this is not the Nix way of doing things with micromamba able to be used
 and most hassle free experience to start ML stuff on NixOS. I've seen quite a lot of people on both the internet and in real life
 giving up on NixOS because of how annoying closed source libraries like CUDA can be.
 
-Share this article around if you found this hacky approach to have improved your developer experience. I'm banking on open source alternatives like triton to pick up steam
+Share this article around if you found this hacky approach to have improved your developer experience. I'm banking on open source alternatives to pick up steam
 so that hopefully this article becomes irrelevant in the future.
 
 Bye now.
