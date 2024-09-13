@@ -5,37 +5,29 @@ date: 2022-07-23T19:11:10+05:30
 ---
 
 Hi, this is Himadri. I'm a self taught programmer and a digital artist.
-You might have arrived here from my YouTube channel. If not, just know that I create
-high quality educational videos to explain computer science concepts, programming
-languages and the like.
+You might have arrived here from my YouTube channel or my open source work.
+I'm doing a bachelors in data science at IITM.
 
-As for my education, I had graduated high school in 2022. I'm on the lookout for
-universities that can provide more than subpar education. I'd appreciate it if the
-university can financially sponsor me to an extent given I come from a second world
-country.
-
-In terms of programming, I'm good with Java (since it was taught in school), C,
-and JavaScript. I'm great at writing Golang and Rust. I render my videos for YouTube
-with Python and the manim framework, therefore, I'd argue I'm sufficiently adept in it.
+I'm decent with Java (since it was taught in school), C and JavaScript.
+I'm *great* at writing Golang and Rust. I render my videos for YouTube
+with Python and the manim framework, so I'd argue I'm ok at it as well.
 
 I have been daily driving Linux since 2016. From Ubuntu to Kali, then back to Ubuntu,
 then Arch and finally NixOS. NixOS is stable enough for me, incredibly versatile
 and let's me declaratively configure all my setup.
 
-Depending on the time of the year, you'll find me either profusely contributing to
-open-source repositories or brushing up old skills. I'm a part of Google Summer of Code 2024.
-
 Most of my work is open source and under the public domain. If you find value in them,
-consider contributing to them, either by sharing your innovations on the work or by
-donating.
+consider contributing to them or donating.
 
-A big thank you to all the institutions and non-profit
+Thank you to all the institutions and non-profit
 organizations such as [Khan Academy](https://khanacademy.org),
-who provide [OpenCourseWare](https://en.wikipedia.org/wiki/OpenCourseWare).
+who provide [OpenCourseWare](https://en.wikipedia.org/wiki/OpenCourseWare) and make education accessible.
 
 ## Certifications
 
-These are some certifications I've achieved.
+Petty things recruiters seem to care about.
+
+[![Google Summer of Code 2024](/completion_certificate_2024_contributor.png)](https://summerofcode.withgoogle.com/programs/2024/projects/qkFDwSOk)
 
 [![TryHackMe Advent Of Cyber 2020 Certificate](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-6X9OWVY0HI.png)](https://tryhackme-certificates.s3-eu-west-1.amazonaws.com/THM-6X9OWVY0HI.png)
 
@@ -45,14 +37,16 @@ These are some certifications I've achieved.
 
 [![Harvard CS50 AI 2022 Certificate](https://certificates.cs50.io/fba1bdc0-0604-4623-8224-17b2bd9ee5db.png?size=letter)](https://certificates.cs50.io/fba1bdc0-0604-4623-8224-17b2bd9ee5db.png?size=letter)
 
-[![Himadri Bhattacharjee - Intro to Deep Learning Kaggle Certificate](/intro-to-deep-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-deep-learning)
+[![Intro to Deep Learning Kaggle Certificate](/intro-to-deep-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-deep-learning)
 
-[![Himadri Bhattacharjee - Intro to Machine Learning Kaggle Certificate](/intro-to-machine-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-machine-learning)
+[![Intro to Machine Learning Kaggle Certificate](/intro-to-machine-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-machine-learning)
 
-[![Himadri Bhattacharjee - Intermediate Machine Learning Kaggle Certificate](/intermediate-machine-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intermediate-machine-learning)
+[![Intermediate Machine Learning Kaggle Certificate](/intermediate-machine-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intermediate-machine-learning)
 
-[![Himadri Bhattacharjee - Intro to Game AI and Reinforcement Learning](/intro-to-game-ai-and-reinforcement-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-game-ai-and-reinforcement-learning)
+[![Intro to Game AI and Reinforcement Learning](/intro-to-game-ai-and-reinforcement-learning.png)](https://www.kaggle.com/learn/certification/himadribhattacharjee/intro-to-game-ai-and-reinforcement-learning)
 
 ## Send me a private message
 
-You can send me a private message by encrypting it with my [public SSH keys](https://api.github.com/users/lavafroth/keys) and mailing it to [107522312+lavafroth@users.noreply.github.com](mailto:107522312+lavafroth@users.noreply.github.com).
+You can send me a private message by encrypting it with my
+[public SSH keys](https://api.github.com/users/lavafroth/keys)
+and mailing it to [107522312+lavafroth@users.noreply.github.com](mailto:107522312+lavafroth@users.noreply.github.com).
