@@ -452,13 +452,11 @@ return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no fu
 &lt;code>output&lt;/code> variable without ever displaying the output to the console.&lt;/p>
 &lt;p>I tried a dummy command to see if I could see its &lt;code>stderr&lt;/code> since command
 substitution (backticks) only capture the &lt;code>stdout&lt;/code>.&lt;/p></description></item><item><title>whoami</title><link>https://lavafroth.is-a.dev/about/</link><pubDate>Sat, 23 Jul 2022 19:11:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/about/</guid><description>&lt;p>Hi, this is Himadri. I&amp;rsquo;m a self taught programmer and a digital artist.
-You might have arrived here from my YouTube channel. If not, just know that I create
-high quality educational videos to explain computer science concepts, programming
-languages and the like.&lt;/p>
-&lt;p>As for my education, I had graduated high school in 2022. I&amp;rsquo;m on the lookout for
-universities that can provide more than subpar education. I&amp;rsquo;d appreciate it if the
-university can financially sponsor me to an extent given I come from a second world
-country.&lt;/p></description></item><item><title>Truce</title><link>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</link><pubDate>Sat, 23 Jul 2022 19:07:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</guid><description>&lt;p>A painting of the lead vocalist of Twenty Øne Piløts, named
+You might have arrived here from my YouTube channel or my open source work.
+I&amp;rsquo;m doing a bachelors in data science at IITM.&lt;/p>
+&lt;p>I&amp;rsquo;m decent with Java (since it was taught in school), C and JavaScript.
+I&amp;rsquo;m &lt;em>great&lt;/em> at writing Golang and Rust. I render my videos for YouTube
+with Python and the manim framework, so I&amp;rsquo;d argue I&amp;rsquo;m ok at it as well.&lt;/p></description></item><item><title>Truce</title><link>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</link><pubDate>Sat, 23 Jul 2022 19:07:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</guid><description>&lt;p>A painting of the lead vocalist of Twenty Øne Piløts, named
 after one of my favorite songs from their album Vessel.&lt;/p></description></item><item><title>She's a Rebel</title><link>https://lavafroth.is-a.dev/art/shes-a-rebel/</link><pubDate>Sun, 17 Apr 2022 17:01:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/shes-a-rebel/</guid><description>&lt;p>Clearly the title was an afterthought.&lt;/p></description></item><item><title>Operation Oni, Operation Orchid</title><link>https://lavafroth.is-a.dev/post/picoctf-forensics-operation-oni-operation-orchid/</link><pubDate>Fri, 18 Mar 2022 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-forensics-operation-oni-operation-orchid/</guid><description>&lt;p>In this post, we&amp;rsquo;ll walk through the Operation Oni and Operation Orchid challenges
 from the PicoCTF competition held in March 2022. Both of these challenges involve
 the use of tools from The Sleuth Kit suite. In order to follow along, I&amp;rsquo;d recommend
