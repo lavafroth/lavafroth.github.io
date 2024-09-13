@@ -1,4 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cookies on lavafroth</title><link>https://lavafroth.is-a.dev/tags/cookies/</link><description>Recent content in Cookies on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 19 Jul 2023 07:53:17 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/cookies/index.xml" rel="self" type="application/rss+xml"/><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>This was a fairly straightforward and fun challenge that required a bit of common sense to solve. We are given the URL https://waiting-an-eternity.amt.rs to begin with.
-Let&amp;rsquo;s use curl with its verbose flag to fetch this URL.
-curl -v &amp;#34;https://waiting-an-eternity.amt.rs&amp;#34; We get a response that tells us to wait an enternity.
-&amp;gt; GET / HTTP/2 &amp;gt; Host: waiting-an-eternity.amt.rs &amp;gt; User-Agent: curl/8.1.1 &amp;gt; Accept: */* &amp;gt; &amp;lt; HTTP/2 200 &amp;lt; content-type: text/html; charset=utf-8 &amp;lt; date: Tue, 18 Jul 2023 04:28:52 GMT &amp;lt; refresh: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; url=../../secret-site?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cookies on lavafroth</title><link>https://lavafroth.is-a.dev/tags/cookies/</link><description>Recent content in Cookies on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 19 Jul 2023 07:53:17 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/cookies/index.xml" rel="self" type="application/rss+xml"/><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>&lt;p>This was a fairly straightforward and fun challenge that required a bit of common sense to solve.
+We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs">https://waiting-an-eternity.amt.rs&lt;/a> to begin with.&lt;/p>
+&lt;p>Let&amp;rsquo;s use &lt;code>curl&lt;/code> with its verbose flag to fetch this URL.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl -v &lt;span style="color:#e6db74">&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We get a response that tells us to wait an enternity.&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;gt; GET / HTTP/2
+&amp;gt; Host: waiting-an-eternity.amt.rs
+&amp;gt; User-Agent: curl/8.1.1
+&amp;gt; Accept: */*
+&amp;gt; 
+&amp;lt; HTTP/2 200 
+&amp;lt; content-type: text/html; charset=utf-8
+&amp;lt; date: Tue, 18 Jul 2023 04:28:52 GMT
+&amp;lt; refresh: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; url=../../secret-site?secretcode=5770011ff65738feaf0c1d009caffb035651bb8a7e16799a433a301c0756003a
+&amp;lt; server: gunicorn
+&amp;lt; content-length: 21
+&amp;lt; 
+* Connection #0 to host waiting-an-eternity.amt.rs left intact
+just wait an eternity
+&lt;/code>&lt;/pre>&lt;p>On closer inspection, the refresh header with the gigantic number sticks out like a sore thumb.&lt;/p></description></item></channel></rss>

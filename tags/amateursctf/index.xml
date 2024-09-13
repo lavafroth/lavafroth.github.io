@@ -1,11 +1,45 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AmateursCTF on lavafroth</title><link>https://lavafroth.is-a.dev/tags/amateursctf/</link><description>Recent content in AmateursCTF on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 07 Sep 2023 07:03:27 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/amateursctf/index.xml" rel="self" type="application/rss+xml"/><item><title>Headache</title><link>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</link><pubDate>Thu, 07 Sep 2023 07:03:27 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</guid><description>This challenge involves reverse engineering a polymorphic binary, one that modifies its own instructions during runtime.
-Essentially, the binary checks if the current character equals a known value and xor decrypts the next section where the code jumps to. If the characters don&amp;rsquo;t match, the logic short-circuits and the program exits.
-This process of checking the character and decrypting the next branch continues like opening up a Matryoshka doll until the last branch which returns instead of calling the decryption subroutine.</description></item><item><title>Compact XOR</title><link>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</link><pubDate>Thu, 24 Aug 2023 18:05:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</guid><description>Description I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…
-Exploration We begin by creating a new rust project.
-cargo new amateurs cd amateurs cargo add hex cargo add itertools Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:
-fn main() -&amp;gt; Result&amp;lt;(), Box&amp;lt;dyn std::error::Error&amp;gt;&amp;gt; { let bytes = hex::decode(&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;)?; let stream = String::from_utf8_lossy(&amp;amp;bytes); println!</description></item><item><title>Volcano</title><link>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</link><pubDate>Fri, 21 Jul 2023 18:29:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</guid><description>This reversing challenge is very mathematical, focusing mainly on modulo congruences. Like all challenges, there is some scary looking obfuscation for the fun which I&amp;rsquo;ll try my best to explain. The challenge description says that it was inspired by recent &amp;ldquo;traumatic&amp;rdquo; events but I&amp;rsquo;m oblivious to what that reference meant.
-Decompilation We start off with downloading the binary and opening it in Ghidra.
-In the list of functions under the Symbol Tree, we can navigate to the entry function which looks like:</description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>This was a fairly straightforward and fun challenge that required a bit of common sense to solve. We are given the URL https://waiting-an-eternity.amt.rs to begin with.
-Let&amp;rsquo;s use curl with its verbose flag to fetch this URL.
-curl -v &amp;#34;https://waiting-an-eternity.amt.rs&amp;#34; We get a response that tells us to wait an enternity.
-&amp;gt; GET / HTTP/2 &amp;gt; Host: waiting-an-eternity.amt.rs &amp;gt; User-Agent: curl/8.1.1 &amp;gt; Accept: */* &amp;gt; &amp;lt; HTTP/2 200 &amp;lt; content-type: text/html; charset=utf-8 &amp;lt; date: Tue, 18 Jul 2023 04:28:52 GMT &amp;lt; refresh: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; url=../../secret-site?</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AmateursCTF on lavafroth</title><link>https://lavafroth.is-a.dev/tags/amateursctf/</link><description>Recent content in AmateursCTF on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 07 Sep 2023 07:03:27 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/amateursctf/index.xml" rel="self" type="application/rss+xml"/><item><title>Headache</title><link>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</link><pubDate>Thu, 07 Sep 2023 07:03:27 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</guid><description>&lt;p>This challenge involves reverse engineering a polymorphic binary, one that modifies its own instructions during runtime.&lt;/p>
+&lt;p>Essentially, the binary checks if the current character equals a known value and &lt;em>xor&lt;/em> decrypts the next section where the
+code jumps to. If the characters don&amp;rsquo;t match, the logic short-circuits and the program exits.&lt;/p>
+&lt;p>This process of checking the character and decrypting the next branch continues like opening up a Matryoshka doll until
+the last branch which returns instead of calling the decryption subroutine.&lt;/p></description></item><item><title>Compact XOR</title><link>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</link><pubDate>Thu, 24 Aug 2023 18:05:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</guid><description>&lt;h1 id="description">Description&lt;/h1>
+&lt;p>I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…&lt;/p>
+&lt;h1 id="exploration">Exploration&lt;/h1>
+&lt;p>We begin by creating a new rust project.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cargo new amateurs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd amateurs
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cargo add hex
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cargo add itertools
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() -&amp;gt; Result&lt;span style="color:#f92672">&amp;lt;&lt;/span>(), Box&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">dyn&lt;/span> std::error::Error&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> bytes &lt;span style="color:#f92672">=&lt;/span> hex::decode(&lt;span style="color:#e6db74">&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;&lt;/span>)&lt;span style="color:#f92672">?&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> stream &lt;span style="color:#f92672">=&lt;/span> String::from_utf8_lossy(&lt;span style="color:#f92672">&amp;amp;&lt;/span>bytes);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> println!(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{:?}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, stream);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Ok(())
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To execute the code, issue the following.&lt;/p></description></item><item><title>Volcano</title><link>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</link><pubDate>Fri, 21 Jul 2023 18:29:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</guid><description>&lt;p>This reversing challenge is very mathematical, focusing mainly on modulo congruences.
+Like all challenges, there is some scary looking obfuscation for the fun which I&amp;rsquo;ll try my best to
+explain. The challenge description says that it was &lt;em>inspired by recent &amp;ldquo;traumatic&amp;rdquo; events&lt;/em> but I&amp;rsquo;m oblivious to what that
+reference meant.&lt;/p>
+&lt;h2 id="decompilation">Decompilation&lt;/h2>
+&lt;p>We start off with downloading the binary and opening it in Ghidra.&lt;/p>
+&lt;p>In the list of functions under the Symbol Tree, we can navigate to the &lt;code>entry&lt;/code> function which looks like:&lt;/p></description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>&lt;p>This was a fairly straightforward and fun challenge that required a bit of common sense to solve.
+We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs">https://waiting-an-eternity.amt.rs&lt;/a> to begin with.&lt;/p>
+&lt;p>Let&amp;rsquo;s use &lt;code>curl&lt;/code> with its verbose flag to fetch this URL.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl -v &lt;span style="color:#e6db74">&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We get a response that tells us to wait an enternity.&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;gt; GET / HTTP/2
+&amp;gt; Host: waiting-an-eternity.amt.rs
+&amp;gt; User-Agent: curl/8.1.1
+&amp;gt; Accept: */*
+&amp;gt; 
+&amp;lt; HTTP/2 200 
+&amp;lt; content-type: text/html; charset=utf-8
+&amp;lt; date: Tue, 18 Jul 2023 04:28:52 GMT
+&amp;lt; refresh: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; url=../../secret-site?secretcode=5770011ff65738feaf0c1d009caffb035651bb8a7e16799a433a301c0756003a
+&amp;lt; server: gunicorn
+&amp;lt; content-length: 21
+&amp;lt; 
+* Connection #0 to host waiting-an-eternity.amt.rs left intact
+just wait an eternity
+&lt;/code>&lt;/pre>&lt;p>On closer inspection, the refresh header with the gigantic number sticks out like a sore thumb.&lt;/p></description></item></channel></rss>

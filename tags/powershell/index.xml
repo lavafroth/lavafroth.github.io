@@ -1,6 +1,17 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Powershell on lavafroth</title><link>https://lavafroth.is-a.dev/tags/powershell/</link><description>Recent content in Powershell on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 09 Jan 2023 10:36:35 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/powershell/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>This writeup is rather haphazard as I jumped around from one place to another solving different unrelated challenges. Although the writeup covers all the challenges, it definitely is not sequential. Just wanted to point that out before diving in.
-Clone with a Difference This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for cloning which doesn&amp;rsquo;t seem to work.
-git clone git@haugfactory.com:asnowball/aws_scripts.git We can clone this the HTTPS way:</description></item><item><title>Liberating 14GiB of disk space</title><link>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</link><pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</guid><description>The idea is simple:
-Remove all duplicates, including zero length files Fine tuning: Hand-pick and remove files deemed unnecessary Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.
-I chose jdupes as my weapon of choice for finding and removing the duplicates. It&amp;rsquo;s free and open-source and is cross platform.
-For a given folder we would run the following to wipe the duplicates:</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Powershell on lavafroth</title><link>https://lavafroth.is-a.dev/tags/powershell/</link><description>Recent content in Powershell on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 09 Jan 2023 10:36:35 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/powershell/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p>This writeup is rather haphazard as I jumped around from one place to another
+solving different unrelated challenges. Although the writeup covers all the
+challenges, it definitely is not sequential. Just wanted to point that out
+before diving in.&lt;/p>
+&lt;h3 id="clone-with-a-difference">Clone with a Difference&lt;/h3>
+&lt;p>This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
+cloning which doesn&amp;rsquo;t seem to work.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can clone this the HTTPS way:&lt;/p></description></item><item><title>Liberating 14GiB of disk space</title><link>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</link><pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</guid><description>&lt;p>The idea is simple:&lt;/p>
+&lt;ul>
+&lt;li>Remove all duplicates, including zero length files&lt;/li>
+&lt;li>Fine tuning: Hand-pick and remove files deemed unnecessary&lt;/li>
+&lt;/ul>
+&lt;p>Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p>
+&lt;p>I chose &lt;a href="https://github.com/jbruchon/jdupes">jdupes&lt;/a> as my weapon of choice for finding and removing the duplicates.
+It&amp;rsquo;s free and open-source and is cross platform.&lt;/p>
+&lt;p>For a given folder we would run the following to wipe the duplicates:&lt;/p></description></item></channel></rss>

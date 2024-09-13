@@ -1,4 +1,36 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on lavafroth</title><link>https://lavafroth.is-a.dev/tags/java/</link><description>Recent content in Java on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 18 Mar 2023 07:10:17 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/java/index.xml" rel="self" type="application/rss+xml"/><item><title>Java Code Analysis!?!</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</link><pubDate>Sat, 18 Mar 2023 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</guid><description>To get started we are given the username &amp;ldquo;user&amp;rdquo; and password &amp;ldquo;user&amp;rdquo; to log into the BookShelf Pico web application. We are also given the source code of the application.
-Taking a look at the src/main/java/io/github/nandandesai/pico/security subdirectory of the project, we see that it uses JWT.
-Interestingly, the file SecretGenerator.java in the aforementioned directory contains a weak hardcoded &amp;ldquo;random&amp;rdquo; value 😱.
-@Service class SecretGenerator { private Logger logger = LoggerFactory.getLogger(SecretGenerator.class); private static final String SERVER_SECRET_FILENAME = &amp;#34;server_secret.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Java on lavafroth</title><link>https://lavafroth.is-a.dev/tags/java/</link><description>Recent content in Java on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 18 Mar 2023 07:10:17 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/java/index.xml" rel="self" type="application/rss+xml"/><item><title>Java Code Analysis!?!</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</link><pubDate>Sat, 18 Mar 2023 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</guid><description>&lt;p>To get started we are given the username &amp;ldquo;user&amp;rdquo; and password &amp;ldquo;user&amp;rdquo; to log into the BookShelf Pico web application.
+We are also given the source code of the application.&lt;/p>
+&lt;p>Taking a look at the &lt;code>src/main/java/io/github/nandandesai/pico/security&lt;/code> subdirectory of the project, we see that it uses JWT.&lt;/p>
+&lt;p>Interestingly, the file &lt;code>SecretGenerator.java&lt;/code> in the aforementioned directory contains a weak hardcoded &lt;em>&amp;ldquo;random&amp;rdquo;&lt;/em> value 😱.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Service&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">SecretGenerator&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> Logger logger &lt;span style="color:#f92672">=&lt;/span> LoggerFactory.&lt;span style="color:#a6e22e">getLogger&lt;/span>(SecretGenerator.&lt;span style="color:#a6e22e">class&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">final&lt;/span> String SERVER_SECRET_FILENAME &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;server_secret.txt&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Autowired&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> UserDataPaths userDataPaths;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> String &lt;span style="color:#a6e22e">generateRandomString&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> len) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// not so random&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#e6db74">&amp;#34;1234&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String &lt;span style="color:#a6e22e">getServerSecret&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String secret &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(FileOperation.&lt;span style="color:#a6e22e">readFile&lt;/span>(userDataPaths.&lt;span style="color:#a6e22e">getCurrentJarPath&lt;/span>(), SERVER_SECRET_FILENAME), Charset.&lt;span style="color:#a6e22e">defaultCharset&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Server secret successfully read from the filesystem. Using the same for this runtime.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> secret;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }&lt;span style="color:#66d9ef">catch&lt;/span> (IOException e){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(SERVER_SECRET_FILENAME&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#34; file doesn&amp;#39;t exists or something went wrong in reading that file. Generating a new secret for the server.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String newSecret &lt;span style="color:#f92672">=&lt;/span> generateRandomString(32);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FileOperation.&lt;span style="color:#a6e22e">writeFile&lt;/span>(userDataPaths.&lt;span style="color:#a6e22e">getCurrentJarPath&lt;/span>(), SERVER_SECRET_FILENAME, newSecret.&lt;span style="color:#a6e22e">getBytes&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">catch&lt;/span> (IOException ex) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ex.&lt;span style="color:#a6e22e">printStackTrace&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Newly generated secret is now written to the filesystem for persistence.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> newSecret;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This string &amp;ldquo;1234&amp;rdquo; is used as the secret for the JSON web token.&lt;/p></description></item></channel></rss>

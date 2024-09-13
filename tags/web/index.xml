@@ -1,21 +1,148 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on lavafroth</title><link>https://lavafroth.is-a.dev/tags/web/</link><description>Recent content in Web on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon. I must warn you that this is an incomplete writeup, I had been unable to finish all the challenges due to other important events in life.
-With that out of the way, enjoy the writeup!
-Christmas Island: Orientation Cranberry Pi This is a sanity check question to kick the tires.</description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>This was a fairly straightforward and fun challenge that required a bit of common sense to solve. We are given the URL https://waiting-an-eternity.amt.rs to begin with.
-Let&amp;rsquo;s use curl with its verbose flag to fetch this URL.
-curl -v &amp;#34;https://waiting-an-eternity.amt.rs&amp;#34; We get a response that tells us to wait an enternity.
-&amp;gt; GET / HTTP/2 &amp;gt; Host: waiting-an-eternity.amt.rs &amp;gt; User-Agent: curl/8.1.1 &amp;gt; Accept: */* &amp;gt; &amp;lt; HTTP/2 200 &amp;lt; content-type: text/html; charset=utf-8 &amp;lt; date: Tue, 18 Jul 2023 04:28:52 GMT &amp;lt; refresh: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; url=../../secret-site?</description></item><item><title>Java Code Analysis!?!</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</link><pubDate>Sat, 18 Mar 2023 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</guid><description>To get started we are given the username &amp;ldquo;user&amp;rdquo; and password &amp;ldquo;user&amp;rdquo; to log into the BookShelf Pico web application. We are also given the source code of the application.
-Taking a look at the src/main/java/io/github/nandandesai/pico/security subdirectory of the project, we see that it uses JWT.
-Interestingly, the file SecretGenerator.java in the aforementioned directory contains a weak hardcoded &amp;ldquo;random&amp;rdquo; value 😱.
-@Service class SecretGenerator { private Logger logger = LoggerFactory.getLogger(SecretGenerator.class); private static final String SERVER_SECRET_FILENAME = &amp;#34;server_secret.</description></item><item><title>Java Script Kiddie 2</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</link><pubDate>Fri, 03 Mar 2023 09:47:54 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</guid><description>The challenge This is a web challenge involving javascript, meaning most of the solution is going to be client side. We are asked to visit the challenge page.
-From here, we can view the source code of the page.
-&amp;lt;html&amp;gt; &amp;lt;head&amp;gt; &amp;lt;script src=&amp;#34;jquery-3.3.1.min.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; &amp;lt;script&amp;gt; var bytes = []; $.get(&amp;#34;bytes&amp;#34;, function(resp) { bytes = Array.from(resp.split(&amp;#34; &amp;#34;), x =&amp;gt; Number(x)); }); function assemble_png(u_in){ var LEN = 16; var key = &amp;#34;00000000000000000000000000000000&amp;#34;; var shifter; if(u_in.</description></item><item><title>Some Assembly Required 3</title><link>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</link><pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</guid><description>This is a web exploitation challenge from 2021. It&amp;rsquo;s pretty old but has less solves as of writing this post. I figured, it&amp;rsquo;s worth talking about.
-We are told to visit http://mercury.picoctf.net:60022/index.html where we find a simple textbox prompting us to submit the flag.
-Looking at the page source by pressing ctrl u, we see that it is sourcing javascript code from rTEuOmSfG3.js.
-&amp;lt;script src=&amp;#34;rTEuOmSfG3.js&amp;#34;&amp;gt;&amp;lt;/script&amp;gt; While examining the javascript, we will notice that it is obfuscated and packed.</description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>This writeup is rather haphazard as I jumped around from one place to another solving different unrelated challenges. Although the writeup covers all the challenges, it definitely is not sequential. Just wanted to point that out before diving in.
-Clone with a Difference This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for cloning which doesn&amp;rsquo;t seem to work.
-git clone git@haugfactory.com:asnowball/aws_scripts.git We can clone this the HTTPS way:</description></item><item><title>JAuth</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</link><pubDate>Tue, 22 Feb 2022 14:49:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</guid><description>The challenge description states that most web application developers use third party components without testing their security. It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at http://saturn.picoctf.net:52025/
-The goal is to become an admin. We are provied with the username test and the password Test123! to look around.
-The challenge is a dummy bank portal. On login, we see the message:</description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet. After submitting the query, we are redirected to an html page containing the content of the post.
-The first thing I tried was triggering XSS (cross site scripting) with the following:
-&amp;lt;script&amp;gt;alert(1)&amp;lt;/script&amp;gt; The application source directory tree looks like the following:
-. ├── app.py ├── Dockerfile ├── flag.txt ├── static └── templates ├── errors │ ├── bad_content.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Web on lavafroth</title><link>https://lavafroth.is-a.dev/tags/web/</link><description>Recent content in Web on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/web/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p>Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
+I must warn you that this is an incomplete writeup, I had been unable to finish all the challenges due to other important events in life.&lt;/p>
+&lt;p>With that out of the way, enjoy the writeup!&lt;/p>
+&lt;h1 id="christmas-island-orientation">Christmas Island: Orientation&lt;/h1>
+&lt;h2 id="cranberry-pi">Cranberry Pi&lt;/h2>
+&lt;p>This is a sanity check question to kick the tires. The answer to it simply is
+&lt;code>answer&lt;/code>.&lt;/p></description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>&lt;p>This was a fairly straightforward and fun challenge that required a bit of common sense to solve.
+We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs">https://waiting-an-eternity.amt.rs&lt;/a> to begin with.&lt;/p>
+&lt;p>Let&amp;rsquo;s use &lt;code>curl&lt;/code> with its verbose flag to fetch this URL.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl -v &lt;span style="color:#e6db74">&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span>
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We get a response that tells us to wait an enternity.&lt;/p>
+&lt;pre tabindex="0">&lt;code>&amp;gt; GET / HTTP/2
+&amp;gt; Host: waiting-an-eternity.amt.rs
+&amp;gt; User-Agent: curl/8.1.1
+&amp;gt; Accept: */*
+&amp;gt; 
+&amp;lt; HTTP/2 200 
+&amp;lt; content-type: text/html; charset=utf-8
+&amp;lt; date: Tue, 18 Jul 2023 04:28:52 GMT
+&amp;lt; refresh: 1000000000000000000000000000000000000000000000000000000000000000000000000000000000000000; url=../../secret-site?secretcode=5770011ff65738feaf0c1d009caffb035651bb8a7e16799a433a301c0756003a
+&amp;lt; server: gunicorn
+&amp;lt; content-length: 21
+&amp;lt; 
+* Connection #0 to host waiting-an-eternity.amt.rs left intact
+just wait an eternity
+&lt;/code>&lt;/pre>&lt;p>On closer inspection, the refresh header with the gigantic number sticks out like a sore thumb.&lt;/p></description></item><item><title>Java Code Analysis!?!</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</link><pubDate>Sat, 18 Mar 2023 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</guid><description>&lt;p>To get started we are given the username &amp;ldquo;user&amp;rdquo; and password &amp;ldquo;user&amp;rdquo; to log into the BookShelf Pico web application.
+We are also given the source code of the application.&lt;/p>
+&lt;p>Taking a look at the &lt;code>src/main/java/io/github/nandandesai/pico/security&lt;/code> subdirectory of the project, we see that it uses JWT.&lt;/p>
+&lt;p>Interestingly, the file &lt;code>SecretGenerator.java&lt;/code> in the aforementioned directory contains a weak hardcoded &lt;em>&amp;ldquo;random&amp;rdquo;&lt;/em> value 😱.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Service&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">SecretGenerator&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> Logger logger &lt;span style="color:#f92672">=&lt;/span> LoggerFactory.&lt;span style="color:#a6e22e">getLogger&lt;/span>(SecretGenerator.&lt;span style="color:#a6e22e">class&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">final&lt;/span> String SERVER_SECRET_FILENAME &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;server_secret.txt&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Autowired&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> UserDataPaths userDataPaths;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> String &lt;span style="color:#a6e22e">generateRandomString&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> len) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// not so random&lt;/span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#e6db74">&amp;#34;1234&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String &lt;span style="color:#a6e22e">getServerSecret&lt;/span>() {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String secret &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(FileOperation.&lt;span style="color:#a6e22e">readFile&lt;/span>(userDataPaths.&lt;span style="color:#a6e22e">getCurrentJarPath&lt;/span>(), SERVER_SECRET_FILENAME), Charset.&lt;span style="color:#a6e22e">defaultCharset&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Server secret successfully read from the filesystem. Using the same for this runtime.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> secret;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }&lt;span style="color:#66d9ef">catch&lt;/span> (IOException e){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(SERVER_SECRET_FILENAME&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#34; file doesn&amp;#39;t exists or something went wrong in reading that file. Generating a new secret for the server.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String newSecret &lt;span style="color:#f92672">=&lt;/span> generateRandomString(32);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FileOperation.&lt;span style="color:#a6e22e">writeFile&lt;/span>(userDataPaths.&lt;span style="color:#a6e22e">getCurrentJarPath&lt;/span>(), SERVER_SECRET_FILENAME, newSecret.&lt;span style="color:#a6e22e">getBytes&lt;/span>());
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">catch&lt;/span> (IOException ex) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ex.&lt;span style="color:#a6e22e">printStackTrace&lt;/span>();
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Newly generated secret is now written to the filesystem for persistence.&amp;#34;&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> newSecret;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This string &amp;ldquo;1234&amp;rdquo; is used as the secret for the JSON web token.&lt;/p></description></item><item><title>Java Script Kiddie 2</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</link><pubDate>Fri, 03 Mar 2023 09:47:54 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</guid><description>&lt;h2 id="the-challenge">The challenge&lt;/h2>
+&lt;p>This is a web challenge involving javascript, meaning most of the solution is
+going to be client side. We are asked to visit the &lt;a href="http://jupiter.challenges.picoctf.org:42899/">challenge
+page&lt;/a>.&lt;/p>
+&lt;p>From here, we can view the source code of the page.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;&lt;span style="color:#f92672">head&lt;/span>&amp;gt; 
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;jquery-3.3.1.min.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#a6e22e">$&lt;/span>.&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;bytes&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">resp&lt;/span>) {
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#a6e22e">bytes&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Array.&lt;span style="color:#a6e22e">from&lt;/span>(&lt;span style="color:#a6e22e">resp&lt;/span>.&lt;span style="color:#a6e22e">split&lt;/span>(&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>), &lt;span style="color:#a6e22e">x&lt;/span> =&amp;gt; Number(&lt;span style="color:#a6e22e">x&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			});
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">assemble_png&lt;/span>(&lt;span style="color:#a6e22e">u_in&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">16&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">key&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;00000000000000000000000000000000&amp;#34;&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">shifter&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">u_in&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#a6e22e">key&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#a6e22e">key&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">u_in&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#a6e22e">shifter&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Number(&lt;span style="color:#a6e22e">key&lt;/span>.&lt;span style="color:#a6e22e">slice&lt;/span>((&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>),(&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> (&lt;span style="color:#a6e22e">bytes&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>); &lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">++&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>						&lt;span style="color:#a6e22e">result&lt;/span>[(&lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span>[(((&lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">shifter&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>]
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">while&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>[&lt;span style="color:#a6e22e">result&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>){
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span>.&lt;span style="color:#a6e22e">slice&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#a6e22e">result&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Area&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">src&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;data:image/png;base64,&amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">btoa&lt;/span>(String.&lt;span style="color:#a6e22e">fromCharCode&lt;/span>.&lt;span style="color:#a6e22e">apply&lt;/span>(&lt;span style="color:#66d9ef">null&lt;/span>, &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Uint8Array&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)));
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			}
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;/&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;&lt;span style="color:#f92672">center&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&amp;lt;&lt;span style="color:#f92672">form&lt;/span> &lt;span style="color:#a6e22e">action&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;#&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">onsubmit&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;assemble_png(document.getElementById(&amp;#39;user_in&amp;#39;).value)&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;user_in&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;submit&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Submit&amp;#34;&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&amp;lt;/&lt;span style="color:#f92672">form&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&amp;lt;&lt;span style="color:#f92672">img&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Area&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>/&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;/&lt;span style="color:#f92672">center&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;/&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s break it down. We are going to begin with the contents in the script
+tags. First, the script fetches a blob of whitespace separated numbers into the
+variable &lt;code>bytes&lt;/code>.&lt;/p></description></item><item><title>Some Assembly Required 3</title><link>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</link><pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</guid><description>&lt;p>This is a web exploitation challenge from 2021. It&amp;rsquo;s pretty old but
+has less solves as of writing this post. I figured, it&amp;rsquo;s worth talking
+about.&lt;/p>
+&lt;p>We are told to visit
+&lt;a href="http://mercury.picoctf.net:60022/index.html">http://mercury.picoctf.net:60022/index.html&lt;/a>
+where we find a simple textbox prompting us to submit the flag.&lt;/p>
+&lt;p>Looking at the page source by pressing &lt;code>ctrl&lt;/code> &lt;code>u&lt;/code>, we see that it is sourcing javascript code from &lt;code>rTEuOmSfG3.js&lt;/code>.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>While examining the javascript, we will notice that it is obfuscated and
+packed. Put this through &lt;a href="https://lelinhtinh.github.io/de4js/">de4js&lt;/a> to
+prettify it.&lt;/p></description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p>This writeup is rather haphazard as I jumped around from one place to another
+solving different unrelated challenges. Although the writeup covers all the
+challenges, it definitely is not sequential. Just wanted to point that out
+before diving in.&lt;/p>
+&lt;h3 id="clone-with-a-difference">Clone with a Difference&lt;/h3>
+&lt;p>This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
+cloning which doesn&amp;rsquo;t seem to work.&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can clone this the HTTPS way:&lt;/p></description></item><item><title>JAuth</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</link><pubDate>Tue, 22 Feb 2022 14:49:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</guid><description>&lt;p>The challenge description states that most web application developers use third party components without testing their security.
+It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at &lt;a href="http://saturn.picoctf.net:52025/">http://saturn.picoctf.net:52025/&lt;/a>&lt;/p>
+&lt;p>The goal is to become an &lt;code>admin&lt;/code>.
+We are provied with the username &lt;code>test&lt;/code> and the password &lt;code>Test123!&lt;/code> to look around.&lt;/p>
+&lt;p>The challenge is a dummy bank portal. On login, we see the message:&lt;/p></description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
+After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p>
+&lt;p>The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p>
+&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;&lt;span style="color:#a6e22e">alert&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
+&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The application source directory tree looks like the following:&lt;/p>
+&lt;pre tabindex="0">&lt;code>.
+├── app.py
+├── Dockerfile
+├── flag.txt
+├── static
+└── templates
+ ├── errors
+ │ ├── bad_content.html
+ │ └── long_content.html
+ └── index.html
+&lt;/code>&lt;/pre>&lt;p>Let&amp;rsquo;s inspect the &lt;code>app.py&lt;/code> source.&lt;/p></description></item></channel></rss>
