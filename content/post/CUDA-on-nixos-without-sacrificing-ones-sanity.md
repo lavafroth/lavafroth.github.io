@@ -1,5 +1,5 @@
 ---
-title: "CUDA on NixOS Without Sacrificing One's Sanity"
+title: "Painlessly setting up ML tooling on NixOS"
 date: 2024-08-10T08:18:30+05:30
 tags:
   - Nix
