@@ -89,6 +89,6 @@ actual airplane.
 
 With that said, if you're a beginner and `Arc<RwLock<T>>` gave you a jumpscare, it might be worth sticking with Golang _CharmBracelet_ stack, it's simple and can take you pretty far.
 If you're good with Rust, don't sleep on _ratatui_. It's way better than how I remember it from a couple years ago. If you're interested
-in the code, check out the Go project [here](https://github.com/lavafroth/hackermanim-tui) and the Rust project [here](https://github.com/lavafroth/hm).
+in the code, check out the Go project ~[here](https://github.com/lavafroth/hackermanim-tui)~ (the repository is no longer available, so you just have to take my word for it) and the Rust project [here](https://github.com/lavafroth/hm).
 
 Until next time, remember, Rust is 2 fast 2 furious.
