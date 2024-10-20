@@ -7,14 +7,16 @@ I have developed over this summer.&lt;/p>
 in a separate repository called &lt;a href="https://github.com/waycrate/sweet">SWEET&lt;/a> using a Rust framework
 called &lt;a href="https://pest.rs">pest.rs&lt;/a>. Quite a lot of time was
 spent in modelling the architecture of the syntax tree for our domain specific language.&lt;/p></description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote>
+&lt;p>Note: The method described in this article should only be used if you wish to have the latest version of CUDA that is
+not yet available in the cuda-maintainers cache, otherwise follow &lt;a href="https://app.cachix.org/cache/cuda-maintainers#pull">this&lt;/a>.&lt;/p>
+&lt;/blockquote>
+&lt;blockquote>
 &lt;p>&lt;em>TL;DR:&lt;/em> Save &lt;a href="#the-flake">this flake&lt;/a>, run &lt;code>nix develop&lt;/code> and &lt;a href="#setting-up-pytorch">setup PyTorch as described&lt;/a>&lt;/p>
 &lt;/blockquote>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/CUDA">CUDA&lt;/a> is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.
-Although, OpenAI&amp;rsquo;s Triton and ZLUDA are worth keeping an eye on.&lt;/p>
-&lt;p>Unlike your average distro, Nix will store its packages and libraries (derivations) in the Nix store instead of
-locations like &lt;code>/usr/bin&lt;/code>, &lt;code>/usr/lib&lt;/code> and &lt;code>/usr/lib64&lt;/code>. &lt;a href="https://zero-to-nix.com/concepts/nix-store">This essentially prevents conflicts between installed packages&lt;/a>.&lt;/p></description></item><item><title>Amateur Blender Sculpture</title><link>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</link><pubDate>Sat, 03 Aug 2024 17:50:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</guid><description>&lt;p>This is my first time trying out sculpting in blender, so forgive me for the
+Although, OpenAI&amp;rsquo;s Triton and ZLUDA are worth keeping an eye on.&lt;/p></description></item><item><title>Amateur Blender Sculpture</title><link>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</link><pubDate>Sat, 03 Aug 2024 17:50:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</guid><description>&lt;p>This is my first time trying out sculpting in blender, so forgive me for the
 quality of the sculpt. I&amp;rsquo;m still pretty much in the learning stage. Big thank
 you to &lt;a href="https://www.pexels.com/@nichole-sebastian-1592975/">Nichole Sebastian&lt;/a>
 for the reference photo. Also apologies if the empty eye sockets gave you a
