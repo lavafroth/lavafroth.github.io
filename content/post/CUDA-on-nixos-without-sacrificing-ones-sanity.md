@@ -13,6 +13,9 @@ tags:
 draft: false
 ---
 
+> Note: The method described in this article should only be used if you wish to have the latest version of CUDA that is
+not yet available in the cuda-maintainers cache, otherwise follow [this](https://app.cachix.org/cache/cuda-maintainers#pull).
+
 > *TL;DR:* Save [this flake](#the-flake), run `nix develop` and [setup PyTorch as described](#setting-up-pytorch)
 
 [CUDA](https://en.wikipedia.org/wiki/CUDA) is a proprietary vendor lock-in for machine learning folks.
