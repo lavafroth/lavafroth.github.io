@@ -167,5 +167,5 @@ had planned with my mentor, Aakash Sen Sharma. Huge thanks to him for the helpin
 with the codebase quickly. The rest of the waycrate community has also been incredibly warm and welcoming.
 
 I plan to add a heuristics model to SWHKD for detecting input devices better and more generally
-to continue improving SWHKD. Feel free to check out the other posts on [my blog](https://lavafroth.is-a.dev/tags/google-summer-of-code) which go deeper into the process
+to continue improving SWHKD. Feel free to check out related posts [here](https://lavafroth.is-a.dev/tags/google-summer-of-code) that go deeper into the process
 of building this parser. This has been my GSoC 2024, thank you so much for reading this!
