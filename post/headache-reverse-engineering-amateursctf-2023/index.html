@@ -1,5 +1,4 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Headache - lavafroth</title>
-<meta name=description content='This challenge involves reverse engineering a polymorphic binary, one that modifies its own instructions during runtime.
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Headache - lavafroth</title><meta name=description content='This challenge involves reverse engineering a polymorphic binary, one that modifies its own instructions during runtime.
 Essentially, the binary checks if the current character equals a known value and xor decrypts the next section where the
 code jumps to. If the characters don&rsquo;t match, the logic short-circuits and the program exits.
 This process of checking the character and decrypting the next branch continues like opening up a Matryoshka doll until
