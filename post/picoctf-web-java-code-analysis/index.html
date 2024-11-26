@@ -1,4 +1,5 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Java Code Analysis!?! - lavafroth</title><meta name=description content='To get started we are given the username &ldquo;user&rdquo; and password &ldquo;user&rdquo; to log into the BookShelf Pico web application.
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Java Code Analysis!?! - lavafroth</title>
+<meta name=description content='To get started we are given the username &ldquo;user&rdquo; and password &ldquo;user&rdquo; to log into the BookShelf Pico web application.
 We are also given the source code of the application.
 Taking a look at the src/main/java/io/github/nandandesai/pico/security subdirectory of the project, we see that it uses JWT.
 Interestingly, the file SecretGenerator.java in the aforementioned directory contains a weak hardcoded &ldquo;random&rdquo; value 😱.
