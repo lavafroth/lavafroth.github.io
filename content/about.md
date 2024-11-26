@@ -8,13 +8,14 @@ Hi, this is Himadri. I'm a self taught programmer and a digital artist.
 You might have arrived here from my YouTube channel or my open source work.
 I'm doing a bachelors in data science at IITM.
 
-I'm decent with Java (since it was taught in school), C and JavaScript.
-I'm *great* at writing Golang and Rust. I render my videos for YouTube
-with Python and the manim framework, so I'd argue I'm ok at it as well.
+I'm decent with programming languages like C and Java, the latter of which was
+taught in school. I'm *great* at writing Golang and Rust. I render my YouTube
+videos with Python and the manim framework, so I'd argue I'm competent at it
+as well.
 
-I have been daily driving Linux since 2016. From Ubuntu to Kali, then back to Ubuntu,
-then Arch and finally NixOS. NixOS is stable enough for me, incredibly versatile
-and let's me declaratively configure all my setup.
+I have been daily driving various Linux distributions since 2016. For the past few years,
+I have settled with NixOS. It is stable enough, incredibly versatile
+and lets me declaratively configure all my setups.
 
 Most of my work is open source and under the public domain. If you find value in them,
 consider contributing to them or donating.
