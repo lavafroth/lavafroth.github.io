@@ -1,4 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 24 Aug 2024 10:28:50 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Wrapping up GSoC 2024</title><link>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</link><pubDate>Sat, 24 Aug 2024 10:28:50 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</guid><description>&lt;h1 id="overview">Overview&lt;/h1>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 20 Dec 2024 12:26:10 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>NixOS Secureboot Shenanigans</title><link>https://lavafroth.is-a.dev/post/nixos-secureboot-shenanigans/</link><pubDate>Fri, 20 Dec 2024 12:26:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/nixos-secureboot-shenanigans/</guid><description>&lt;h1 id="key-takeaways">Key takeaways&lt;/h1>
+&lt;ul>
+&lt;li>This issue only pertains to secureboot on NixOS using lanzaboote. Most Linux users have secureboot disabled. If you are paranoid like me and have enabled it, continue reading.&lt;/li>
+&lt;li>Make sure to track the latest version of &lt;code>lanzaboote&lt;/code>. (&lt;a href="https://github.com/lavafroth/dotfiles/commit/4d64808ffbc135b5bf5a61df17ef02d7da8452b7">example&lt;/a>)&lt;/li>
+&lt;li>Set the PKI bundle location to the newer &lt;code>sbctl&lt;/code> default. (&lt;a href="https://github.com/lavafroth/dotfiles/commit/1fa71734bb3af83b8de9134e68f0153f49a18205">example&lt;/a>)&lt;/li>
+&lt;/ul>
+&lt;h1 id="deprecated-overridescope">Deprecated &lt;code>overrideScope'&lt;/code>&lt;/h1>
+&lt;p>For the past few months, I started noticing this new warning when rebuilding my system with &lt;code>nixos-rebuild&lt;/code>.&lt;/p></description></item><item><title>Wrapping up GSoC 2024</title><link>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</link><pubDate>Sat, 24 Aug 2024 10:28:50 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</guid><description>&lt;h1 id="overview">Overview&lt;/h1>
 &lt;p>Hello and welcome to the final GSoC post for 2024! My task was to formalize the SWHKD parser using context-free EBNF notation. This post is to serve as a birdseye view of what
 I have developed over this summer.&lt;/p>
 &lt;h1 id="report">Report&lt;/h1>
@@ -445,7 +452,7 @@ return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no fu
 &lt;code>output&lt;/code> variable without ever displaying the output to the console.&lt;/p>
 &lt;p>I tried a dummy command to see if I could see its &lt;code>stderr&lt;/code> since command
 substitution (backticks) only capture the &lt;code>stdout&lt;/code>.&lt;/p></description></item><item><title>whoami</title><link>https://lavafroth.is-a.dev/about/</link><pubDate>Sat, 23 Jul 2022 19:11:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/about/</guid><description>&lt;p>Hi, this is Himadri. I&amp;rsquo;m a self taught programmer and a digital artist.
-You might have arrived here from my YouTube channel or my open source work.
+You might have arrived here from &lt;a href="https://youtube.com/@lavafroth">my YouTube channel&lt;/a> or my open source work.
 I&amp;rsquo;m doing a bachelors in data science at IITM.&lt;/p>
 &lt;p>I&amp;rsquo;m decent with programming languages like C and Java, the latter of which was
 taught in school. I&amp;rsquo;m &lt;em>great&lt;/em> at writing Golang and Rust. I render my YouTube
