@@ -5,7 +5,7 @@ date: 2022-07-23T19:11:10+05:30
 ---
 
 Hi, this is Himadri. I'm a self taught programmer and a digital artist.
-You might have arrived here from my YouTube channel or my open source work.
+You might have arrived here from [my YouTube channel](https://youtube.com/@lavafroth) or my open source work.
 I'm doing a bachelors in data science at IITM.
 
 I'm decent with programming languages like C and Java, the latter of which was
