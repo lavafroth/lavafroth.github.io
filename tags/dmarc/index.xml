@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>DMARC on lavafroth</title><link>https://lavafroth.is-a.dev/tags/dmarc/</link><description>Recent content in DMARC on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/dmarc/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p>Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
-I must warn you that this is an incomplete writeup, I had been unable to finish all the challenges due to other important events in life.&lt;/p>
+I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p>
 &lt;p>With that out of the way, enjoy the writeup!&lt;/p>
 &lt;h1 id="christmas-island-orientation">Christmas Island: Orientation&lt;/h1>
 &lt;h2 id="cranberry-pi">Cranberry Pi&lt;/h2>
