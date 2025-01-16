@@ -10,8 +10,6 @@ tags:
 - Photoprism
 ---
 
-> Note: This post is a draft
-
 Having run an on-premise server for the past two years, I think my setup has finally
 matured enough to be worth talking about.
 
@@ -31,7 +29,9 @@ The server is an old laptop which was on the verge becoming e-waste. Despite hav
 display, the LCD had been battered into shards, making it no better than a shiny paperweight.
 
 Although one could have kept the display, I carefully disassembled the machine to disconnect the corresponding
-ribbon cable because we are aiming for a headless setup. Removing the display also reduces the power draw.
+ribbon cable because we are aiming for a headless setup.
+
+Removing the display reduced the power draw to 4 watts at idle. Thus, I would highly recommend it.
 
 ![A picture of the home server sans the display](/home-server/server.png)
 
@@ -96,3 +96,37 @@ tagged and organized. Photoprism packs all the functionality of Google Photos in
 pets and places in photos, as well as searching through them along the timeline.
 
 ![](/home-server/photoprism.png)
+
+#### Netflix / Spotify → Jellyfin
+
+Instead of overpriced and restrictive services like Netflix or Spotify that shove ads in your face
+even if you have paid for them, I have migrated to buying pieces of media including movies
+and music, ripping them off the discs and saving them on the server. This way we don't have to sit
+through piles of DVDs to find out a movie to rewatch.
+
+Albeit there's a caveat to this, media that is not sold in physical copies.
+
+I have set Jellyfin to monitor a directory where I store the ripped media from the CDs or DVDs.
+Jellyfin then automatically updates its catalogue (index) when something new is added.
+
+For music, Jellyfin also supports adding lyrics through `.lrc` files. A feature that is paywalled
+on services like Spotify.
+
+Here's a screenshot of the one album I have so far.
+
+![](/home-server/jellyfin.png)
+
+## Finishing thoughts
+
+Using Nix for infrastructure has been a great success in my books. One of the greatest appeals is that
+there's little to no setup involved for most of the services, because someone else has already figured
+that out for you!
+
+I have also enabled automatic updates which are scheduled every week. This works while leaving a backup of
+the last known working state (generation), so even if the update fails, the server *must* keep working.
+There's simply no way for the software side of the server to break.
+
+What does that mean to an outsider? Less tech savvy people in my family just need to power the machine on
+if it isn't already. That's it!
+
+Sysadmins need not apply.
