@@ -375,8 +375,7 @@ void main() {
  orbit.addEventListener('change', function() {
  init = true;
  })
-
- &lt;/script></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
+&lt;/script></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
 start this year off by going back to the roots.&lt;/p>
 &lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
 &lt;em>SansAlpha&lt;/em> from PicoCTF. The challenge description states&lt;/p>
@@ -1240,5 +1239,4 @@ void main() {
  orbit.addEventListener('change', function() {
  init = true;
  })
-
- &lt;/script></description></item></channel></rss>
+&lt;/script></description></item></channel></rss>
