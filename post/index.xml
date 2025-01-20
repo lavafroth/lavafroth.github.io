@@ -104,7 +104,7 @@ void main() {
  }
  }
 &lt;/script>
- &lt;script type="module">
+&lt;script type="module">
  import * as THREE from 'three';
  import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
@@ -113,8 +113,12 @@ void main() {
  var height = Math.round(9/16 * width);
 
  var renderer = new THREE.WebGLRenderer({antialias: true});
+
  renderer.setSize(width, height);
  document.querySelector('#stage').appendChild(renderer.domElement);
+ const gl = renderer.getContext();
+ gl.getExtension("EXT_color_buffer_float");
+ gl.getExtension("EXT_float_blend");
 
  function get(path) {
  return document.querySelector(path).textContent;
@@ -322,7 +326,7 @@ void main() {
 
  		let points = continuity(allThePixels, width, height)
  		let dijkstraBuffer = dijkstraNumber(points, allThePixels)
- 		
+
  for (let row = 0; row &lt; height; row++) {
  for(let col = 0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
@@ -344,8 +348,8 @@ void main() {
  evoUniforms.initBufferMask.value = ephemeralTex;
  init = false;
  }
- 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
- 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ 	let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+ 	let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
@@ -968,7 +972,7 @@ void main() {
  }
  }
 &lt;/script>
- &lt;script type="module">
+&lt;script type="module">
  import * as THREE from 'three';
  import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
@@ -977,8 +981,12 @@ void main() {
  var height = Math.round(9/16 * width);
 
  var renderer = new THREE.WebGLRenderer({antialias: true});
+
  renderer.setSize(width, height);
  document.querySelector('#stage').appendChild(renderer.domElement);
+ const gl = renderer.getContext();
+ gl.getExtension("EXT_color_buffer_float");
+ gl.getExtension("EXT_float_blend");
 
  function get(path) {
  return document.querySelector(path).textContent;
@@ -1186,7 +1194,7 @@ void main() {
 
  		let points = continuity(allThePixels, width, height)
  		let dijkstraBuffer = dijkstraNumber(points, allThePixels)
- 		
+
  for (let row = 0; row &lt; height; row++) {
  for(let col = 0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
@@ -1208,8 +1216,8 @@ void main() {
  evoUniforms.initBufferMask.value = ephemeralTex;
  init = false;
  }
- 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
- 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ 	let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+ 	let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
