@@ -104,8 +104,8 @@ void main() {
       import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
       var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-      var width = 80 * rem;
-      var height = 40 * rem;
+      var width = document.querySelector('stage').offsetWidth;
+      var height = Math.round(9/16 * width);
 
       var renderer = new THREE.WebGLRenderer({antialias: true});
       renderer.setSize(width, height);
@@ -366,15 +366,6 @@ void main() {
       }
 
       renderer.setAnimationLoop(animate);
-
-      window.addEventListener('resize', function() {
-          width = window.innerWidth
-          height = window.innerHeight
-          camera.aspect = width / height;
-          camera.updateProjectionMatrix();
-          renderer.setSize(width, height);
-          init = true;
-      });
 
       orbit.addEventListener('change', function() {
           init = true;
