@@ -109,7 +109,7 @@ void main() {
  import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
  var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
- var width = document.querySelector('stage').offsetWidth;
+ var width = document.querySelector('#stage').offsetWidth;
  var height = Math.round(9/16 * width);
 
  var renderer = new THREE.WebGLRenderer({antialias: true});
@@ -973,7 +973,7 @@ void main() {
  import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
  var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
- var width = document.querySelector('stage').offsetWidth;
+ var width = document.querySelector('#stage').offsetWidth;
  var height = Math.round(9/16 * width);
 
  var renderer = new THREE.WebGLRenderer({antialias: true});
