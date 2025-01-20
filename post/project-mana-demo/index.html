@@ -111,7 +111,7 @@ void main() {
       import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
       var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-      var width = 80 * rem;
+      var width = document.querySelector('main').offsetWidth;
       var height = 40 * rem;
 
       var renderer = new THREE.WebGLRenderer({antialias: true});
