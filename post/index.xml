@@ -1,4 +1,391 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.is-a.dev/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 05 Jan 2025 11:55:52 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.is-a.dev/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Project Mana Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
+&lt;p>Feel free to look around. Rotate, zoom out or pan the 3D view.&lt;/p>
+&lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
+is 5 seconds in this example.&lt;/p>
+
+&lt;div id="stage">
+&lt;/div>
+&lt;script type="frag" id="evolve-vert">
+varying vec2 vUv;
+
+void main() {
+ vUv = uv;
+ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ vUv = gl_Position.xy / gl_Position.w;
+ vUv = (vUv + 1.0) * 0.5;
+}
+&lt;/script>
+&lt;script type="frag" id="evolve-frag">
+varying vec2 vUv;
+
+uniform sampler2D gbufferMask;
+uniform sampler2D initBufferMask;
+
+void main() {
+ gl_FragColor = vec4(texture(initBufferMask, vUv));
+}
+
+&lt;/script>
+&lt;script type="frag" id="outline-frag">
+ varying vec2 vUv;
+ varying vec2 clipMeshCenter;
+ varying vec2 glPos;
+
+ uniform float time;
+ uniform vec2 viewportSize;
+
+ #define LINE_WEIGHT 2.0
+
+ uniform sampler2D gbufferMask;
+
+ void main() {
+ float dx = (1.0 / viewportSize.x) * LINE_WEIGHT;
+ float dy = (1.0 / viewportSize.y) * LINE_WEIGHT;
+
+ vec2 uvCenter = vUv;
+ vec2 uvRight = vec2(uvCenter.x + dx, uvCenter.y);
+ vec2 uvLeft = vec2(uvCenter.x - dx, uvCenter.y);
+ vec2 uvTop = vec2(uvCenter.x, uvCenter.y - dy);
+ vec2 uvTopRight = vec2(uvCenter.x + dx, uvCenter.y - dy);
+ vec2 uvDown = vec2(uvCenter.x, uvCenter.y + dy);
+ vec2 uvDownLeft = vec2(uvCenter.x - dx, uvCenter.y + dy);
+
+ float mCenter = texture(gbufferMask, uvCenter).r;
+ float mTop = texture(gbufferMask, uvTop).r;
+ float mRight = texture(gbufferMask, uvRight).r;
+ float mTopRight = texture(gbufferMask, uvTopRight).r;
+ float mLeft = texture(gbufferMask, uvLeft).r;
+ float mDown = texture(gbufferMask, uvDown).r;
+ float mDownLeft = texture(gbufferMask, uvDownLeft).r;
+
+ float dT = abs(mCenter - mTop);
+ float dR = abs(mCenter - mRight);
+ float dTR = abs(mCenter - mTopRight);
+ float dD = abs(mCenter - mDown);
+ float dL = abs(mCenter - mLeft);
+ float dDL = abs(mCenter - mDownLeft);
+
+ float delta = 0.0;
+ delta = max(delta, dT);
+ delta = max(delta, dR);
+ delta = max(delta, dTR);
+ delta = max(delta, dD);
+ delta = max(delta, dL);
+ delta = max(delta, dDL);
+
+ float threshold = 0.0;
+ float isOutline = clamp((delta * 2.0) - threshold, 0.0, 1.0);
+
+ vec4 outline = vec4(isOutline);
+ gl_FragColor = outline;
+ }
+&lt;/script>
+&lt;script type="vert" id="outline-vert">
+ varying vec2 vUv;
+ uniform vec3 meshCenter;
+ varying vec2 clipMeshCenter;
+ uniform float time;
+ varying vec2 glPos;
+
+ void main() {
+ clipMeshCenter = (projectionMatrix * modelViewMatrix * vec4(meshCenter, 1.0)).xy;
+ vUv = uv;
+ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ vUv = gl_Position.xy / gl_Position.w;
+ vUv = (vUv + 1.0) * 0.5;
+ glPos = gl_Position.xy;
+ }
+&lt;/script>
+&lt;script type="importmap">
+ {
+ "imports": {
+ "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+ "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+ }
+ }
+&lt;/script>
+ &lt;script type="module">
+ import * as THREE from 'three';
+ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+ var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+ var width = 80 * rem;
+ var height = 40 * rem;
+
+ var renderer = new THREE.WebGLRenderer({antialias: true});
+ renderer.setSize(width, height);
+ document.querySelector('#stage').appendChild(renderer.domElement);
+
+ function get(path) {
+ return document.querySelector(path).textContent;
+ };
+
+ const scene = new THREE.Scene();
+ const solidScene = new THREE.Scene();
+ const maskScene = new THREE.Scene();
+ const evolveScene = new THREE.Scene();
+ const camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 1000 );
+ const color = 0xFFFFFF;
+ var light = new THREE.AmbientLight(color, 1);
+ solidScene.add(light);
+ var light = new THREE.PointLight(color, 200);
+ light.position.set(10, 10, 15);
+ solidScene.add(light);
+ camera.position.set(6,8,14);
+
+ var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
+ var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
+
+ const orbit = new OrbitControls(camera, renderer.domElement);
+ orbit.update();
+
+ const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
+ geometry.translate(2, 2, 2);
+
+ const shadowMesh = new THREE.Mesh(geometry);
+ const uniforms = {
+ gbufferMask: { value: buffer.texture },
+ viewportSize: { value: new THREE.Vector2(width, height) },
+ }
+
+ const material = new THREE.ShaderMaterial({
+ vertexShader: get('#outline-vert'),
+ fragmentShader: get('#outline-frag'),
+ uniforms,
+ transparent: true,
+ });
+
+ const solidMesh = new THREE.Mesh(
+ geometry,
+ new THREE.MeshPhysicalMaterial({
+ color: 0xaaeadb,
+ metalness: 0.8,
+ clearcoat: 0.4,
+ clearcoatRoughness: 0.1,
+ }),
+ );
+
+ const mesh = new THREE.Mesh(
+ geometry,
+ material
+ );
+ solidScene.add(solidMesh);
+ scene.add(mesh);
+ maskScene.add(shadowMesh);
+
+
+ const evoUniforms = {
+ initBufferMask: { value: null },
+ }
+
+ const evoMaterial = new THREE.ShaderMaterial({
+ // this is a copy shader
+ vertexShader: get('#evolve-vert'),
+ fragmentShader: get('#evolve-frag'),
+ uniforms: evoUniforms,
+ transparent: true,
+ });
+
+ const evolveMesh = new THREE.Mesh(
+ geometry,
+ evoMaterial
+ );
+
+ evolveScene.add(evolveMesh)
+
+ function continuity(bitmap, width, height) {
+ const visited = Array.from({length: height}, () => Array(width).fill(false));
+
+ function valid(row, col) {
+ return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
+ }
+
+ // for a point to be on the screen edge, it must have at least three
+ // of its neighbors invalid
+ function isSentinel(row, col) {
+ return (
+ Number(valid(row - 1, col - 1)) +
+ Number(valid(row - 1, col)) +
+ Number(valid(row - 1, col + 1)) +
+
+ Number(valid(row, col - 1)) +
+ Number(valid(row, col + 1)) +
+
+ Number(valid(row + 1, col - 1)) +
+ Number(valid(row + 1, col)) +
+ Number(valid(row + 1, col + 1))
+ ) &lt; 6
+ }
+
+ var sentinels = [];
+ var cyclic = [];
+
+ function dfs(row, col, rootRow, rootCol, steps) {
+
+ const pointIsRoot = row == rootRow &amp;&amp; col == rootCol;
+
+ if (steps != 0 &amp;&amp; pointIsRoot) {
+ cyclic.push([row, col]);
+ return;
+ }
+
+ if (!valid(row, col) || visited[row][col]) {
+ return;
+ }
+
+ // is this point switched off?
+ var point = 4 * (row * width + col);
+ if (bitmap[point+0] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
+ return;
+ }
+
+ visited[row][col] = true;
+ dfs(row - 1, col, rootRow, rootCol, steps + 1)
+ dfs(row + 1, col, rootRow, rootCol, steps + 1)
+ dfs(row, col - 1, rootRow, rootCol, steps + 1)
+ dfs(row, col + 1, rootRow, rootCol, steps + 1)
+
+ if (isSentinel(row, col) &amp;&amp; steps != 0) {
+ sentinels.push([row, col]);
+ }
+ return;
+ }
+
+ for (let row = 0; row &lt; height; row++) {
+ for(let col=0; col &lt; width; col++) {
+ if (visited[row][col]) {
+ continue;
+ }
+ var point = 4 * (row * width + col);
+ if (bitmap[point] == 1 &amp;&amp; bitmap[point+1] == 1 &amp;&amp; bitmap[point+2] == 1) {
+ dfs(row, col, row, col, 0);
+ }
+ }
+ }
+
+ return cyclic.concat(sentinels);
+ }
+
+ var durationInSeconds = 5;
+
+ // @param {Float32Array[]} points
+ // @param {Float32Array} allThePixels
+ // Number all the points as we stumble along the outline.
+ // Akin to a wavefront. The pixels switched on (value = 1)
+ // touching the wavefront at time t will have a value t + 2
+ //
+ // This way we can quickly zero out all the pixels below a
+ // threshold when timing the animation.
+ function dijkstraNumber(points, allThePixels) {
+ points.forEach((point) => {
+ dijkstraPropagate(point, allThePixels, 2)
+ })
+ }
+
+ function dijkstraPropagate(point, allThePixels, value) {
+ let row = point[0]
+ let col = point[1]
+ let pos = 4 * (row * buffer.width + col);
+ if (allThePixels[pos] != 1) {
+ return
+ }
+ // propagate
+ allThePixels[pos] = value;
+ allThePixels[pos+1] = value;
+ allThePixels[pos+2] = value;
+ allThePixels[pos+3] = value;
+
+ dijkstraPropagate([row - 1, col], allThePixels, value+1);
+ dijkstraPropagate([row + 1, col], allThePixels, value+1);
+ dijkstraPropagate([row, col - 1], allThePixels, value+1);
+ dijkstraPropagate([row, col + 1], allThePixels, value+1);
+ dijkstraPropagate([row - 1, col - 1], allThePixels, value+1);
+ dijkstraPropagate([row + 1, col + 1], allThePixels, value+1);
+ dijkstraPropagate([row + 1, col - 1], allThePixels, value+1);
+ dijkstraPropagate([row - 1, col + 1], allThePixels, value+1);
+ }
+
+ const clock = new THREE.Clock();
+ var longestPixelStrand = 0;
+ var init = true;
+ const allThePixels = new Float32Array( buffer.width * buffer.height * 4);
+ function animate() {
+
+ if (init) {
+ renderer.setRenderTarget(buffer);
+ renderer.render(maskScene, camera);
+
+ renderer.setRenderTarget(outlineBuffer);
+ renderer.render(scene, camera);
+
+ renderer.readRenderTargetPixels(outlineBuffer, 0, 0, buffer.width, buffer.height, allThePixels);
+
+ 		let points = continuity(allThePixels, width, height)
+ 		let dijkstraBuffer = dijkstraNumber(points, allThePixels)
+ 		
+ for (let row = 0; row &lt; height; row++) {
+ for(let col = 0; col&lt;width; col++) {
+ var point = 4 * (row * width + col);
+ longestPixelStrand = Math.max(longestPixelStrand, allThePixels[point])
+ }
+ }
+
+ let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
+ points.forEach((point) => {
+ let pos = 4 * (point[0] * buffer.width + point[1]);
+ initBuffer[pos] = 255;
+ initBuffer[pos+1] = 255;
+ initBuffer[pos+2] = 255;
+ initBuffer[pos+3] = 255;
+ })
+
+ let ephemeralTex = new THREE.DataTexture(initBuffer, width, height);
+ ephemeralTex.needsUpdate = true;
+ evoUniforms.initBufferMask.value = ephemeralTex;
+ init = false;
+ }
+ 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+ 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
+ for (let row = 0; row &lt; height; row++) {
+ for(let col=0; col&lt;width; col++) {
+ var point = 4 * (row * width + col);
+ if (allThePixels[point] > 1 &amp;&amp; allThePixels[point] &lt; pixelsAnimated) {
+ initBuffer[point] = 255;
+ initBuffer[point+1] = 255;
+ initBuffer[point+2] = 255;
+ initBuffer[point+3] = 255;
+ }
+ }
+ }
+ let ephemeralTex = new THREE.DataTexture(initBuffer, width, height);
+ ephemeralTex.needsUpdate = true;
+ evoUniforms.initBufferMask.value = ephemeralTex;
+
+ renderer.setRenderTarget(null);
+ renderer.render(solidScene, camera);
+ renderer.autoClear = false;
+ renderer.clearDepth();
+ renderer.render(evolveScene, camera);
+ renderer.autoClear = true;
+ }
+
+ renderer.setAnimationLoop(animate);
+
+ window.addEventListener('resize', function() {
+ width = window.innerWidth
+ height = window.innerHeight
+ camera.aspect = width / height;
+ camera.updateProjectionMatrix();
+ renderer.setSize(width, height);
+ init = true;
+ });
+
+ orbit.addEventListener('change', function() {
+ init = true;
+ })
+
+ &lt;/script></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
 start this year off by going back to the roots.&lt;/p>
 &lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
 &lt;em>SansAlpha&lt;/em> from PicoCTF. The challenge description states&lt;/p>
@@ -490,4 +877,386 @@ After submitting the query, we are redirected to an html page containing the con
 Additionally some might even keep &lt;code>builtins&lt;/code> and &lt;code>eval&lt;/code> out of reach.&lt;/p>
 &lt;p>&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0">Here&lt;/a> is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.&lt;/p></description></item></channel></rss>
+Kudos to him for sharing this technique.&lt;/p></description></item><item><title/><link>https://lavafroth.is-a.dev/post/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/post/project_mana/</guid><description>&lt;div id="stage">
+&lt;/div>
+&lt;script type="frag" id="evolve-vert">
+varying vec2 vUv;
+
+void main() {
+ vUv = uv;
+ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ vUv = gl_Position.xy / gl_Position.w;
+ vUv = (vUv + 1.0) * 0.5;
+}
+&lt;/script>
+&lt;script type="frag" id="evolve-frag">
+varying vec2 vUv;
+
+uniform sampler2D gbufferMask;
+uniform sampler2D initBufferMask;
+
+void main() {
+ gl_FragColor = vec4(texture(initBufferMask, vUv));
+}
+
+&lt;/script>
+&lt;script type="frag" id="outline-frag">
+ varying vec2 vUv;
+ varying vec2 clipMeshCenter;
+ varying vec2 glPos;
+
+ uniform float time;
+ uniform vec2 viewportSize;
+
+ #define LINE_WEIGHT 2.0
+
+ uniform sampler2D gbufferMask;
+
+ void main() {
+ float dx = (1.0 / viewportSize.x) * LINE_WEIGHT;
+ float dy = (1.0 / viewportSize.y) * LINE_WEIGHT;
+
+ vec2 uvCenter = vUv;
+ vec2 uvRight = vec2(uvCenter.x + dx, uvCenter.y);
+ vec2 uvLeft = vec2(uvCenter.x - dx, uvCenter.y);
+ vec2 uvTop = vec2(uvCenter.x, uvCenter.y - dy);
+ vec2 uvTopRight = vec2(uvCenter.x + dx, uvCenter.y - dy);
+ vec2 uvDown = vec2(uvCenter.x, uvCenter.y + dy);
+ vec2 uvDownLeft = vec2(uvCenter.x - dx, uvCenter.y + dy);
+
+ float mCenter = texture(gbufferMask, uvCenter).r;
+ float mTop = texture(gbufferMask, uvTop).r;
+ float mRight = texture(gbufferMask, uvRight).r;
+ float mTopRight = texture(gbufferMask, uvTopRight).r;
+ float mLeft = texture(gbufferMask, uvLeft).r;
+ float mDown = texture(gbufferMask, uvDown).r;
+ float mDownLeft = texture(gbufferMask, uvDownLeft).r;
+
+ float dT = abs(mCenter - mTop);
+ float dR = abs(mCenter - mRight);
+ float dTR = abs(mCenter - mTopRight);
+ float dD = abs(mCenter - mDown);
+ float dL = abs(mCenter - mLeft);
+ float dDL = abs(mCenter - mDownLeft);
+
+ float delta = 0.0;
+ delta = max(delta, dT);
+ delta = max(delta, dR);
+ delta = max(delta, dTR);
+ delta = max(delta, dD);
+ delta = max(delta, dL);
+ delta = max(delta, dDL);
+
+ float threshold = 0.0;
+ float isOutline = clamp((delta * 2.0) - threshold, 0.0, 1.0);
+
+ vec4 outline = vec4(isOutline);
+ gl_FragColor = outline;
+ }
+&lt;/script>
+&lt;script type="vert" id="outline-vert">
+ varying vec2 vUv;
+ uniform vec3 meshCenter;
+ varying vec2 clipMeshCenter;
+ uniform float time;
+ varying vec2 glPos;
+
+ void main() {
+ clipMeshCenter = (projectionMatrix * modelViewMatrix * vec4(meshCenter, 1.0)).xy;
+ vUv = uv;
+ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ vUv = gl_Position.xy / gl_Position.w;
+ vUv = (vUv + 1.0) * 0.5;
+ glPos = gl_Position.xy;
+ }
+&lt;/script>
+&lt;script type="importmap">
+ {
+ "imports": {
+ "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+ "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+ }
+ }
+&lt;/script>
+ &lt;script type="module">
+ import * as THREE from 'three';
+ import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+ var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+ var width = 80 * rem;
+ var height = 40 * rem;
+
+ var renderer = new THREE.WebGLRenderer({antialias: true});
+ renderer.setSize(width, height);
+ document.querySelector('#stage').appendChild(renderer.domElement);
+
+ function get(path) {
+ return document.querySelector(path).textContent;
+ };
+
+ const scene = new THREE.Scene();
+ const solidScene = new THREE.Scene();
+ const maskScene = new THREE.Scene();
+ const evolveScene = new THREE.Scene();
+ const camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 1000 );
+ const color = 0xFFFFFF;
+ var light = new THREE.AmbientLight(color, 1);
+ solidScene.add(light);
+ var light = new THREE.PointLight(color, 200);
+ light.position.set(10, 10, 15);
+ solidScene.add(light);
+ camera.position.set(6,8,14);
+
+ var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
+ var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
+
+ const orbit = new OrbitControls(camera, renderer.domElement);
+ orbit.update();
+
+ const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
+ geometry.translate(2, 2, 2);
+
+ const shadowMesh = new THREE.Mesh(geometry);
+ const uniforms = {
+ gbufferMask: { value: buffer.texture },
+ viewportSize: { value: new THREE.Vector2(width, height) },
+ }
+
+ const material = new THREE.ShaderMaterial({
+ vertexShader: get('#outline-vert'),
+ fragmentShader: get('#outline-frag'),
+ uniforms,
+ transparent: true,
+ });
+
+ const solidMesh = new THREE.Mesh(
+ geometry,
+ new THREE.MeshPhysicalMaterial({
+ color: 0xaaeadb,
+ metalness: 0.8,
+ clearcoat: 0.4,
+ clearcoatRoughness: 0.1,
+ }),
+ );
+
+ const mesh = new THREE.Mesh(
+ geometry,
+ material
+ );
+ solidScene.add(solidMesh);
+ scene.add(mesh);
+ maskScene.add(shadowMesh);
+
+
+ const evoUniforms = {
+ initBufferMask: { value: null },
+ }
+
+ const evoMaterial = new THREE.ShaderMaterial({
+ // this is a copy shader
+ vertexShader: get('#evolve-vert'),
+ fragmentShader: get('#evolve-frag'),
+ uniforms: evoUniforms,
+ transparent: true,
+ });
+
+ const evolveMesh = new THREE.Mesh(
+ geometry,
+ evoMaterial
+ );
+
+ evolveScene.add(evolveMesh)
+
+ function continuity(bitmap, width, height) {
+ const visited = Array.from({length: height}, () => Array(width).fill(false));
+
+ function valid(row, col) {
+ return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
+ }
+
+ // for a point to be on the screen edge, it must have at least three
+ // of its neighbors invalid
+ function isSentinel(row, col) {
+ return (
+ Number(valid(row - 1, col - 1)) +
+ Number(valid(row - 1, col)) +
+ Number(valid(row - 1, col + 1)) +
+
+ Number(valid(row, col - 1)) +
+ Number(valid(row, col + 1)) +
+
+ Number(valid(row + 1, col - 1)) +
+ Number(valid(row + 1, col)) +
+ Number(valid(row + 1, col + 1))
+ ) &lt; 6
+ }
+
+ var sentinels = [];
+ var cyclic = [];
+
+ function dfs(row, col, rootRow, rootCol, steps) {
+
+ const pointIsRoot = row == rootRow &amp;&amp; col == rootCol;
+
+ if (steps != 0 &amp;&amp; pointIsRoot) {
+ cyclic.push([row, col]);
+ return;
+ }
+
+ if (!valid(row, col) || visited[row][col]) {
+ return;
+ }
+
+ // is this point switched off?
+ var point = 4 * (row * width + col);
+ if (bitmap[point+0] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
+ return;
+ }
+
+ visited[row][col] = true;
+ dfs(row - 1, col, rootRow, rootCol, steps + 1)
+ dfs(row + 1, col, rootRow, rootCol, steps + 1)
+ dfs(row, col - 1, rootRow, rootCol, steps + 1)
+ dfs(row, col + 1, rootRow, rootCol, steps + 1)
+
+ if (isSentinel(row, col) &amp;&amp; steps != 0) {
+ sentinels.push([row, col]);
+ }
+ return;
+ }
+
+ for (let row = 0; row &lt; height; row++) {
+ for(let col=0; col &lt; width; col++) {
+ if (visited[row][col]) {
+ continue;
+ }
+ var point = 4 * (row * width + col);
+ if (bitmap[point] == 1 &amp;&amp; bitmap[point+1] == 1 &amp;&amp; bitmap[point+2] == 1) {
+ dfs(row, col, row, col, 0);
+ }
+ }
+ }
+
+ return cyclic.concat(sentinels);
+ }
+
+ var durationInSeconds = 5;
+
+ // @param {Float32Array[]} points
+ // @param {Float32Array} allThePixels
+ // Number all the points as we stumble along the outline.
+ // Akin to a wavefront. The pixels switched on (value = 1)
+ // touching the wavefront at time t will have a value t + 2
+ //
+ // This way we can quickly zero out all the pixels below a
+ // threshold when timing the animation.
+ function dijkstraNumber(points, allThePixels) {
+ points.forEach((point) => {
+ dijkstraPropagate(point, allThePixels, 2)
+ })
+ }
+
+ function dijkstraPropagate(point, allThePixels, value) {
+ let row = point[0]
+ let col = point[1]
+ let pos = 4 * (row * buffer.width + col);
+ if (allThePixels[pos] != 1) {
+ return
+ }
+ // propagate
+ allThePixels[pos] = value;
+ allThePixels[pos+1] = value;
+ allThePixels[pos+2] = value;
+ allThePixels[pos+3] = value;
+
+ dijkstraPropagate([row - 1, col], allThePixels, value+1);
+ dijkstraPropagate([row + 1, col], allThePixels, value+1);
+ dijkstraPropagate([row, col - 1], allThePixels, value+1);
+ dijkstraPropagate([row, col + 1], allThePixels, value+1);
+ dijkstraPropagate([row - 1, col - 1], allThePixels, value+1);
+ dijkstraPropagate([row + 1, col + 1], allThePixels, value+1);
+ dijkstraPropagate([row + 1, col - 1], allThePixels, value+1);
+ dijkstraPropagate([row - 1, col + 1], allThePixels, value+1);
+ }
+
+ const clock = new THREE.Clock();
+ var longestPixelStrand = 0;
+ var init = true;
+ const allThePixels = new Float32Array( buffer.width * buffer.height * 4);
+ function animate() {
+
+ if (init) {
+ renderer.setRenderTarget(buffer);
+ renderer.render(maskScene, camera);
+
+ renderer.setRenderTarget(outlineBuffer);
+ renderer.render(scene, camera);
+
+ renderer.readRenderTargetPixels(outlineBuffer, 0, 0, buffer.width, buffer.height, allThePixels);
+
+ 		let points = continuity(allThePixels, width, height)
+ 		let dijkstraBuffer = dijkstraNumber(points, allThePixels)
+ 		
+ for (let row = 0; row &lt; height; row++) {
+ for(let col = 0; col&lt;width; col++) {
+ var point = 4 * (row * width + col);
+ longestPixelStrand = Math.max(longestPixelStrand, allThePixels[point])
+ }
+ }
+
+ let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
+ points.forEach((point) => {
+ let pos = 4 * (point[0] * buffer.width + point[1]);
+ initBuffer[pos] = 255;
+ initBuffer[pos+1] = 255;
+ initBuffer[pos+2] = 255;
+ initBuffer[pos+3] = 255;
+ })
+
+ let ephemeralTex = new THREE.DataTexture(initBuffer, width, height);
+ ephemeralTex.needsUpdate = true;
+ evoUniforms.initBufferMask.value = ephemeralTex;
+ init = false;
+ }
+ 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+ 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
+ for (let row = 0; row &lt; height; row++) {
+ for(let col=0; col&lt;width; col++) {
+ var point = 4 * (row * width + col);
+ if (allThePixels[point] > 1 &amp;&amp; allThePixels[point] &lt; pixelsAnimated) {
+ initBuffer[point] = 255;
+ initBuffer[point+1] = 255;
+ initBuffer[point+2] = 255;
+ initBuffer[point+3] = 255;
+ }
+ }
+ }
+ let ephemeralTex = new THREE.DataTexture(initBuffer, width, height);
+ ephemeralTex.needsUpdate = true;
+ evoUniforms.initBufferMask.value = ephemeralTex;
+
+ renderer.setRenderTarget(null);
+ renderer.render(solidScene, camera);
+ renderer.autoClear = false;
+ renderer.clearDepth();
+ renderer.render(evolveScene, camera);
+ renderer.autoClear = true;
+ }
+
+ renderer.setAnimationLoop(animate);
+
+ window.addEventListener('resize', function() {
+ width = window.innerWidth
+ height = window.innerHeight
+ camera.aspect = width / height;
+ camera.updateProjectionMatrix();
+ renderer.setSize(width, height);
+ init = true;
+ });
+
+ orbit.addEventListener('change', function() {
+ init = true;
+ })
+
+ &lt;/script></description></item></channel></rss>

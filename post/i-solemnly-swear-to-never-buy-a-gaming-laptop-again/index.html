@@ -32,7 +32,7 @@ computer straight up lagging when these devices die. Why? Because this:</p><bloc
 [  394.755348] rtw_8822ce 0000:04:00.0: failed to power on mac
 </code></pre><p>The driver is <code>rtw88_8822ce</code> and the logs say that there was a failure in
 powering the card on. In the end, I just bought an external USB 2.0 network card
-and blacklisted the kernel modules for the builtin card in my NixOS config.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nix data-lang=nix><span style=display:flex><span>boot<span style=color:#f92672>.</span>blacklistedKernelModules <span style=color:#960050;background-color:#1e0010>=</span> [ <span style=color:#e6db74>&#34;rtw88_8822ce&#34;</span> ];
+and blacklisted the kernel modules for the builtin card in my NixOS config.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nix data-lang=nix><span style=display:flex><span>boot<span style=color:#f92672>.</span>blacklistedKernelModules <span style=color:#f92672>=</span> [ <span style=color:#e6db74>&#34;rtw88_8822ce&#34;</span> ];
 </span></span></code></pre></div><p>Another related problem was the WiFi strength itself. With the honking GTX 1650
 of a GPU shoehorned into a small form factor, the electromagnetic induction
 caused by the GPU also deteriorated the signal strength. I mean, what was I
