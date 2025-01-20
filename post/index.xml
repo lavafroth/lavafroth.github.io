@@ -104,24 +104,19 @@ void main() {
  }
  }
 &lt;/script>
+
 &lt;script type="module">
  import * as THREE from 'three';
  import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
- var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+ var renderer = new THREE.WebGLRenderer({antialias: true});
  var width = document.querySelector('#stage').offsetWidth;
  var height = Math.round(9/16 * width);
-
- var renderer = new THREE.WebGLRenderer({antialias: true});
-
  renderer.setSize(width, height);
  document.querySelector('#stage').appendChild(renderer.domElement);
- const gl = renderer.getContext();
- gl.getExtension("EXT_color_buffer_float");
- gl.getExtension("EXT_float_blend");
 
  function get(path) {
- return document.querySelector(path).textContent;
+ return document.querySelector('#' + path).textContent;
  };
 
  const scene = new THREE.Scene();
@@ -137,8 +132,8 @@ void main() {
  solidScene.add(light);
  camera.position.set(6,8,14);
 
- var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
- var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
+ var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+ var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
 
  const orbit = new OrbitControls(camera, renderer.domElement);
  orbit.update();
@@ -153,8 +148,8 @@ void main() {
  }
 
  const material = new THREE.ShaderMaterial({
- vertexShader: get('#outline-vert'),
- fragmentShader: get('#outline-frag'),
+ vertexShader: get('outline-vert'),
+ fragmentShader: get('outline-frag'),
  uniforms,
  transparent: true,
  });
@@ -184,8 +179,8 @@ void main() {
 
  const evoMaterial = new THREE.ShaderMaterial({
  // this is a copy shader
- vertexShader: get('#evolve-vert'),
- fragmentShader: get('#evolve-frag'),
+ vertexShader: get('evolve-vert'),
+ fragmentShader: get('evolve-frag'),
  uniforms: evoUniforms,
  transparent: true,
  });
@@ -280,39 +275,40 @@ void main() {
  //
  // This way we can quickly zero out all the pixels below a
  // threshold when timing the animation.
- function dijkstraNumber(points, allThePixels) {
+ function dijkstraNumber(points, buf) {
  points.forEach((point) => {
- dijkstraPropagate(point, allThePixels, 2)
+ dijkstraPropagate(point, buf, 2)
  })
  }
 
- function dijkstraPropagate(point, allThePixels, value) {
+ function dijkstraPropagate(point, buf, value) {
  let row = point[0]
  let col = point[1]
  let pos = 4 * (row * buffer.width + col);
- if (allThePixels[pos] != 1) {
+ if (buf[pos] != 1) {
  return
  }
  // propagate
- allThePixels[pos] = value;
- allThePixels[pos+1] = value;
- allThePixels[pos+2] = value;
- allThePixels[pos+3] = value;
+ buf[pos] = value;
+ buf[pos+1] = value;
+ buf[pos+2] = value;
+ buf[pos+3] = value;
 
- dijkstraPropagate([row - 1, col], allThePixels, value+1);
- dijkstraPropagate([row + 1, col], allThePixels, value+1);
- dijkstraPropagate([row, col - 1], allThePixels, value+1);
- dijkstraPropagate([row, col + 1], allThePixels, value+1);
- dijkstraPropagate([row - 1, col - 1], allThePixels, value+1);
- dijkstraPropagate([row + 1, col + 1], allThePixels, value+1);
- dijkstraPropagate([row + 1, col - 1], allThePixels, value+1);
- dijkstraPropagate([row - 1, col + 1], allThePixels, value+1);
+ dijkstraPropagate([row - 1, col], buf, value+1);
+ dijkstraPropagate([row + 1, col], buf, value+1);
+ dijkstraPropagate([row, col - 1], buf, value+1);
+ dijkstraPropagate([row, col + 1], buf, value+1);
+ dijkstraPropagate([row - 1, col - 1], buf, value+1);
+ dijkstraPropagate([row + 1, col + 1], buf, value+1);
+ dijkstraPropagate([row + 1, col - 1], buf, value+1);
+ dijkstraPropagate([row - 1, col + 1], buf, value+1);
  }
 
  const clock = new THREE.Clock();
  var longestPixelStrand = 0;
  var init = true;
- const allThePixels = new Float32Array( buffer.width * buffer.height * 4);
+ const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
+ const dijkstraBuffer = new Float32Array(buffer.width * buffer.height * 4);
  function animate() {
 
  if (init) {
@@ -323,14 +319,17 @@ void main() {
  renderer.render(scene, camera);
 
  renderer.readRenderTargetPixels(outlineBuffer, 0, 0, buffer.width, buffer.height, allThePixels);
+ for (let i = 0; i &lt; allThePixels.length; i++) {
+ dijkstraBuffer[i] = allThePixels[i] == 255 ? 1 : 0;
+ }
 
- 		let points = continuity(allThePixels, width, height)
- 		let dijkstraBuffer = dijkstraNumber(points, allThePixels)
-
+ 		let points = continuity(dijkstraBuffer, width, height)
+ 		dijkstraNumber(points, dijkstraBuffer)
+ 		
  for (let row = 0; row &lt; height; row++) {
  for(let col = 0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- longestPixelStrand = Math.max(longestPixelStrand, allThePixels[point])
+ longestPixelStrand = Math.max(longestPixelStrand, dijkstraBuffer[point])
  }
  }
 
@@ -348,13 +347,13 @@ void main() {
  evoUniforms.initBufferMask.value = ephemeralTex;
  init = false;
  }
- 	let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
- 	let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+ 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- if (allThePixels[point] > 1 &amp;&amp; allThePixels[point] &lt; pixelsAnimated) {
+ if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
  initBuffer[point] = 255;
  initBuffer[point+1] = 255;
  initBuffer[point+2] = 255;
@@ -375,6 +374,15 @@ void main() {
  }
 
  renderer.setAnimationLoop(animate);
+
+ window.addEventListener('resize', function() {
+ width = window.innerWidth
+ height = window.innerHeight
+ camera.aspect = width / height;
+ camera.updateProjectionMatrix();
+ renderer.setSize(width, height);
+ init = true;
+ });
 
  orbit.addEventListener('change', function() {
  init = true;
@@ -972,24 +980,19 @@ void main() {
  }
  }
 &lt;/script>
+
 &lt;script type="module">
  import * as THREE from 'three';
  import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
- var rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+ var renderer = new THREE.WebGLRenderer({antialias: true});
  var width = document.querySelector('#stage').offsetWidth;
  var height = Math.round(9/16 * width);
-
- var renderer = new THREE.WebGLRenderer({antialias: true});
-
  renderer.setSize(width, height);
  document.querySelector('#stage').appendChild(renderer.domElement);
- const gl = renderer.getContext();
- gl.getExtension("EXT_color_buffer_float");
- gl.getExtension("EXT_float_blend");
 
  function get(path) {
- return document.querySelector(path).textContent;
+ return document.querySelector('#' + path).textContent;
  };
 
  const scene = new THREE.Scene();
@@ -1005,8 +1008,8 @@ void main() {
  solidScene.add(light);
  camera.position.set(6,8,14);
 
- var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
- var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat, type: THREE.FloatType})
+ var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+ var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
 
  const orbit = new OrbitControls(camera, renderer.domElement);
  orbit.update();
@@ -1021,8 +1024,8 @@ void main() {
  }
 
  const material = new THREE.ShaderMaterial({
- vertexShader: get('#outline-vert'),
- fragmentShader: get('#outline-frag'),
+ vertexShader: get('outline-vert'),
+ fragmentShader: get('outline-frag'),
  uniforms,
  transparent: true,
  });
@@ -1052,8 +1055,8 @@ void main() {
 
  const evoMaterial = new THREE.ShaderMaterial({
  // this is a copy shader
- vertexShader: get('#evolve-vert'),
- fragmentShader: get('#evolve-frag'),
+ vertexShader: get('evolve-vert'),
+ fragmentShader: get('evolve-frag'),
  uniforms: evoUniforms,
  transparent: true,
  });
@@ -1148,39 +1151,40 @@ void main() {
  //
  // This way we can quickly zero out all the pixels below a
  // threshold when timing the animation.
- function dijkstraNumber(points, allThePixels) {
+ function dijkstraNumber(points, buf) {
  points.forEach((point) => {
- dijkstraPropagate(point, allThePixels, 2)
+ dijkstraPropagate(point, buf, 2)
  })
  }
 
- function dijkstraPropagate(point, allThePixels, value) {
+ function dijkstraPropagate(point, buf, value) {
  let row = point[0]
  let col = point[1]
  let pos = 4 * (row * buffer.width + col);
- if (allThePixels[pos] != 1) {
+ if (buf[pos] != 1) {
  return
  }
  // propagate
- allThePixels[pos] = value;
- allThePixels[pos+1] = value;
- allThePixels[pos+2] = value;
- allThePixels[pos+3] = value;
+ buf[pos] = value;
+ buf[pos+1] = value;
+ buf[pos+2] = value;
+ buf[pos+3] = value;
 
- dijkstraPropagate([row - 1, col], allThePixels, value+1);
- dijkstraPropagate([row + 1, col], allThePixels, value+1);
- dijkstraPropagate([row, col - 1], allThePixels, value+1);
- dijkstraPropagate([row, col + 1], allThePixels, value+1);
- dijkstraPropagate([row - 1, col - 1], allThePixels, value+1);
- dijkstraPropagate([row + 1, col + 1], allThePixels, value+1);
- dijkstraPropagate([row + 1, col - 1], allThePixels, value+1);
- dijkstraPropagate([row - 1, col + 1], allThePixels, value+1);
+ dijkstraPropagate([row - 1, col], buf, value+1);
+ dijkstraPropagate([row + 1, col], buf, value+1);
+ dijkstraPropagate([row, col - 1], buf, value+1);
+ dijkstraPropagate([row, col + 1], buf, value+1);
+ dijkstraPropagate([row - 1, col - 1], buf, value+1);
+ dijkstraPropagate([row + 1, col + 1], buf, value+1);
+ dijkstraPropagate([row + 1, col - 1], buf, value+1);
+ dijkstraPropagate([row - 1, col + 1], buf, value+1);
  }
 
  const clock = new THREE.Clock();
  var longestPixelStrand = 0;
  var init = true;
- const allThePixels = new Float32Array( buffer.width * buffer.height * 4);
+ const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
+ const dijkstraBuffer = new Float32Array(buffer.width * buffer.height * 4);
  function animate() {
 
  if (init) {
@@ -1191,14 +1195,17 @@ void main() {
  renderer.render(scene, camera);
 
  renderer.readRenderTargetPixels(outlineBuffer, 0, 0, buffer.width, buffer.height, allThePixels);
+ for (let i = 0; i &lt; allThePixels.length; i++) {
+ dijkstraBuffer[i] = allThePixels[i] == 255 ? 1 : 0;
+ }
 
- 		let points = continuity(allThePixels, width, height)
- 		let dijkstraBuffer = dijkstraNumber(points, allThePixels)
-
+ 		let points = continuity(dijkstraBuffer, width, height)
+ 		dijkstraNumber(points, dijkstraBuffer)
+ 		
  for (let row = 0; row &lt; height; row++) {
  for(let col = 0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- longestPixelStrand = Math.max(longestPixelStrand, allThePixels[point])
+ longestPixelStrand = Math.max(longestPixelStrand, dijkstraBuffer[point])
  }
  }
 
@@ -1216,13 +1223,13 @@ void main() {
  evoUniforms.initBufferMask.value = ephemeralTex;
  init = false;
  }
- 	let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
- 	let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+ 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- if (allThePixels[point] > 1 &amp;&amp; allThePixels[point] &lt; pixelsAnimated) {
+ if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
  initBuffer[point] = 255;
  initBuffer[point+1] = 255;
  initBuffer[point+2] = 255;
@@ -1243,6 +1250,15 @@ void main() {
  }
 
  renderer.setAnimationLoop(animate);
+
+ window.addEventListener('resize', function() {
+ width = window.innerWidth
+ height = window.innerHeight
+ camera.aspect = width / height;
+ camera.updateProjectionMatrix();
+ renderer.setSize(width, height);
+ init = true;
+ });
 
  orbit.addEventListener('change', function() {
  init = true;
