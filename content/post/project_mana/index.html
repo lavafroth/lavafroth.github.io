@@ -1,5 +1,11 @@
 <div id="stage">
 </div>
+<style>
+canvas {
+    background: rgba(22, 22, 22, 1);
+    border-radius: 1rem;
+}
+</style>
 <script type="frag" id="evolve-vert">
 varying vec2 vUv;
 
@@ -104,7 +110,7 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-var renderer = new THREE.WebGLRenderer({antialias: true});
+var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
 renderer.setSize(width, height);
@@ -252,13 +258,9 @@ function continuity(bitmap, width, height) {
             }
 
             stack.push([row + 1, col])
-            // stack.push([row + 1, col + 1])
             stack.push([row, col + 1])
-            // stack.push([row - 1, col + 1])
             stack.push([row - 1, col])
-            // stack.push([row - 1, col - 1])
             stack.push([row, col - 1])
-            // stack.push([row + 1, col - 1])
 
         }
     }
@@ -412,5 +414,4 @@ window.addEventListener('resize', function() {
 orbit.addEventListener('change', function() {
     init = true;
 })
-
 </script>
