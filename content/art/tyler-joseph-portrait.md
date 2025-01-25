@@ -1,7 +1,7 @@
 ---
 title: "Truce"
 date: 2022-07-23T19:07:32+05:30
-image: "/truce.png"
+image: "/truce.avif"
 layout: artpiece
 draft: false
 ---
