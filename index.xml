@@ -5,6 +5,13 @@ is 5 seconds in this example.&lt;/p>
 
 &lt;div id="stage">
 &lt;/div>
+&lt;style>
+canvas {
+ background: transparent;
+ border-radius: 1rem;
+ margin-bottom: 1rem;
+}
+&lt;/style>
 &lt;script type="frag" id="evolve-vert">
 varying vec2 vUv;
 
@@ -109,7 +116,8 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-var renderer = new THREE.WebGLRenderer({antialias: true});
+let dark = bodyClx.contains("dark")
+var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
 renderer.setSize(width, height);
@@ -125,8 +133,8 @@ const maskScene = new THREE.Scene();
 const evolveScene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 const color = 0xFFFFFF;
-var light = new THREE.AmbientLight(color, 1);
-solidScene.add(light);
+var ambientLight = new THREE.AmbientLight(color, dark ? 1: 10);
+solidScene.add(ambientLight);
 var light = new THREE.PointLight(color, 200);
 light.position.set(10, 10, 15);
 solidScene.add(light);
@@ -154,15 +162,26 @@ const material = new THREE.ShaderMaterial({
  transparent: true,
 });
 
-const solidMesh = new THREE.Mesh(
- geometry,
- new THREE.MeshPhysicalMaterial({
- color: 0xaaeadb,
+var solidMeshMaterial = new THREE.MeshPhysicalMaterial({
+ color: dark ? 0xaaeadb : 0xffffff,
  metalness: 0.8,
  clearcoat: 0.4,
  clearcoatRoughness: 0.1,
- }),
+});
+
+const solidMesh = new THREE.Mesh(
+ geometry,
+ solidMeshMaterial,
 );
+
+btnDark.addEventListener('click', () => {
+ dark ^= true
+ solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
+ ambientLight.intensity = dark ? 1: 10;
+ solidMeshMaterial.needsUpdate = true;
+});
+
+
 
 const mesh = new THREE.Mesh(
  geometry,
@@ -257,13 +276,9 @@ function continuity(bitmap, width, height) {
  }
 
  stack.push([row + 1, col])
- // stack.push([row + 1, col + 1])
  stack.push([row, col + 1])
- // stack.push([row - 1, col + 1])
  stack.push([row - 1, col])
- // stack.push([row - 1, col - 1])
  stack.push([row, col - 1])
- // stack.push([row + 1, col - 1])
 
  }
  }
@@ -384,9 +399,9 @@ function animate() {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
  if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
- initBuffer[point] = 255;
- initBuffer[point+1] = 255;
- initBuffer[point+2] = 255;
+ initBuffer[point] = dark ? 255: 22;
+ initBuffer[point+1] = dark ? 255: 22;
+ initBuffer[point+2] = dark ? 255 : 22;
  initBuffer[point+3] = 255;
  }
  }
@@ -417,8 +432,11 @@ window.addEventListener('resize', function() {
 orbit.addEventListener('change', function() {
  init = true;
 })
+&lt;/script>
 
-&lt;/script></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
+
+&lt;blockquote>
+&lt;p>Try toggling the theme switcher (the sun or moon icon up in the header).&lt;/p></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
 start this year off by going back to the roots.&lt;/p>
 &lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
 &lt;em>SansAlpha&lt;/em> from PicoCTF. The challenge description states&lt;/p>
@@ -929,6 +947,13 @@ Additionally some might even keep &lt;code>builtins&lt;/code> and &lt;code>eval&
 injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
 Kudos to him for sharing this technique.&lt;/p></description></item><item><title/><link>https://lavafroth.is-a.dev/post/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/post/project_mana/</guid><description>&lt;div id="stage">
 &lt;/div>
+&lt;style>
+canvas {
+ background: transparent;
+ border-radius: 1rem;
+ margin-bottom: 1rem;
+}
+&lt;/style>
 &lt;script type="frag" id="evolve-vert">
 varying vec2 vUv;
 
@@ -1033,7 +1058,8 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-var renderer = new THREE.WebGLRenderer({antialias: true});
+let dark = bodyClx.contains("dark")
+var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
 renderer.setSize(width, height);
@@ -1049,8 +1075,8 @@ const maskScene = new THREE.Scene();
 const evolveScene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 const color = 0xFFFFFF;
-var light = new THREE.AmbientLight(color, 1);
-solidScene.add(light);
+var ambientLight = new THREE.AmbientLight(color, dark ? 1: 10);
+solidScene.add(ambientLight);
 var light = new THREE.PointLight(color, 200);
 light.position.set(10, 10, 15);
 solidScene.add(light);
@@ -1078,15 +1104,26 @@ const material = new THREE.ShaderMaterial({
  transparent: true,
 });
 
-const solidMesh = new THREE.Mesh(
- geometry,
- new THREE.MeshPhysicalMaterial({
- color: 0xaaeadb,
+var solidMeshMaterial = new THREE.MeshPhysicalMaterial({
+ color: dark ? 0xaaeadb : 0xffffff,
  metalness: 0.8,
  clearcoat: 0.4,
  clearcoatRoughness: 0.1,
- }),
+});
+
+const solidMesh = new THREE.Mesh(
+ geometry,
+ solidMeshMaterial,
 );
+
+btnDark.addEventListener('click', () => {
+ dark ^= true
+ solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
+ ambientLight.intensity = dark ? 1: 10;
+ solidMeshMaterial.needsUpdate = true;
+});
+
+
 
 const mesh = new THREE.Mesh(
  geometry,
@@ -1181,13 +1218,9 @@ function continuity(bitmap, width, height) {
  }
 
  stack.push([row + 1, col])
- // stack.push([row + 1, col + 1])
  stack.push([row, col + 1])
- // stack.push([row - 1, col + 1])
  stack.push([row - 1, col])
- // stack.push([row - 1, col - 1])
  stack.push([row, col - 1])
- // stack.push([row + 1, col - 1])
 
  }
  }
@@ -1308,9 +1341,9 @@ function animate() {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
  if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
- initBuffer[point] = 255;
- initBuffer[point+1] = 255;
- initBuffer[point+2] = 255;
+ initBuffer[point] = dark ? 255: 22;
+ initBuffer[point+1] = dark ? 255: 22;
+ initBuffer[point+2] = dark ? 255 : 22;
  initBuffer[point+3] = 255;
  }
  }
@@ -1341,5 +1374,4 @@ window.addEventListener('resize', function() {
 orbit.addEventListener('change', function() {
  init = true;
 })
-
 &lt;/script></description></item></channel></rss>
