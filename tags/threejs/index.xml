@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Animation on lavafroth</title><link>https://lavafroth.is-a.dev/tags/animation/</link><description>Recent content in Animation on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/animation/index.xml" rel="self" type="application/rss+xml"/><item><title>PROJECT_MANA Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ThreeJS on lavafroth</title><link>https://lavafroth.is-a.dev/tags/threejs/</link><description>Recent content in ThreeJS on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/threejs/index.xml" rel="self" type="application/rss+xml"/><item><title>PROJECT_MANA Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
 &lt;p>Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p>
 &lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
 is 5 seconds in this example.&lt;/p>
@@ -418,16 +418,4 @@ orbit.addEventListener('change', function() {
  init = true;
 })
 
-&lt;/script></description></item><item><title>2 Afternoons, 2 Languages, 2 TUIs</title><link>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</link><pubDate>Thu, 23 May 2024 18:37:47 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</guid><description>&lt;p>Yesterday I created a tool in Golang to help me render my animations a little
-faster. Although the alterior reason was to check my Golang proficiency, today
-I rewrote it in Rust and I was blown away by the differences in the final
-products.&lt;/p>
-&lt;p>When I&amp;rsquo;m rendering animations for a YouTube video, the general development
-iteration comprises me creating or modifying a file, switching to a different
-terminal pane and manually issuing a &lt;em>manim&lt;/em> command for the respective file to
-render and play the animation. My goal was to automate the last two processes,
-switching terminal panes and manually issuing a command. The idea is to have a
-tool running in the background that listens for filesystem events, like when a
-file gets created or modified, and if the file happens to contain an animation,
-renders it. On linux systems, it&amp;rsquo;s mostly a bunch of bindings to &lt;code>inotify&lt;/code> but I
-have used platform agnostic libraries for both the languages.&lt;/p></description></item></channel></rss>
+&lt;/script></description></item></channel></rss>

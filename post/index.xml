@@ -1,5 +1,5 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.is-a.dev/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Project Mana Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
-&lt;p>Feel free to look around. Rotate, zoom out or pan the 3D view.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.is-a.dev/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>PROJECT_MANA Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
+&lt;p>Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p>
 &lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
 is 5 seconds in this example.&lt;/p>
 
@@ -106,55 +106,55 @@ void main() {
 &lt;/script>
 
 &lt;script type="module">
- import * as THREE from 'three';
- import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
- var renderer = new THREE.WebGLRenderer({antialias: true});
- var width = document.querySelector('#stage').offsetWidth;
- var height = Math.round(9/16 * width);
- renderer.setSize(width, height);
- document.querySelector('#stage').appendChild(renderer.domElement);
+var renderer = new THREE.WebGLRenderer({antialias: true});
+var width = document.querySelector('#stage').offsetWidth;
+var height = Math.round(9/16 * width);
+renderer.setSize(width, height);
+document.querySelector('#stage').appendChild(renderer.domElement);
 
- function get(path) {
+function get(path) {
  return document.querySelector('#' + path).textContent;
- };
+};
 
- const scene = new THREE.Scene();
- const solidScene = new THREE.Scene();
- const maskScene = new THREE.Scene();
- const evolveScene = new THREE.Scene();
- const camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 1000 );
- const color = 0xFFFFFF;
- var light = new THREE.AmbientLight(color, 1);
- solidScene.add(light);
- var light = new THREE.PointLight(color, 200);
- light.position.set(10, 10, 15);
- solidScene.add(light);
- camera.position.set(6,8,14);
+const scene = new THREE.Scene();
+const solidScene = new THREE.Scene();
+const maskScene = new THREE.Scene();
+const evolveScene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+const color = 0xFFFFFF;
+var light = new THREE.AmbientLight(color, 1);
+solidScene.add(light);
+var light = new THREE.PointLight(color, 200);
+light.position.set(10, 10, 15);
+solidScene.add(light);
+camera.position.set(6,8,14);
 
- var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
- var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
 
- const orbit = new OrbitControls(camera, renderer.domElement);
- orbit.update();
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.update();
 
- const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
- geometry.translate(2, 2, 2);
+const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
+geometry.translate(2, 2, 2);
 
- const shadowMesh = new THREE.Mesh(geometry);
- const uniforms = {
+const shadowMesh = new THREE.Mesh(geometry);
+const uniforms = {
  gbufferMask: { value: buffer.texture },
  viewportSize: { value: new THREE.Vector2(width, height) },
- }
+}
 
- const material = new THREE.ShaderMaterial({
+const material = new THREE.ShaderMaterial({
  vertexShader: get('outline-vert'),
  fragmentShader: get('outline-frag'),
  uniforms,
  transparent: true,
- });
+});
 
- const solidMesh = new THREE.Mesh(
+const solidMesh = new THREE.Mesh(
  geometry,
  new THREE.MeshPhysicalMaterial({
  color: 0xaaeadb,
@@ -162,154 +162,191 @@ void main() {
  clearcoat: 0.4,
  clearcoatRoughness: 0.1,
  }),
- );
+);
 
- const mesh = new THREE.Mesh(
+const mesh = new THREE.Mesh(
  geometry,
  material
- );
- solidScene.add(solidMesh);
- scene.add(mesh);
- maskScene.add(shadowMesh);
+);
+solidScene.add(solidMesh);
+scene.add(mesh);
+maskScene.add(shadowMesh);
 
 
- const evoUniforms = {
+const evoUniforms = {
  initBufferMask: { value: null },
- }
+}
 
- const evoMaterial = new THREE.ShaderMaterial({
+const evoMaterial = new THREE.ShaderMaterial({
  // this is a copy shader
  vertexShader: get('evolve-vert'),
  fragmentShader: get('evolve-frag'),
  uniforms: evoUniforms,
  transparent: true,
- });
+});
 
- const evolveMesh = new THREE.Mesh(
+const evolveMesh = new THREE.Mesh(
  geometry,
  evoMaterial
- );
+);
 
- evolveScene.add(evolveMesh)
+evolveScene.add(evolveMesh)
 
- function continuity(bitmap, width, height) {
+function continuity(bitmap, width, height) {
  const visited = Array.from({length: height}, () => Array(width).fill(false));
 
  function valid(row, col) {
  return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
  }
 
- // for a point to be on the screen edge, it must have at least three
- // of its neighbors invalid
+ function valid_1(row, col) {
+ return valid(row, col) ? 1 : 0
+ }
+
+ // for a point to be on the screen edge, it must have at least three invalid neighbors.
+ // It must have at least six valid neighbors.
  function isSentinel(row, col) {
  return (
- Number(valid(row - 1, col - 1)) +
- Number(valid(row - 1, col)) +
- Number(valid(row - 1, col + 1)) +
+ valid_1(row - 1, col - 1) +
+ valid_1(row - 1, col) +
+ valid_1(row - 1, col + 1) +
 
- Number(valid(row, col - 1)) +
- Number(valid(row, col + 1)) +
+ valid_1(row, col - 1) +
+ valid_1(row, col + 1) +
 
- Number(valid(row + 1, col - 1)) +
- Number(valid(row + 1, col)) +
- Number(valid(row + 1, col + 1))
+ valid_1(row + 1, col - 1) +
+ valid_1(row + 1, col) +
+ valid_1(row + 1, col + 1)
  ) &lt; 6
  }
 
  var sentinels = [];
  var cyclic = [];
 
- function dfs(row, col, rootRow, rootCol, steps) {
+ function dfs_queue(rootRow, rootCol) {
+ var stack = [];
+ stack.push([rootRow, rootCol]);
 
- const pointIsRoot = row == rootRow &amp;&amp; col == rootCol;
+ var steps = 0;
 
- if (steps != 0 &amp;&amp; pointIsRoot) {
- cyclic.push([row, col]);
- return;
+ for(; ; steps++) {
+ let p = stack.pop();
+ if (p === undefined) {
+ return
+ }
+ let [row, col] = p
+ if (isSentinel(row, col)) {
+ sentinels.push([row, col]);
+ return
+ }
+
+ if (steps > 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
+ cyclic.push([row, col])
+ return
  }
 
  if (!valid(row, col) || visited[row][col]) {
- return;
+ return
  }
 
  // is this point switched off?
- var point = 4 * (row * width + col);
- if (bitmap[point+0] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
- return;
- }
-
  visited[row][col] = true;
- dfs(row - 1, col, rootRow, rootCol, steps + 1)
- dfs(row + 1, col, rootRow, rootCol, steps + 1)
- dfs(row, col - 1, rootRow, rootCol, steps + 1)
- dfs(row, col + 1, rootRow, rootCol, steps + 1)
-
- if (isSentinel(row, col) &amp;&amp; steps != 0) {
- sentinels.push([row, col]);
+ var point = 4 * (row * width + col);
+ if (bitmap[point] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
+ continue;
  }
- return;
+
+ stack.push([row + 1, col])
+ // stack.push([row + 1, col + 1])
+ stack.push([row, col + 1])
+ // stack.push([row - 1, col + 1])
+ stack.push([row - 1, col])
+ // stack.push([row - 1, col - 1])
+ stack.push([row, col - 1])
+ // stack.push([row + 1, col - 1])
+
+ }
  }
 
  for (let row = 0; row &lt; height; row++) {
- for(let col=0; col &lt; width; col++) {
+ for(let col = 0; col &lt; width; col++) {
  if (visited[row][col]) {
  continue;
  }
  var point = 4 * (row * width + col);
  if (bitmap[point] == 1 &amp;&amp; bitmap[point+1] == 1 &amp;&amp; bitmap[point+2] == 1) {
- dfs(row, col, row, col, 0);
+ dfs_queue(row, col);
  }
  }
  }
 
- return cyclic.concat(sentinels);
- }
+ // Always prefer the sentinels to the cyclics
+ // since walking back a line also ends up in a cycle.
+ // Start waveforms from the sentinels (endpoints),
+ // mark all the visited points. If there remain unvisited
+ // points, those are legitimately parts of cyclic paths.
+ return sentinels.concat(cyclic);
+}
 
- var durationInSeconds = 5;
+var durationInSeconds = 5;
 
- // @param {Float32Array[]} points
- // @param {Float32Array} allThePixels
- // Number all the points as we stumble along the outline.
- // Akin to a wavefront. The pixels switched on (value = 1)
- // touching the wavefront at time t will have a value t + 2
- //
- // This way we can quickly zero out all the pixels below a
- // threshold when timing the animation.
- function dijkstraNumber(points, buf) {
+// @param {Float32Array[]} points
+// @param {Uint32Array} allThePixels
+// Number all the points as we stumble along the outline.
+// Akin to a wavefront. The pixels switched on (value = 1)
+// touching the wavefront at time t will have a value t + 2
+//
+// This way we can quickly zero out all the pixels below a
+// threshold when timing the animation.
+function dijkstraNumber(points, buf) {
+ var longestStrand = 2;
  points.forEach((point) => {
- dijkstraPropagate(point, buf, 2)
+ longestStrand = Math.max(longestStrand, dijkstraPropagate(point, buf, 2))
  })
- }
+ return longestStrand
+}
 
- function dijkstraPropagate(point, buf, value) {
- let row = point[0]
- let col = point[1]
+function dijkstraPropagate(point, buf, value) {
+ var queue = [[point]];
+ for (; ;) {
+ let neighbors = queue.pop()
+ if (neighbors === undefined) {
+ return value
+ }
+ neighbors.forEach(([row, col]) => {
  let pos = 4 * (row * buffer.width + col);
  if (buf[pos] != 1) {
  return
  }
- // propagate
+
  buf[pos] = value;
  buf[pos+1] = value;
  buf[pos+2] = value;
  buf[pos+3] = value;
+ value += 1
 
- dijkstraPropagate([row - 1, col], buf, value+1);
- dijkstraPropagate([row + 1, col], buf, value+1);
- dijkstraPropagate([row, col - 1], buf, value+1);
- dijkstraPropagate([row, col + 1], buf, value+1);
- dijkstraPropagate([row - 1, col - 1], buf, value+1);
- dijkstraPropagate([row + 1, col + 1], buf, value+1);
- dijkstraPropagate([row + 1, col - 1], buf, value+1);
- dijkstraPropagate([row - 1, col + 1], buf, value+1);
+ // package all the neighboring points and
+ // push them onto the stack
+ queue.push([
+ [row + 1, col],
+ [row + 1, col + 1],
+ [row, col + 1],
+ [row - 1, col + 1],
+ [row - 1, col],
+ [row - 1, col - 1],
+ [row, col - 1],
+ [row + 1, col - 1]
+ ])
+ })
  }
+}
 
- const clock = new THREE.Clock();
- var longestPixelStrand = 0;
- var init = true;
- const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
- const dijkstraBuffer = new Float32Array(buffer.width * buffer.height * 4);
- function animate() {
+const clock = new THREE.Clock();
+var longestPixelStrand = 0;
+var init = true;
+const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
+const dijkstraBuffer = new Uint32Array(buffer.width * buffer.height * 4);
+function animate() {
 
  if (init) {
  renderer.setRenderTarget(buffer);
@@ -324,14 +361,7 @@ void main() {
  }
 
  		let points = continuity(dijkstraBuffer, width, height)
- 		dijkstraNumber(points, dijkstraBuffer)
- 		
- for (let row = 0; row &lt; height; row++) {
- for(let col = 0; col&lt;width; col++) {
- var point = 4 * (row * width + col);
- longestPixelStrand = Math.max(longestPixelStrand, dijkstraBuffer[point])
- }
- }
+ 		longestPixelStrand = dijkstraNumber(points, dijkstraBuffer)
 
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  points.forEach((point) => {
@@ -347,8 +377,8 @@ void main() {
  evoUniforms.initBufferMask.value = ephemeralTex;
  init = false;
  }
- 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
- 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
@@ -371,13 +401,23 @@ void main() {
  renderer.clearDepth();
  renderer.render(evolveScene, camera);
  renderer.autoClear = true;
- }
+}
 
- renderer.setAnimationLoop(animate);
+renderer.setAnimationLoop(animate);
 
- orbit.addEventListener('change', function() {
+window.addEventListener('resize', function() {
+ width = window.innerWidth
+ height = window.innerHeight
+ camera.aspect = width / height;
+ camera.updateProjectionMatrix();
+ renderer.setSize(width, height);
  init = true;
- })
+});
+
+orbit.addEventListener('change', function() {
+ init = true;
+})
+
 &lt;/script></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
 start this year off by going back to the roots.&lt;/p>
 &lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
@@ -973,55 +1013,55 @@ void main() {
 &lt;/script>
 
 &lt;script type="module">
- import * as THREE from 'three';
- import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
- var renderer = new THREE.WebGLRenderer({antialias: true});
- var width = document.querySelector('#stage').offsetWidth;
- var height = Math.round(9/16 * width);
- renderer.setSize(width, height);
- document.querySelector('#stage').appendChild(renderer.domElement);
+var renderer = new THREE.WebGLRenderer({antialias: true});
+var width = document.querySelector('#stage').offsetWidth;
+var height = Math.round(9/16 * width);
+renderer.setSize(width, height);
+document.querySelector('#stage').appendChild(renderer.domElement);
 
- function get(path) {
+function get(path) {
  return document.querySelector('#' + path).textContent;
- };
+};
 
- const scene = new THREE.Scene();
- const solidScene = new THREE.Scene();
- const maskScene = new THREE.Scene();
- const evolveScene = new THREE.Scene();
- const camera = new THREE.PerspectiveCamera( 45, width / height, 0.1, 1000 );
- const color = 0xFFFFFF;
- var light = new THREE.AmbientLight(color, 1);
- solidScene.add(light);
- var light = new THREE.PointLight(color, 200);
- light.position.set(10, 10, 15);
- solidScene.add(light);
- camera.position.set(6,8,14);
+const scene = new THREE.Scene();
+const solidScene = new THREE.Scene();
+const maskScene = new THREE.Scene();
+const evolveScene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+const color = 0xFFFFFF;
+var light = new THREE.AmbientLight(color, 1);
+solidScene.add(light);
+var light = new THREE.PointLight(color, 200);
+light.position.set(10, 10, 15);
+solidScene.add(light);
+camera.position.set(6,8,14);
 
- var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
- var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
 
- const orbit = new OrbitControls(camera, renderer.domElement);
- orbit.update();
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.update();
 
- const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
- geometry.translate(2, 2, 2);
+const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
+geometry.translate(2, 2, 2);
 
- const shadowMesh = new THREE.Mesh(geometry);
- const uniforms = {
+const shadowMesh = new THREE.Mesh(geometry);
+const uniforms = {
  gbufferMask: { value: buffer.texture },
  viewportSize: { value: new THREE.Vector2(width, height) },
- }
+}
 
- const material = new THREE.ShaderMaterial({
+const material = new THREE.ShaderMaterial({
  vertexShader: get('outline-vert'),
  fragmentShader: get('outline-frag'),
  uniforms,
  transparent: true,
- });
+});
 
- const solidMesh = new THREE.Mesh(
+const solidMesh = new THREE.Mesh(
  geometry,
  new THREE.MeshPhysicalMaterial({
  color: 0xaaeadb,
@@ -1029,154 +1069,191 @@ void main() {
  clearcoat: 0.4,
  clearcoatRoughness: 0.1,
  }),
- );
+);
 
- const mesh = new THREE.Mesh(
+const mesh = new THREE.Mesh(
  geometry,
  material
- );
- solidScene.add(solidMesh);
- scene.add(mesh);
- maskScene.add(shadowMesh);
+);
+solidScene.add(solidMesh);
+scene.add(mesh);
+maskScene.add(shadowMesh);
 
 
- const evoUniforms = {
+const evoUniforms = {
  initBufferMask: { value: null },
- }
+}
 
- const evoMaterial = new THREE.ShaderMaterial({
+const evoMaterial = new THREE.ShaderMaterial({
  // this is a copy shader
  vertexShader: get('evolve-vert'),
  fragmentShader: get('evolve-frag'),
  uniforms: evoUniforms,
  transparent: true,
- });
+});
 
- const evolveMesh = new THREE.Mesh(
+const evolveMesh = new THREE.Mesh(
  geometry,
  evoMaterial
- );
+);
 
- evolveScene.add(evolveMesh)
+evolveScene.add(evolveMesh)
 
- function continuity(bitmap, width, height) {
+function continuity(bitmap, width, height) {
  const visited = Array.from({length: height}, () => Array(width).fill(false));
 
  function valid(row, col) {
  return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
  }
 
- // for a point to be on the screen edge, it must have at least three
- // of its neighbors invalid
+ function valid_1(row, col) {
+ return valid(row, col) ? 1 : 0
+ }
+
+ // for a point to be on the screen edge, it must have at least three invalid neighbors.
+ // It must have at least six valid neighbors.
  function isSentinel(row, col) {
  return (
- Number(valid(row - 1, col - 1)) +
- Number(valid(row - 1, col)) +
- Number(valid(row - 1, col + 1)) +
+ valid_1(row - 1, col - 1) +
+ valid_1(row - 1, col) +
+ valid_1(row - 1, col + 1) +
 
- Number(valid(row, col - 1)) +
- Number(valid(row, col + 1)) +
+ valid_1(row, col - 1) +
+ valid_1(row, col + 1) +
 
- Number(valid(row + 1, col - 1)) +
- Number(valid(row + 1, col)) +
- Number(valid(row + 1, col + 1))
+ valid_1(row + 1, col - 1) +
+ valid_1(row + 1, col) +
+ valid_1(row + 1, col + 1)
  ) &lt; 6
  }
 
  var sentinels = [];
  var cyclic = [];
 
- function dfs(row, col, rootRow, rootCol, steps) {
+ function dfs_queue(rootRow, rootCol) {
+ var stack = [];
+ stack.push([rootRow, rootCol]);
 
- const pointIsRoot = row == rootRow &amp;&amp; col == rootCol;
+ var steps = 0;
 
- if (steps != 0 &amp;&amp; pointIsRoot) {
- cyclic.push([row, col]);
- return;
+ for(; ; steps++) {
+ let p = stack.pop();
+ if (p === undefined) {
+ return
+ }
+ let [row, col] = p
+ if (isSentinel(row, col)) {
+ sentinels.push([row, col]);
+ return
+ }
+
+ if (steps > 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
+ cyclic.push([row, col])
+ return
  }
 
  if (!valid(row, col) || visited[row][col]) {
- return;
+ return
  }
 
  // is this point switched off?
- var point = 4 * (row * width + col);
- if (bitmap[point+0] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
- return;
- }
-
  visited[row][col] = true;
- dfs(row - 1, col, rootRow, rootCol, steps + 1)
- dfs(row + 1, col, rootRow, rootCol, steps + 1)
- dfs(row, col - 1, rootRow, rootCol, steps + 1)
- dfs(row, col + 1, rootRow, rootCol, steps + 1)
-
- if (isSentinel(row, col) &amp;&amp; steps != 0) {
- sentinels.push([row, col]);
+ var point = 4 * (row * width + col);
+ if (bitmap[point] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
+ continue;
  }
- return;
+
+ stack.push([row + 1, col])
+ // stack.push([row + 1, col + 1])
+ stack.push([row, col + 1])
+ // stack.push([row - 1, col + 1])
+ stack.push([row - 1, col])
+ // stack.push([row - 1, col - 1])
+ stack.push([row, col - 1])
+ // stack.push([row + 1, col - 1])
+
+ }
  }
 
  for (let row = 0; row &lt; height; row++) {
- for(let col=0; col &lt; width; col++) {
+ for(let col = 0; col &lt; width; col++) {
  if (visited[row][col]) {
  continue;
  }
  var point = 4 * (row * width + col);
  if (bitmap[point] == 1 &amp;&amp; bitmap[point+1] == 1 &amp;&amp; bitmap[point+2] == 1) {
- dfs(row, col, row, col, 0);
+ dfs_queue(row, col);
  }
  }
  }
 
- return cyclic.concat(sentinels);
- }
+ // Always prefer the sentinels to the cyclics
+ // since walking back a line also ends up in a cycle.
+ // Start waveforms from the sentinels (endpoints),
+ // mark all the visited points. If there remain unvisited
+ // points, those are legitimately parts of cyclic paths.
+ return sentinels.concat(cyclic);
+}
 
- var durationInSeconds = 5;
+var durationInSeconds = 5;
 
- // @param {Float32Array[]} points
- // @param {Float32Array} allThePixels
- // Number all the points as we stumble along the outline.
- // Akin to a wavefront. The pixels switched on (value = 1)
- // touching the wavefront at time t will have a value t + 2
- //
- // This way we can quickly zero out all the pixels below a
- // threshold when timing the animation.
- function dijkstraNumber(points, buf) {
+// @param {Float32Array[]} points
+// @param {Uint32Array} allThePixels
+// Number all the points as we stumble along the outline.
+// Akin to a wavefront. The pixels switched on (value = 1)
+// touching the wavefront at time t will have a value t + 2
+//
+// This way we can quickly zero out all the pixels below a
+// threshold when timing the animation.
+function dijkstraNumber(points, buf) {
+ var longestStrand = 2;
  points.forEach((point) => {
- dijkstraPropagate(point, buf, 2)
+ longestStrand = Math.max(longestStrand, dijkstraPropagate(point, buf, 2))
  })
- }
+ return longestStrand
+}
 
- function dijkstraPropagate(point, buf, value) {
- let row = point[0]
- let col = point[1]
+function dijkstraPropagate(point, buf, value) {
+ var queue = [[point]];
+ for (; ;) {
+ let neighbors = queue.pop()
+ if (neighbors === undefined) {
+ return value
+ }
+ neighbors.forEach(([row, col]) => {
  let pos = 4 * (row * buffer.width + col);
  if (buf[pos] != 1) {
  return
  }
- // propagate
+
  buf[pos] = value;
  buf[pos+1] = value;
  buf[pos+2] = value;
  buf[pos+3] = value;
+ value += 1
 
- dijkstraPropagate([row - 1, col], buf, value+1);
- dijkstraPropagate([row + 1, col], buf, value+1);
- dijkstraPropagate([row, col - 1], buf, value+1);
- dijkstraPropagate([row, col + 1], buf, value+1);
- dijkstraPropagate([row - 1, col - 1], buf, value+1);
- dijkstraPropagate([row + 1, col + 1], buf, value+1);
- dijkstraPropagate([row + 1, col - 1], buf, value+1);
- dijkstraPropagate([row - 1, col + 1], buf, value+1);
+ // package all the neighboring points and
+ // push them onto the stack
+ queue.push([
+ [row + 1, col],
+ [row + 1, col + 1],
+ [row, col + 1],
+ [row - 1, col + 1],
+ [row - 1, col],
+ [row - 1, col - 1],
+ [row, col - 1],
+ [row + 1, col - 1]
+ ])
+ })
  }
+}
 
- const clock = new THREE.Clock();
- var longestPixelStrand = 0;
- var init = true;
- const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
- const dijkstraBuffer = new Float32Array(buffer.width * buffer.height * 4);
- function animate() {
+const clock = new THREE.Clock();
+var longestPixelStrand = 0;
+var init = true;
+const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
+const dijkstraBuffer = new Uint32Array(buffer.width * buffer.height * 4);
+function animate() {
 
  if (init) {
  renderer.setRenderTarget(buffer);
@@ -1191,14 +1268,7 @@ void main() {
  }
 
  		let points = continuity(dijkstraBuffer, width, height)
- 		dijkstraNumber(points, dijkstraBuffer)
- 		
- for (let row = 0; row &lt; height; row++) {
- for(let col = 0; col&lt;width; col++) {
- var point = 4 * (row * width + col);
- longestPixelStrand = Math.max(longestPixelStrand, dijkstraBuffer[point])
- }
- }
+ 		longestPixelStrand = dijkstraNumber(points, dijkstraBuffer)
 
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  points.forEach((point) => {
@@ -1214,8 +1284,8 @@ void main() {
  evoUniforms.initBufferMask.value = ephemeralTex;
  init = false;
  }
- 		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
- 		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
@@ -1238,11 +1308,21 @@ void main() {
  renderer.clearDepth();
  renderer.render(evolveScene, camera);
  renderer.autoClear = true;
- }
+}
 
- renderer.setAnimationLoop(animate);
+renderer.setAnimationLoop(animate);
 
- orbit.addEventListener('change', function() {
+window.addEventListener('resize', function() {
+ width = window.innerWidth
+ height = window.innerHeight
+ camera.aspect = width / height;
+ camera.updateProjectionMatrix();
+ renderer.setSize(width, height);
  init = true;
- })
+});
+
+orbit.addEventListener('change', function() {
+ init = true;
+})
+
 &lt;/script></description></item></channel></rss>
