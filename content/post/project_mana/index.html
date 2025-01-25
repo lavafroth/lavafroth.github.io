@@ -2,8 +2,9 @@
 </div>
 <style>
 canvas {
-    background: rgba(22, 22, 22, 1);
+    background: transparent;
     border-radius: 1rem;
+    margin-bottom: 1rem;
 }
 </style>
 <script type="frag" id="evolve-vert">
@@ -110,6 +111,7 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
+let dark = bodyClx.contains("dark")
 var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
@@ -126,8 +128,8 @@ const maskScene = new THREE.Scene();
 const evolveScene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 const color = 0xFFFFFF;
-var light = new THREE.AmbientLight(color, 1);
-solidScene.add(light);
+var ambientLight = new THREE.AmbientLight(color, dark ? 1: 10);
+solidScene.add(ambientLight);
 var light = new THREE.PointLight(color, 200);
 light.position.set(10, 10, 15);
 solidScene.add(light);
@@ -155,15 +157,26 @@ const material = new THREE.ShaderMaterial({
     transparent: true,
 });
 
+var solidMeshMaterial = new THREE.MeshPhysicalMaterial({
+    color: dark ? 0xaaeadb : 0xffffff,
+    metalness: 0.8,
+    clearcoat: 0.4,
+    clearcoatRoughness: 0.1,
+});
+
 const solidMesh = new THREE.Mesh(
     geometry,
-    new THREE.MeshPhysicalMaterial({
-        color: 0xaaeadb,
-        metalness: 0.8,
-        clearcoat: 0.4,
-        clearcoatRoughness: 0.1,
-    }),
+    solidMeshMaterial,
 );
+
+btnDark.addEventListener('click', () => {
+    dark ^= true
+    solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
+    ambientLight.intensity = dark ? 1: 10;
+    solidMeshMaterial.needsUpdate = true;
+});
+
+
 
 const mesh = new THREE.Mesh(
     geometry,
@@ -381,9 +394,9 @@ function animate() {
         for(let col=0; col<width; col++) {
             var point = 4 * (row * width + col);
             if (dijkstraBuffer[point] > 1 && dijkstraBuffer[point] < pixelsAnimated) {
-                initBuffer[point] = 255;
-                initBuffer[point+1] = 255;
-                initBuffer[point+2] = 255;
+                initBuffer[point] = dark ? 255: 22;
+                initBuffer[point+1] = dark ? 255: 22;
+                initBuffer[point+2] = dark ? 255 : 22;
                 initBuffer[point+3] = 255;
             }
         }
