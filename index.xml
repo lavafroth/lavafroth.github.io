@@ -455,12 +455,10 @@ I have developed over this summer.&lt;/p>
 in a separate repository called &lt;a href="https://github.com/waycrate/sweet">SWEET&lt;/a> using a Rust framework
 called &lt;a href="https://pest.rs">pest.rs&lt;/a>. Quite a lot of time was
 spent in modelling the architecture of the syntax tree for our domain specific language.&lt;/p></description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote>
-&lt;p>Note: The method described in this article should only be used if you wish to have the latest version of CUDA that is
-not yet available in the cuda-maintainers cache, otherwise follow &lt;a href="https://app.cachix.org/cache/cuda-maintainers#pull">this&lt;/a>.&lt;/p>
-&lt;/blockquote>
+&lt;p>Note: Use the following method only if you wish to have the latest version of CUDA that is
+not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache">this&lt;/a>.&lt;/p>&lt;/blockquote>
 &lt;blockquote>
-&lt;p>&lt;em>TL;DR:&lt;/em> Save &lt;a href="#the-flake">this flake&lt;/a>, run &lt;code>nix develop&lt;/code> and &lt;a href="#setting-up-pytorch">setup PyTorch as described&lt;/a>&lt;/p>
-&lt;/blockquote>
+&lt;p>&lt;em>TL;DR:&lt;/em> Save &lt;a href="#the-flake">this flake&lt;/a>, run &lt;code>nix develop&lt;/code> and &lt;a href="#setting-up-pytorch">setup PyTorch as described&lt;/a>&lt;/p>&lt;/blockquote>
 &lt;p>&lt;a href="https://en.wikipedia.org/wiki/CUDA">CUDA&lt;/a> is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.
@@ -567,8 +565,7 @@ I must warn you, I was unable to finish all the challenges due to other life eve
 &lt;p>This is a sanity check question to kick the tires. The answer to it simply is
 &lt;code>answer&lt;/code>.&lt;/p></description></item><item><title>Abstracting Structured Patterns in Concurrent Programming</title><link>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</link><pubDate>Wed, 06 Dec 2023 10:58:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</guid><description>&lt;blockquote>
 &lt;p>I hope this article provides a solid blueprint for building a concurrency management API.
-If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues">issue tracker&lt;/a> or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions">discussion board&lt;/a>.&lt;/p>
-&lt;/blockquote>
+If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues">issue tracker&lt;/a> or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions">discussion board&lt;/a>.&lt;/p>&lt;/blockquote>
 &lt;p>In recent months, I have come across multiple articles talking about the need
 of structured concurrency in modern programming languages as a built-in. Notably, in the article &lt;a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/">Notes on structured concurrency, or: Go statement considered harmful&lt;/a>,
 the author compares the &lt;code>go&lt;/code> statement used to spawn coroutines to &lt;code>goto&lt;/code> statements used
