@@ -13,8 +13,8 @@ tags:
 draft: false
 ---
 
-> Note: The method described in this article should only be used if you wish to have the latest version of CUDA that is
-not yet available in the cuda-maintainers cache, otherwise follow [this](https://app.cachix.org/cache/cuda-maintainers#pull).
+> Note: Use the following method only if you wish to have the latest version of CUDA that is
+not yet available in the nix-community cache, otherwise follow [this](https://nix-community.org/cache).
 
 > *TL;DR:* Save [this flake](#the-flake), run `nix develop` and [setup PyTorch as described](#setting-up-pytorch)
 
@@ -136,9 +136,8 @@ Once the env gets created, use `micromamba activate my-environment` to hop right
 
 # Conclusion
 
-Although this is not the Nix way of doing things with micromamba able to be used imeperatively, this is probably the quickest
-and most hassle free experience to start ML stuff on NixOS. I've seen quite a lot of people on both the internet and in real life
-giving up on NixOS because of how annoying closed source libraries like CUDA can be.
+Although this is not the Nix way of doing things, with micromamba being imeperative, this is probably the quickest
+and most hassle free experience to start ML stuff on NixOS. I've seen quite a lot of friends giving up on NixOS because of how annoying closed source libraries like CUDA can be.
 
 Share this article around if you found this hacky approach to have improved your developer experience. I'm banking on open source alternatives to pick up steam
 so that hopefully this article becomes irrelevant in the future.
