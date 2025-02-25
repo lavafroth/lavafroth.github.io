@@ -33,3 +33,16 @@ markup:
     noHl: false
     style: monokai
     tabWidth: 4
+  goldmark:
+    extensions:
+      passthrough:
+        delimiters:
+          block:
+          - - \[
+            - \]
+          - - $$
+            - $$
+          inline:
+          - - \(
+            - \)
+        enable: true
