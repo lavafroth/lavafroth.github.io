@@ -262,33 +262,19 @@ The right shift operation (`>>`) implies division by 2 to the power of something
 
 When considered as a purely mathematical expression, we can perform the following simplification.
 
-{{< math volcano-expression-0.svg >}}
-
-{{< math "volcano-expression-1.svg" >}}
-
-{{< math "volcano-expression-0.svg" >}}
-
-{{< math "volcano-expression-1.svg" >}}
-
-{{< math "volcano-expression-2.svg" >}}
-
-{{< math "volcano-expression-3.svg" >}}
-
-{{< math "volcano-expression-4.svg" >}}
-
-{{< math "volcano-expression-5.svg" >}}
+$$ b - 7 \times \frac{1}{2^2}(\frac{1}{2^1}(b-\frac{b}{7}) + \frac{b}{7}) $$
+$$ = b - \frac{7}{4}(\frac{1}{2}(\frac{6b}{7}) + \frac{b}{7}) $$
+$$ = b - \frac{7}{4}(\frac{1}{2} \times \frac{6b}{7} + \frac{b}{7}) $$
+$$ = b - \frac{7}{4}(\frac{3b}{7} + \frac{b}{7}) $$
+$$ = b - \frac{7}{4}(\frac{4b}{7}) $$
 
 We can cancel the 4s in the numerator since they were results of the shift operations.
 
-{{< math "volcano-expression-6.svg" >}}
+$$ = b - 7 \times \frac{b}{7} $$
 
 However, we cannot cancel out the 7s since they were part of the C division.
 Remember, the divison operation in C results in the truncated integer quotient, not a floating point number.
-This means 
-
-{{< math "volcano-expression-7.svg" >}}
-
-here gives us the largest multiple of 7 below `b`.
+This means \( 7 \times \frac{b}{7} \) here gives us the largest multiple of 7 below `b`.
 
 Another way to think of it is the part of `b` that is divisible by 7, leaving out the remainder.
 

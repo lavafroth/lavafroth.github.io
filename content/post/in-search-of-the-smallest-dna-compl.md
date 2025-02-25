@@ -65,7 +65,7 @@ Here's one more example for `c` at 99, mapping to `g` at 103.
 
 $$ 99^4x_{4} + 99^3x_{3} + 99^2x_{2} + 99^1x_{1} + 99^0x_{0} = 103 $$
 
-In general, we have a matrix representing a linear map from \( R^5 \) to  \( R^5 \).
+In general, we have a matrix representing a linear map from \( \mathbf{R}^5 \) to  \( \mathbf{R}^5 \).
 
 $$
 \begin{bmatrix}
