@@ -186,7 +186,6 @@ a {
 
 table {
   width: 100%;
-  border-spacing: 0;
   border-collapse: collapse;
 }
 
@@ -619,7 +618,7 @@ img {
 
 .post-content table th,
 .post-content table:not(.highlighttable) td {
-  min-width: 10rem;
+  word-break: normal;
   padding: 1.5rem 1rem;
   line-height: 1.5;
   border-bottom: 1px solid var(--fog);
@@ -651,7 +650,7 @@ img {
   margin-bottom: 0;
 }
 
-/* table */
+/* table, */
 .post-content .highlighttable {
   table-layout: fixed;
 }
