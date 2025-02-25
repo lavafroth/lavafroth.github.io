@@ -21,6 +21,9 @@
   {{ $font := resources.Get "LeagueGothic.ttf" }}
   <link rel="prefetch" as="font" href="{{ $font.Permalink }}" />
 
+  {{ $font := resources.Get "latinmodern-math.otf" }}
+  <link as="font" href="{{ $font.Permalink }}" />
+
 	{{ range .Site.Params.socials }}
   <link rel="preload" as="image" href="{{ printf `%s.svg` .platform | absURL }}" />
   {{ end }}

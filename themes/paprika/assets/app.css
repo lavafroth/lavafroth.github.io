@@ -27,6 +27,11 @@ video {
   border-radius: 1rem;
 }
 
+math {
+  font-family: LatinModern;
+  font-size: 2.5rem;
+}
+
 .list-tag {
   background: rgba(var(--dark),.05);
   color: var(--lit);
@@ -823,6 +828,11 @@ img {
 @font-face {
   font-family: LeagueGothic;
   src: url(LeagueGothic.ttf);
+  font-display: swap;
+}
+@font-face {
+  font-family: LatinModern;
+  src: url(latinmodern-math.otf);
   font-display: swap;
 }
 @keyframes outline {
