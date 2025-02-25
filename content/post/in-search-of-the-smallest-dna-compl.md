@@ -45,20 +45,22 @@ Now, let's examine the different ways we can approach the problem.
 
 ## Matrices and polynomials
 
-We can setup a set of polynomials, with the coefficients being the ith powers of the ASCII
-numbers.
+The crux of this method relies on the existence of a vector \(\vec{\mathbf{v}}\) such that for each input character \(p\)
+and the complement \(q\),
 
-Consider the input `a` and the corresponding output `t`. The ASCII value of `a` is 97, implying
-each coefficient in the polynomial is going to be an increasing power of 97.
+$$ \vec{\mathbf{v}} \cdot (p^4, p^3, p^2, p^1, p^0) = q $$
+
+
+Consider the input character 'a' and the corresponding output 't'.
+We substitute p and q in the previous expression with the ASCII values 97 and 116 respectively to get
+the following polynomial.
 
 $$ 97^4x_{4} + 97^3x_{3} + 97^2x_{2} + 97^1x_{1} + 97^0x_{0} = 116 $$
 
-The result on evaulating the polynomial is 116, the ASCII value of `t`.
+We can setup a system of polynomials for the remaining mappings in the same way.
+This gives us 5 equations, which is precisely why we chose 5 coefficients in \(\vec{\mathbf{v}}\).
 
-Why use 5 x's?
-
-Well, we can construct 5 equations for `a`, `t`, `g`, `c` and `n` respectively.
-If we have more equations than unknowns, we are being redundant. Whereas, having
+If we had more equations than unknowns, we would have been redundant. Whereas,
 more unknowns than equations yields infinitely many solutions.
 
 Here's one more example for `c` at 99, mapping to `g` at 103.

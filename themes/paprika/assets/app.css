@@ -29,7 +29,14 @@ video {
 
 math {
   font-family: LatinModern;
-  font-size: 2.5rem;
+  width: 100%;
+  font-size:2.5rem;
+}
+
+.katex:has(math[display="block"]) {
+  display: block;
+  overflow-x: scroll;
+  overflow-y: clip;
 }
 
 .list-tag {
