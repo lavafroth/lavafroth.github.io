@@ -21,8 +21,8 @@ Lastly, we will stick to lowercase characters and not deal with RNA bases for th
 
 Here's what the mapping would look like:
 
- |
---|-|-|-|-|-
+  |  |  |  |  |
+--|--|--|--|--|--
 Input | a | t | c | g | n
 Output | t | a | g | c | n
 
@@ -55,9 +55,9 @@ $$ 97^4x_{4} + 97^3x_{3} + 97^2x_{2} + 97^1x_{1} + 97^0x_{0} = 116 $$
 
 The result on evaulating the polynomial is 116, the ASCII value of `t`.
 
-Why are we using 5 x's?
+Why use 5 x's?
 
-Well, note that we can construct 5 equations for a, t, g, c and n respectively.
+Well, we can construct 5 equations for `a`, `t`, `g`, `c` and `n` respectively.
 If we have more equations than unknowns, we are being redundant. Whereas, having
 more unknowns than equations yields infinitely many solutions.
 
@@ -120,11 +120,12 @@ for n in range(-1000, 1000):
         mat.append(row)
 
     coeffs = Matrix(mat).rref()[0][:, -1]
-    # prioritize zeros
-    # if a coefficient is 0, we can skip raising x to some power
+
     if 0 in coeffs:
         print(f'{n} -> {coeffs}')
 ```
+
+We prioritize coefficients that contain zeros since they allow us to completely skip evaluating a term in the resulting polynomial.
 
 Running the above experiment yields us just one polynomial where one of the coefficients is 0.
 
