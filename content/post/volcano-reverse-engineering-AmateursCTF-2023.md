@@ -340,20 +340,22 @@ How do we make sure that the results are equal if there is so much of pseudo-ran
 Our best option is to somehow have the `mod` variable as 1 since anything times 1 is itself.
 The return value in such a case is bound to its initial value of 1 for any non-zero proof value.
 
-For this to happen, `leet % proof` must be equal to 1. Noting that 0x1337 (4919) is the only value passed as leet,
+For this to happen, `leet % proof` must be equal to 1. Let's call the proof \(p\).  
+With 0x1337 being the only value passed as `leet`,
 we have the constraint
 
-{{< math "volcano-expression-8.svg" >}}
+$$0x1337 \equiv 1 \pmod{p}$$
 
-The congruence can be rewritten as:
+Let's convert the hexadecimal number to decimal.
 
-{{< math "volcano-expression-9.svg" >}}
+$$4919 \equiv 1 \pmod{p}$$
 
-{{< math "volcano-expression-10.svg" >}}
+$$\implies 4919 - 1 \equiv 0 \pmod{p}$$
+$$\implies 4918 \equiv 0 \pmod{p}$$
 
-{{< math "volcano-expression-11.svg" >}}
+Earlier, we noted that the proof value cannot be 1 and it cannot be even.  
+It is of the form \( 2n + 1, n \in \mathbb{N} \)
 
-Earlier, we noted that the proof value cannot be 1 and it cannot be even.
 Thus, we need an odd proof value that divides 4918 without leaving any remainder.
 
 The number 2 divides 4918 to give 2459, a prime number.
@@ -415,38 +417,50 @@ for bear in 1.. {
 Since most of the conditions are modulo congruence checks, we can use the Chinese Remainder Theorem
 to solve for the smallest number that leaves the respective remainders and begin from there.
 
-Let `a` be the array of all the moduli 2, 3, 5, 7 and 109.
+Let \(a\) be a vector of all the moduli and \(r\) represent the array of the respective remainders.
 
-{{< math "volcano-expression-12.svg" >}}
+$$
+a = \begin{bmatrix}
+2 & 3 & 5 & 7 & 109
+\end{bmatrix}
+$$
 
-Let `r` represent the array of the respective remainders.
+$$
+r = \begin{bmatrix}
+0 & 2 & 1 & 3 & 55
+\end{bmatrix}
+$$
 
-{{< math "volcano-expression-13.svg" >}}
+We begin by calculating \(n\), the product of all the moduli.
 
-We begin by calculating `n` as the product of all the moduli.
+$$
+n = \prod{a}
+$$
 
-{{< math "volcano-expression-14.svg" >}}
+We construct \(m\) containing the modulus of each equation by diving \(n\) by each element of \(a\).
 
-We construct `m` containing the modulus of each equation by diving `n` by each element of `a`.
-
-{{< math "volcano-expression-15.svg" >}}
+$$
+m_{i} = \frac{n}{a_{i}}
+$$
 
 We then calculate the multiplicative modular inverse of the aforementioned moduli with respect to the original moduli.
 
-{{< math "volcano-expression-16.svg" >}}
+$$
+M_{i} \equiv \frac{1}{m_{i}} \pmod{a_i}
+$$
 
-> The modular inverse of a number `x` modulo `m` is the number `x_inv` such that its product with `x` mod `m` is 1.
+> The modular inverse of a number \(x\) modulo \(m\) is the number \(x_{inv}\) such that
 >
-> {{< math "volcano-expression-17.svg" >}}
+> $$ x \cdot x_{inv} \equiv 1 \pmod{m} $$
 
 We now multiply the calculated moduli and their inverses to find out the constants that leave the remainder 1.
-Let's name this array of constants as `c`.
+Let's name this array of constants as \(c\).
 
-{{< math "volcano-expression-18.svg" >}}
+$$ c_{i} = m_{i} \cdot M_{i} $$
 
-We multiply the remainder with each constant and add them up. The final unique solution is this number modulo `n`.
+We multiply the remainder with each constant and add them up. The final unique solution \(s\) is this number modulo \(n\).
 
-{{< math "volcano-expression-19.svg" >}}
+$$ s = (\sum_{i}{c_{i} \cdot r_{i}}) \pmod{n} $$
 
 The code implementation looks like the following:
 
@@ -470,7 +484,7 @@ let s: i32 = inverses
 let solution = s % n;
 ```
 
-Here, I'm using the [modinverse](https://docs.rs/modinverse/latest/modinverse/) crate so that I don't have to implement it manually. If you are following along,
+For convenience, I'm using the [modinverse](https://docs.rs/modinverse/latest/modinverse/) crate. If you are following along,
 run the following to add it to your Rust project:
 
 ```sh
