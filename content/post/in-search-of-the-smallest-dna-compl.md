@@ -2,6 +2,11 @@
 title: "In Search of the Smallest DNA Complement Function"
 date: 2025-02-14T09:40:11+05:30
 draft: true
+tags:
+- DNA
+- Bioinformatics
+- Linear Algebra
+- Remainder Theorem
 ---
 
 For the past few weeks, I have been trying to come up with a fast and purely agebraic function to convert DNA bases to their
@@ -39,6 +44,54 @@ which gives us `(97, 116, 99, 103, 110)`
 Now, let's examine the different ways we can approach the problem.
 
 ## Matrices and polynomials
+
+We can setup a set of polynomials, with the coefficients being the ith powers of the ASCII
+numbers.
+
+Consider the input `a` and the corresponding output `t`. The ASCII value of `a` is 97, implying
+each coefficient in the polynomial is going to be an increasing power of 97.
+
+$$ 97^4x_{4} + 97^3x_{3} + 97^2x_{2} + 97^1x_{1} + 97^0x_{0} = 116 $$
+
+The result on evaulating the polynomial is 116, the ASCII value of `t`.
+
+Why are we using 5 x's?
+
+Well, note that we can construct 5 equations for a, t, g, c and n respectively.
+If we have more equations than unknowns, we are being redundant. Whereas, having
+more unknowns than equations yields infinitely many solutions.
+
+Here's one more example for `c` at 99, mapping to `g` at 103.
+
+$$ 99^4x_{4} + 99^3x_{3} + 99^2x_{2} + 99^1x_{1} + 99^0x_{0} = 103 $$
+
+In general, we have a matrix representing a linear map from \( R^5 \) to  \( R^5 \).
+
+$$
+\begin{bmatrix}
+97^4 & 97^3 & 97^2 & 97^1 & 97^0\\
+116^4 & 116^3 & 116^2 & 116^1 & 116^0\\
+99^4 & 99^3 & 99^2 & 99^1 & 99^0\\
+103^4 & 103^3 & 103^2 & 103^1 & 103^0\\
+110^4 & 110^3 & 110^2 & 110^1 & 110^0\\
+\end{bmatrix}
+\begin{bmatrix}
+x_4 \\
+x_3 \\
+x_2 \\
+x_1 \\
+x_0
+\end{bmatrix} =
+\begin{bmatrix}
+116 \\
+97 \\
+103 \\
+99 \\
+110
+\end{bmatrix}
+$$
+
+Also observe that a linear map would allow us to shift the inputs by some offset and guarantee that the output is also shifted by the same offset.
 
 ```python
 from sympy import Matrix
