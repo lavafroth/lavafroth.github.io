@@ -1,4 +1,6 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3D on lavafroth</title><link>https://lavafroth.is-a.dev/tags/3d/</link><description>Recent content in 3D on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/3d/index.xml" rel="self" type="application/rss+xml"/><item><title>PROJECT_MANA Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3D on lavafroth</title><link>https://lavafroth.is-a.dev/tags/3d/</link><description>Recent content in 3D on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/3d/index.xml" rel="self" type="application/rss+xml"/><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote>
+&lt;p>Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p>&lt;/blockquote>
+&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
 &lt;p>Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p>
 &lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
 is 5 seconds in this example.&lt;/p>
@@ -426,5 +428,4 @@ orbit.addEventListener('change', function() {
 &lt;/script>
 
 
-&lt;blockquote>
-&lt;p>Try toggling the theme switcher (the sun or moon icon up in the header).&lt;/p></description></item></channel></rss>
+&lt;p>Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p></description></item></channel></rss>

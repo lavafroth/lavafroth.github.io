@@ -3,11 +3,13 @@
 AI tools in their programming workflows. When I was beckoned from under a rock
 by the light of day, I was taken aback by this rising wave of &lt;em>vibe coding&lt;/em>.&lt;/p>
 &lt;p>Some of my peers claim AI tools to be phenomenal for frontend technologies like
-React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p></description></item><item><title>In Search of the Smallest DNA Complement Function</title><link>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</link><pubDate>Fri, 14 Feb 2025 09:40:11 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</guid><description>&lt;p>For the past few weeks, I have been trying to come up with a fast and purely agebraic function to convert DNA bases to their
+React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p></description></item><item><title>In search of the smallest DNA complement function</title><link>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</link><pubDate>Fri, 14 Feb 2025 09:40:11 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</guid><description>&lt;p>For the past few weeks, I have been trying to come up with a fast and purely agebraic function to convert DNA bases to their
 respective complements.&lt;/p>
 &lt;h2 id="problem-statement">Problem statement&lt;/h2>
 &lt;p>Our goal is rather straightforward. We aim to create a mapping of the characters &lt;code>a&lt;/code>, &lt;code>t&lt;/code>, &lt;code>g&lt;/code>, &lt;code>c&lt;/code> and &lt;code>n&lt;/code> to their respective complements.
-We choose to keep our solution one step behind the classical reverse complement which reverses the string after the mapping.&lt;/p></description></item><item><title>PROJECT_MANA Demo</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
+We choose to keep our solution one step behind the classical reverse complement which reverses the string after the mapping.&lt;/p></description></item><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote>
+&lt;p>Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p>&lt;/blockquote>
+&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
 &lt;p>Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p>
 &lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
 is 5 seconds in this example.&lt;/p>
@@ -435,8 +437,7 @@ orbit.addEventListener('change', function() {
 &lt;/script>
 
 
-&lt;blockquote>
-&lt;p>Try toggling the theme switcher (the sun or moon icon up in the header).&lt;/p></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
+&lt;p>Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
 start this year off by going back to the roots.&lt;/p>
 &lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
 &lt;em>SansAlpha&lt;/em> from PicoCTF. The challenge description states&lt;/p>
