@@ -1,5 +1,5 @@
 ---
-title: "In Search of the Smallest DNA Complement Function"
+title: "In search of the smallest DNA complement function"
 date: 2025-02-14T09:40:11+05:30
 draft: true
 tags:
@@ -127,9 +127,9 @@ for n in range(-1000, 1000):
         print(f'{n} -> {coeffs}')
 ```
 
-We prioritize coefficients that contain zeros since they allow us to completely skip evaluating a term in the resulting polynomial.
+We prioritize coefficients that contain zeros since they allow us to ignore a term in the resulting polynomial.
 
-Running the above experiment yields us just one polynomial where one of the coefficients is 0.
+Running the experiment yields a single polynomial where one of the coefficients is 0.
 
 ```
 110 -> Matrix([[0], [16075/51051], [-72265/204204], [-1721/102102], [235/204204]])
@@ -143,6 +143,22 @@ def compl(x: str) -> str:
 ```
 
 ## Modular arithmetic
+
+In this approach, a given base \(u\) maps to its complement \(v\) as
+
+$$
+v = K \pmod{u}
+$$
+
+where \(K\) is some known constant.
+
+We are essentially trying to mend our problem into a Chinese remainder theorem problem. However, all moduli in a CRT problem
+must be coprime. The numerical representations of our bases \(\vec{u} = (97, 116, 99, 103, 110)\) aren't quite coprime.
+
+To deal with this, we double all the entries and add an odd number.
+More abstractly, for every \(u\), \(2u\) must be even. Adding an odd number \(h\), then, must make \(2u+h\) odd.
+
+Varying this \(h\) can potentially yield some \(2\vec{u} + h\) whose elements are coprime.
 
 ```py
 from itertools import starmap, permutations
@@ -158,12 +174,6 @@ def egcd(a, b):
         old_r, r = r, old_r % r
         old_s, s = s, old_s - quo * s
 
-    # if b != 0:
-    #     t = (old_r - old_s * a) // b
-    # else:
-    #     t = 0
-
-    # return (old_r, old_s, t)
     return (old_r, old_s)
 
 
@@ -186,32 +196,29 @@ def are_pairwise_coprime(vs):
     return all(starmap(are_coprime, permutations(vs, 2)))
 
 
-seq = np.array([ord(x) for x in "atgcn"])
-compl = np.array([ord(x) for x in "tacgn"])
+u = np.array(tuple(b"atgcn"))
+compl = np.array(tuple(b"tacgn"))
 
-# smaller numbers
+# smallest target, i.e., a
 min_of_seq = np.min(compl)
 compl -= min_of_seq
 
 # the largest value of the complement must be a principal value in (mod N)
-field_should_enclose = np.max(compl)
-# but it must also be odd because even number + odd number = odd number
-# inside the loop body below ensures that we have some chance of getting
-# a set of pairwise coprime numbers after the linear transform on `vs`
-field_should_enclose += 1 - field_should_enclose & 1
-print(f"{seq} maps to {compl}")
+ring_enclose = np.max(compl)
+ring_enclose += 1 - ring_enclose & 1
+print(f"{u} maps to {compl}")
 
 min_answer = float('Infinity')
-min_ij = None
+min_ih = None
 
 for i in range(1, 32):
     # -2 * i * min_of_seq so that `vs` is as small as possible
     # + field_should_enclose so that `vs` is atleast positive and
     # greater than the largest element of `seq`
-    for j in range(-2 * i * min_of_seq + field_should_enclose, 0, 2):
+    for h in range(-2 * i * min_of_seq + ring_enclose, 0, 2):
 
-        # The linear transform
-        vs = 2 * i * seq + j
+        # The linear transform 2iu + h
+        vs = 2 * i * u + h
 
         if not are_pairwise_coprime(vs):
             continue
@@ -229,17 +236,15 @@ for i in range(1, 32):
 
         if answer < min_answer:
             min_answer = answer
-            min_ij = (i, j)
-            print(f"progress: {min_ij} -> {int(min_answer)}")
-
-        # print(f"{i}, {j} -> {vs} -> {answer}")
+            min_ih = (i, h)
+            print(f"progress: {min_ih} -> {int(min_answer)}")
 
 min_answer = int(min_answer)
-print(f"{min_ij} -> {min_answer}")
+print(f"{min_ih} -> {min_answer}")
 ```
 
 We set the upper limit of our experiment as 32 to avoid waiting too long
-for a reasonably decent answer.
+for a reasonable answer.
 
 ```
 [ 97 116 103  99 110] maps to [19  0  2  6 13]
@@ -248,15 +253,19 @@ progress: (3, -559) -> 33253051
 (3, -559) -> 33253051
 ```
 
-With the last solution, we can cook up the following function. Note how we add `97` (ASCII `a`) because it was the minimum of the complements
-```
-(97, 116, 99, 103, 110)
-```
-and we intentionally subtracted it, shifting all the values closes to 0. Thus, the complements become
-`[19  0  2  6 13]` instead of `b"tacgn"`.
+With the final solution, we can cook up the following function. Note how we add 97 since we had shifted \(\vec{v}\)
+such that its smallest element was 0.
 
 ```python
 for base in 'atgcn':
     compl = chr(97 + 33253051 % (6*ord(base)-559))
     print(f'{base} -> {compl}')
 ```
+
+## Wrapping up
+
+Those were two ways I could think of mapping DNA nucleobases to their complements. Although this is a contrived example,
+it was a fun exercise and the modular arithmetic approach is my personal favorite. Let me know how you would have solved
+this differently by shooting me an email!
+
+Bye now.
