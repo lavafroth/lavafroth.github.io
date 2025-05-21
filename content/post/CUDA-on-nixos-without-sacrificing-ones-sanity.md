@@ -23,8 +23,8 @@ Training ML models is incredibly fast with CUDA as compared to CPUs due to the p
 processing. So if you're doing something serious, you have no other choice besides CUDA as of writing.
 Although, OpenAI's Triton and ZLUDA are worth keeping an eye on.
 
-Unlike your average distro, Nix will store its packages and libraries (derivations) in the Nix store instead of
-locations like `/usr/bin`, `/usr/lib` and `/usr/lib64`. [This essentially prevents conflicts between installed packages](https://zero-to-nix.com/concepts/nix-store).
+Unlike your average distro, Nix will prevents conflicts between installed packages by storing its [derivations](@ "packages and libraries") in the [Nix store](https://zero-to-nix.com/concepts/nix-store) instead of
+locations like `/usr/bin`, `/usr/lib` and `/usr/lib64`.
 
 # How not to add CUDA
 

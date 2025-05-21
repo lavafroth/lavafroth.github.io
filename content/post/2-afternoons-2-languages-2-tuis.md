@@ -75,20 +75,23 @@ then you can press `q` to enter the context of setting the render quality. Final
 
 ![Triggering a re-render in the Rust version](/222-changing-quality.gif)
 
-The last point in favor of the second architecture is how the key chords solidify in my muscle memory. After using it for just a few minutes,
+The last point in favor of the second architecture is how the key chords solidify in my spinal memory. After using it for just a few minutes,
 I'm already incredibly (blazingly) fast at it. Compare that to the more polished design of the first, where using `tab`s and arrow keys always feels hit or miss.
 
 It's incredibly fascinating how a change in the language made a perceptible
 difference in the architecture of the final products. However, I don't think
 this is necessarily a fault of _BubbleTea_ or any of the other _CharmBracelet_
 products. Rather, it's a fault in my perception of the languages. I've always
-thought of Go as a loosey-goosey language because it feels like Python with more
-sanity and less magic. When I'm building a Golang tool, it feels like I'm making
-a paper plane whereas building a Rust tool feels like using magnalum to build an
-actual airplane.
+thought of Go as a loosey-goosey language due to its Pythonic outlook with
+less magic. When I'm building a Golang tool, it feels like I'm making a paper
+plane whereas building a Rust tool feels like using magnalum to build an actual
+airplane.
 
-With that said, if you're a beginner and `Arc<RwLock<T>>` gave you a jumpscare, it might be worth sticking with Golang _CharmBracelet_ stack, it's simple and can take you pretty far.
-If you're good with Rust, don't sleep on _ratatui_. It's way better than how I remember it from a couple years ago. If you're interested
-in the code, check out the Go project ~[here](https://github.com/lavafroth/hackermanim-tui)~ (the repository is no longer available, so you just have to take my word for it) and the Rust project [here](https://github.com/lavafroth/hm).
+With that said, if you're a beginner and `Arc<RwLock<T>>` gave you a jumpscare,
+it might be worth sticking with Golang _CharmBracelet_ stack, it's simple and
+can take you pretty far. If you're good with Rust, don't sleep on _ratatui_.
+It's way better than how I remember it from a couple years ago. If you're
+interested in the code, check out the Go project [here](@ "repository is no longer public")
+and the Rust project [here](https://github.com/lavafroth/hm).
 
 Until next time, remember, Rust is 2 fast 2 furious.
