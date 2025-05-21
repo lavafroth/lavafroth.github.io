@@ -23,6 +23,11 @@ mark {
   color: var(--white) !important;
 }
 
+abbr[title] {
+  border-bottom: 2px dotted;
+  text-decoration: none;
+}
+
 video {
   border-radius: 1rem;
 }

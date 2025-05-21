@@ -1,0 +1,9 @@
+{{- if eq .Destination "@" -}}
+  <abbr title="{{ .Title }}">{{ .Text | safeHTML }}</abbr>
+{{- else -}}
+  <a href="{{ .Destination | safeURL }}"
+    {{- with .Title }} title="{{ . }}"{{ end -}}
+  >
+    {{- with .Text | safeHTML }}{{ . }}{{ end -}}
+  </a>
+{{- end -}}
