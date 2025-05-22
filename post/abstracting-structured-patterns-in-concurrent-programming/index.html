@@ -40,7 +40,7 @@ multiplexer to pass them to the respective functions. However, this route is
 less ergonomic since the programmer has to define a field in their class or
 struct whose name is decided by the API.</p><p>The second route takes advantage of Rust&rsquo;s type system.
 In Rust, enums can have different structures inside each variant. This allows
-defining a macro that matches an enum variant to its respective function.</p><p>Here&rsquo;s how the use of the API might look like:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>let</span> m <span style=color:#f92672>=</span> multiplexer!(MyEnum {
+defining a macro that matches an enum variant to its respective function.</p><p>Here&rsquo;s how the use of the API might look like:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>let</span> m <span style=color:#f92672>=</span> <span style=color:#a6e22e>multiplexer!</span>(MyEnum {
 </span></span><span style=display:flex><span>    Left(StructA) <span style=color:#f92672>=&gt;</span> function_a,
 </span></span><span style=display:flex><span>    Right(StructB) <span style=color:#f92672>=&gt;</span> function_b,
 </span></span><span style=display:flex><span>});
@@ -49,7 +49,7 @@ a channel.</li><li>Spawns these wrapped functions in their own coroutines, joini
 them.</li><li>Optionally take a context as an input for cancellation of itself and
 coroutines spawned by it.</li><li>Uses a <code>match</code> block to dispatch the inner value of a struct to the respective
 channel.</li></ul><p>The macro would use the <code>quote!</code> macro to generate the match arm for each
-variant like the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span>quote!(
+variant like the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#a6e22e>quote!</span>(
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>match</span> #enum_ident {
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// loop over the arms in the macro call
 </span></span></span><span style=display:flex><span><span style=color:#75715e></span>        #variant(#inner) <span style=color:#f92672>=&gt;</span> #inner_chan_tx.send(#inner);

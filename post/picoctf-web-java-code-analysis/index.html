@@ -90,8 +90,8 @@ We are also given the source code of the application.</p><p>Taking a look at the
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> token <span style=color:#f92672>=</span> encode(header, <span style=color:#f92672>&amp;</span>signing_key, <span style=color:#f92672>&amp;</span>payload, algorithm)<span style=color:#f92672>?</span>;
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    println!(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, payload);
-</span></span><span style=display:flex><span>    println!(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, token);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>println!</span>(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, payload);
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>println!</span>(<span style=color:#e6db74>&#34;</span><span style=color:#e6db74>{}</span><span style=color:#e6db74>&#34;</span>, token);
 </span></span><span style=display:flex><span>    Ok(())
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Here, we have decoded the token, modified the <code>role</code> to <code>Admin</code> and re-encoded the token using the signing key.</p><p>To run the program, issue the command</p><pre tabindex=0><code>cargo run

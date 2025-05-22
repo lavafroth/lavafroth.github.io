@@ -13,17 +13,17 @@
 </span></span><span style=display:flex><span>    <span style=color:#75715e># Set the addition operator to the str function</span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e># so that we can use it to stringify bytes-like</span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e># objects.</span>
-</span></span><span style=display:flex><span>    __add__ <span style=color:#f92672>=</span> str
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>__add__</span> <span style=color:#f92672>=</span> str
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e># Set the division operator to os.loader.get_data method</span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e># which can be used to read the raw bytes from a file.</span>
-</span></span><span style=display:flex><span>    __truediv__ <span style=color:#f92672>=</span> sys<span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#34;os&#34;</span>]<span style=color:#f92672>.</span>__loader__<span style=color:#f92672>.</span>get_data
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>__truediv__</span> <span style=color:#f92672>=</span> sys<span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#34;os&#34;</span>]<span style=color:#f92672>.</span>__loader__<span style=color:#f92672>.</span>get_data
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e># Set the indexing operator to print, which we&#39;ll use to</span>
 </span></span><span style=display:flex><span>    <span style=color:#75715e># print the flag</span>
-</span></span><span style=display:flex><span>    __getitem__ <span style=color:#f92672>=</span> print
+</span></span><span style=display:flex><span>    <span style=color:#a6e22e>__getitem__</span> <span style=color:#f92672>=</span> print
 </span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> __init__(self):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>def</span> <span style=color:#a6e22e>__init__</span>(self):
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e># Now we read the raw bytes of the file &#34;flag&#34;</span>
 </span></span><span style=display:flex><span>        <span style=color:#75715e># stringify it and finally print it</span>

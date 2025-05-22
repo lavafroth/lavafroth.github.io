@@ -43,7 +43,7 @@ fairly inexpensive to copy. Although a boolean value should ideally be represent
 by a single bit, most modern processor architectures use a single byte to represent them.
 Bitflags can help us shave off the unused space.
 We are using macros fromthe bitflag crate since Rust
-does not natively have C-styled bitflags.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span>bitflags::bitflags! {
+does not natively have C-styled bitflags.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span>bitflags::<span style=color:#a6e22e>bitflags!</span> {
 </span></span><span style=display:flex><span>    <span style=color:#75715e>#[derive(Debug, Clone, Copy, PartialEq, Eq, PartialOrd, Ord, Hash)]</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>struct</span> <span style=color:#a6e22e>KeyAttribute</span>: <span style=color:#66d9ef>u8</span> {
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>const</span> None <span style=color:#f92672>=</span> <span style=color:#ae81ff>0b00000000</span>;
