@@ -1,12 +1,12 @@
 ---
-title: "whoami"
+title: "Hi, this is Himadri!"
 draft: false
 date: 2022-07-23T19:11:10+05:30
 ---
 
-Hi, this is Himadri. I'm a self taught programmer and a digital artist.
-You might have arrived here from [my YouTube channel](https://youtube.com/@lavafroth) or my open source work.
-I'm doing a bachelors in data science at IITM.
+I'm a self taught programmer and a digital artist. You might have arrived here
+from [my YouTube channel](https://youtube.com/@lavafroth) or my open source
+work. I'm doing a bachelors in data science at IITM.
 
 I'm decent with programming languages like C and Java, the latter of which was
 taught in school. I'm *great* at writing Golang and Rust. I render my YouTube
