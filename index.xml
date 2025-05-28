@@ -897,9 +897,9 @@ return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no fu
 &lt;p>The script is reading an input, executes it and then stores it in the
 &lt;code>output&lt;/code> variable without ever displaying the output to the console.&lt;/p>
 &lt;p>I tried a dummy command to see if I could see its &lt;code>stderr&lt;/code> since command
-substitution (backticks) only capture the &lt;code>stdout&lt;/code>.&lt;/p></description></item><item><title>whoami</title><link>https://lavafroth.is-a.dev/about/</link><pubDate>Sat, 23 Jul 2022 19:11:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/about/</guid><description>&lt;p>Hi, this is Himadri. I&amp;rsquo;m a self taught programmer and a digital artist.
-You might have arrived here from &lt;a href="https://youtube.com/@lavafroth">my YouTube channel&lt;/a> or my open source work.
-I&amp;rsquo;m doing a bachelors in data science at IITM.&lt;/p>
+substitution (backticks) only capture the &lt;code>stdout&lt;/code>.&lt;/p></description></item><item><title>Hi, this is Himadri!</title><link>https://lavafroth.is-a.dev/about/</link><pubDate>Sat, 23 Jul 2022 19:11:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/about/</guid><description>&lt;p>I&amp;rsquo;m a self taught programmer and a digital artist. You might have arrived here
+from &lt;a href="https://youtube.com/@lavafroth">my YouTube channel&lt;/a> or my open source
+work. I&amp;rsquo;m doing a bachelors in data science at IITM.&lt;/p>
 &lt;p>I&amp;rsquo;m decent with programming languages like C and Java, the latter of which was
 taught in school. I&amp;rsquo;m &lt;em>great&lt;/em> at writing Golang and Rust. I render my YouTube
 videos with Python and the manim framework, so I&amp;rsquo;d argue I&amp;rsquo;m competent at it
