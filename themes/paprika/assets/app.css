@@ -4,7 +4,7 @@
   --wide: 140rem;
   --narrow: 80rem;
   --side: calc((var(--wide) - var(--narrow)) / 2);
-  --header: 8rem;
+  --header: 10rem;
   --footer: calc(8rem + var(--safe-bottom));
   --code-bg: #282828;
 
@@ -137,6 +137,9 @@ body {
   background: var(--white);
   transition: background 0.4s ease-out;
 }
+.not-ready .header:after {
+  opacity:0;
+}
 
 @media (prefers-color-scheme: dark) {
   body.not-ready {
@@ -154,6 +157,7 @@ body > * {
 .not-ready * {
   transition: none !important;
 }
+
 
 @media (max-width: 1199px) {
   html {
@@ -240,31 +244,35 @@ img {
   font-family: LeagueGothic;
   text-transform: uppercase;
   letter-spacing: 1rem;
-  display: flex;
   max-width: var(--wide);
+  margin-top: var(--gap);
   height: var(--header);
-  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 1rem;
+  border: .25rem solid rgb(var(--dark), .2);
+  place-content: space-between;
+  position: relative;
+  padding: var(--gap);
+}
+
+.header:after {
+  z-index: -100;
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  background-image: url('header.svg');
+  transition: opacity 400ms ease-out;
+  background-size: 24rem;
 }
 
 .header a {
-  display: flex;
-  flex-shrink: 0;
   align-items: center;
 }
 
-.logo {
-
-  z-index: 1000;
-  margin-top: 5rem;
-  margin-left: var(--gap);
-  display: flex;
-  min-width: var(--side);
-  padding-right: var(--gap);
-}
-
 .site-name {
-  padding-bottom: 0.3rem;
-  overflow: auto;
   font-size: 3.4rem;
   font-weight: 700;
   white-space: nowrap;
@@ -296,17 +304,16 @@ img {
 }
 
 .btn-dark {
+  flex-shrink: 0;
   width: 4rem;
   height: 4rem;
-  margin-left: 1rem;
   cursor: pointer;
 }
 
 .social {
   display: flex;
-  margin-left: auto;
   align-items: center;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
 .social a {
@@ -322,25 +329,13 @@ img {
   animation: outline 1s forwards;
 }
 
-.dark .social a {
+.dark .social a, .dark .header:after {
   filter: invert(1);
 }
 
 @media (max-width: 1199px) {
-  .logo {
-    min-width: auto;
-  }
-
-  [data-menu='true'] {
-    --header: 16rem;
-  }
-
   [data-menu='true'] .header {
     position: relative;
-  }
-
-  [data-menu='true'] .header > * {
-    height: calc(var(--header) / 2);
   }
 
   [data-menu='true'] .menu {
@@ -350,7 +345,7 @@ img {
   }
 
   .main {
-    padding-top: 0 !important;
+    padding-top: var(--gap) !important;
   }
 }
 
@@ -359,20 +354,17 @@ img {
 .main {
   max-width: var(--narrow);
   min-height: calc(100% - var(--header) - var(--footer));
-  padding-top: var(--y-gap);
+  padding-top: var(--gap);
   padding-bottom: var(--y-gap);
-}
-
-.main-title {
-  margin-bottom: calc(var(--y-gap) + 1rem);
-  font-size: 3rem;
-  font-weight: 400;
-  color: var(--lit);
 }
 
 .main-nav {
   display: flex;
   margin-top: 5rem;
+}
+
+.coalesce {
+  display: flex;
 }
 
 .main-nav a {
@@ -762,80 +754,6 @@ img {
   font-size: 16rem;
 }
 
-
-
-/* ricing
---------------------------------------------------- */
-  body .lava {
-    z-index: 1;
-    --lava-background: var(--black);
-    display: grid;
-    position: relative;
-    min-height: 14rem;
-    border-radius: 1rem;
-		width: 100%;
-		overflow: hidden;
-  }
-	.lavasource {
-		width: 100%;
-		height: 4rem;
-		background: var(--black);
-	}
-  body .lava .bubbles {
-    position: absolute;
-    top: 12.5rem;
-    left: 0;
-    right: 0;
-    height: 1rem;
-    background: var(--lava-background);
-    filter: url("#blob");
-  }
-  body .lava .bubbles .bubble {
-    position: absolute;
-    left: var(--position, 50%);
-    background: var(--lava-background);
-    border-radius: 100%;
-    -webkit-animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
-            animation: bubble-size var(--time, 4s) ease-in infinite var(--delay, 0s), bubble-move var(--time, 4s) ease-in infinite var(--delay, 0s);
-    transform: translate(-50%, 100%);
-  }
-  @-webkit-keyframes bubble-size {
-    0%, 75% {
-      width: var(--size, 4rem);
-      height: var(--size, 4rem);
-    }
-    100% {
-      width: 0rem;
-      height: 0rem;
-    }
-  }
-  
-  @keyframes bubble-size {
-    0%, 75% {
-      width: var(--size, 4rem);
-      height: var(--size, 4rem);
-    }
-    100% {
-      width: 0rem;
-      height: 0rem;
-    }
-  }
-  @-webkit-keyframes bubble-move {
-    0% {
-      bottom: -4rem;
-    }
-    100% {
-      bottom: var(--distance, 10rem);
-    }
-  }
-  @keyframes bubble-move {
-    0% {
-      bottom: -4rem;
-    }
-    100% {
-      bottom: var(--distance, 10rem);
-    }
-  }
 @font-face {
   font-family: LeagueGothic;
   src: url(LeagueGothic.ttf);
