@@ -1,5 +1,4 @@
 <header class="header">
-	<div class="coalesce">
 		<h1>
 			<a class="site-name" href="{{ `` | absURL }}">{{ site.Title }}</a>
 		</h1>	
@@ -16,11 +15,9 @@
 				        <line class="line" x1="16.57" y1="16.56" x2="13.74" y2="13.74"></line>
 	          </g>
       </svg>
-		</div>
-			<nav class="social">
+			<div class="space"></div>
 			{{ range .Site.Params.socials }}
   			<a
-    			class="{{ .platform }}"
     			style="--url: url(./{{ .platform }}.svg)"
     			href="{{ .url }}"
 					aria-label="{{ .platform }}"
@@ -38,7 +35,6 @@
     			style="--url: url(./{{ .Name }}.svg)"
   			></a>
   		{{ end }}
-			</nav>
 		<script>
       const bodyClx = document.body.classList;
       const btnDark = document.querySelector('.btn-dark');
