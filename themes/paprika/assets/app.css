@@ -136,9 +136,6 @@ body {
   background: var(--white);
   transition: background 0.4s ease-out;
 }
-.not-ready .header:after {
-  opacity:0;
-}
 
 body.not-ready {
   background: rgba(var(--light), 1);
@@ -255,8 +252,22 @@ img {
 .header > a {
   width: 4rem;
   height: 4rem;
-  flex-shrink: 0;
-  background: var(--url) center center no-repeat;
+  position: relative;
+}
+
+.header > a:after {
+  z-index: -100;
+  content: "";
+  position: absolute;
+  width: 3rem;
+  height: 3rem;
+  top: .5rem;
+  left: .5rem;
+
+  background: var(--black);
+  mask-image: var(--url);
+  mask-repeat: no-repeat;
+  mask-size: cover;
 }
 
 .header > .space {
@@ -270,9 +281,9 @@ img {
   width: 100%;
   height: 100%;
   left: 0;
-  background-image: url('header.svg');
-  transition: opacity 400ms ease-out;
-  background-size: 24rem;
+  background: var(--fog);
+  mask-image: url('header.svg');
+  mask-size: 24rem;
 }
 
 .header a {
@@ -317,13 +328,8 @@ img {
 }
 
 .header a.active {
-  outline: 2px solid rgba(22,22,22, .3);
+  outline: 2px solid var(--air);
   border-radius: 50%;
-}
-
-.dark .header > a, 
-.dark .header:after {
-  filter: invert(1);
 }
 
 @media (max-width: 360px) {
