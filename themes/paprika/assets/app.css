@@ -34,13 +34,12 @@ video {
 
 math {
   font-family: LatinModern;
-  width: 100%;
   font-size:2.5rem;
 }
 
 .katex:has(math[display="block"]) {
   display: block;
-  overflow-x: scroll;
+  overflow-x: auto;
   overflow-y: clip;
 }
 
