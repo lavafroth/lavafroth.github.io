@@ -1,6 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM on lavafroth</title><link>https://lavafroth.is-a.dev/tags/llm/</link><description>Recent content in LLM on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Apr 2025 15:56:04 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Do you really need a copilot?</title><link>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</link><pubDate>Thu, 03 Apr 2025 15:56:04 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</guid><description>&lt;h2 id="idiots-set-trends-in-motion">Idiots set trends in motion&lt;/h2>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>LLM on lavafroth</title><link>https://lavafroth.is-a.dev/tags/llm/</link><description>Recent content in LLM on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 03 Apr 2025 15:56:04 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/llm/index.xml" rel="self" type="application/rss+xml"/><item><title>Need a hand?</title><link>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</link><pubDate>Thu, 03 Apr 2025 15:56:04 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</guid><description>&lt;h2 id="the-tides">The tides&lt;/h2>
 &lt;p>Over the past few months, a sizable fraction of my developer peers have taken to
-AI tools in their programming workflows. When I was beckoned from under a rock
-by the light of day, I was taken aback by this rising wave of &lt;em>vibe coding&lt;/em>.&lt;/p>
-&lt;p>Some of my peers claim AI tools to be phenomenal for frontend technologies like
-React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p></description></item></channel></rss>
+AI tools. Beckoned from under a rock by the light of day, I was taken aback by this rising wave of &lt;em>vibe coding&lt;/em>.&lt;/p>
+&lt;p>They claim AI tools to be phenomenal for frontend technologies like
+React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p>
+&lt;p>Context aware autocompletes happen when the model watches your code so it can
+suggest autocompletes while you code.&lt;/p></description></item></channel></rss>
