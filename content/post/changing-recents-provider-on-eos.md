@@ -1,8 +1,15 @@
 ---
-title: "Changing Recents Provider on /e/OS"
+title: "Guide: Changing Recents Provider on /e/OS"
 date: 2025-08-20T09:55:43+05:30
-draft: true
+tags:
+  - Android
+  - Custom ROM
+  - /e/OS
+  - QuickSwitch
+  - QuickStep
 ---
+
+# Overview
 
 Over the past month I have been daily driving my new phone, the Nothing CMF 1 flashed with /e/OS after I unlocked its bootloader. It's a very pleasant experience except for the default Bliss launcher (home app).
 
@@ -32,14 +39,13 @@ This guide assumes you have a basic understanding of `adb` and `fastboot`. Ensur
 
 ### Extracting `boot.img`
 
-Assuming you have the image used to flash /e/OS on your phone, extract the boot.img from it. This can be done with the 7zip command
+Assuming you have the image used to flash /e/OS on your phone, extract the `boot.img` from it. This can be done with the `7zip` command
 
-```sh
+``` sh
 7z e IMG-e-3.0.4-a14-20250708507308-official-tetris.zip -o. boot.img
 ```
 
-Here `IMG-e-3.0.4-a14-20250708507308-official-tetris.zip` is the image for my phone. Replace this with the correct filename for your phone.
-This extract the `boot.img` to the current directory.
+Here `IMG-e-3.0.4-a14-20250708507308-official-tetris.zip` is the image for my phone. Replace this with the appropriate image name.This extract the `boot.img` to the current directory.
 
 Push this image to your device with
 
@@ -47,7 +53,7 @@ Push this image to your device with
 adb push boot.img /storage/emulated/0/Download/
 ```
 
-> NOTE: You could also do this over MTP (file transfer) but it may corrupt files and is hence discouraged.
+> NOTE: You could also push the image over MTP (file transfer) but it may corrupt files and is hence discouraged.
 
 ### Installing APatch
 
@@ -55,45 +61,45 @@ These instructions are also available in the [APatch Docs](https://apatch.dev/in
 
 1.  Download the latest version of APatch Manager from [GitHub](https://github.com/bmax121/APatch/releases).
 2.  Click on the patch button at the top right corner, and click `Select a boot image to patch`.
-3. Select the `boot.img` we pushed to the `Download` directory.
-4. Set a SuperKey at "SuperKey" card. The SuperKey should be **8-63 characters long and include numbers and letters, but no special characters.** It will be used later to unlock root privileges.
-5. Click on "Start" and wait for a minute. After the patch is successful, the patched `boot.img` path will be displayed. For example: `/storage/emulated/0/Download/apatch_version_version_randomletter.img`.
+3.  Select the `boot.img` we pushed to the `Download` directory.
+4.  Set a SuperKey at "SuperKey" card. The SuperKey should be **8-63 characters long and include numbers and letters, but no special characters.** It will be used later to unlock root privileges.
+5.  Click on "Start" and wait for a minute. After the patch is successful, the patched `boot.img` path will be displayed. For example: `/storage/emulated/0/Download/apatch_version_version_randomletter.img`.
 
 ### Flashing
 
-1. Pull the patched `boot.img` with the command. Replace `apatch_version_version_randomletter.img` with the appropriate filename with the appropriate filename.
+1.  Pull the patched `boot.img` with the command. Replace `apatch_version_version_randomletter.img` with the appropriate filename.
 
-```sh
+``` sh
 adb pull /storage/emulated/0/Download/apatch_version_version_randomletter.img
 ```
 
-2. Reboot into fastboot mode.
+1.  Reboot into fastboot mode.
 
-```sh
+``` sh
 adb reboot bootloader
 ```
 
-3. Flash the patched `boot.img`.
+1.  Flash the patched `boot.img`.
 
-```sh
+``` sh
 fastboot flash boot apatch_version_version_randomletter.img
 ```
 
-4. Reboot the device
+1.  Reboot the device
 
-```sh
+``` sh
 fastboot reboot
 ```
 
 ### Installing QuickSwitch
 
-1. Download the latest `zip` of QuickSwitch-fork to your phone from [GitHub](https://github.com/j7b3y/QuickSwitch/releases/latest).
-2. Open the APatch app.
-3. Authenticate with the SuperKey you had set earlier.
-4. Enable `APModule`.
-5. Under the `APModule` tab click on the install button in the bottom right corner.
-6. Select the `QuickSwitch-fork.zip` you downloaded.
-7. Reboot your device for the changes to take effect.
+1.  Download the latest `zip` of QuickSwitch-fork to your phone from [GitHub](https://github.com/j7b3y/QuickSwitch/releases/latest).
+2.  Open the APatch app.
+3.  Authenticate with the SuperKey you had set earlier.
+4.  Enable `APModule`.
+5.  Under the `APModule` tab click on the install button in the bottom right corner.
+6.  Select the `QuickSwitch-fork.zip` you downloaded.
+7.  Reboot your device for the changes to take effect.
 
 ### Switching the Recents Provider
 
@@ -103,27 +109,30 @@ I have tested this on Lawnchair 14.3 beta. DO NOT USE Lawnchair 15.1 beta, it's 
 
 Get a shell on the phone with
 
-```sh
+``` sh
 adb shell
 ```
 
 ### Inside `adb shell`
-1. Change the recents provider.
 
-```sh
+1.  Change the recents provider. Replace `app.lawnchair` with your launcher's package name.
+
+``` sh
 su -c /data/adb/modules/quickswitch/quickswitch --ch=app.lawnchair
 ```
 
-2. (Optional) Remove Bliss launcher.
-```sh
+1.  (Optional) Remove Bliss launcher.
+
+``` sh
 for pkg in $(pm list packages | grep bliss | cut -d: -f 2); do pm uninstall --user 0 $pkg; done
 ```
 
-3. Reboot the device
-```sh
+1.  Reboot the device.
+
+``` sh
 reboot
 ```
 
-## Profit!
+# Profit!
 
 That's all there is to it. Now you should see you preferred app as the recents provider. Goodbye!
