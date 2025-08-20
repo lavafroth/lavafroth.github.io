@@ -73,25 +73,27 @@ These instructions are also available in the [APatch Docs](https://apatch.dev/in
 adb pull /storage/emulated/0/Download/apatch_version_version_randomletter.img
 ```
 
-1.  Reboot into fastboot mode.
+2.  Reboot into fastboot mode.
 
 ``` sh
 adb reboot bootloader
 ```
 
-1.  Flash the patched `boot.img`.
+3.  Flash the patched `boot.img`.
 
 ``` sh
 fastboot flash boot apatch_version_version_randomletter.img
 ```
 
-1.  Reboot the device
+4.  Reboot the device
 
 ``` sh
 fastboot reboot
 ```
 
-### Installing QuickSwitch
+## QuickSwitch
+
+### Installation
 
 1.  Download the latest `zip` of QuickSwitch-fork to your phone from [GitHub](https://github.com/j7b3y/QuickSwitch/releases/latest).
 2.  Open the APatch app.
@@ -121,18 +123,18 @@ adb shell
 su -c /data/adb/modules/quickswitch/quickswitch --ch=app.lawnchair
 ```
 
-1.  (Optional) Remove Bliss launcher.
+2.  (Optional) Remove Bliss launcher.
 
 ``` sh
 for pkg in $(pm list packages | grep bliss | cut -d: -f 2); do pm uninstall --user 0 $pkg; done
 ```
 
-1.  Reboot the device.
+3.  Reboot the device.
 
 ``` sh
 reboot
 ```
 
-# Profit!
+## Profit!
 
 That's all there is to it. Now you should see you preferred app as the recents provider. Goodbye!
