@@ -9,3 +9,6 @@ date: 2025-08-22T07:14:39+05:30
 - [MIT OpenCourseWare](https://ocw.mit.edu)
 - [fast.ai](https://course.fast.ai)
 - [StatQuest with Josh Starmer](https://statquest.org/video-index/)
+- [Stat414 Penn State University](https://online.stat.psu.edu/stat414/)
+- [Libretexts Stats](https://stats.libretexts.org/)
+- [Libretexts Bio](https://bio.libretexts.org/)
