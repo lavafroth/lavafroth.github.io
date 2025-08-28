@@ -1,20 +1,20 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3D on lavafroth</title><link>https://lavafroth.is-a.dev/tags/3d/</link><description>Recent content in 3D on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/3d/index.xml" rel="self" type="application/rss+xml"/><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote>
-&lt;p>Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p>&lt;/blockquote>
-&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
-&lt;p>Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p>
-&lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
-is 5 seconds in this example.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>3D on lavafroth</title><link>https://lavafroth.is-a.dev/tags/3d/</link><description>Recent content in 3D on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/3d/index.xml" rel="self" type="application/rss+xml"/><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;A live, in-browser demo of &lt;code&gt;PROJECT_MANA&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p&gt;
+&lt;p&gt;Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
+is 5 seconds in this example.&lt;/p&gt;
 
-&lt;div id="stage">
-&lt;/div>
-&lt;style>
+&lt;div id="stage"&gt;
+&lt;/div&gt;
+&lt;style&gt;
 canvas {
  background: transparent;
  border-radius: 1rem;
  margin-bottom: 1rem;
 }
-&lt;/style>
-&lt;script type="frag" id="evolve-vert">
+&lt;/style&gt;
+&lt;script type="frag" id="evolve-vert"&gt;
 varying vec2 vUv;
 
 void main() {
@@ -23,8 +23,8 @@ void main() {
  vUv = gl_Position.xy / gl_Position.w;
  vUv = (vUv + 1.0) * 0.5;
 }
-&lt;/script>
-&lt;script type="frag" id="evolve-frag">
+&lt;/script&gt;
+&lt;script type="frag" id="evolve-frag"&gt;
 varying vec2 vUv;
 
 uniform sampler2D gbufferMask;
@@ -34,8 +34,8 @@ void main() {
  gl_FragColor = vec4(texture(initBufferMask, vUv));
 }
 
-&lt;/script>
-&lt;script type="frag" id="outline-frag">
+&lt;/script&gt;
+&lt;script type="frag" id="outline-frag"&gt;
  varying vec2 vUv;
  varying vec2 clipMeshCenter;
  varying vec2 glPos;
@@ -88,8 +88,8 @@ void main() {
  vec4 outline = vec4(isOutline);
  gl_FragColor = outline;
  }
-&lt;/script>
-&lt;script type="vert" id="outline-vert">
+&lt;/script&gt;
+&lt;script type="vert" id="outline-vert"&gt;
  varying vec2 vUv;
  uniform vec3 meshCenter;
  varying vec2 clipMeshCenter;
@@ -104,17 +104,17 @@ void main() {
  vUv = (vUv + 1.0) * 0.5;
  glPos = gl_Position.xy;
  }
-&lt;/script>
-&lt;script type="importmap">
+&lt;/script&gt;
+&lt;script type="importmap"&gt;
  {
  "imports": {
  "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
  }
  }
-&lt;/script>
+&lt;/script&gt;
 
-&lt;script type="module">
+&lt;script type="module"&gt;
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
@@ -176,7 +176,7 @@ const solidMesh = new THREE.Mesh(
  solidMeshMaterial,
 );
 
-btnDark.addEventListener('click', () => {
+btnDark.addEventListener('click', () =&gt; {
  dark ^= true
  solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
  ambientLight.intensity = dark ? 1: 10;
@@ -214,10 +214,10 @@ const evolveMesh = new THREE.Mesh(
 evolveScene.add(evolveMesh)
 
 function continuity(bitmap, width, height) {
- const visited = Array.from({length: height}, () => Array(width).fill(false));
+ const visited = Array.from({length: height}, () =&gt; Array(width).fill(false));
 
  function valid(row, col) {
- return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
+ return row &gt;= 0 &amp;&amp; row &lt; height &amp;&amp; col &gt;= 0 &amp;&amp; col &lt;= width
  }
 
  function valid_1(row, col) {
@@ -261,7 +261,7 @@ function continuity(bitmap, width, height) {
  return
  }
 
- if (steps > 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
+ if (steps &gt; 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
  cyclic.push([row, col])
  return
  }
@@ -317,7 +317,7 @@ var durationInSeconds = 5;
 // threshold when timing the animation.
 function dijkstraNumber(points, buf) {
  var longestStrand = 2;
- points.forEach((point) => {
+ points.forEach((point) =&gt; {
  longestStrand = Math.max(longestStrand, dijkstraPropagate(point, buf, 2))
  })
  return longestStrand
@@ -330,7 +330,7 @@ function dijkstraPropagate(point, buf, value) {
  if (neighbors === undefined) {
  return value
  }
- neighbors.forEach(([row, col]) => {
+ neighbors.forEach(([row, col]) =&gt; {
  let pos = 4 * (row * buffer.width + col);
  if (buf[pos] != 1) {
  return
@@ -381,7 +381,7 @@ function animate() {
  		longestPixelStrand = dijkstraNumber(points, dijkstraBuffer)
 
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
- points.forEach((point) => {
+ points.forEach((point) =&gt; {
  let pos = 4 * (point[0] * buffer.width + point[1]);
  initBuffer[pos] = 255;
  initBuffer[pos+1] = 255;
@@ -400,7 +400,7 @@ function animate() {
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
+ if (dijkstraBuffer[point] &gt; 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
  initBuffer[point] = dark ? 255: 22;
  initBuffer[point+1] = dark ? 255: 22;
  initBuffer[point+2] = dark ? 255 : 22;
@@ -425,7 +425,7 @@ renderer.setAnimationLoop(animate);
 orbit.addEventListener('change', function() {
  init = true;
 })
-&lt;/script>
+&lt;/script&gt;
 
 
-&lt;p>Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p></description></item></channel></rss>
+&lt;p&gt;Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p&gt;</description></item></channel></rss>

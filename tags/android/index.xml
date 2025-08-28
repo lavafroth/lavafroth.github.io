@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on lavafroth</title><link>https://lavafroth.is-a.dev/tags/android/</link><description>Recent content in Android on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 20 Aug 2025 09:55:43 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Guide: Changing Recents Provider on /e/OS</title><link>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</link><pubDate>Wed, 20 Aug 2025 09:55:43 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</guid><description>&lt;h1 id="overview">Overview&lt;/h1>
-&lt;p>Over the past month I have been daily driving my new phone, the Nothing CMF 1 flashed with /e/OS after I unlocked its bootloader. It&amp;rsquo;s a very pleasant experience except for the default Bliss launcher (home app).&lt;/p>
-&lt;p>Reasons I do not prefer it:&lt;/p>
-&lt;ul>
-&lt;li>iOS like feel&lt;/li>
-&lt;li>Icons can&amp;rsquo;t be rearranged&lt;/li>
-&lt;li>Pull down from top opens search instead of notification shade&lt;/li>
-&lt;li>Consumes a lot of RAM&lt;/li>
-&lt;/ul>
-&lt;p>I started using Lawnchair as my default launcher but this did not change the recents provider (quickstep) from BlissLauncher to Lawnchair.&lt;/p></description></item><item><title>Using an Android Phone as a webcam in NixOS</title><link>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</link><pubDate>Sun, 10 Mar 2024 08:47:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</guid><description>&lt;p>I recently had to attend an online meeting for a software development event.
-While my PC did have a decent microphone, the built-in camera has been damaged to the extent that the best it can capture is this:&lt;/p>
-&lt;p>&lt;img src="../../pc-camera.avif" alt="A blurry image taken from my scuffed camera">&lt;/p>
-&lt;p>No, it&amp;rsquo;s not a close-up of the moon, it&amp;rsquo;s the refraction caused by the scuffs to the lens plus other sciency stuff I&amp;rsquo;m not qualified enough to explain to you.&lt;/p></description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Android on lavafroth</title><link>https://lavafroth.is-a.dev/tags/android/</link><description>Recent content in Android on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 20 Aug 2025 09:55:43 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/android/index.xml" rel="self" type="application/rss+xml"/><item><title>Guide: Changing Recents Provider on /e/OS</title><link>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</link><pubDate>Wed, 20 Aug 2025 09:55:43 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</guid><description>&lt;h1 id="overview"&gt;Overview&lt;/h1&gt;
+&lt;p&gt;Over the past month I have been daily driving my new phone, the Nothing CMF 1 flashed with /e/OS after I unlocked its bootloader. It&amp;rsquo;s a very pleasant experience except for the default Bliss launcher (home app).&lt;/p&gt;
+&lt;p&gt;Reasons I do not prefer it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iOS like feel&lt;/li&gt;
+&lt;li&gt;Icons can&amp;rsquo;t be rearranged&lt;/li&gt;
+&lt;li&gt;Pull down from top opens search instead of notification shade&lt;/li&gt;
+&lt;li&gt;Consumes a lot of RAM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I started using Lawnchair as my default launcher but this did not change the recents provider (quickstep) from BlissLauncher to Lawnchair.&lt;/p&gt;</description></item><item><title>Using an Android Phone as a webcam in NixOS</title><link>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</link><pubDate>Sun, 10 Mar 2024 08:47:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</guid><description>&lt;p&gt;I recently had to attend an online meeting for a software development event.
+While my PC did have a decent microphone, the built-in camera has been damaged to the extent that the best it can capture is this:&lt;/p&gt;
+&lt;p&gt;&lt;img src="../../pc-camera.avif" alt="A blurry image taken from my scuffed camera"&gt;&lt;/p&gt;
+&lt;p&gt;No, it&amp;rsquo;s not a close-up of the moon, it&amp;rsquo;s the refraction caused by the scuffs to the lens plus other sciency stuff I&amp;rsquo;m not qualified enough to explain to you.&lt;/p&gt;</description></item></channel></rss>

@@ -1,24 +1,24 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on lavafroth</title><link>https://lavafroth.is-a.dev/tags/python/</link><description>Recent content in Python on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 05 Jan 2025 11:55:52 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
-start this year off by going back to the roots.&lt;/p>
-&lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
-&lt;em>SansAlpha&lt;/em> from PicoCTF. The challenge description states&lt;/p>
-&lt;blockquote>
-&lt;p>The Multiverse is within your grasp! Unfortunately, the server that contains
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Python on lavafroth</title><link>https://lavafroth.is-a.dev/tags/python/</link><description>Recent content in Python on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 05 Jan 2025 11:55:52 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/python/index.xml" rel="self" type="application/rss+xml"/><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p&gt;Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
+start this year off by going back to the roots.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
+&lt;em&gt;SansAlpha&lt;/em&gt; from PicoCTF. The challenge description states&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Multiverse is within your grasp! Unfortunately, the server that contains
 the secrets of the multiverse is in a universe where keyboards only have numbers
-and (most) symbols.&lt;/p></description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote>
-&lt;p>Note: Use the following method only if you wish to have the latest version of CUDA that is
-not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache">this&lt;/a>.&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>&lt;em>TL;DR:&lt;/em> Save &lt;a href="#the-flake">this flake&lt;/a>, run &lt;code>nix develop&lt;/code> and &lt;a href="#setting-up-pytorch">setup PyTorch as described&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>&lt;a href="https://en.wikipedia.org/wiki/CUDA">CUDA&lt;/a> is a proprietary vendor lock-in for machine learning folks.
+and (most) symbols.&lt;/p&gt;</description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Note: Use the following method only if you wish to have the latest version of CUDA that is
+not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/CUDA"&gt;CUDA&lt;/a&gt; is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.
-Although, OpenAI&amp;rsquo;s Triton and ZLUDA are worth keeping an eye on.&lt;/p></description></item><item><title>Treebox</title><link>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</link><pubDate>Fri, 19 Aug 2022 10:04:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</guid><description>&lt;p>This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&amp;rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at &lt;code>flag&lt;/code>. We also can&amp;rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the &lt;code>sys&lt;/code> module is already imported. We can piggyback on this fact to use its modules.&lt;/p></description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
-After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p>
-&lt;p>The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;&lt;span style="color:#a6e22e">alert&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The application source directory tree looks like the following:&lt;/p>
-&lt;pre tabindex="0">&lt;code>.
+Although, OpenAI&amp;rsquo;s Triton and ZLUDA are worth keeping an eye on.&lt;/p&gt;</description></item><item><title>Treebox</title><link>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</link><pubDate>Fri, 19 Aug 2022 10:04:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</guid><description>&lt;p&gt;This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&amp;rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at &lt;code&gt;flag&lt;/code&gt;. We also can&amp;rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the &lt;code&gt;sys&lt;/code&gt; module is already imported. We can piggyback on this fact to use its modules.&lt;/p&gt;</description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p&gt;At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
+After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p&gt;
+&lt;p&gt;The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;&lt;span style="color:#a6e22e"&gt;alert&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The application source directory tree looks like the following:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;.
 ├── app.py
 ├── Dockerfile
 ├── flag.txt
@@ -28,8 +28,8 @@ After submitting the query, we are redirected to an html page containing the con
  │ ├── bad_content.html
  │ └── long_content.html
  └── index.html
-&lt;/code>&lt;/pre>&lt;p>Let&amp;rsquo;s inspect the &lt;code>app.py&lt;/code> source.&lt;/p></description></item><item><title>Gadgeting in Python Jails</title><link>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</link><pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</guid><description>&lt;p>We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
-Additionally some might even keep &lt;code>builtins&lt;/code> and &lt;code>eval&lt;/code> out of reach.&lt;/p>
-&lt;p>&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0">Here&lt;/a> is a cool video explanation by @pwnfunction on server side template
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s inspect the &lt;code&gt;app.py&lt;/code&gt; source.&lt;/p&gt;</description></item><item><title>Gadgeting in Python Jails</title><link>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</link><pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</guid><description>&lt;p&gt;We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
+Additionally some might even keep &lt;code&gt;builtins&lt;/code&gt; and &lt;code&gt;eval&lt;/code&gt; out of reach.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0"&gt;Here&lt;/a&gt; is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.&lt;/p></description></item></channel></rss>
+Kudos to him for sharing this technique.&lt;/p&gt;</description></item></channel></rss>

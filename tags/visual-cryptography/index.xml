@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Visual Cryptography on lavafroth</title><link>https://lavafroth.is-a.dev/tags/visual-cryptography/</link><description>Recent content in Visual Cryptography on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 22 Nov 2022 09:25:20 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/visual-cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p>This challenge gives use two images and asks us if we can make a flag out of them.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Visual Cryptography on lavafroth</title><link>https://lavafroth.is-a.dev/tags/visual-cryptography/</link><description>Recent content in Visual Cryptography on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 22 Nov 2022 09:25:20 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/visual-cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p&gt;This challenge gives use two images and asks us if we can make a flag out of them.
 At first glance, both the images look like noise. Upon a quick web lookup of
-&lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography">visual cryptography&lt;/a>, it appears
+&lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography"&gt;visual cryptography&lt;/a&gt;, it appears
 that these separate images, known as shares of the original image, can be overlayed
-on each other to reconstruct the original image.&lt;/p>
-&lt;h2 id="exploration">Exploration&lt;/h2>
-&lt;p>Now, I&amp;rsquo;m pretty sure that there are online services that will automatically solve these
+on each other to reconstruct the original image.&lt;/p&gt;
+&lt;h2 id="exploration"&gt;Exploration&lt;/h2&gt;
+&lt;p&gt;Now, I&amp;rsquo;m pretty sure that there are online services that will automatically solve these
 but I decided to write some code to solve this locally. For the past week, I&amp;rsquo;ve been
-learning the Rust programming language and this was the perfect excuse to test my knowledge.&lt;/p></description></item></channel></rss>
+learning the Rust programming language and this was the perfect excuse to test my knowledge.&lt;/p&gt;</description></item></channel></rss>

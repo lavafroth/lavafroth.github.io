@@ -1,44 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 22 Aug 2025 07:14:39 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Shared</title><link>https://lavafroth.is-a.dev/shared/</link><pubDate>Fri, 22 Aug 2025 07:14:39 +0530</pubDate><guid>https://lavafroth.is-a.dev/shared/</guid><description>&lt;p>✨ Shared resources between me and her ✨&lt;/p>
-&lt;ul>
-&lt;li>&lt;a href="https://ocw.mit.edu">MIT OpenCourseWare&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://course.fast.ai">fast.ai&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://statquest.org/video-index/">StatQuest with Josh Starmer&lt;/a>&lt;/li>
-&lt;/ul></description></item><item><title>Guide: Changing Recents Provider on /e/OS</title><link>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</link><pubDate>Wed, 20 Aug 2025 09:55:43 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</guid><description>&lt;h1 id="overview">Overview&lt;/h1>
-&lt;p>Over the past month I have been daily driving my new phone, the Nothing CMF 1 flashed with /e/OS after I unlocked its bootloader. It&amp;rsquo;s a very pleasant experience except for the default Bliss launcher (home app).&lt;/p>
-&lt;p>Reasons I do not prefer it:&lt;/p>
-&lt;ul>
-&lt;li>iOS like feel&lt;/li>
-&lt;li>Icons can&amp;rsquo;t be rearranged&lt;/li>
-&lt;li>Pull down from top opens search instead of notification shade&lt;/li>
-&lt;li>Consumes a lot of RAM&lt;/li>
-&lt;/ul>
-&lt;p>I started using Lawnchair as my default launcher but this did not change the recents provider (quickstep) from BlissLauncher to Lawnchair.&lt;/p></description></item><item><title>✨</title><link>https://lavafroth.is-a.dev/art/sparkles/</link><pubDate>Tue, 15 Jul 2025 11:52:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/sparkles/</guid><description>&lt;p>The sparkles to my life.&lt;/p></description></item><item><title>Easy grep to detect stripped Go binaries</title><link>https://lavafroth.is-a.dev/post/detecting-stripped-go-binaries/</link><pubDate>Fri, 13 Jun 2025 08:39:58 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/detecting-stripped-go-binaries/</guid><description>&lt;p>A couple of days ago when I was reading the &lt;a href="https://tip.golang.org/doc/gc-guide">guide to the Go garbage collector&lt;/a>, I came across the following excerpt:&lt;/p>
-&lt;blockquote>
-&lt;p>When all else fails, the Go GC provides a few different specific traces that provide much deeper insights into GC behavior. These traces are always printed directly to STDERR, one line per GC cycle, and are configured through the GODEBUG environment variable that all Go programs recognize.&lt;/p>&lt;/blockquote>
-&lt;p>An environment variable that all Go programs recognize, you say? I had a sneaking suspicion that I could just perform a string search for this term, given all Go programs would need to look for this environment variable definition. This way, we could guess if a binary was written in Go.&lt;/p></description></item><item><title>Need a hand?</title><link>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</link><pubDate>Thu, 03 Apr 2025 15:56:04 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</guid><description>&lt;h1 id="the-tides">The tides&lt;/h1>
-&lt;p>Over the past few months, a sizable fraction of my developer peers have taken to AI tools. Beckoned from under a rock by the light of day, I was taken aback by this rising wave of &lt;em>vibe coding&lt;/em>.&lt;/p>
-&lt;p>They claim AI tools to be phenomenal for frontend technologies like React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p>
-&lt;p>Context aware autocompletes happen when the model watches your code so it can suggest autocompletes while you code.&lt;/p></description></item><item><title>In search of the smallest DNA complement function</title><link>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</link><pubDate>Fri, 14 Feb 2025 09:40:11 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</guid><description>&lt;p>For the past few weeks, I have been trying to come up with a fast and purely agebraic function to convert DNA bases to their
-respective complements.&lt;/p>
-&lt;h2 id="problem-statement">Problem statement&lt;/h2>
-&lt;p>Our goal is rather straightforward. We aim to create a mapping of the characters &lt;code>a&lt;/code>, &lt;code>t&lt;/code>, &lt;code>g&lt;/code>, &lt;code>c&lt;/code> and &lt;code>n&lt;/code> to their respective complements.
-We choose to keep our solution one step behind the classical reverse complement which reverses the string after the mapping.&lt;/p></description></item><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote>
-&lt;p>Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p>&lt;/blockquote>
-&lt;p>A live, in-browser demo of &lt;code>PROJECT_MANA&lt;/code>.&lt;/p>
-&lt;p>Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p>
-&lt;p>Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
-is 5 seconds in this example.&lt;/p>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Fri, 22 Aug 2025 07:14:39 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Shared</title><link>https://lavafroth.is-a.dev/shared/</link><pubDate>Fri, 22 Aug 2025 07:14:39 +0530</pubDate><guid>https://lavafroth.is-a.dev/shared/</guid><description>&lt;p&gt;✨ Shared resources between me and her ✨&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://ocw.mit.edu"&gt;MIT OpenCourseWare&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://course.fast.ai"&gt;fast.ai&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://statquest.org/video-index/"&gt;StatQuest with Josh Starmer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://online.stat.psu.edu/stat414/"&gt;Stat414 Penn State University&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://stats.libretexts.org/"&gt;Libretexts Stats&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://bio.libretexts.org/"&gt;Libretexts Bio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Guide: Changing Recents Provider on /e/OS</title><link>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</link><pubDate>Wed, 20 Aug 2025 09:55:43 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</guid><description>&lt;h1 id="overview"&gt;Overview&lt;/h1&gt;
+&lt;p&gt;Over the past month I have been daily driving my new phone, the Nothing CMF 1 flashed with /e/OS after I unlocked its bootloader. It&amp;rsquo;s a very pleasant experience except for the default Bliss launcher (home app).&lt;/p&gt;
+&lt;p&gt;Reasons I do not prefer it:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;iOS like feel&lt;/li&gt;
+&lt;li&gt;Icons can&amp;rsquo;t be rearranged&lt;/li&gt;
+&lt;li&gt;Pull down from top opens search instead of notification shade&lt;/li&gt;
+&lt;li&gt;Consumes a lot of RAM&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;I started using Lawnchair as my default launcher but this did not change the recents provider (quickstep) from BlissLauncher to Lawnchair.&lt;/p&gt;</description></item><item><title>✨</title><link>https://lavafroth.is-a.dev/art/sparkles/</link><pubDate>Tue, 15 Jul 2025 11:52:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/sparkles/</guid><description>&lt;p&gt;The sparkles to my life.&lt;/p&gt;</description></item><item><title>Easy grep to detect stripped Go binaries</title><link>https://lavafroth.is-a.dev/post/detecting-stripped-go-binaries/</link><pubDate>Fri, 13 Jun 2025 08:39:58 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/detecting-stripped-go-binaries/</guid><description>&lt;p&gt;A couple of days ago when I was reading the &lt;a href="https://tip.golang.org/doc/gc-guide"&gt;guide to the Go garbage collector&lt;/a&gt;, I came across the following excerpt:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;When all else fails, the Go GC provides a few different specific traces that provide much deeper insights into GC behavior. These traces are always printed directly to STDERR, one line per GC cycle, and are configured through the GODEBUG environment variable that all Go programs recognize.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;An environment variable that all Go programs recognize, you say? I had a sneaking suspicion that I could just perform a string search for this term, given all Go programs would need to look for this environment variable definition. This way, we could guess if a binary was written in Go.&lt;/p&gt;</description></item><item><title>Need a hand?</title><link>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</link><pubDate>Thu, 03 Apr 2025 15:56:04 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</guid><description>&lt;h1 id="the-tides"&gt;The tides&lt;/h1&gt;
+&lt;p&gt;Over the past few months, a sizable fraction of my developer peers have taken to AI tools. Beckoned from under a rock by the light of day, I was taken aback by this rising wave of &lt;em&gt;vibe coding&lt;/em&gt;.&lt;/p&gt;
+&lt;p&gt;They claim AI tools to be phenomenal for frontend technologies like React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p&gt;
+&lt;p&gt;Context aware autocompletes happen when the model watches your code so it can suggest autocompletes while you code.&lt;/p&gt;</description></item><item><title>In search of the smallest DNA complement function</title><link>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</link><pubDate>Fri, 14 Feb 2025 09:40:11 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/in-search-of-the-smallest-dna-compl/</guid><description>&lt;p&gt;For the past few weeks, I have been trying to come up with a fast and purely agebraic function to convert DNA bases to their
+respective complements.&lt;/p&gt;
+&lt;h2 id="problem-statement"&gt;Problem statement&lt;/h2&gt;
+&lt;p&gt;Our goal is rather straightforward. We aim to create a mapping of the characters &lt;code&gt;a&lt;/code&gt;, &lt;code&gt;t&lt;/code&gt;, &lt;code&gt;g&lt;/code&gt;, &lt;code&gt;c&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; to their respective complements.
+We choose to keep our solution one step behind the classical reverse complement which reverses the string after the mapping.&lt;/p&gt;</description></item><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;A live, in-browser demo of &lt;code&gt;PROJECT_MANA&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p&gt;
+&lt;p&gt;Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
+is 5 seconds in this example.&lt;/p&gt;
 
-&lt;div id="stage">
-&lt;/div>
-&lt;style>
+&lt;div id="stage"&gt;
+&lt;/div&gt;
+&lt;style&gt;
 canvas {
  background: transparent;
  border-radius: 1rem;
  margin-bottom: 1rem;
 }
-&lt;/style>
-&lt;script type="frag" id="evolve-vert">
+&lt;/style&gt;
+&lt;script type="frag" id="evolve-vert"&gt;
 varying vec2 vUv;
 
 void main() {
@@ -47,8 +50,8 @@ void main() {
  vUv = gl_Position.xy / gl_Position.w;
  vUv = (vUv + 1.0) * 0.5;
 }
-&lt;/script>
-&lt;script type="frag" id="evolve-frag">
+&lt;/script&gt;
+&lt;script type="frag" id="evolve-frag"&gt;
 varying vec2 vUv;
 
 uniform sampler2D gbufferMask;
@@ -58,8 +61,8 @@ void main() {
  gl_FragColor = vec4(texture(initBufferMask, vUv));
 }
 
-&lt;/script>
-&lt;script type="frag" id="outline-frag">
+&lt;/script&gt;
+&lt;script type="frag" id="outline-frag"&gt;
  varying vec2 vUv;
  varying vec2 clipMeshCenter;
  varying vec2 glPos;
@@ -112,8 +115,8 @@ void main() {
  vec4 outline = vec4(isOutline);
  gl_FragColor = outline;
  }
-&lt;/script>
-&lt;script type="vert" id="outline-vert">
+&lt;/script&gt;
+&lt;script type="vert" id="outline-vert"&gt;
  varying vec2 vUv;
  uniform vec3 meshCenter;
  varying vec2 clipMeshCenter;
@@ -128,17 +131,17 @@ void main() {
  vUv = (vUv + 1.0) * 0.5;
  glPos = gl_Position.xy;
  }
-&lt;/script>
-&lt;script type="importmap">
+&lt;/script&gt;
+&lt;script type="importmap"&gt;
  {
  "imports": {
  "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
  }
  }
-&lt;/script>
+&lt;/script&gt;
 
-&lt;script type="module">
+&lt;script type="module"&gt;
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
@@ -200,7 +203,7 @@ const solidMesh = new THREE.Mesh(
  solidMeshMaterial,
 );
 
-btnDark.addEventListener('click', () => {
+btnDark.addEventListener('click', () =&gt; {
  dark ^= true
  solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
  ambientLight.intensity = dark ? 1: 10;
@@ -238,10 +241,10 @@ const evolveMesh = new THREE.Mesh(
 evolveScene.add(evolveMesh)
 
 function continuity(bitmap, width, height) {
- const visited = Array.from({length: height}, () => Array(width).fill(false));
+ const visited = Array.from({length: height}, () =&gt; Array(width).fill(false));
 
  function valid(row, col) {
- return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
+ return row &gt;= 0 &amp;&amp; row &lt; height &amp;&amp; col &gt;= 0 &amp;&amp; col &lt;= width
  }
 
  function valid_1(row, col) {
@@ -285,7 +288,7 @@ function continuity(bitmap, width, height) {
  return
  }
 
- if (steps > 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
+ if (steps &gt; 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
  cyclic.push([row, col])
  return
  }
@@ -341,7 +344,7 @@ var durationInSeconds = 5;
 // threshold when timing the animation.
 function dijkstraNumber(points, buf) {
  var longestStrand = 2;
- points.forEach((point) => {
+ points.forEach((point) =&gt; {
  longestStrand = Math.max(longestStrand, dijkstraPropagate(point, buf, 2))
  })
  return longestStrand
@@ -354,7 +357,7 @@ function dijkstraPropagate(point, buf, value) {
  if (neighbors === undefined) {
  return value
  }
- neighbors.forEach(([row, col]) => {
+ neighbors.forEach(([row, col]) =&gt; {
  let pos = 4 * (row * buffer.width + col);
  if (buf[pos] != 1) {
  return
@@ -405,7 +408,7 @@ function animate() {
  		longestPixelStrand = dijkstraNumber(points, dijkstraBuffer)
 
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
- points.forEach((point) => {
+ points.forEach((point) =&gt; {
  let pos = 4 * (point[0] * buffer.width + point[1]);
  initBuffer[pos] = 255;
  initBuffer[pos+1] = 255;
@@ -424,7 +427,7 @@ function animate() {
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
+ if (dijkstraBuffer[point] &gt; 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
  initBuffer[point] = dark ? 255: 22;
  initBuffer[point+1] = dark ? 255: 22;
  initBuffer[point+2] = dark ? 255 : 22;
@@ -449,186 +452,186 @@ renderer.setAnimationLoop(animate);
 orbit.addEventListener('change', function() {
  init = true;
 })
-&lt;/script>
+&lt;/script&gt;
 
 
-&lt;p>Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p></description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p>Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
-start this year off by going back to the roots.&lt;/p>
-&lt;p>I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
-&lt;em>SansAlpha&lt;/em> from PicoCTF. The challenge description states&lt;/p>
-&lt;blockquote>
-&lt;p>The Multiverse is within your grasp! Unfortunately, the server that contains
+&lt;p&gt;Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p&gt;</description></item><item><title>PicoCTF SansAlpha Writeup</title><link>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</link><pubDate>Sun, 05 Jan 2025 11:55:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-sansalpha-writeup/</guid><description>&lt;p&gt;Hey everyone, since 2024 hasn&amp;rsquo;t seen a lot of posts on this blog, I plan to
+start this year off by going back to the roots.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll be focusing on posting more CTF writeups again! Today&amp;rsquo;s challenge is
+&lt;em&gt;SansAlpha&lt;/em&gt; from PicoCTF. The challenge description states&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The Multiverse is within your grasp! Unfortunately, the server that contains
 the secrets of the multiverse is in a universe where keyboards only have numbers
-and (most) symbols.&lt;/p></description></item><item><title>A Tale of a Frugal Home Server</title><link>https://lavafroth.is-a.dev/post/a-tale-of-a-frugal-home-server/</link><pubDate>Sat, 04 Jan 2025 10:04:37 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/a-tale-of-a-frugal-home-server/</guid><description>&lt;p>Having run an on-premise server for the past two years, I think my setup has finally
-matured enough to be worth talking about.&lt;/p>
-&lt;p>At any point, you can check out the source code for the server&amp;rsquo;s infrastructure &lt;a href="https://github.com/lavafroth/dotfiles/tree/main/hosts/rahu">here&lt;/a> for a concrete example.
-For each service I talk about, I will also link the respective definitions in my config.&lt;/p>
-&lt;p>My minimalist mindset has unsurprisingly aided the architecture of my server.
-Throughout the rest of the post, you will come across the following broad strokes:&lt;/p></description></item><item><title>NixOS Secureboot Shenanigans</title><link>https://lavafroth.is-a.dev/post/nixos-secureboot-shenanigans/</link><pubDate>Fri, 20 Dec 2024 12:26:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/nixos-secureboot-shenanigans/</guid><description>&lt;h1 id="key-takeaways">Key takeaways&lt;/h1>
-&lt;ul>
-&lt;li>This issue only pertains to secureboot on NixOS using lanzaboote. Most Linux users have secureboot disabled. If you are paranoid like me and have enabled it, continue reading.&lt;/li>
-&lt;li>Make sure to track the latest version of &lt;code>lanzaboote&lt;/code>. (&lt;a href="https://github.com/lavafroth/dotfiles/commit/4d64808ffbc135b5bf5a61df17ef02d7da8452b7">example&lt;/a>)&lt;/li>
-&lt;li>Set the PKI bundle location to the newer &lt;code>sbctl&lt;/code> default. (&lt;a href="https://github.com/lavafroth/dotfiles/commit/1fa71734bb3af83b8de9134e68f0153f49a18205">example&lt;/a>)&lt;/li>
-&lt;/ul>
-&lt;h1 id="deprecated-overridescope">Deprecated &lt;code>overrideScope'&lt;/code>&lt;/h1>
-&lt;p>For the past few months, I started noticing this new warning when rebuilding my system with &lt;code>nixos-rebuild&lt;/code>.&lt;/p></description></item><item><title>Wrapping up GSoC 2024</title><link>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</link><pubDate>Sat, 24 Aug 2024 10:28:50 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</guid><description>&lt;h1 id="overview">Overview&lt;/h1>
-&lt;p>Hello and welcome to the final GSoC post for 2024! My task was to formalize the SWHKD parser using context-free EBNF notation. This post is to serve as a birdseye view of what
-I have developed over this summer.&lt;/p>
-&lt;h1 id="report">Report&lt;/h1>
-&lt;h2 id="architecting-the-parser">Architecting the parser&lt;/h2>
-&lt;p>I started out with the scaffolding of the parser in an extended Backus-Naur form garmmar template
-in a separate repository called &lt;a href="https://github.com/waycrate/sweet">SWEET&lt;/a> using a Rust framework
-called &lt;a href="https://pest.rs">pest.rs&lt;/a>. Quite a lot of time was
-spent in modelling the architecture of the syntax tree for our domain specific language.&lt;/p></description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote>
-&lt;p>Note: Use the following method only if you wish to have the latest version of CUDA that is
-not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache">this&lt;/a>.&lt;/p>&lt;/blockquote>
-&lt;blockquote>
-&lt;p>&lt;em>TL;DR:&lt;/em> Save &lt;a href="#the-flake">this flake&lt;/a>, run &lt;code>nix develop&lt;/code> and &lt;a href="#setting-up-pytorch">setup PyTorch as described&lt;/a>&lt;/p>&lt;/blockquote>
-&lt;p>&lt;a href="https://en.wikipedia.org/wiki/CUDA">CUDA&lt;/a> is a proprietary vendor lock-in for machine learning folks.
+and (most) symbols.&lt;/p&gt;</description></item><item><title>A Tale of a Frugal Home Server</title><link>https://lavafroth.is-a.dev/post/a-tale-of-a-frugal-home-server/</link><pubDate>Sat, 04 Jan 2025 10:04:37 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/a-tale-of-a-frugal-home-server/</guid><description>&lt;p&gt;Having run an on-premise server for the past two years, I think my setup has finally
+matured enough to be worth talking about.&lt;/p&gt;
+&lt;p&gt;At any point, you can check out the source code for the server&amp;rsquo;s infrastructure &lt;a href="https://github.com/lavafroth/dotfiles/tree/main/hosts/rahu"&gt;here&lt;/a&gt; for a concrete example.
+For each service I talk about, I will also link the respective definitions in my config.&lt;/p&gt;
+&lt;p&gt;My minimalist mindset has unsurprisingly aided the architecture of my server.
+Throughout the rest of the post, you will come across the following broad strokes:&lt;/p&gt;</description></item><item><title>NixOS Secureboot Shenanigans</title><link>https://lavafroth.is-a.dev/post/nixos-secureboot-shenanigans/</link><pubDate>Fri, 20 Dec 2024 12:26:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/nixos-secureboot-shenanigans/</guid><description>&lt;h1 id="key-takeaways"&gt;Key takeaways&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;This issue only pertains to secureboot on NixOS using lanzaboote. Most Linux users have secureboot disabled. If you are paranoid like me and have enabled it, continue reading.&lt;/li&gt;
+&lt;li&gt;Make sure to track the latest version of &lt;code&gt;lanzaboote&lt;/code&gt;. (&lt;a href="https://github.com/lavafroth/dotfiles/commit/4d64808ffbc135b5bf5a61df17ef02d7da8452b7"&gt;example&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Set the PKI bundle location to the newer &lt;code&gt;sbctl&lt;/code&gt; default. (&lt;a href="https://github.com/lavafroth/dotfiles/commit/1fa71734bb3af83b8de9134e68f0153f49a18205"&gt;example&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="deprecated-overridescope"&gt;Deprecated &lt;code&gt;overrideScope'&lt;/code&gt;&lt;/h1&gt;
+&lt;p&gt;For the past few months, I started noticing this new warning when rebuilding my system with &lt;code&gt;nixos-rebuild&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Wrapping up GSoC 2024</title><link>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</link><pubDate>Sat, 24 Aug 2024 10:28:50 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/the-gsoc-grand-finale/</guid><description>&lt;h1 id="overview"&gt;Overview&lt;/h1&gt;
+&lt;p&gt;Hello and welcome to the final GSoC post for 2024! My task was to formalize the SWHKD parser using context-free EBNF notation. This post is to serve as a birdseye view of what
+I have developed over this summer.&lt;/p&gt;
+&lt;h1 id="report"&gt;Report&lt;/h1&gt;
+&lt;h2 id="architecting-the-parser"&gt;Architecting the parser&lt;/h2&gt;
+&lt;p&gt;I started out with the scaffolding of the parser in an extended Backus-Naur form garmmar template
+in a separate repository called &lt;a href="https://github.com/waycrate/sweet"&gt;SWEET&lt;/a&gt; using a Rust framework
+called &lt;a href="https://pest.rs"&gt;pest.rs&lt;/a&gt;. Quite a lot of time was
+spent in modelling the architecture of the syntax tree for our domain specific language.&lt;/p&gt;</description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;Note: Use the following method only if you wish to have the latest version of CUDA that is
+not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/CUDA"&gt;CUDA&lt;/a&gt; is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.
-Although, OpenAI&amp;rsquo;s Triton and ZLUDA are worth keeping an eye on.&lt;/p></description></item><item><title>Amateur Blender Sculpture</title><link>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</link><pubDate>Sat, 03 Aug 2024 17:50:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</guid><description>&lt;p>This is my first time trying out sculpting in blender, so forgive me for the
+Although, OpenAI&amp;rsquo;s Triton and ZLUDA are worth keeping an eye on.&lt;/p&gt;</description></item><item><title>Amateur Blender Sculpture</title><link>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</link><pubDate>Sat, 03 Aug 2024 17:50:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/amateur-blender-sculpture/</guid><description>&lt;p&gt;This is my first time trying out sculpting in blender, so forgive me for the
 quality of the sculpt. I&amp;rsquo;m still pretty much in the learning stage. Big thank
-you to &lt;a href="https://www.pexels.com/@nichole-sebastian-1592975/">Nichole Sebastian&lt;/a>
+you to &lt;a href="https://www.pexels.com/@nichole-sebastian-1592975/"&gt;Nichole Sebastian&lt;/a&gt;
 for the reference photo. Also apologies if the empty eye sockets gave you a
-jumpscare.&lt;/p></description></item><item><title>How I Use SWHKD in My Workflow</title><link>https://lavafroth.is-a.dev/post/how-i-use-swhkd-in-my-workflow/</link><pubDate>Thu, 01 Aug 2024 17:17:31 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/how-i-use-swhkd-in-my-workflow/</guid><description>&lt;p>SWHKD is the project that I have been working on for the past few months as a part of Google Summer of Code for this year.
+jumpscare.&lt;/p&gt;</description></item><item><title>How I Use SWHKD in My Workflow</title><link>https://lavafroth.is-a.dev/post/how-i-use-swhkd-in-my-workflow/</link><pubDate>Thu, 01 Aug 2024 17:17:31 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/how-i-use-swhkd-in-my-workflow/</guid><description>&lt;p&gt;SWHKD is the project that I have been working on for the past few months as a part of Google Summer of Code for this year.
 Now that we are done with the development process, I want to talk about why I wanted to improve the project. Although
 the easy answer is to get paid or to get a more production facing OSS development experience,
-for me, the most important driving force is using it in my own workflow.&lt;/p></description></item><item><title>Polishing and Bugfix Week</title><link>https://lavafroth.is-a.dev/post/polishing-and-bugfix-week/</link><pubDate>Mon, 29 Jul 2024 13:46:41 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/polishing-and-bugfix-week/</guid><description>&lt;p>Hello and welcome to the last instalment in the series where we build a parser
+for me, the most important driving force is using it in my own workflow.&lt;/p&gt;</description></item><item><title>Polishing and Bugfix Week</title><link>https://lavafroth.is-a.dev/post/polishing-and-bugfix-week/</link><pubDate>Mon, 29 Jul 2024 13:46:41 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/polishing-and-bugfix-week/</guid><description>&lt;p&gt;Hello and welcome to the last instalment in the series where we build a parser
 for a domain specific langauge in Rust. Please go through the previous articles
-since this article assumes you are aware of such contextual details.&lt;/p>
-&lt;p>Let&amp;rsquo;s start with the bugfixes.&lt;/p>
-&lt;h1 id="eagerly-removing-unbinds">Eagerly removing unbinds&lt;/h1>
-&lt;p>While going through the tests, I figured that
+since this article assumes you are aware of such contextual details.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s start with the bugfixes.&lt;/p&gt;
+&lt;h1 id="eagerly-removing-unbinds"&gt;Eagerly removing unbinds&lt;/h1&gt;
+&lt;p&gt;While going through the tests, I figured that
 the prior parser eagerly parses unbinds and removes said keystroke combinations
 from our binding set. Unlike the previous iteration, our iteration had unbinds
 as a separate set which deferred the task of the removing the set intersection
-to the upstream crate instead.&lt;/p></description></item><item><title>Humans Suck at Command Sanitization</title><link>https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/</link><pubDate>Wed, 17 Jul 2024 07:55:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/</guid><description>&lt;p>Hello and welcome to the eighth instalment in the series where we build a parser
+to the upstream crate instead.&lt;/p&gt;</description></item><item><title>Humans Suck at Command Sanitization</title><link>https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/</link><pubDate>Wed, 17 Jul 2024 07:55:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/</guid><description>&lt;p&gt;Hello and welcome to the eighth instalment in the series where we build a parser
 for a domain specific language in Rust. I’d highly recommend going through the
-previous articles to make sense of what we’ll talk about today.&lt;/p>
-&lt;p>Previously, we had built the scaffolding for modes to bind shortcuts to. Today,
+previous articles to make sense of what we’ll talk about today.&lt;/p&gt;
+&lt;p&gt;Previously, we had built the scaffolding for modes to bind shortcuts to. Today,
 we&amp;rsquo;ll create the mechanism to invoke commands in the contexts of the modes that
-can be built.&lt;/p>
-&lt;p>Now, SWHKD has a clever way to enter (and escape) mode contexts with inside commands
-by chaining subcommands and mode instructions with double ampersands. Consider the following example:&lt;/p></description></item><item><title>Preventing Infinite Recursions From Eating Your Lunch</title><link>https://lavafroth.is-a.dev/post/preventing-infinite-recursions-from-eating-your-lunch/</link><pubDate>Thu, 04 Jul 2024 09:57:01 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/preventing-infinite-recursions-from-eating-your-lunch/</guid><description>&lt;p>Hello and welcome to the eighth instalment in the series where we build a
+can be built.&lt;/p&gt;
+&lt;p&gt;Now, SWHKD has a clever way to enter (and escape) mode contexts with inside commands
+by chaining subcommands and mode instructions with double ampersands. Consider the following example:&lt;/p&gt;</description></item><item><title>Preventing Infinite Recursions From Eating Your Lunch</title><link>https://lavafroth.is-a.dev/post/preventing-infinite-recursions-from-eating-your-lunch/</link><pubDate>Thu, 04 Jul 2024 09:57:01 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/preventing-infinite-recursions-from-eating-your-lunch/</guid><description>&lt;p&gt;Hello and welcome to the eighth instalment in the series where we build a
 parser for a domain specific language in Rust. I&amp;rsquo;d highly recommend
-going through the previous articles to make sense of what we’ll talk about today.&lt;/p>
-&lt;p>After a bit of back and forth with my mentor, we landed on moving the logic that imports
+going through the previous articles to make sense of what we’ll talk about today.&lt;/p&gt;
+&lt;p&gt;After a bit of back and forth with my mentor, we landed on moving the logic that imports
 other config files into the parser crate itself. Config files can reference other modules
-using import statements of the following form:&lt;/p></description></item><item><title>Test Driven Development - The Pinnacle of Engineering</title><link>https://lavafroth.is-a.dev/post/test-driven-development-the-pinnacle-of-engineering/</link><pubDate>Mon, 24 Jun 2024 08:45:49 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/test-driven-development-the-pinnacle-of-engineering/</guid><description>&lt;p>Hello and welcome to the seventh instalment in the series where we build a
+using import statements of the following form:&lt;/p&gt;</description></item><item><title>Test Driven Development - The Pinnacle of Engineering</title><link>https://lavafroth.is-a.dev/post/test-driven-development-the-pinnacle-of-engineering/</link><pubDate>Mon, 24 Jun 2024 08:45:49 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/test-driven-development-the-pinnacle-of-engineering/</guid><description>&lt;p&gt;Hello and welcome to the seventh instalment in the series where we build a
 parser for a domain specific language in Rust. I would highly recommend you to
-go through the previous articles to make sense of what we’ll talk about today.&lt;/p>
-&lt;h2 id="tying-loose-ends">Tying loose ends&lt;/h2>
-&lt;p>Up until the last post, we had covered quite some ground, from building
+go through the previous articles to make sense of what we’ll talk about today.&lt;/p&gt;
+&lt;h2 id="tying-loose-ends"&gt;Tying loose ends&lt;/h2&gt;
+&lt;p&gt;Up until the last post, we had covered quite some ground, from building
 elementary expressions to the penultimate levels of abstraction for macroscopic
-expressions.&lt;/p>
-&lt;p>Let&amp;rsquo;s begin today&amp;rsquo;s conversation by finishing off where we left off. For us to
+expressions.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s begin today&amp;rsquo;s conversation by finishing off where we left off. For us to
 be able to parse an entire config file, we must have one main rule. We combine
 all of the primitives that we have built so far: comments, modes, bindings,
-unbinds and imports into a blanket content expression.&lt;/p></description></item><item><title>Drowning</title><link>https://lavafroth.is-a.dev/art/drowning/</link><pubDate>Tue, 18 Jun 2024 09:30:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/drowning/</guid><description>&lt;p>A cyborg head sinking in a pool of water. What more did you expect? &lt;a href="https://www.youtube.com/watch?v=lVbPXxq0xzg">Here&amp;rsquo;s a timelapse&lt;/a>.&lt;/p></description></item><item><title>This Error</title><link>https://lavafroth.is-a.dev/art/thiserror/</link><pubDate>Tue, 18 Jun 2024 09:30:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/thiserror/</guid><description>&lt;p>My first hand drawn YouTube thumbnail, I&amp;rsquo;m might continue using
-&lt;em>lawyer ferris&lt;/em> as my mascot both due to ferris being in the public domain
-as well as the sheer memeworthiness of the debacle.&lt;/p></description></item><item><title>Modes, Unbinds and Other Ensembled Parser Patterns</title><link>https://lavafroth.is-a.dev/post/modes-unbinds-and-other-ensembled-parser-patterns/</link><pubDate>Mon, 10 Jun 2024 08:27:06 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/modes-unbinds-and-other-ensembled-parser-patterns/</guid><description>&lt;p>Hello and welcome to the sixth instalment in this series where we build a parser
+unbinds and imports into a blanket content expression.&lt;/p&gt;</description></item><item><title>Drowning</title><link>https://lavafroth.is-a.dev/art/drowning/</link><pubDate>Tue, 18 Jun 2024 09:30:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/drowning/</guid><description>&lt;p&gt;A cyborg head sinking in a pool of water. What more did you expect? &lt;a href="https://www.youtube.com/watch?v=lVbPXxq0xzg"&gt;Here&amp;rsquo;s a timelapse&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>This Error</title><link>https://lavafroth.is-a.dev/art/thiserror/</link><pubDate>Tue, 18 Jun 2024 09:30:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/thiserror/</guid><description>&lt;p&gt;My first hand drawn YouTube thumbnail, I&amp;rsquo;m might continue using
+&lt;em&gt;lawyer ferris&lt;/em&gt; as my mascot both due to ferris being in the public domain
+as well as the sheer memeworthiness of the debacle.&lt;/p&gt;</description></item><item><title>Modes, Unbinds and Other Ensembled Parser Patterns</title><link>https://lavafroth.is-a.dev/post/modes-unbinds-and-other-ensembled-parser-patterns/</link><pubDate>Mon, 10 Jun 2024 08:27:06 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/modes-unbinds-and-other-ensembled-parser-patterns/</guid><description>&lt;p&gt;Hello and welcome to the sixth instalment in this series where we build a parser
 for a domain specific language from scratch. I would highly recommend you to go
-through the previous articles to make sense of what we&amp;rsquo;ll talk about today.&lt;/p>
-&lt;p>So far, we have built ranges, shorthands and bindings, starting all the way down
+through the previous articles to make sense of what we&amp;rsquo;ll talk about today.&lt;/p&gt;
+&lt;p&gt;So far, we have built ranges, shorthands and bindings, starting all the way down
 from primitives such as keys and modifiers. Continuing with the theme, we will
-ensemble these patterns together along with some newer syntax to build modes.&lt;/p></description></item><item><title>I Solemnly Swear to Never Buy a Gaming Laptop Again</title><link>https://lavafroth.is-a.dev/post/i-solemnly-swear-to-never-buy-a-gaming-laptop-again/</link><pubDate>Fri, 07 Jun 2024 17:01:01 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/i-solemnly-swear-to-never-buy-a-gaming-laptop-again/</guid><description>&lt;p>Around half a decade ago, I bought an Asus gaming laptop, one I&amp;rsquo;m currently using to write this article.
-Although it came preinstalled with Windows, I never let it even boot and instead opted for linux. Bill Gates can cry a river.&lt;/p>
-&lt;p>Despite switching distros multiple times, one sporadical issue my setup suffered from
-was the wireless card dying after a few minutes of booting the box. The only solution to this was to reboot my computer, classic!&lt;/p></description></item><item><title>Modeling More Realistic Keybinds With Modifiers</title><link>https://lavafroth.is-a.dev/post/modeling-more-realistic-keybinds-with-modifiers/</link><pubDate>Wed, 05 Jun 2024 10:26:13 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/modeling-more-realistic-keybinds-with-modifiers/</guid><description>&lt;p>Real world keybindings for shortcuts often involve more than just a simple keypress, especially outside the context of
+ensemble these patterns together along with some newer syntax to build modes.&lt;/p&gt;</description></item><item><title>I Solemnly Swear to Never Buy a Gaming Laptop Again</title><link>https://lavafroth.is-a.dev/post/i-solemnly-swear-to-never-buy-a-gaming-laptop-again/</link><pubDate>Fri, 07 Jun 2024 17:01:01 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/i-solemnly-swear-to-never-buy-a-gaming-laptop-again/</guid><description>&lt;p&gt;Around half a decade ago, I bought an Asus gaming laptop, one I&amp;rsquo;m currently using to write this article.
+Although it came preinstalled with Windows, I never let it even boot and instead opted for linux. Bill Gates can cry a river.&lt;/p&gt;
+&lt;p&gt;Despite switching distros multiple times, one sporadical issue my setup suffered from
+was the wireless card dying after a few minutes of booting the box. The only solution to this was to reboot my computer, classic!&lt;/p&gt;</description></item><item><title>Modeling More Realistic Keybinds With Modifiers</title><link>https://lavafroth.is-a.dev/post/modeling-more-realistic-keybinds-with-modifiers/</link><pubDate>Wed, 05 Jun 2024 10:26:13 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/modeling-more-realistic-keybinds-with-modifiers/</guid><description>&lt;p&gt;Real world keybindings for shortcuts often involve more than just a simple keypress, especially outside the context of
 a single application. The general distinction for these two types involves modifier keys. When I talk about a shortcut
-bound to &lt;code>super&lt;/code> &lt;code>v&lt;/code>, chances are you automatically think of global bindings at the operating system or desktop environment
-level. Today we&amp;rsquo;ll go through the process of writing the grammar for these bindings for swhkd.&lt;/p></description></item><item><title>Edge cases? You Shall Not Pass!</title><link>https://lavafroth.is-a.dev/post/edge-cases-you-shall-not-pass/</link><pubDate>Mon, 03 Jun 2024 08:18:19 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/edge-cases-you-shall-not-pass/</guid><description>&lt;p>This post is a part of a series that explains the architecture of the config parser
+bound to &lt;code&gt;super&lt;/code&gt; &lt;code&gt;v&lt;/code&gt;, chances are you automatically think of global bindings at the operating system or desktop environment
+level. Today we&amp;rsquo;ll go through the process of writing the grammar for these bindings for swhkd.&lt;/p&gt;</description></item><item><title>Edge cases? You Shall Not Pass!</title><link>https://lavafroth.is-a.dev/post/edge-cases-you-shall-not-pass/</link><pubDate>Mon, 03 Jun 2024 08:18:19 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/edge-cases-you-shall-not-pass/</guid><description>&lt;p&gt;This post is a part of a series that explains the architecture of the config parser
 I am building for swhkd as a part of Google Summer of Code. I highly recommend reading
-through the previous posts as I&amp;rsquo;ll be referring to them from time to time.&lt;/p>
-&lt;p>In the last post I talked about key attributes that can be used as prefix to denote
-the timing of an event, on key press (&lt;code>send&lt;/code> / &lt;code>~&lt;/code>) or release (&lt;code>on_release&lt;/code> / &lt;code>@&lt;/code>). One nuanced
-case we did not cover was the use of these attributes inside shorthands.&lt;/p></description></item><item><title>Timing is Key: A Tale of Keystrokes and Timings</title><link>https://lavafroth.is-a.dev/post/timing-is-key/</link><pubDate>Wed, 29 May 2024 21:18:22 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/timing-is-key/</guid><description>&lt;p>Whether you&amp;rsquo;re playing a video game or competing in a constrained attack-defense CTF, your keystroke timings matter.
+through the previous posts as I&amp;rsquo;ll be referring to them from time to time.&lt;/p&gt;
+&lt;p&gt;In the last post I talked about key attributes that can be used as prefix to denote
+the timing of an event, on key press (&lt;code&gt;send&lt;/code&gt; / &lt;code&gt;~&lt;/code&gt;) or release (&lt;code&gt;on_release&lt;/code&gt; / &lt;code&gt;@&lt;/code&gt;). One nuanced
+case we did not cover was the use of these attributes inside shorthands.&lt;/p&gt;</description></item><item><title>Timing is Key: A Tale of Keystrokes and Timings</title><link>https://lavafroth.is-a.dev/post/timing-is-key/</link><pubDate>Wed, 29 May 2024 21:18:22 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/timing-is-key/</guid><description>&lt;p&gt;Whether you&amp;rsquo;re playing a video game or competing in a constrained attack-defense CTF, your keystroke timings matter.
 We at waycrate value your precision, to the extent that you can configure your keybindings to perform actions either
-on a key&amp;rsquo;s press or a release.&lt;/p>
-&lt;p>Hi, my name&amp;rsquo;s Himadri and this post is a part of a series explaining how
+on a key&amp;rsquo;s press or a release.&lt;/p&gt;
+&lt;p&gt;Hi, my name&amp;rsquo;s Himadri and this post is a part of a series explaining how
 we (basically just me) are rewriting the config parser for swhkd using EBNF
 grammar. I highly recommend reading the previous posts because I&amp;rsquo;ll be referring
 to them from time to time. In the last post, we talked about regular keys
-that form the foundation of bindings. However, we glossed over the &lt;code>send&lt;/code> and
-&lt;code>on_release&lt;/code> expressions in the code.&lt;/p></description></item><item><title>Keep the Keys Clackin'</title><link>https://lavafroth.is-a.dev/post/keep-the-keys-clackin/</link><pubDate>Mon, 27 May 2024 08:59:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/keep-the-keys-clackin/</guid><description>&lt;p>This is the second post in a series of posts I&amp;rsquo;m writing for Google Summer of Code.
+that form the foundation of bindings. However, we glossed over the &lt;code&gt;send&lt;/code&gt; and
+&lt;code&gt;on_release&lt;/code&gt; expressions in the code.&lt;/p&gt;</description></item><item><title>Keep the Keys Clackin'</title><link>https://lavafroth.is-a.dev/post/keep-the-keys-clackin/</link><pubDate>Mon, 27 May 2024 08:59:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/keep-the-keys-clackin/</guid><description>&lt;p&gt;This is the second post in a series of posts I&amp;rsquo;m writing for Google Summer of Code.
 Each post covers a separate topic.
 While the previous posts might have given you an overview of ideas, this post will delve
 into more technical details. I highly recommend reading the previous posts because I will
-refer to them from time to time.&lt;/p>
-&lt;p>Let&amp;rsquo;s begin with why we chose EBNF grammar in &lt;a href="https://pest.rs">pest.rs&lt;/a> instead of regular expressions.&lt;/p></description></item><item><title>2 Afternoons, 2 Languages, 2 TUIs</title><link>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</link><pubDate>Thu, 23 May 2024 18:37:47 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</guid><description>&lt;p>Yesterday I created a tool in Golang to help me render my animations a little
+refer to them from time to time.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s begin with why we chose EBNF grammar in &lt;a href="https://pest.rs"&gt;pest.rs&lt;/a&gt; instead of regular expressions.&lt;/p&gt;</description></item><item><title>2 Afternoons, 2 Languages, 2 TUIs</title><link>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</link><pubDate>Thu, 23 May 2024 18:37:47 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</guid><description>&lt;p&gt;Yesterday I created a tool in Golang to help me render my animations a little
 faster. Although the alterior reason was to check my Golang proficiency, today
 I rewrote it in Rust and I was blown away by the differences in the final
-products.&lt;/p>
-&lt;p>When I&amp;rsquo;m rendering animations for a YouTube video, the general development
+products.&lt;/p&gt;
+&lt;p&gt;When I&amp;rsquo;m rendering animations for a YouTube video, the general development
 iteration comprises me creating or modifying a file, switching to a different
-terminal pane and manually issuing a &lt;em>manim&lt;/em> command for the respective file to
+terminal pane and manually issuing a &lt;em&gt;manim&lt;/em&gt; command for the respective file to
 render and play the animation. My goal was to automate the last two processes,
 switching terminal panes and manually issuing a command. The idea is to have a
 tool running in the background that listens for filesystem events, like when a
 file gets created or modified, and if the file happens to contain an animation,
-renders it. On linux systems, it&amp;rsquo;s mostly a bunch of bindings to &lt;code>inotify&lt;/code> but I
-have used platform agnostic libraries for both the languages.&lt;/p></description></item><item><title>A SWEET Little Parser</title><link>https://lavafroth.is-a.dev/post/a-sweet-little-config-parser/</link><pubDate>Fri, 17 May 2024 07:52:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/a-sweet-little-config-parser/</guid><description>&lt;p>A few days ago, I had announced my project for this year&amp;rsquo;s Google Summer of Code. Today I&amp;rsquo;ll
+renders it. On linux systems, it&amp;rsquo;s mostly a bunch of bindings to &lt;code&gt;inotify&lt;/code&gt; but I
+have used platform agnostic libraries for both the languages.&lt;/p&gt;</description></item><item><title>A SWEET Little Parser</title><link>https://lavafroth.is-a.dev/post/a-sweet-little-config-parser/</link><pubDate>Fri, 17 May 2024 07:52:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/a-sweet-little-config-parser/</guid><description>&lt;p&gt;A few days ago, I had announced my project for this year&amp;rsquo;s Google Summer of Code. Today I&amp;rsquo;ll
 be explanding upon that. I believe that to construct a good grammar, I should be able to understand
-and explain it well. So here goes.&lt;/p>
-&lt;h2 id="general-idea">General Idea&lt;/h2>
-&lt;p>SWHKD&amp;rsquo;s grammar parser, although similar to tools before it like sxhkd, has a more coherent
-syntax. For starters, every binding declaration is one or more accelerators followed by a composite key.&lt;/p></description></item><item><title>Wayland Tools Rock!</title><link>https://lavafroth.is-a.dev/post/wayland-tools-rock/</link><pubDate>Fri, 17 May 2024 07:52:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wayland-tools-rock/</guid><description>&lt;p>Hey folks. Quite a few months have passed since I last posted here.
+and explain it well. So here goes.&lt;/p&gt;
+&lt;h2 id="general-idea"&gt;General Idea&lt;/h2&gt;
+&lt;p&gt;SWHKD&amp;rsquo;s grammar parser, although similar to tools before it like sxhkd, has a more coherent
+syntax. For starters, every binding declaration is one or more accelerators followed by a composite key.&lt;/p&gt;</description></item><item><title>Wayland Tools Rock!</title><link>https://lavafroth.is-a.dev/post/wayland-tools-rock/</link><pubDate>Fri, 17 May 2024 07:52:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wayland-tools-rock/</guid><description>&lt;p&gt;Hey folks. Quite a few months have passed since I last posted here.
 As you might have known from my earlier posts, I&amp;rsquo;ve been daily driving
-Wayland instead of Xorg on my NixOS setup for quite some time now.&lt;/p>
-&lt;p>One of the tools I stumbled upon while writing my voice automation abomination
+Wayland instead of Xorg on my NixOS setup for quite some time now.&lt;/p&gt;
+&lt;p&gt;One of the tools I stumbled upon while writing my voice automation abomination
 was SWHKD (Simple Wayland HotKey Daemon). It&amp;rsquo;s a spiritual successor to sxhkd from the Xorg world
 and in a sense better than the former because it works not only in wayland sessions but also
-under X and TTY sessions!&lt;/p></description></item><item><title>Using an Android Phone as a webcam in NixOS</title><link>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</link><pubDate>Sun, 10 Mar 2024 08:47:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</guid><description>&lt;p>I recently had to attend an online meeting for a software development event.
-While my PC did have a decent microphone, the built-in camera has been damaged to the extent that the best it can capture is this:&lt;/p>
-&lt;p>&lt;img src="./pc-camera.avif" alt="A blurry image taken from my scuffed camera">&lt;/p>
-&lt;p>No, it&amp;rsquo;s not a close-up of the moon, it&amp;rsquo;s the refraction caused by the scuffs to the lens plus other sciency stuff I&amp;rsquo;m not qualified enough to explain to you.&lt;/p></description></item><item><title>Throwing knives</title><link>https://lavafroth.is-a.dev/art/wip-animation/</link><pubDate>Fri, 19 Jan 2024 09:30:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/wip-animation/</guid><description>&lt;p>An unfinished animation with a focus on anatomy. Thank you &lt;a href="https://www.pexels.com/@polina-tankilevitch/">Polina Tankilevitch&lt;/a> for the &lt;a href="https://www.pexels.com/video/a-young-woman-showing-her-skill-in-dancing-5385879/">reference video&lt;/a>.&lt;/p></description></item><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p>Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
-I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p>
-&lt;p>With that out of the way, enjoy the writeup!&lt;/p>
-&lt;h1 id="christmas-island-orientation">Christmas Island: Orientation&lt;/h1>
-&lt;h2 id="cranberry-pi">Cranberry Pi&lt;/h2>
-&lt;p>This is a sanity check question to kick the tires. The answer to it simply is
-&lt;code>answer&lt;/code>.&lt;/p></description></item><item><title>Abstracting Structured Patterns in Concurrent Programming</title><link>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</link><pubDate>Wed, 06 Dec 2023 10:58:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</guid><description>&lt;blockquote>
-&lt;p>I hope this article provides a solid blueprint for building a concurrency management API.
-If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues">issue tracker&lt;/a> or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions">discussion board&lt;/a>.&lt;/p>&lt;/blockquote>
-&lt;p>In recent months, I have come across multiple articles talking about the need
-of structured concurrency in modern programming languages as a built-in. Notably, in the article &lt;a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/">Notes on structured concurrency, or: Go statement considered harmful&lt;/a>,
-the author compares the &lt;code>go&lt;/code> statement used to spawn coroutines to &lt;code>goto&lt;/code> statements used
-for jumping to other parts of code in early languages like COBOL.&lt;/p></description></item><item><title>Headache</title><link>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</link><pubDate>Thu, 07 Sep 2023 07:03:27 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</guid><description>&lt;p>This challenge involves reverse engineering a polymorphic binary, one that modifies its own instructions during runtime.&lt;/p>
-&lt;p>Essentially, the binary checks if the current character equals a known value and &lt;em>xor&lt;/em> decrypts the next section where the
-code jumps to. If the characters don&amp;rsquo;t match, the logic short-circuits and the program exits.&lt;/p>
-&lt;p>This process of checking the character and decrypting the next branch continues like opening up a Matryoshka doll until
-the last branch which returns instead of calling the decryption subroutine.&lt;/p></description></item><item><title>Privacy Policy</title><link>https://lavafroth.is-a.dev/privacy/</link><pubDate>Mon, 04 Sep 2023 10:10:09 +0530</pubDate><guid>https://lavafroth.is-a.dev/privacy/</guid><description>&lt;p>This site does NOT use cookies or third party analytics to track you.
+under X and TTY sessions!&lt;/p&gt;</description></item><item><title>Using an Android Phone as a webcam in NixOS</title><link>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</link><pubDate>Sun, 10 Mar 2024 08:47:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/android-phone-for-webcam-nixos/</guid><description>&lt;p&gt;I recently had to attend an online meeting for a software development event.
+While my PC did have a decent microphone, the built-in camera has been damaged to the extent that the best it can capture is this:&lt;/p&gt;
+&lt;p&gt;&lt;img src="./pc-camera.avif" alt="A blurry image taken from my scuffed camera"&gt;&lt;/p&gt;
+&lt;p&gt;No, it&amp;rsquo;s not a close-up of the moon, it&amp;rsquo;s the refraction caused by the scuffs to the lens plus other sciency stuff I&amp;rsquo;m not qualified enough to explain to you.&lt;/p&gt;</description></item><item><title>Throwing knives</title><link>https://lavafroth.is-a.dev/art/wip-animation/</link><pubDate>Fri, 19 Jan 2024 09:30:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/wip-animation/</guid><description>&lt;p&gt;An unfinished animation with a focus on anatomy. Thank you &lt;a href="https://www.pexels.com/@polina-tankilevitch/"&gt;Polina Tankilevitch&lt;/a&gt; for the &lt;a href="https://www.pexels.com/video/a-young-woman-showing-her-skill-in-dancing-5385879/"&gt;reference video&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p&gt;Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
+I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p&gt;
+&lt;p&gt;With that out of the way, enjoy the writeup!&lt;/p&gt;
+&lt;h1 id="christmas-island-orientation"&gt;Christmas Island: Orientation&lt;/h1&gt;
+&lt;h2 id="cranberry-pi"&gt;Cranberry Pi&lt;/h2&gt;
+&lt;p&gt;This is a sanity check question to kick the tires. The answer to it simply is
+&lt;code&gt;answer&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Abstracting Structured Patterns in Concurrent Programming</title><link>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</link><pubDate>Wed, 06 Dec 2023 10:58:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</guid><description>&lt;blockquote&gt;
+&lt;p&gt;I hope this article provides a solid blueprint for building a concurrency management API.
+If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues"&gt;issue tracker&lt;/a&gt; or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions"&gt;discussion board&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;In recent months, I have come across multiple articles talking about the need
+of structured concurrency in modern programming languages as a built-in. Notably, in the article &lt;a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/"&gt;Notes on structured concurrency, or: Go statement considered harmful&lt;/a&gt;,
+the author compares the &lt;code&gt;go&lt;/code&gt; statement used to spawn coroutines to &lt;code&gt;goto&lt;/code&gt; statements used
+for jumping to other parts of code in early languages like COBOL.&lt;/p&gt;</description></item><item><title>Headache</title><link>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</link><pubDate>Thu, 07 Sep 2023 07:03:27 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/headache-reverse-engineering-amateursctf-2023/</guid><description>&lt;p&gt;This challenge involves reverse engineering a polymorphic binary, one that modifies its own instructions during runtime.&lt;/p&gt;
+&lt;p&gt;Essentially, the binary checks if the current character equals a known value and &lt;em&gt;xor&lt;/em&gt; decrypts the next section where the
+code jumps to. If the characters don&amp;rsquo;t match, the logic short-circuits and the program exits.&lt;/p&gt;
+&lt;p&gt;This process of checking the character and decrypting the next branch continues like opening up a Matryoshka doll until
+the last branch which returns instead of calling the decryption subroutine.&lt;/p&gt;</description></item><item><title>Privacy Policy</title><link>https://lavafroth.is-a.dev/privacy/</link><pubDate>Mon, 04 Sep 2023 10:10:09 +0530</pubDate><guid>https://lavafroth.is-a.dev/privacy/</guid><description>&lt;p&gt;This site does NOT use cookies or third party analytics to track you.
 All resources that are served, including fonts, styles and scripts are local and not sourced from CDNs.
-Client side local storage is only used to store the setting for the light or dark theme.&lt;/p>
-&lt;p>The posts here can be viewed regardless of whether javascript is enabled.
-The only features relying on javascript are the theme switcher (try clicking the sun or moon icon) and the search box.&lt;/p></description></item><item><title>Compact XOR</title><link>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</link><pubDate>Thu, 24 Aug 2023 18:05:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</guid><description>&lt;h1 id="description">Description&lt;/h1>
-&lt;p>I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…&lt;/p>
-&lt;h1 id="exploration">Exploration&lt;/h1>
-&lt;p>We begin by creating a new rust project.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cargo new amateurs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd amateurs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cargo add hex
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cargo add itertools
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() -&amp;gt; Result&lt;span style="color:#f92672">&amp;lt;&lt;/span>(), Box&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">dyn&lt;/span> std::error::Error&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> bytes &lt;span style="color:#f92672">=&lt;/span> hex::decode(&lt;span style="color:#e6db74">&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;&lt;/span>)&lt;span style="color:#f92672">?&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> stream &lt;span style="color:#f92672">=&lt;/span> String::from_utf8_lossy(&lt;span style="color:#f92672">&amp;amp;&lt;/span>bytes);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">println!&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{:?}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, stream);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Ok(())
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To execute the code, issue the following.&lt;/p></description></item><item><title>Volcano</title><link>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</link><pubDate>Fri, 21 Jul 2023 18:29:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</guid><description>&lt;p>This reversing challenge is very mathematical, focusing mainly on modulo congruences.
+Client side local storage is only used to store the setting for the light or dark theme.&lt;/p&gt;
+&lt;p&gt;The posts here can be viewed regardless of whether javascript is enabled.
+The only features relying on javascript are the theme switcher (try clicking the sun or moon icon) and the search box.&lt;/p&gt;</description></item><item><title>Compact XOR</title><link>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</link><pubDate>Thu, 24 Aug 2023 18:05:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</guid><description>&lt;h1 id="description"&gt;Description&lt;/h1&gt;
+&lt;p&gt;I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…&lt;/p&gt;
+&lt;h1 id="exploration"&gt;Exploration&lt;/h1&gt;
+&lt;p&gt;We begin by creating a new rust project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo new amateurs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd amateurs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo add hex
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo add itertools
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;fn&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() -&amp;gt; Result&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;(), Box&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;dyn&lt;/span&gt; std::error::Error&lt;span style="color:#f92672"&gt;&amp;gt;&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; bytes &lt;span style="color:#f92672"&gt;=&lt;/span&gt; hex::decode(&lt;span style="color:#e6db74"&gt;&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;&lt;/span&gt;)&lt;span style="color:#f92672"&gt;?&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; stream &lt;span style="color:#f92672"&gt;=&lt;/span&gt; String::from_utf8_lossy(&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;bytes);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;println!&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{:?}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;, stream);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Ok(())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To execute the code, issue the following.&lt;/p&gt;</description></item><item><title>Volcano</title><link>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</link><pubDate>Fri, 21 Jul 2023 18:29:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/volcano-reverse-engineering-amateursctf-2023/</guid><description>&lt;p&gt;This reversing challenge is very mathematical, focusing mainly on modulo congruences.
 Like all challenges, there is some scary looking obfuscation for the fun which I&amp;rsquo;ll try my best to
-explain. The challenge description says that it was &lt;em>inspired by recent &amp;ldquo;traumatic&amp;rdquo; events&lt;/em> but I&amp;rsquo;m oblivious to what that
-reference meant.&lt;/p>
-&lt;h2 id="decompilation">Decompilation&lt;/h2>
-&lt;p>We start off with downloading the binary and opening it in Ghidra.&lt;/p>
-&lt;p>In the list of functions under the Symbol Tree, we can navigate to the &lt;code>entry&lt;/code> function which looks like:&lt;/p></description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>&lt;p>This was a fairly straightforward and fun challenge that required a bit of common sense to solve.
-We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs">https://waiting-an-eternity.amt.rs&lt;/a> to begin with.&lt;/p>
-&lt;p>Let&amp;rsquo;s use &lt;code>curl&lt;/code> with its verbose flag to fetch this URL.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>curl -v &lt;span style="color:#e6db74">&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We get a response that tells us to wait an enternity.&lt;/p>
-&lt;pre tabindex="0">&lt;code>&amp;gt; GET / HTTP/2
+explain. The challenge description says that it was &lt;em&gt;inspired by recent &amp;ldquo;traumatic&amp;rdquo; events&lt;/em&gt; but I&amp;rsquo;m oblivious to what that
+reference meant.&lt;/p&gt;
+&lt;h2 id="decompilation"&gt;Decompilation&lt;/h2&gt;
+&lt;p&gt;We start off with downloading the binary and opening it in Ghidra.&lt;/p&gt;
+&lt;p&gt;In the list of functions under the Symbol Tree, we can navigate to the &lt;code&gt;entry&lt;/code&gt; function which looks like:&lt;/p&gt;</description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>&lt;p&gt;This was a fairly straightforward and fun challenge that required a bit of common sense to solve.
+We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs"&gt;https://waiting-an-eternity.amt.rs&lt;/a&gt; to begin with.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s use &lt;code&gt;curl&lt;/code&gt; with its verbose flag to fetch this URL.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -v &lt;span style="color:#e6db74"&gt;&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We get a response that tells us to wait an enternity.&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;&amp;gt; GET / HTTP/2
 &amp;gt; Host: waiting-an-eternity.amt.rs
 &amp;gt; User-Agent: curl/8.1.1
 &amp;gt; Accept: */*
@@ -642,309 +645,309 @@ We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs">https://wai
 &amp;lt; 
 * Connection #0 to host waiting-an-eternity.amt.rs left intact
 just wait an eternity
-&lt;/code>&lt;/pre>&lt;p>On closer inspection, the refresh header with the gigantic number sticks out like a sore thumb.&lt;/p></description></item><item><title>I Switched to NixOS</title><link>https://lavafroth.is-a.dev/post/i-switched-to-nixos/</link><pubDate>Sat, 08 Jul 2023 09:29:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/i-switched-to-nixos/</guid><description>&lt;p>Hi. It&amp;rsquo;s been quite a while since I had last posted. I had been spending my time on some programming projects that withheld me from even participating in CTFs.
-Tired of this workflow that I somehow spiraled into, I&amp;rsquo;m now seeking to learn new things in an attempt to break out of this workflow.&lt;/p>
-&lt;h1 id="the-end-of-an-overarching-journey">The End of an Overarching Journey&lt;/h1>
-&lt;p>As any of my long time audience might be familiar with, I daily drove &lt;a href="https://archlinux.org">Arch Linux&lt;/a>. A very flexible distribution, Arch allows beginners to get a good grasp of the
-Linux way of doing things. It has an amazing package manager as well as &lt;a href="https://aur.archlinux.org">a user repository&lt;/a> for extra software unavailable in the official repositories. It&amp;rsquo;s rather
-easy to setup Arch for gaming, thanks to programs like &lt;a href="https://lutris.net/">Lutris&lt;/a> and &lt;a href="https://usebottles.com/">Bottles&lt;/a>.&lt;/p></description></item><item><title>Twosum</title><link>https://lavafroth.is-a.dev/post/picoctf-binary-exploitation-twosum/</link><pubDate>Mon, 10 Apr 2023 08:44:28 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-binary-exploitation-twosum/</guid><description>&lt;p>This is a rather simple binary exploitation challenge. We are given the following source
-code for the program running on the remote server:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-c" data-lang="c">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;stdio.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">#include&lt;/span> &lt;span style="color:#75715e">&amp;lt;stdlib.h&amp;gt;&lt;/span>&lt;span style="color:#75715e">
-&lt;/span>&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#75715e">&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">addIntOvf&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> result, &lt;span style="color:#66d9ef">int&lt;/span> a, &lt;span style="color:#66d9ef">int&lt;/span> b) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> result &lt;span style="color:#f92672">=&lt;/span> a &lt;span style="color:#f92672">+&lt;/span> b;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> b &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> result &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(a &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> b &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> result &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">int&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">int&lt;/span> num1, num2, sum;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FILE &lt;span style="color:#f92672">*&lt;/span>flag;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> c;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;n1 &amp;gt; n1 + n2 OR n2 &amp;gt; n1 + n2 &lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;What two positive numbers can make this possible: &lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">scanf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>num1) &lt;span style="color:#f92672">&amp;amp;&amp;amp;&lt;/span> &lt;span style="color:#a6e22e">scanf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;%d&amp;#34;&lt;/span>, &lt;span style="color:#f92672">&amp;amp;&lt;/span>num2)) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;You entered %d and %d&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, num1, num2);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> sum &lt;span style="color:#f92672">=&lt;/span> num1 &lt;span style="color:#f92672">+&lt;/span> num2;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">addIntOvf&lt;/span>(sum, num1, num2) &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;No overflow&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exit&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">else&lt;/span> &lt;span style="color:#66d9ef">if&lt;/span> (&lt;span style="color:#a6e22e">addIntOvf&lt;/span>(sum, num1, num2) &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;You have an integer overflow&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> (num1 &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> &lt;span style="color:#f92672">||&lt;/span> num2 &lt;span style="color:#f92672">&amp;gt;&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> flag &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">fopen&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;flag.txt&amp;#34;&lt;/span>,&lt;span style="color:#e6db74">&amp;#34;r&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span>(flag &lt;span style="color:#f92672">==&lt;/span> NULL){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;flag not found: please run this on the server&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exit&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">char&lt;/span> buf[&lt;span style="color:#ae81ff">60&lt;/span>];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fgets&lt;/span>(buf, &lt;span style="color:#ae81ff">59&lt;/span>, flag);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">printf&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;YOUR FLAG IS: %s&lt;/span>&lt;span style="color:#ae81ff">\n&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, buf);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">fflush&lt;/span>(stdout);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">exit&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>In order to trigger the program to disclose the flag, we need to supply two numbers that are greater that 0 and result in an integer overflow.
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On closer inspection, the refresh header with the gigantic number sticks out like a sore thumb.&lt;/p&gt;</description></item><item><title>I Switched to NixOS</title><link>https://lavafroth.is-a.dev/post/i-switched-to-nixos/</link><pubDate>Sat, 08 Jul 2023 09:29:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/i-switched-to-nixos/</guid><description>&lt;p&gt;Hi. It&amp;rsquo;s been quite a while since I had last posted. I had been spending my time on some programming projects that withheld me from even participating in CTFs.
+Tired of this workflow that I somehow spiraled into, I&amp;rsquo;m now seeking to learn new things in an attempt to break out of this workflow.&lt;/p&gt;
+&lt;h1 id="the-end-of-an-overarching-journey"&gt;The End of an Overarching Journey&lt;/h1&gt;
+&lt;p&gt;As any of my long time audience might be familiar with, I daily drove &lt;a href="https://archlinux.org"&gt;Arch Linux&lt;/a&gt;. A very flexible distribution, Arch allows beginners to get a good grasp of the
+Linux way of doing things. It has an amazing package manager as well as &lt;a href="https://aur.archlinux.org"&gt;a user repository&lt;/a&gt; for extra software unavailable in the official repositories. It&amp;rsquo;s rather
+easy to setup Arch for gaming, thanks to programs like &lt;a href="https://lutris.net/"&gt;Lutris&lt;/a&gt; and &lt;a href="https://usebottles.com/"&gt;Bottles&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Twosum</title><link>https://lavafroth.is-a.dev/post/picoctf-binary-exploitation-twosum/</link><pubDate>Mon, 10 Apr 2023 08:44:28 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-binary-exploitation-twosum/</guid><description>&lt;p&gt;This is a rather simple binary exploitation challenge. We are given the following source
+code for the program running on the remote server:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;static&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;addIntOvf&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; result, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; a, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; b) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result &lt;span style="color:#f92672"&gt;=&lt;/span&gt; a &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(a &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; b &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; result &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(a &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; b &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; result &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; num1, num2, sum;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; FILE &lt;span style="color:#f92672"&gt;*&lt;/span&gt;flag;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;char&lt;/span&gt; c;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;n1 &amp;gt; n1 + n2 OR n2 &amp;gt; n1 + n2 &lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;What two positive numbers can make this possible: &lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;scanf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;num1) &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;scanf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;%d&amp;#34;&lt;/span&gt;, &lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;num2)) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;You entered %d and %d&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;, num1, num2);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; sum &lt;span style="color:#f92672"&gt;=&lt;/span&gt; num1 &lt;span style="color:#f92672"&gt;+&lt;/span&gt; num2;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;addIntOvf&lt;/span&gt;(sum, num1, num2) &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;No overflow&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;exit&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; } &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;addIntOvf&lt;/span&gt;(sum, num1, num2) &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;You have an integer overflow&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; (num1 &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;||&lt;/span&gt; num2 &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; flag &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;fopen&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;flag.txt&amp;#34;&lt;/span&gt;,&lt;span style="color:#e6db74"&gt;&amp;#34;r&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(flag &lt;span style="color:#f92672"&gt;==&lt;/span&gt; NULL){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;flag not found: please run this on the server&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;exit&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;char&lt;/span&gt; buf[&lt;span style="color:#ae81ff"&gt;60&lt;/span&gt;];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fgets&lt;/span&gt;(buf, &lt;span style="color:#ae81ff"&gt;59&lt;/span&gt;, flag);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;printf&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;YOUR FLAG IS: %s&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;, buf);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;fflush&lt;/span&gt;(stdout);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;exit&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;In order to trigger the program to disclose the flag, we need to supply two numbers that are greater that 0 and result in an integer overflow.
 Since this is C and there is no integer overflow check, we can simply supply the maximum interger value for the first number and the value 1 for
-the second. Adding them would cause the result to wrap around and become negative.&lt;/p></description></item><item><title>Java Code Analysis!?!</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</link><pubDate>Sat, 18 Mar 2023 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</guid><description>&lt;p>To get started we are given the username &amp;ldquo;user&amp;rdquo; and password &amp;ldquo;user&amp;rdquo; to log into the BookShelf Pico web application.
-We are also given the source code of the application.&lt;/p>
-&lt;p>Taking a look at the &lt;code>src/main/java/io/github/nandandesai/pico/security&lt;/code> subdirectory of the project, we see that it uses JWT.&lt;/p>
-&lt;p>Interestingly, the file &lt;code>SecretGenerator.java&lt;/code> in the aforementioned directory contains a weak hardcoded &lt;em>&amp;ldquo;random&amp;rdquo;&lt;/em> value 😱.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-java" data-lang="java">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">@Service&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">class&lt;/span> &lt;span style="color:#a6e22e">SecretGenerator&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> Logger logger &lt;span style="color:#f92672">=&lt;/span> LoggerFactory.&lt;span style="color:#a6e22e">getLogger&lt;/span>(SecretGenerator.&lt;span style="color:#a6e22e">class&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> &lt;span style="color:#66d9ef">static&lt;/span> &lt;span style="color:#66d9ef">final&lt;/span> String SERVER_SECRET_FILENAME &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;server_secret.txt&amp;#34;&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">@Autowired&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> UserDataPaths userDataPaths;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">private&lt;/span> String &lt;span style="color:#a6e22e">generateRandomString&lt;/span>(&lt;span style="color:#66d9ef">int&lt;/span> len) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#75715e">// not so random&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#e6db74">&amp;#34;1234&amp;#34;&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String &lt;span style="color:#a6e22e">getServerSecret&lt;/span>() {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String secret &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#66d9ef">new&lt;/span> String(FileOperation.&lt;span style="color:#a6e22e">readFile&lt;/span>(userDataPaths.&lt;span style="color:#a6e22e">getCurrentJarPath&lt;/span>(), SERVER_SECRET_FILENAME), Charset.&lt;span style="color:#a6e22e">defaultCharset&lt;/span>());
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Server secret successfully read from the filesystem. Using the same for this runtime.&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> secret;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }&lt;span style="color:#66d9ef">catch&lt;/span> (IOException e){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(SERVER_SECRET_FILENAME&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#e6db74">&amp;#34; file doesn&amp;#39;t exists or something went wrong in reading that file. Generating a new secret for the server.&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> String newSecret &lt;span style="color:#f92672">=&lt;/span> generateRandomString(32);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">try&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> FileOperation.&lt;span style="color:#a6e22e">writeFile&lt;/span>(userDataPaths.&lt;span style="color:#a6e22e">getCurrentJarPath&lt;/span>(), SERVER_SECRET_FILENAME, newSecret.&lt;span style="color:#a6e22e">getBytes&lt;/span>());
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> } &lt;span style="color:#66d9ef">catch&lt;/span> (IOException ex) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> ex.&lt;span style="color:#a6e22e">printStackTrace&lt;/span>();
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> logger.&lt;span style="color:#a6e22e">info&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Newly generated secret is now written to the filesystem for persistence.&amp;#34;&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> newSecret;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> }
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>This string &amp;ldquo;1234&amp;rdquo; is used as the secret for the JSON web token.&lt;/p></description></item><item><title>Java Script Kiddie 2</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</link><pubDate>Fri, 03 Mar 2023 09:47:54 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</guid><description>&lt;h2 id="the-challenge">The challenge&lt;/h2>
-&lt;p>This is a web challenge involving javascript, meaning most of the solution is
-going to be client side. We are asked to visit the &lt;a href="http://jupiter.challenges.picoctf.org:42899/">challenge
-page&lt;/a>.&lt;/p>
-&lt;p>From here, we can view the source code of the page.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;&lt;span style="color:#f92672">head&lt;/span>&amp;gt; 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;jquery-3.3.1.min.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#a6e22e">$&lt;/span>.&lt;span style="color:#a6e22e">get&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;bytes&amp;#34;&lt;/span>, &lt;span style="color:#66d9ef">function&lt;/span>(&lt;span style="color:#a6e22e">resp&lt;/span>) {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#a6e22e">bytes&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Array.&lt;span style="color:#a6e22e">from&lt;/span>(&lt;span style="color:#a6e22e">resp&lt;/span>.&lt;span style="color:#a6e22e">split&lt;/span>(&lt;span style="color:#e6db74">&amp;#34; &amp;#34;&lt;/span>), &lt;span style="color:#a6e22e">x&lt;/span> =&amp;gt; Number(&lt;span style="color:#a6e22e">x&lt;/span>));
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			});
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&lt;span style="color:#66d9ef">function&lt;/span> &lt;span style="color:#a6e22e">assemble_png&lt;/span>(&lt;span style="color:#a6e22e">u_in&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">16&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">key&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;00000000000000000000000000000000&amp;#34;&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">shifter&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">if&lt;/span>(&lt;span style="color:#a6e22e">u_in&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span> &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#a6e22e">key&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#a6e22e">key&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">u_in&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> [];
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>; &lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">++&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#a6e22e">shifter&lt;/span> &lt;span style="color:#f92672">=&lt;/span> Number(&lt;span style="color:#a6e22e">key&lt;/span>.&lt;span style="color:#a6e22e">slice&lt;/span>((&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>),(&lt;span style="color:#a6e22e">i&lt;/span>&lt;span style="color:#f92672">*&lt;/span>&lt;span style="color:#ae81ff">2&lt;/span>)&lt;span style="color:#f92672">+&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>));
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#66d9ef">for&lt;/span>(&lt;span style="color:#66d9ef">var&lt;/span> &lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>; &lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">&amp;lt;&lt;/span> (&lt;span style="color:#a6e22e">bytes&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span> &lt;span style="color:#f92672">/&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>); &lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">++&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>						&lt;span style="color:#a6e22e">result&lt;/span>[(&lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>] &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span>[(((&lt;span style="color:#a6e22e">j&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">shifter&lt;/span>) &lt;span style="color:#f92672">*&lt;/span> &lt;span style="color:#a6e22e">LEN&lt;/span>) &lt;span style="color:#f92672">%&lt;/span> &lt;span style="color:#a6e22e">bytes&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>) &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">i&lt;/span>]
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">while&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>[&lt;span style="color:#a6e22e">result&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>] &lt;span style="color:#f92672">==&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>){
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>					&lt;span style="color:#a6e22e">result&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#a6e22e">result&lt;/span>.&lt;span style="color:#a6e22e">slice&lt;/span>(&lt;span style="color:#ae81ff">0&lt;/span>,&lt;span style="color:#a6e22e">result&lt;/span>.&lt;span style="color:#a6e22e">length&lt;/span>&lt;span style="color:#f92672">-&lt;/span>&lt;span style="color:#ae81ff">1&lt;/span>);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				document.&lt;span style="color:#a6e22e">getElementById&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;Area&amp;#34;&lt;/span>).&lt;span style="color:#a6e22e">src&lt;/span> &lt;span style="color:#f92672">=&lt;/span> &lt;span style="color:#e6db74">&amp;#34;data:image/png;base64,&amp;#34;&lt;/span> &lt;span style="color:#f92672">+&lt;/span> &lt;span style="color:#a6e22e">btoa&lt;/span>(String.&lt;span style="color:#a6e22e">fromCharCode&lt;/span>.&lt;span style="color:#a6e22e">apply&lt;/span>(&lt;span style="color:#66d9ef">null&lt;/span>, &lt;span style="color:#66d9ef">new&lt;/span> &lt;span style="color:#a6e22e">Uint8Array&lt;/span>(&lt;span style="color:#a6e22e">result&lt;/span>)));
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#66d9ef">false&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			}
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;/&lt;span style="color:#f92672">head&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;&lt;span style="color:#f92672">center&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&amp;lt;&lt;span style="color:#f92672">form&lt;/span> &lt;span style="color:#a6e22e">action&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;#&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">onsubmit&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;assemble_png(document.getElementById(&amp;#39;user_in&amp;#39;).value)&amp;#34;&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;text&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;user_in&amp;#34;&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>				&amp;lt;&lt;span style="color:#f92672">input&lt;/span> &lt;span style="color:#a6e22e">type&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;submit&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">value&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Submit&amp;#34;&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&amp;lt;/&lt;span style="color:#f92672">form&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>			&amp;lt;&lt;span style="color:#f92672">img&lt;/span> &lt;span style="color:#a6e22e">id&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;Area&amp;#34;&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&amp;#34;&lt;/span>/&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>		&amp;lt;/&lt;span style="color:#f92672">center&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&amp;lt;/&lt;span style="color:#f92672">body&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&amp;lt;/&lt;span style="color:#f92672">html&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s break it down. We are going to begin with the contents in the script
+the second. Adding them would cause the result to wrap around and become negative.&lt;/p&gt;</description></item><item><title>Java Code Analysis!?!</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</link><pubDate>Sat, 18 Mar 2023 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-code-analysis/</guid><description>&lt;p&gt;To get started we are given the username &amp;ldquo;user&amp;rdquo; and password &amp;ldquo;user&amp;rdquo; to log into the BookShelf Pico web application.
+We are also given the source code of the application.&lt;/p&gt;
+&lt;p&gt;Taking a look at the &lt;code&gt;src/main/java/io/github/nandandesai/pico/security&lt;/code&gt; subdirectory of the project, we see that it uses JWT.&lt;/p&gt;
+&lt;p&gt;Interestingly, the file &lt;code&gt;SecretGenerator.java&lt;/code&gt; in the aforementioned directory contains a weak hardcoded &lt;em&gt;&amp;ldquo;random&amp;rdquo;&lt;/em&gt; value 😱.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;@Service&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;SecretGenerator&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;private&lt;/span&gt; Logger logger &lt;span style="color:#f92672"&gt;=&lt;/span&gt; LoggerFactory.&lt;span style="color:#a6e22e"&gt;getLogger&lt;/span&gt;(SecretGenerator.&lt;span style="color:#a6e22e"&gt;class&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;private&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;static&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;final&lt;/span&gt; String SERVER_SECRET_FILENAME &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;server_secret.txt&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;@Autowired&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;private&lt;/span&gt; UserDataPaths userDataPaths;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;private&lt;/span&gt; String &lt;span style="color:#a6e22e"&gt;generateRandomString&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; len) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;// not so random&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;1234&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; String &lt;span style="color:#a6e22e"&gt;getServerSecret&lt;/span&gt;() {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; String secret &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; String(FileOperation.&lt;span style="color:#a6e22e"&gt;readFile&lt;/span&gt;(userDataPaths.&lt;span style="color:#a6e22e"&gt;getCurrentJarPath&lt;/span&gt;(), SERVER_SECRET_FILENAME), Charset.&lt;span style="color:#a6e22e"&gt;defaultCharset&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; logger.&lt;span style="color:#a6e22e"&gt;info&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Server secret successfully read from the filesystem. Using the same for this runtime.&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; secret;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }&lt;span style="color:#66d9ef"&gt;catch&lt;/span&gt; (IOException e){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; logger.&lt;span style="color:#a6e22e"&gt;info&lt;/span&gt;(SERVER_SECRET_FILENAME&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34; file doesn&amp;#39;t exists or something went wrong in reading that file. Generating a new secret for the server.&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; String newSecret &lt;span style="color:#f92672"&gt;=&lt;/span&gt; generateRandomString(32);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;try&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; FileOperation.&lt;span style="color:#a6e22e"&gt;writeFile&lt;/span&gt;(userDataPaths.&lt;span style="color:#a6e22e"&gt;getCurrentJarPath&lt;/span&gt;(), SERVER_SECRET_FILENAME, newSecret.&lt;span style="color:#a6e22e"&gt;getBytes&lt;/span&gt;());
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; } &lt;span style="color:#66d9ef"&gt;catch&lt;/span&gt; (IOException ex) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ex.&lt;span style="color:#a6e22e"&gt;printStackTrace&lt;/span&gt;();
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; logger.&lt;span style="color:#a6e22e"&gt;info&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Newly generated secret is now written to the filesystem for persistence.&amp;#34;&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; newSecret;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This string &amp;ldquo;1234&amp;rdquo; is used as the secret for the JSON web token.&lt;/p&gt;</description></item><item><title>Java Script Kiddie 2</title><link>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</link><pubDate>Fri, 03 Mar 2023 09:47:54 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/</guid><description>&lt;h2 id="the-challenge"&gt;The challenge&lt;/h2&gt;
+&lt;p&gt;This is a web challenge involving javascript, meaning most of the solution is
+going to be client side. We are asked to visit the &lt;a href="http://jupiter.challenges.picoctf.org:42899/"&gt;challenge
+page&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;From here, we can view the source code of the page.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;html&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&amp;lt;&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;jquery-3.3.1.min.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;bytes&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#a6e22e"&gt;$&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;get&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;bytes&amp;#34;&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;function&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;) {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#a6e22e"&gt;bytes&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Array.&lt;span style="color:#a6e22e"&gt;from&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;split&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34; &amp;#34;&lt;/span&gt;), &lt;span style="color:#a6e22e"&gt;x&lt;/span&gt; =&amp;gt; Number(&lt;span style="color:#a6e22e"&gt;x&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			});
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;assemble_png&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;u_in&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;LEN&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;16&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;key&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;00000000000000000000000000000000&amp;#34;&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;shifter&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;u_in&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;length&lt;/span&gt; &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;key&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;length&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;					&lt;span style="color:#a6e22e"&gt;key&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;u_in&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;result&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [];
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;i&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;; &lt;span style="color:#a6e22e"&gt;i&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;LEN&lt;/span&gt;; &lt;span style="color:#a6e22e"&gt;i&lt;/span&gt;&lt;span style="color:#f92672"&gt;++&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;					&lt;span style="color:#a6e22e"&gt;shifter&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Number(&lt;span style="color:#a6e22e"&gt;key&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;slice&lt;/span&gt;((&lt;span style="color:#a6e22e"&gt;i&lt;/span&gt;&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;),(&lt;span style="color:#a6e22e"&gt;i&lt;/span&gt;&lt;span style="color:#f92672"&gt;*&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;)&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;));
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;					&lt;span style="color:#66d9ef"&gt;for&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;var&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;j&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;; &lt;span style="color:#a6e22e"&gt;j&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; (&lt;span style="color:#a6e22e"&gt;bytes&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;length&lt;/span&gt; &lt;span style="color:#f92672"&gt;/&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;LEN&lt;/span&gt;); &lt;span style="color:#a6e22e"&gt;j&lt;/span&gt; &lt;span style="color:#f92672"&gt;++&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;						&lt;span style="color:#a6e22e"&gt;result&lt;/span&gt;[(&lt;span style="color:#a6e22e"&gt;j&lt;/span&gt; &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;LEN&lt;/span&gt;) &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;i&lt;/span&gt;] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;bytes&lt;/span&gt;[(((&lt;span style="color:#a6e22e"&gt;j&lt;/span&gt; &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;shifter&lt;/span&gt;) &lt;span style="color:#f92672"&gt;*&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;LEN&lt;/span&gt;) &lt;span style="color:#f92672"&gt;%&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;bytes&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;length&lt;/span&gt;) &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;i&lt;/span&gt;]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;					}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;result&lt;/span&gt;[&lt;span style="color:#a6e22e"&gt;result&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;length&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;){
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;					&lt;span style="color:#a6e22e"&gt;result&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;result&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;slice&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,&lt;span style="color:#a6e22e"&gt;result&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;length&lt;/span&gt;&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				document.&lt;span style="color:#a6e22e"&gt;getElementById&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;Area&amp;#34;&lt;/span&gt;).&lt;span style="color:#a6e22e"&gt;src&lt;/span&gt; &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;data:image/png;base64,&amp;#34;&lt;/span&gt; &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;btoa&lt;/span&gt;(String.&lt;span style="color:#a6e22e"&gt;fromCharCode&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;apply&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;null&lt;/span&gt;, &lt;span style="color:#66d9ef"&gt;new&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Uint8Array&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;result&lt;/span&gt;)));
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;false&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&amp;lt;/&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&amp;lt;&lt;span style="color:#f92672"&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;&lt;span style="color:#f92672"&gt;center&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&amp;lt;&lt;span style="color:#f92672"&gt;form&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;action&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;#&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;onsubmit&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;assemble_png(document.getElementById(&amp;#39;user_in&amp;#39;).value)&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&amp;lt;&lt;span style="color:#f92672"&gt;input&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;type&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;text&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;id&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;user_in&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;				&amp;lt;&lt;span style="color:#f92672"&gt;input&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;type&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;submit&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;value&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Submit&amp;#34;&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&amp;lt;/&lt;span style="color:#f92672"&gt;form&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;			&amp;lt;&lt;span style="color:#f92672"&gt;img&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;id&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;Area&amp;#34;&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt;/&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;/&lt;span style="color:#f92672"&gt;center&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&amp;lt;/&lt;span style="color:#f92672"&gt;body&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;/&lt;span style="color:#f92672"&gt;html&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s break it down. We are going to begin with the contents in the script
 tags. First, the script fetches a blob of whitespace separated numbers into the
-variable &lt;code>bytes&lt;/code>.&lt;/p></description></item><item><title>Some Assembly Required 3</title><link>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</link><pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</guid><description>&lt;p>This is a web exploitation challenge from 2021. It&amp;rsquo;s pretty old but
+variable &lt;code&gt;bytes&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Some Assembly Required 3</title><link>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</link><pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</guid><description>&lt;p&gt;This is a web exploitation challenge from 2021. It&amp;rsquo;s pretty old but
 has less solves as of writing this post. I figured, it&amp;rsquo;s worth talking
-about.&lt;/p>
-&lt;p>We are told to visit
-&lt;a href="http://mercury.picoctf.net:60022/index.html">http://mercury.picoctf.net:60022/index.html&lt;/a>
-where we find a simple textbox prompting us to submit the flag.&lt;/p>
-&lt;p>Looking at the page source by pressing &lt;code>ctrl&lt;/code> &lt;code>u&lt;/code>, we see that it is sourcing javascript code from &lt;code>rTEuOmSfG3.js&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>While examining the javascript, we will notice that it is obfuscated and
-packed. Put this through &lt;a href="https://lelinhtinh.github.io/de4js/">de4js&lt;/a> to
-prettify it.&lt;/p></description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p>This writeup is rather haphazard as I jumped around from one place to another
+about.&lt;/p&gt;
+&lt;p&gt;We are told to visit
+&lt;a href="http://mercury.picoctf.net:60022/index.html"&gt;http://mercury.picoctf.net:60022/index.html&lt;/a&gt;
+where we find a simple textbox prompting us to submit the flag.&lt;/p&gt;
+&lt;p&gt;Looking at the page source by pressing &lt;code&gt;ctrl&lt;/code&gt; &lt;code&gt;u&lt;/code&gt;, we see that it is sourcing javascript code from &lt;code&gt;rTEuOmSfG3.js&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While examining the javascript, we will notice that it is obfuscated and
+packed. Put this through &lt;a href="https://lelinhtinh.github.io/de4js/"&gt;de4js&lt;/a&gt; to
+prettify it.&lt;/p&gt;</description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p&gt;This writeup is rather haphazard as I jumped around from one place to another
 solving different unrelated challenges. Although the writeup covers all the
 challenges, it definitely is not sequential. Just wanted to point that out
-before diving in.&lt;/p>
-&lt;h3 id="clone-with-a-difference">Clone with a Difference&lt;/h3>
-&lt;p>This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
-cloning which doesn&amp;rsquo;t seem to work.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone git@haugfactory.com:asnowball/aws_scripts.git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can clone this the HTTPS way:&lt;/p></description></item><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p>This challenge gives use two images and asks us if we can make a flag out of them.
+before diving in.&lt;/p&gt;
+&lt;h3 id="clone-with-a-difference"&gt;Clone with a Difference&lt;/h3&gt;
+&lt;p&gt;This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
+cloning which doesn&amp;rsquo;t seem to work.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can clone this the HTTPS way:&lt;/p&gt;</description></item><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p&gt;This challenge gives use two images and asks us if we can make a flag out of them.
 At first glance, both the images look like noise. Upon a quick web lookup of
-&lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography">visual cryptography&lt;/a>, it appears
+&lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography"&gt;visual cryptography&lt;/a&gt;, it appears
 that these separate images, known as shares of the original image, can be overlayed
-on each other to reconstruct the original image.&lt;/p>
-&lt;h2 id="exploration">Exploration&lt;/h2>
-&lt;p>Now, I&amp;rsquo;m pretty sure that there are online services that will automatically solve these
+on each other to reconstruct the original image.&lt;/p&gt;
+&lt;h2 id="exploration"&gt;Exploration&lt;/h2&gt;
+&lt;p&gt;Now, I&amp;rsquo;m pretty sure that there are online services that will automatically solve these
 but I decided to write some code to solve this locally. For the past week, I&amp;rsquo;ve been
-learning the Rust programming language and this was the perfect excuse to test my knowledge.&lt;/p></description></item><item><title>Treebox</title><link>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</link><pubDate>Fri, 19 Aug 2022 10:04:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</guid><description>&lt;p>This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&amp;rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at &lt;code>flag&lt;/code>. We also can&amp;rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the &lt;code>sys&lt;/code> module is already imported. We can piggyback on this fact to use its modules.&lt;/p></description></item><item><title>I Saw a Little Elf</title><link>https://lavafroth.is-a.dev/post/r0-i-saw-a-little-elf/</link><pubDate>Fri, 19 Aug 2022 09:57:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-i-saw-a-little-elf/</guid><description>&lt;h2 id="introduction">Introduction&lt;/h2>
-&lt;p>This challenge asks us to connect to an webpage with a base64 encoded message.
-If we try to decode the message manually, the decoded message ends up either in a reversed ELF (Executable and Linkable Format) binary or more base64 to be decoded.&lt;/p>
-&lt;p>Trying this multiple times, it becomes apparent that the challenge reverses an ELF binary, encodes it one or more times in base64 and sends it to us.
-If we run the executable, we are given a string which we must send to the challenge endpoint through the &lt;code>r&lt;/code> HTTP GET query parameter. The real challenge is to do this within the few seconds before the server resets the challenge.&lt;/p></description></item><item><title>RingZer0 CTF Hash Me Reloaded</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</link><pubDate>Fri, 19 Aug 2022 09:57:15 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</guid><description>&lt;p>In this RingZer0 challenge, we are to visit the challenge url where we are
+learning the Rust programming language and this was the perfect excuse to test my knowledge.&lt;/p&gt;</description></item><item><title>Treebox</title><link>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</link><pubDate>Fri, 19 Aug 2022 10:04:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/google-ctf-2022-treebox/</guid><description>&lt;p&gt;This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren&amp;rsquo;t any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at &lt;code&gt;flag&lt;/code&gt;. We also can&amp;rsquo;t import any modules explicitly. If we read the source code provided for the challenge, we can observe that the &lt;code&gt;sys&lt;/code&gt; module is already imported. We can piggyback on this fact to use its modules.&lt;/p&gt;</description></item><item><title>I Saw a Little Elf</title><link>https://lavafroth.is-a.dev/post/r0-i-saw-a-little-elf/</link><pubDate>Fri, 19 Aug 2022 09:57:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-i-saw-a-little-elf/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;This challenge asks us to connect to an webpage with a base64 encoded message.
+If we try to decode the message manually, the decoded message ends up either in a reversed ELF (Executable and Linkable Format) binary or more base64 to be decoded.&lt;/p&gt;
+&lt;p&gt;Trying this multiple times, it becomes apparent that the challenge reverses an ELF binary, encodes it one or more times in base64 and sends it to us.
+If we run the executable, we are given a string which we must send to the challenge endpoint through the &lt;code&gt;r&lt;/code&gt; HTTP GET query parameter. The real challenge is to do this within the few seconds before the server resets the challenge.&lt;/p&gt;</description></item><item><title>RingZer0 CTF Hash Me Reloaded</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</link><pubDate>Fri, 19 Aug 2022 09:57:15 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</guid><description>&lt;p&gt;In this RingZer0 challenge, we are to visit the challenge url where we are
 given 2 seconds to SHA512 hash the message represented by the binary provided
-string. We must send the response with the request parameter &lt;code>r&lt;/code>. Let&amp;rsquo;s write
-a go program to do that.&lt;/p>
-&lt;p>First let&amp;rsquo;s declare the url as a constant.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">uri&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We fetch the challenge page and defer closing its body once the program ends.&lt;/p></description></item><item><title>Hash Me Please</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-please/</link><pubDate>Fri, 19 Aug 2022 09:57:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-please/</guid><description>&lt;p>In this RingZer0 challenge, we are asked to visit
-&lt;a href="http://challenges.ringzer0team.com:10013/">http://challenges.ringzer0team.com:10013/&lt;/a> and are given 2 seconds to hash the
+string. We must send the response with the request parameter &lt;code&gt;r&lt;/code&gt;. Let&amp;rsquo;s write
+a go program to do that.&lt;/p&gt;
+&lt;p&gt;First let&amp;rsquo;s declare the url as a constant.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We fetch the challenge page and defer closing its body once the program ends.&lt;/p&gt;</description></item><item><title>Hash Me Please</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-please/</link><pubDate>Fri, 19 Aug 2022 09:57:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-please/</guid><description>&lt;p&gt;In this RingZer0 challenge, we are asked to visit
+&lt;a href="http://challenges.ringzer0team.com:10013/"&gt;http://challenges.ringzer0team.com:10013/&lt;/a&gt; and are given 2 seconds to hash the
 provided message using the SHA512 algorithm. We must send the response as
-&lt;a href="http://challenges.ringzer0team.com:10013/?r=response">http://challenges.ringzer0team.com:10013/?r=&lt;em>response&lt;/em>&lt;/a>
-and to do that, we&amp;rsquo;ll be using some Golang.&lt;/p>
-&lt;p>Let&amp;rsquo;s declare the URI as a constant.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">uri&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We fetch the challenge page using the &lt;code>Get&lt;/code> function from the &lt;code>http&lt;/code> standard
-library, checking for errors along the way.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">resp&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">http&lt;/span>.&lt;span style="color:#a6e22e">Get&lt;/span>(&lt;span style="color:#a6e22e">uri&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalln&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We defer closing the response body when the program ends.&lt;/p></description></item><item><title>Oh my God, they killed Kenny!</title><link>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</link><pubDate>Tue, 02 Aug 2022 09:26:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>Despite its infamy for profanity and dark, satiric humor, I&amp;rsquo;ve been a huge fan of South Park over the years. I&amp;rsquo;d like you to try out a random episode of &lt;a href="https://www.southparkstudios.com">South Park&lt;/a>.
-Before you walk away saying, &lt;a href="https://www.youtube.com/watch?v=RXS1sJm7QEA">&amp;ldquo;Screw you guys, I&amp;rsquo;m going home&amp;rdquo;&lt;/a>, I&amp;rsquo;ll be sharing a little trick to watch a random episode without even launching the browser.&lt;/p>
-&lt;h3 id="prerequisites">Prerequisites:&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://www.nushell.sh">Nushell&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://mpv.io">mpv&lt;/a>&lt;/li>
-&lt;li>&lt;code>youtube-dl&lt;/code> or &lt;a href="https://github.com/yt-dlp/yt-dlp">yt-dlp&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h1 id="gone-scripting">Gone scripting&lt;/h1>
-&lt;p>South Park&amp;rsquo;s official website has a route called &lt;code>random-episode&lt;/code> which redirects us to, well, a random episode.
+&lt;a href="http://challenges.ringzer0team.com:10013/?r=response"&gt;http://challenges.ringzer0team.com:10013/?r=&lt;em&gt;response&lt;/em&gt;&lt;/a&gt;
+and to do that, we&amp;rsquo;ll be using some Golang.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s declare the URI as a constant.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We fetch the challenge page using the &lt;code&gt;Get&lt;/code&gt; function from the &lt;code&gt;http&lt;/code&gt; standard
+library, checking for errors along the way.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;http&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Get&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Fatalln&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We defer closing the response body when the program ends.&lt;/p&gt;</description></item><item><title>Oh my God, they killed Kenny!</title><link>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</link><pubDate>Tue, 02 Aug 2022 09:26:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Despite its infamy for profanity and dark, satiric humor, I&amp;rsquo;ve been a huge fan of South Park over the years. I&amp;rsquo;d like you to try out a random episode of &lt;a href="https://www.southparkstudios.com"&gt;South Park&lt;/a&gt;.
+Before you walk away saying, &lt;a href="https://www.youtube.com/watch?v=RXS1sJm7QEA"&gt;&amp;ldquo;Screw you guys, I&amp;rsquo;m going home&amp;rdquo;&lt;/a&gt;, I&amp;rsquo;ll be sharing a little trick to watch a random episode without even launching the browser.&lt;/p&gt;
+&lt;h3 id="prerequisites"&gt;Prerequisites:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.nushell.sh"&gt;Nushell&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mpv.io"&gt;mpv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;youtube-dl&lt;/code&gt; or &lt;a href="https://github.com/yt-dlp/yt-dlp"&gt;yt-dlp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="gone-scripting"&gt;Gone scripting&lt;/h1&gt;
+&lt;p&gt;South Park&amp;rsquo;s official website has a route called &lt;code&gt;random-episode&lt;/code&gt; which redirects us to, well, a random episode.
 The redirection, however, is done using javascript instead of regular HTTP status codes like 302.
-This meant, one couldn&amp;rsquo;t simply run the following and expect to see a video.&lt;/p></description></item><item><title>Bash Jail 3</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/</link><pubDate>Sun, 24 Jul 2022 12:29:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/</guid><description>&lt;h1 id="the-challenge">The challenge&lt;/h1>
-&lt;p>Logging into the box we are told that the flag is located at &lt;code>/home/level3/flag.txt&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">function&lt;/span> check_space &lt;span style="color:#f92672">{&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[[&lt;/span> $1 &lt;span style="color:#f92672">==&lt;/span> *&lt;span style="color:#f92672">[&lt;/span>bdksc&lt;span style="color:#f92672">]&lt;/span>* &lt;span style="color:#f92672">]]&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">then&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> : 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">do&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Your input:&amp;#34;&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> read input 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> check_space &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$input&lt;span style="color:#e6db74">&amp;#34;&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">then&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo -e &lt;span style="color:#e6db74">&amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39;&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> output&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>$input&lt;span style="color:#e6db74">`&lt;/span> &amp;amp;&amp;gt;/dev/null 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Command executed&amp;#34;&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span> 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We are also told that this prompt is launched using &lt;code>./prompt.sh 2&amp;gt;/dev/null&lt;/code>
-which means we cannot exfiltrate the flag from &lt;code>stderr&lt;/code> since it is blocked.&lt;/p></description></item><item><title>Bash Jail 2</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail2/</link><pubDate>Sun, 24 Jul 2022 12:28:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail2/</guid><description>&lt;h1 id="the-challenge">The challenge&lt;/h1>
-&lt;p>Logging into the box we are told that the flag is located at &lt;code>/home/level2/flag.txt&lt;/code>&lt;/p>
-&lt;h3 id="challenge-bash-code">Challenge bash code&lt;/h3>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">function&lt;/span> check_space &lt;span style="color:#f92672">{&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#f92672">[[&lt;/span> $1 &lt;span style="color:#f92672">==&lt;/span> *&lt;span style="color:#f92672">[&lt;/span>bdks&lt;span style="color:#e6db74">&amp;#39;;&amp;#39;&amp;#39;&amp;amp;&amp;#39;&amp;#39; &amp;#39;&lt;/span>&lt;span style="color:#f92672">]&lt;/span>* &lt;span style="color:#f92672">]]&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">then&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">0&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">return&lt;/span> &lt;span style="color:#ae81ff">1&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#f92672">}&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> :
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">do&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Your input:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> read input
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">if&lt;/span> check_space &lt;span style="color:#e6db74">&amp;#34;&lt;/span>$input&lt;span style="color:#e6db74">&amp;#34;&lt;/span> 
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">then&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo -e &lt;span style="color:#e6db74">&amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">else&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> output&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;echo Your command is: &lt;/span>$input&lt;span style="color:#e6db74">&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> eval $output
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">fi&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span> 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="inference">Inference&lt;/h1>
-&lt;p>This time, the &lt;code>check_space&lt;/code> function returns a &lt;code>1&lt;/code> if there are any characters in the input
-string among &lt;code>b&lt;/code>,&lt;code>d&lt;/code>,&lt;code>k&lt;/code>,&lt;code>s&lt;/code>, a semicolon, an ampersand and a whitespace. If the function does
-return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no further processing happens.&lt;/p></description></item><item><title>Bash Jail 1</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail1/</link><pubDate>Sun, 24 Jul 2022 12:27:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail1/</guid><description>&lt;h1 id="the-challenge">The challenge&lt;/h1>
-&lt;p>Upon SSHing into the box, we are told that the flag is located at &lt;code>/home/level1/flag.txt&lt;/code>&lt;/p>
-&lt;p>Challenge bash code:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">while&lt;/span> :
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">do&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> echo &lt;span style="color:#e6db74">&amp;#34;Your input:&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> read input
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> output&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">`&lt;/span>$input&lt;span style="color:#e6db74">`&lt;/span>
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">done&lt;/span> 
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;h1 id="inference-and-experimenation">Inference and experimenation&lt;/h1>
-&lt;p>The script is reading an input, executes it and then stores it in the
-&lt;code>output&lt;/code> variable without ever displaying the output to the console.&lt;/p>
-&lt;p>I tried a dummy command to see if I could see its &lt;code>stderr&lt;/code> since command
-substitution (backticks) only capture the &lt;code>stdout&lt;/code>.&lt;/p></description></item><item><title>Hi, this is Himadri!</title><link>https://lavafroth.is-a.dev/about/</link><pubDate>Sat, 23 Jul 2022 19:11:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/about/</guid><description>&lt;p>I&amp;rsquo;m a self taught programmer and a digital artist. You might have arrived here
-from &lt;a href="https://youtube.com/@lavafroth">my YouTube channel&lt;/a> or my open source
-work. I&amp;rsquo;m doing a bachelors in data science at IITM.&lt;/p>
-&lt;p>I&amp;rsquo;m decent with programming languages like C and Java, the latter of which was
-taught in school. I&amp;rsquo;m &lt;em>great&lt;/em> at writing Golang and Rust. I render my YouTube
+This meant, one couldn&amp;rsquo;t simply run the following and expect to see a video.&lt;/p&gt;</description></item><item><title>Bash Jail 3</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/</link><pubDate>Sun, 24 Jul 2022 12:29:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/</guid><description>&lt;h1 id="the-challenge"&gt;The challenge&lt;/h1&gt;
+&lt;p&gt;Logging into the box we are told that the flag is located at &lt;code&gt;/home/level3/flag.txt&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; check_space &lt;span style="color:#f92672"&gt;{&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;[[&lt;/span&gt; $1 &lt;span style="color:#f92672"&gt;==&lt;/span&gt; *&lt;span style="color:#f92672"&gt;[&lt;/span&gt;bdksc&lt;span style="color:#f92672"&gt;]&lt;/span&gt;* &lt;span style="color:#f92672"&gt;]]&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;}&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; : 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;do&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;Your input:&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; read input 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; check_space &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$input&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo -e &lt;span style="color:#e6db74"&gt;&amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; output&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;$input&lt;span style="color:#e6db74"&gt;`&lt;/span&gt; &amp;amp;&amp;gt;/dev/null 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;Command executed&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;done&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We are also told that this prompt is launched using &lt;code&gt;./prompt.sh 2&amp;gt;/dev/null&lt;/code&gt;
+which means we cannot exfiltrate the flag from &lt;code&gt;stderr&lt;/code&gt; since it is blocked.&lt;/p&gt;</description></item><item><title>Bash Jail 2</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail2/</link><pubDate>Sun, 24 Jul 2022 12:28:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail2/</guid><description>&lt;h1 id="the-challenge"&gt;The challenge&lt;/h1&gt;
+&lt;p&gt;Logging into the box we are told that the flag is located at &lt;code&gt;/home/level2/flag.txt&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="challenge-bash-code"&gt;Challenge bash code&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; check_space &lt;span style="color:#f92672"&gt;{&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;[[&lt;/span&gt; $1 &lt;span style="color:#f92672"&gt;==&lt;/span&gt; *&lt;span style="color:#f92672"&gt;[&lt;/span&gt;bdks&lt;span style="color:#e6db74"&gt;&amp;#39;;&amp;#39;&amp;#39;&amp;amp;&amp;#39;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;]&lt;/span&gt;* &lt;span style="color:#f92672"&gt;]]&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;}&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; :
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;Your input:&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; read input
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; check_space &lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;$input&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo -e &lt;span style="color:#e6db74"&gt;&amp;#39;\033[0;31mRestricted characters has been used\033[0m&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; output&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;echo Your command is: &lt;/span&gt;$input&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; eval $output
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;fi&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;done&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="inference"&gt;Inference&lt;/h1&gt;
+&lt;p&gt;This time, the &lt;code&gt;check_space&lt;/code&gt; function returns a &lt;code&gt;1&lt;/code&gt; if there are any characters in the input
+string among &lt;code&gt;b&lt;/code&gt;,&lt;code&gt;d&lt;/code&gt;,&lt;code&gt;k&lt;/code&gt;,&lt;code&gt;s&lt;/code&gt;, a semicolon, an ampersand and a whitespace. If the function does
+return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no further processing happens.&lt;/p&gt;</description></item><item><title>Bash Jail 1</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail1/</link><pubDate>Sun, 24 Jul 2022 12:27:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail1/</guid><description>&lt;h1 id="the-challenge"&gt;The challenge&lt;/h1&gt;
+&lt;p&gt;Upon SSHing into the box, we are told that the flag is located at &lt;code&gt;/home/level1/flag.txt&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;Challenge bash code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; :
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;do&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;Your input:&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; read input
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; output&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;$input&lt;span style="color:#e6db74"&gt;`&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;done&lt;/span&gt; 
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="inference-and-experimenation"&gt;Inference and experimenation&lt;/h1&gt;
+&lt;p&gt;The script is reading an input, executes it and then stores it in the
+&lt;code&gt;output&lt;/code&gt; variable without ever displaying the output to the console.&lt;/p&gt;
+&lt;p&gt;I tried a dummy command to see if I could see its &lt;code&gt;stderr&lt;/code&gt; since command
+substitution (backticks) only capture the &lt;code&gt;stdout&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Hi, this is Himadri!</title><link>https://lavafroth.is-a.dev/about/</link><pubDate>Sat, 23 Jul 2022 19:11:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/about/</guid><description>&lt;p&gt;I&amp;rsquo;m a self taught programmer and a digital artist. You might have arrived here
+from &lt;a href="https://youtube.com/@lavafroth"&gt;my YouTube channel&lt;/a&gt; or my open source
+work. I&amp;rsquo;m doing a bachelors in data science at IITM.&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m decent with programming languages like C and Java, the latter of which was
+taught in school. I&amp;rsquo;m &lt;em&gt;great&lt;/em&gt; at writing Golang and Rust. I render my YouTube
 videos with Python and the manim framework, so I&amp;rsquo;d argue I&amp;rsquo;m competent at it
-as well.&lt;/p></description></item><item><title>Truce</title><link>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</link><pubDate>Sat, 23 Jul 2022 19:07:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</guid><description>&lt;p>A painting of the lead vocalist of Twenty Øne Piløts, named
-after one of my favorite songs from their album Vessel.&lt;/p></description></item><item><title>She's a Rebel</title><link>https://lavafroth.is-a.dev/art/shes-a-rebel/</link><pubDate>Sun, 17 Apr 2022 17:01:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/shes-a-rebel/</guid><description>&lt;p>Clearly the title was an afterthought.&lt;/p></description></item><item><title>Operation Oni, Operation Orchid</title><link>https://lavafroth.is-a.dev/post/picoctf-forensics-operation-oni-operation-orchid/</link><pubDate>Fri, 18 Mar 2022 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-forensics-operation-oni-operation-orchid/</guid><description>&lt;p>In this post, we&amp;rsquo;ll walk through the Operation Oni and Operation Orchid challenges
+as well.&lt;/p&gt;</description></item><item><title>Truce</title><link>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</link><pubDate>Sat, 23 Jul 2022 19:07:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/tyler-joseph-portrait/</guid><description>&lt;p&gt;A painting of the lead vocalist of Twenty Øne Piløts, named
+after one of my favorite songs from their album Vessel.&lt;/p&gt;</description></item><item><title>She's a Rebel</title><link>https://lavafroth.is-a.dev/art/shes-a-rebel/</link><pubDate>Sun, 17 Apr 2022 17:01:44 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/shes-a-rebel/</guid><description>&lt;p&gt;Clearly the title was an afterthought.&lt;/p&gt;</description></item><item><title>Operation Oni, Operation Orchid</title><link>https://lavafroth.is-a.dev/post/picoctf-forensics-operation-oni-operation-orchid/</link><pubDate>Fri, 18 Mar 2022 07:10:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-forensics-operation-oni-operation-orchid/</guid><description>&lt;p&gt;In this post, we&amp;rsquo;ll walk through the Operation Oni and Operation Orchid challenges
 from the PicoCTF competition held in March 2022. Both of these challenges involve
 the use of tools from The Sleuth Kit suite. In order to follow along, I&amp;rsquo;d recommend
-installing the suite of tools.&lt;/p>
-&lt;h1 id="operation-oni">Operation Oni&lt;/h1>
-&lt;p>The challenge has an associated instance which we&amp;rsquo;ll need to log into using SSH using
-the following command:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-bash" data-lang="bash">&lt;span style="display:flex;">&lt;span>ssh -i key_file -p &lt;span style="color:#ae81ff">61948&lt;/span> ctf-player@saturn.picoctf.net
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We are provided with a compressed disk image &lt;code>disk.img.gz&lt;/code> which we&amp;rsquo;ll decompress with:&lt;/p></description></item><item><title>JAuth</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</link><pubDate>Tue, 22 Feb 2022 14:49:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</guid><description>&lt;p>The challenge description states that most web application developers use third party components without testing their security.
-It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at &lt;a href="http://saturn.picoctf.net:52025/">http://saturn.picoctf.net:52025/&lt;/a>&lt;/p>
-&lt;p>The goal is to become an &lt;code>admin&lt;/code>.
-We are provied with the username &lt;code>test&lt;/code> and the password &lt;code>Test123!&lt;/code> to look around.&lt;/p>
-&lt;p>The challenge is a dummy bank portal. On login, we see the message:&lt;/p></description></item><item><title>Liberating 14GiB of disk space</title><link>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</link><pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</guid><description>&lt;p>The idea is simple:&lt;/p>
-&lt;ul>
-&lt;li>Remove all duplicates, including zero length files&lt;/li>
-&lt;li>Fine tuning: Hand-pick and remove files deemed unnecessary&lt;/li>
-&lt;/ul>
-&lt;p>Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p>
-&lt;p>I chose &lt;a href="https://github.com/jbruchon/jdupes">jdupes&lt;/a> as my weapon of choice for finding and removing the duplicates.
-It&amp;rsquo;s free and open-source and is cross platform.&lt;/p>
-&lt;p>For a given folder we would run the following to wipe the duplicates:&lt;/p></description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
-After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p>
-&lt;p>The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;&lt;span style="color:#a6e22e">alert&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The application source directory tree looks like the following:&lt;/p>
-&lt;pre tabindex="0">&lt;code>.
+installing the suite of tools.&lt;/p&gt;
+&lt;h1 id="operation-oni"&gt;Operation Oni&lt;/h1&gt;
+&lt;p&gt;The challenge has an associated instance which we&amp;rsquo;ll need to log into using SSH using
+the following command:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh -i key_file -p &lt;span style="color:#ae81ff"&gt;61948&lt;/span&gt; ctf-player@saturn.picoctf.net
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We are provided with a compressed disk image &lt;code&gt;disk.img.gz&lt;/code&gt; which we&amp;rsquo;ll decompress with:&lt;/p&gt;</description></item><item><title>JAuth</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</link><pubDate>Tue, 22 Feb 2022 14:49:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</guid><description>&lt;p&gt;The challenge description states that most web application developers use third party components without testing their security.
+It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at &lt;a href="http://saturn.picoctf.net:52025/"&gt;http://saturn.picoctf.net:52025/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The goal is to become an &lt;code&gt;admin&lt;/code&gt;.
+We are provied with the username &lt;code&gt;test&lt;/code&gt; and the password &lt;code&gt;Test123!&lt;/code&gt; to look around.&lt;/p&gt;
+&lt;p&gt;The challenge is a dummy bank portal. On login, we see the message:&lt;/p&gt;</description></item><item><title>Liberating 14GiB of disk space</title><link>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</link><pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</guid><description>&lt;p&gt;The idea is simple:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Remove all duplicates, including zero length files&lt;/li&gt;
+&lt;li&gt;Fine tuning: Hand-pick and remove files deemed unnecessary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p&gt;
+&lt;p&gt;I chose &lt;a href="https://github.com/jbruchon/jdupes"&gt;jdupes&lt;/a&gt; as my weapon of choice for finding and removing the duplicates.
+It&amp;rsquo;s free and open-source and is cross platform.&lt;/p&gt;
+&lt;p&gt;For a given folder we would run the following to wipe the duplicates:&lt;/p&gt;</description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p&gt;At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
+After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p&gt;
+&lt;p&gt;The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;&lt;span style="color:#a6e22e"&gt;alert&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The application source directory tree looks like the following:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;.
 ├── app.py
 ├── Dockerfile
 ├── flag.txt
@@ -954,20 +957,20 @@ After submitting the query, we are redirected to an html page containing the con
  │ ├── bad_content.html
  │ └── long_content.html
  └── index.html
-&lt;/code>&lt;/pre>&lt;p>Let&amp;rsquo;s inspect the &lt;code>app.py&lt;/code> source.&lt;/p></description></item><item><title>Gadgeting in Python Jails</title><link>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</link><pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</guid><description>&lt;p>We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
-Additionally some might even keep &lt;code>builtins&lt;/code> and &lt;code>eval&lt;/code> out of reach.&lt;/p>
-&lt;p>&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0">Here&lt;/a> is a cool video explanation by @pwnfunction on server side template
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s inspect the &lt;code&gt;app.py&lt;/code&gt; source.&lt;/p&gt;</description></item><item><title>Gadgeting in Python Jails</title><link>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</link><pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</guid><description>&lt;p&gt;We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
+Additionally some might even keep &lt;code&gt;builtins&lt;/code&gt; and &lt;code&gt;eval&lt;/code&gt; out of reach.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0"&gt;Here&lt;/a&gt; is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.&lt;/p></description></item><item><title/><link>https://lavafroth.is-a.dev/post/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/post/project_mana/</guid><description>&lt;div id="stage">
-&lt;/div>
-&lt;style>
+Kudos to him for sharing this technique.&lt;/p&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/post/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/post/project_mana/</guid><description>&lt;div id="stage"&gt;
+&lt;/div&gt;
+&lt;style&gt;
 canvas {
  background: transparent;
  border-radius: 1rem;
  margin-bottom: 1rem;
 }
-&lt;/style>
-&lt;script type="frag" id="evolve-vert">
+&lt;/style&gt;
+&lt;script type="frag" id="evolve-vert"&gt;
 varying vec2 vUv;
 
 void main() {
@@ -976,8 +979,8 @@ void main() {
  vUv = gl_Position.xy / gl_Position.w;
  vUv = (vUv + 1.0) * 0.5;
 }
-&lt;/script>
-&lt;script type="frag" id="evolve-frag">
+&lt;/script&gt;
+&lt;script type="frag" id="evolve-frag"&gt;
 varying vec2 vUv;
 
 uniform sampler2D gbufferMask;
@@ -987,8 +990,8 @@ void main() {
  gl_FragColor = vec4(texture(initBufferMask, vUv));
 }
 
-&lt;/script>
-&lt;script type="frag" id="outline-frag">
+&lt;/script&gt;
+&lt;script type="frag" id="outline-frag"&gt;
  varying vec2 vUv;
  varying vec2 clipMeshCenter;
  varying vec2 glPos;
@@ -1041,8 +1044,8 @@ void main() {
  vec4 outline = vec4(isOutline);
  gl_FragColor = outline;
  }
-&lt;/script>
-&lt;script type="vert" id="outline-vert">
+&lt;/script&gt;
+&lt;script type="vert" id="outline-vert"&gt;
  varying vec2 vUv;
  uniform vec3 meshCenter;
  varying vec2 clipMeshCenter;
@@ -1057,17 +1060,17 @@ void main() {
  vUv = (vUv + 1.0) * 0.5;
  glPos = gl_Position.xy;
  }
-&lt;/script>
-&lt;script type="importmap">
+&lt;/script&gt;
+&lt;script type="importmap"&gt;
  {
  "imports": {
  "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
  "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
  }
  }
-&lt;/script>
+&lt;/script&gt;
 
-&lt;script type="module">
+&lt;script type="module"&gt;
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
@@ -1129,7 +1132,7 @@ const solidMesh = new THREE.Mesh(
  solidMeshMaterial,
 );
 
-btnDark.addEventListener('click', () => {
+btnDark.addEventListener('click', () =&gt; {
  dark ^= true
  solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
  ambientLight.intensity = dark ? 1: 10;
@@ -1167,10 +1170,10 @@ const evolveMesh = new THREE.Mesh(
 evolveScene.add(evolveMesh)
 
 function continuity(bitmap, width, height) {
- const visited = Array.from({length: height}, () => Array(width).fill(false));
+ const visited = Array.from({length: height}, () =&gt; Array(width).fill(false));
 
  function valid(row, col) {
- return row >= 0 &amp;&amp; row &lt; height &amp;&amp; col >= 0 &amp;&amp; col &lt;= width
+ return row &gt;= 0 &amp;&amp; row &lt; height &amp;&amp; col &gt;= 0 &amp;&amp; col &lt;= width
  }
 
  function valid_1(row, col) {
@@ -1214,7 +1217,7 @@ function continuity(bitmap, width, height) {
  return
  }
 
- if (steps > 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
+ if (steps &gt; 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
  cyclic.push([row, col])
  return
  }
@@ -1270,7 +1273,7 @@ var durationInSeconds = 5;
 // threshold when timing the animation.
 function dijkstraNumber(points, buf) {
  var longestStrand = 2;
- points.forEach((point) => {
+ points.forEach((point) =&gt; {
  longestStrand = Math.max(longestStrand, dijkstraPropagate(point, buf, 2))
  })
  return longestStrand
@@ -1283,7 +1286,7 @@ function dijkstraPropagate(point, buf, value) {
  if (neighbors === undefined) {
  return value
  }
- neighbors.forEach(([row, col]) => {
+ neighbors.forEach(([row, col]) =&gt; {
  let pos = 4 * (row * buffer.width + col);
  if (buf[pos] != 1) {
  return
@@ -1334,7 +1337,7 @@ function animate() {
  		longestPixelStrand = dijkstraNumber(points, dijkstraBuffer)
 
  let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
- points.forEach((point) => {
+ points.forEach((point) =&gt; {
  let pos = 4 * (point[0] * buffer.width + point[1]);
  initBuffer[pos] = 255;
  initBuffer[pos+1] = 255;
@@ -1353,7 +1356,7 @@ function animate() {
  for (let row = 0; row &lt; height; row++) {
  for(let col=0; col&lt;width; col++) {
  var point = 4 * (row * width + col);
- if (dijkstraBuffer[point] > 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
+ if (dijkstraBuffer[point] &gt; 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
  initBuffer[point] = dark ? 255: 22;
  initBuffer[point+1] = dark ? 255: 22;
  initBuffer[point+2] = dark ? 255 : 22;
@@ -1378,4 +1381,4 @@ renderer.setAnimationLoop(animate);
 orbit.addEventListener('change', function() {
  init = true;
 })
-&lt;/script></description></item></channel></rss>
+&lt;/script&gt;</description></item></channel></rss>

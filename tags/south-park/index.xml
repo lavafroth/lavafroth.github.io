@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>South Park on lavafroth</title><link>https://lavafroth.is-a.dev/tags/south-park/</link><description>Recent content in South Park on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Aug 2022 09:26:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/south-park/index.xml" rel="self" type="application/rss+xml"/><item><title>Oh my God, they killed Kenny!</title><link>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</link><pubDate>Tue, 02 Aug 2022 09:26:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</guid><description>&lt;h1 id="introduction">Introduction&lt;/h1>
-&lt;p>Despite its infamy for profanity and dark, satiric humor, I&amp;rsquo;ve been a huge fan of South Park over the years. I&amp;rsquo;d like you to try out a random episode of &lt;a href="https://www.southparkstudios.com">South Park&lt;/a>.
-Before you walk away saying, &lt;a href="https://www.youtube.com/watch?v=RXS1sJm7QEA">&amp;ldquo;Screw you guys, I&amp;rsquo;m going home&amp;rdquo;&lt;/a>, I&amp;rsquo;ll be sharing a little trick to watch a random episode without even launching the browser.&lt;/p>
-&lt;h3 id="prerequisites">Prerequisites:&lt;/h3>
-&lt;ul>
-&lt;li>&lt;a href="https://www.nushell.sh">Nushell&lt;/a>&lt;/li>
-&lt;li>&lt;a href="https://mpv.io">mpv&lt;/a>&lt;/li>
-&lt;li>&lt;code>youtube-dl&lt;/code> or &lt;a href="https://github.com/yt-dlp/yt-dlp">yt-dlp&lt;/a>&lt;/li>
-&lt;/ul>
-&lt;h1 id="gone-scripting">Gone scripting&lt;/h1>
-&lt;p>South Park&amp;rsquo;s official website has a route called &lt;code>random-episode&lt;/code> which redirects us to, well, a random episode.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>South Park on lavafroth</title><link>https://lavafroth.is-a.dev/tags/south-park/</link><description>Recent content in South Park on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 02 Aug 2022 09:26:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/south-park/index.xml" rel="self" type="application/rss+xml"/><item><title>Oh my God, they killed Kenny!</title><link>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</link><pubDate>Tue, 02 Aug 2022 09:26:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/oh-my-god-they-killed-kenny/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;Despite its infamy for profanity and dark, satiric humor, I&amp;rsquo;ve been a huge fan of South Park over the years. I&amp;rsquo;d like you to try out a random episode of &lt;a href="https://www.southparkstudios.com"&gt;South Park&lt;/a&gt;.
+Before you walk away saying, &lt;a href="https://www.youtube.com/watch?v=RXS1sJm7QEA"&gt;&amp;ldquo;Screw you guys, I&amp;rsquo;m going home&amp;rdquo;&lt;/a&gt;, I&amp;rsquo;ll be sharing a little trick to watch a random episode without even launching the browser.&lt;/p&gt;
+&lt;h3 id="prerequisites"&gt;Prerequisites:&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://www.nushell.sh"&gt;Nushell&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://mpv.io"&gt;mpv&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;youtube-dl&lt;/code&gt; or &lt;a href="https://github.com/yt-dlp/yt-dlp"&gt;yt-dlp&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1 id="gone-scripting"&gt;Gone scripting&lt;/h1&gt;
+&lt;p&gt;South Park&amp;rsquo;s official website has a route called &lt;code&gt;random-episode&lt;/code&gt; which redirects us to, well, a random episode.
 The redirection, however, is done using javascript instead of regular HTTP status codes like 302.
-This meant, one couldn&amp;rsquo;t simply run the following and expect to see a video.&lt;/p></description></item></channel></rss>
+This meant, one couldn&amp;rsquo;t simply run the following and expect to see a video.&lt;/p&gt;</description></item></channel></rss>

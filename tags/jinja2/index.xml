@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jinja2 on lavafroth</title><link>https://lavafroth.is-a.dev/tags/jinja2/</link><description>Recent content in Jinja2 on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 21 Feb 2022 09:24:30 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/jinja2/index.xml" rel="self" type="application/rss+xml"/><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p>At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
-After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p>
-&lt;p>The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span>&amp;gt;&lt;span style="color:#a6e22e">alert&lt;/span>(&lt;span style="color:#ae81ff">1&lt;/span>)&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>The application source directory tree looks like the following:&lt;/p>
-&lt;pre tabindex="0">&lt;code>.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Jinja2 on lavafroth</title><link>https://lavafroth.is-a.dev/tags/jinja2/</link><description>Recent content in Jinja2 on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 21 Feb 2022 09:24:30 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/jinja2/index.xml" rel="self" type="application/rss+xml"/><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p&gt;At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
+After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p&gt;
+&lt;p&gt;The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;&lt;span style="color:#a6e22e"&gt;alert&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The application source directory tree looks like the following:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;.
 ├── app.py
 ├── Dockerfile
 ├── flag.txt
@@ -13,4 +13,4 @@ After submitting the query, we are redirected to an html page containing the con
  │ ├── bad_content.html
  │ └── long_content.html
  └── index.html
-&lt;/code>&lt;/pre>&lt;p>Let&amp;rsquo;s inspect the &lt;code>app.py&lt;/code> source.&lt;/p></description></item></channel></rss>
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s inspect the &lt;code&gt;app.py&lt;/code&gt; source.&lt;/p&gt;</description></item></channel></rss>

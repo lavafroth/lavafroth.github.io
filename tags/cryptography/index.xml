@@ -1,57 +1,57 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptography on lavafroth</title><link>https://lavafroth.is-a.dev/tags/cryptography/</link><description>Recent content in Cryptography on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p>Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
-I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p>
-&lt;p>With that out of the way, enjoy the writeup!&lt;/p>
-&lt;h1 id="christmas-island-orientation">Christmas Island: Orientation&lt;/h1>
-&lt;h2 id="cranberry-pi">Cranberry Pi&lt;/h2>
-&lt;p>This is a sanity check question to kick the tires. The answer to it simply is
-&lt;code>answer&lt;/code>.&lt;/p></description></item><item><title>Compact XOR</title><link>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</link><pubDate>Thu, 24 Aug 2023 18:05:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</guid><description>&lt;h1 id="description">Description&lt;/h1>
-&lt;p>I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…&lt;/p>
-&lt;h1 id="exploration">Exploration&lt;/h1>
-&lt;p>We begin by creating a new rust project.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>cargo new amateurs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cd amateurs
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cargo add hex
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>cargo add itertools
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-rust" data-lang="rust">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">fn&lt;/span> &lt;span style="color:#a6e22e">main&lt;/span>() -&amp;gt; Result&lt;span style="color:#f92672">&amp;lt;&lt;/span>(), Box&lt;span style="color:#f92672">&amp;lt;&lt;/span>&lt;span style="color:#66d9ef">dyn&lt;/span> std::error::Error&lt;span style="color:#f92672">&amp;gt;&amp;gt;&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> bytes &lt;span style="color:#f92672">=&lt;/span> hex::decode(&lt;span style="color:#e6db74">&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;&lt;/span>)&lt;span style="color:#f92672">?&lt;/span>;
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#66d9ef">let&lt;/span> stream &lt;span style="color:#f92672">=&lt;/span> String::from_utf8_lossy(&lt;span style="color:#f92672">&amp;amp;&lt;/span>bytes);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> &lt;span style="color:#a6e22e">println!&lt;/span>(&lt;span style="color:#e6db74">&amp;#34;&lt;/span>&lt;span style="color:#e6db74">{:?}&lt;/span>&lt;span style="color:#e6db74">&amp;#34;&lt;/span>, stream);
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span> Ok(())
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>To execute the code, issue the following.&lt;/p></description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p>This writeup is rather haphazard as I jumped around from one place to another
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cryptography on lavafroth</title><link>https://lavafroth.is-a.dev/tags/cryptography/</link><description>Recent content in Cryptography on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/cryptography/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p&gt;Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
+I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p&gt;
+&lt;p&gt;With that out of the way, enjoy the writeup!&lt;/p&gt;
+&lt;h1 id="christmas-island-orientation"&gt;Christmas Island: Orientation&lt;/h1&gt;
+&lt;h2 id="cranberry-pi"&gt;Cranberry Pi&lt;/h2&gt;
+&lt;p&gt;This is a sanity check question to kick the tires. The answer to it simply is
+&lt;code&gt;answer&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Compact XOR</title><link>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</link><pubDate>Thu, 24 Aug 2023 18:05:59 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/</guid><description>&lt;h1 id="description"&gt;Description&lt;/h1&gt;
+&lt;p&gt;I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…&lt;/p&gt;
+&lt;h1 id="exploration"&gt;Exploration&lt;/h1&gt;
+&lt;p&gt;We begin by creating a new rust project.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo new amateurs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd amateurs
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo add hex
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo add itertools
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;fn&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() -&amp;gt; Result&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;(), Box&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;dyn&lt;/span&gt; std::error::Error&lt;span style="color:#f92672"&gt;&amp;gt;&amp;gt;&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; bytes &lt;span style="color:#f92672"&gt;=&lt;/span&gt; hex::decode(&lt;span style="color:#e6db74"&gt;&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;&lt;/span&gt;)&lt;span style="color:#f92672"&gt;?&lt;/span&gt;;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; stream &lt;span style="color:#f92672"&gt;=&lt;/span&gt; String::from_utf8_lossy(&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;bytes);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;println!&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{:?}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;, stream);
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Ok(())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;To execute the code, issue the following.&lt;/p&gt;</description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p&gt;This writeup is rather haphazard as I jumped around from one place to another
 solving different unrelated challenges. Although the writeup covers all the
 challenges, it definitely is not sequential. Just wanted to point that out
-before diving in.&lt;/p>
-&lt;h3 id="clone-with-a-difference">Clone with a Difference&lt;/h3>
-&lt;p>This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
-cloning which doesn&amp;rsquo;t seem to work.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone git@haugfactory.com:asnowball/aws_scripts.git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can clone this the HTTPS way:&lt;/p></description></item><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p>This challenge gives use two images and asks us if we can make a flag out of them.
+before diving in.&lt;/p&gt;
+&lt;h3 id="clone-with-a-difference"&gt;Clone with a Difference&lt;/h3&gt;
+&lt;p&gt;This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
+cloning which doesn&amp;rsquo;t seem to work.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can clone this the HTTPS way:&lt;/p&gt;</description></item><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p&gt;This challenge gives use two images and asks us if we can make a flag out of them.
 At first glance, both the images look like noise. Upon a quick web lookup of
-&lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography">visual cryptography&lt;/a>, it appears
+&lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography"&gt;visual cryptography&lt;/a&gt;, it appears
 that these separate images, known as shares of the original image, can be overlayed
-on each other to reconstruct the original image.&lt;/p>
-&lt;h2 id="exploration">Exploration&lt;/h2>
-&lt;p>Now, I&amp;rsquo;m pretty sure that there are online services that will automatically solve these
+on each other to reconstruct the original image.&lt;/p&gt;
+&lt;h2 id="exploration"&gt;Exploration&lt;/h2&gt;
+&lt;p&gt;Now, I&amp;rsquo;m pretty sure that there are online services that will automatically solve these
 but I decided to write some code to solve this locally. For the past week, I&amp;rsquo;ve been
-learning the Rust programming language and this was the perfect excuse to test my knowledge.&lt;/p></description></item><item><title>RingZer0 CTF Hash Me Reloaded</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</link><pubDate>Fri, 19 Aug 2022 09:57:15 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</guid><description>&lt;p>In this RingZer0 challenge, we are to visit the challenge url where we are
+learning the Rust programming language and this was the perfect excuse to test my knowledge.&lt;/p&gt;</description></item><item><title>RingZer0 CTF Hash Me Reloaded</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</link><pubDate>Fri, 19 Aug 2022 09:57:15 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-reloaded/</guid><description>&lt;p&gt;In this RingZer0 challenge, we are to visit the challenge url where we are
 given 2 seconds to SHA512 hash the message represented by the binary provided
-string. We must send the response with the request parameter &lt;code>r&lt;/code>. Let&amp;rsquo;s write
-a go program to do that.&lt;/p>
-&lt;p>First let&amp;rsquo;s declare the url as a constant.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">uri&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We fetch the challenge page and defer closing its body once the program ends.&lt;/p></description></item><item><title>Hash Me Please</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-please/</link><pubDate>Fri, 19 Aug 2022 09:57:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-please/</guid><description>&lt;p>In this RingZer0 challenge, we are asked to visit
-&lt;a href="http://challenges.ringzer0team.com:10013/">http://challenges.ringzer0team.com:10013/&lt;/a> and are given 2 seconds to hash the
+string. We must send the response with the request parameter &lt;code&gt;r&lt;/code&gt;. Let&amp;rsquo;s write
+a go program to do that.&lt;/p&gt;
+&lt;p&gt;First let&amp;rsquo;s declare the url as a constant.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We fetch the challenge page and defer closing its body once the program ends.&lt;/p&gt;</description></item><item><title>Hash Me Please</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-please/</link><pubDate>Fri, 19 Aug 2022 09:57:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-please/</guid><description>&lt;p&gt;In this RingZer0 challenge, we are asked to visit
+&lt;a href="http://challenges.ringzer0team.com:10013/"&gt;http://challenges.ringzer0team.com:10013/&lt;/a&gt; and are given 2 seconds to hash the
 provided message using the SHA512 algorithm. We must send the response as
-&lt;a href="http://challenges.ringzer0team.com:10013/?r=response">http://challenges.ringzer0team.com:10013/?r=&lt;em>response&lt;/em>&lt;/a>
-and to do that, we&amp;rsquo;ll be using some Golang.&lt;/p>
-&lt;p>Let&amp;rsquo;s declare the URI as a constant.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">const&lt;/span> &lt;span style="color:#a6e22e">uri&lt;/span> = &lt;span style="color:#e6db74">&amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34;&lt;/span>
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We fetch the challenge page using the &lt;code>Get&lt;/code> function from the &lt;code>http&lt;/code> standard
-library, checking for errors along the way.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-go" data-lang="go">&lt;span style="display:flex;">&lt;span>&lt;span style="color:#a6e22e">resp&lt;/span>, &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">:=&lt;/span> &lt;span style="color:#a6e22e">http&lt;/span>.&lt;span style="color:#a6e22e">Get&lt;/span>(&lt;span style="color:#a6e22e">uri&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>&lt;span style="color:#66d9ef">if&lt;/span> &lt;span style="color:#a6e22e">err&lt;/span> &lt;span style="color:#f92672">!=&lt;/span> &lt;span style="color:#66d9ef">nil&lt;/span> {
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>	&lt;span style="color:#a6e22e">log&lt;/span>.&lt;span style="color:#a6e22e">Fatalln&lt;/span>(&lt;span style="color:#a6e22e">err&lt;/span>)
-&lt;/span>&lt;/span>&lt;span style="display:flex;">&lt;span>}
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We defer closing the response body when the program ends.&lt;/p></description></item></channel></rss>
+&lt;a href="http://challenges.ringzer0team.com:10013/?r=response"&gt;http://challenges.ringzer0team.com:10013/?r=&lt;em&gt;response&lt;/em&gt;&lt;/a&gt;
+and to do that, we&amp;rsquo;ll be using some Golang.&lt;/p&gt;
+&lt;p&gt;Let&amp;rsquo;s declare the URI as a constant.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We fetch the challenge page using the &lt;code&gt;Get&lt;/code&gt; function from the &lt;code&gt;http&lt;/code&gt; standard
+library, checking for errors along the way.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;http&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Get&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Fatalln&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We defer closing the response body when the program ends.&lt;/p&gt;</description></item></channel></rss>

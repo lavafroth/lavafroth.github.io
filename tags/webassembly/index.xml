@@ -1,11 +1,11 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WebAssembly on lavafroth</title><link>https://lavafroth.is-a.dev/tags/webassembly/</link><description>Recent content in WebAssembly on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 09 Feb 2023 16:39:08 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/webassembly/index.xml" rel="self" type="application/rss+xml"/><item><title>Some Assembly Required 3</title><link>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</link><pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</guid><description>&lt;p>This is a web exploitation challenge from 2021. It&amp;rsquo;s pretty old but
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>WebAssembly on lavafroth</title><link>https://lavafroth.is-a.dev/tags/webassembly/</link><description>Recent content in WebAssembly on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 09 Feb 2023 16:39:08 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/webassembly/index.xml" rel="self" type="application/rss+xml"/><item><title>Some Assembly Required 3</title><link>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</link><pubDate>Thu, 09 Feb 2023 16:39:08 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-some-assembly-required-3/</guid><description>&lt;p&gt;This is a web exploitation challenge from 2021. It&amp;rsquo;s pretty old but
 has less solves as of writing this post. I figured, it&amp;rsquo;s worth talking
-about.&lt;/p>
-&lt;p>We are told to visit
-&lt;a href="http://mercury.picoctf.net:60022/index.html">http://mercury.picoctf.net:60022/index.html&lt;/a>
-where we find a simple textbox prompting us to submit the flag.&lt;/p>
-&lt;p>Looking at the page source by pressing &lt;code>ctrl&lt;/code> &lt;code>u&lt;/code>, we see that it is sourcing javascript code from &lt;code>rTEuOmSfG3.js&lt;/code>.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-html" data-lang="html">&lt;span style="display:flex;">&lt;span>&amp;lt;&lt;span style="color:#f92672">script&lt;/span> &lt;span style="color:#a6e22e">src&lt;/span>&lt;span style="color:#f92672">=&lt;/span>&lt;span style="color:#e6db74">&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span>&amp;gt;&amp;lt;/&lt;span style="color:#f92672">script&lt;/span>&amp;gt;
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>While examining the javascript, we will notice that it is obfuscated and
-packed. Put this through &lt;a href="https://lelinhtinh.github.io/de4js/">de4js&lt;/a> to
-prettify it.&lt;/p></description></item></channel></rss>
+about.&lt;/p&gt;
+&lt;p&gt;We are told to visit
+&lt;a href="http://mercury.picoctf.net:60022/index.html"&gt;http://mercury.picoctf.net:60022/index.html&lt;/a&gt;
+where we find a simple textbox prompting us to submit the flag.&lt;/p&gt;
+&lt;p&gt;Looking at the page source by pressing &lt;code&gt;ctrl&lt;/code&gt; &lt;code&gt;u&lt;/code&gt;, we see that it is sourcing javascript code from &lt;code&gt;rTEuOmSfG3.js&lt;/code&gt;.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While examining the javascript, we will notice that it is obfuscated and
+packed. Put this through &lt;a href="https://lelinhtinh.github.io/de4js/"&gt;de4js&lt;/a&gt; to
+prettify it.&lt;/p&gt;</description></item></channel></rss>

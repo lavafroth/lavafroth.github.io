@@ -1,15 +1,15 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud Security on lavafroth</title><link>https://lavafroth.is-a.dev/tags/cloud-security/</link><description>Recent content in Cloud Security on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/cloud-security/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p>Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
-I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p>
-&lt;p>With that out of the way, enjoy the writeup!&lt;/p>
-&lt;h1 id="christmas-island-orientation">Christmas Island: Orientation&lt;/h1>
-&lt;h2 id="cranberry-pi">Cranberry Pi&lt;/h2>
-&lt;p>This is a sanity check question to kick the tires. The answer to it simply is
-&lt;code>answer&lt;/code>.&lt;/p></description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p>This writeup is rather haphazard as I jumped around from one place to another
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud Security on lavafroth</title><link>https://lavafroth.is-a.dev/tags/cloud-security/</link><description>Recent content in Cloud Security on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Wed, 10 Jan 2024 19:51:32 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/cloud-security/index.xml" rel="self" type="application/rss+xml"/><item><title>Kringlecon 2023 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</link><pubDate>Wed, 10 Jan 2024 19:51:32 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2023-writeup/</guid><description>&lt;p&gt;Happy new year everyone! As every year, I&amp;rsquo;ll begin this one with sharing my writeup for the 2023 Holiday Hack Challenge for Kringlecon.
+I must warn you, I was unable to finish all the challenges due to other life events.&lt;/p&gt;
+&lt;p&gt;With that out of the way, enjoy the writeup!&lt;/p&gt;
+&lt;h1 id="christmas-island-orientation"&gt;Christmas Island: Orientation&lt;/h1&gt;
+&lt;h2 id="cranberry-pi"&gt;Cranberry Pi&lt;/h2&gt;
+&lt;p&gt;This is a sanity check question to kick the tires. The answer to it simply is
+&lt;code&gt;answer&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p&gt;This writeup is rather haphazard as I jumped around from one place to another
 solving different unrelated challenges. Although the writeup covers all the
 challenges, it definitely is not sequential. Just wanted to point that out
-before diving in.&lt;/p>
-&lt;h3 id="clone-with-a-difference">Clone with a Difference&lt;/h3>
-&lt;p>This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
-cloning which doesn&amp;rsquo;t seem to work.&lt;/p>
-&lt;div class="highlight">&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">&lt;code class="language-sh" data-lang="sh">&lt;span style="display:flex;">&lt;span>git clone git@haugfactory.com:asnowball/aws_scripts.git
-&lt;/span>&lt;/span>&lt;/code>&lt;/pre>&lt;/div>&lt;p>We can clone this the HTTPS way:&lt;/p></description></item></channel></rss>
+before diving in.&lt;/p&gt;
+&lt;h3 id="clone-with-a-difference"&gt;Clone with a Difference&lt;/h3&gt;
+&lt;p&gt;This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
+cloning which doesn&amp;rsquo;t seem to work.&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can clone this the HTTPS way:&lt;/p&gt;</description></item></channel></rss>
