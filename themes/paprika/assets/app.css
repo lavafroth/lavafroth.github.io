@@ -15,7 +15,7 @@
 }
 
 #search {
-  margin-bottom: calc(var(--y-gap) - 4.5rem);
+  margin-bottom: var(--gap);
 }
 
 mark {
@@ -50,12 +50,11 @@ math {
   border-radius: 0.5rem;
   z-index:3;
   position: relative;
-}
-
-.list-tag::before {
-  content: ' ';
-  position: absolute;
-  z-index: 1;
+  &::before {
+    content: ' ';
+    position: absolute;
+    z-index: 1;
+  }
 }
 
 @supports (bottom: constant(safe-area-inset-bottom)) {
@@ -231,8 +230,6 @@ img {
   max-width: 100%;
 }
 
-/* Header
- -------------------------------------------------- */
 .header {
   font-family: LeagueGothic;
   text-transform: uppercase;
@@ -246,12 +243,17 @@ img {
   position: relative;
   padding: var(--gap);
   gap: 1rem;
-}
 
-.header > a {
-  width: 4rem;
-  height: 4rem;
-  position: relative;
+  a {
+    width: 4rem;
+    height: 4rem;
+    position: relative;
+  }
+
+  .space {
+    flex: 1 1 auto;
+  }
+
 }
 
 .header > a:after {
@@ -269,9 +271,6 @@ img {
   mask-size: cover;
 }
 
-.header > .space {
-  flex: 1 1 auto;
-}
 
 .header:after {
   z-index: -100;
@@ -348,8 +347,6 @@ img {
   }
 }
 
-/* Main
- -------------------------------------------------- */
 .main {
   max-width: var(--narrow);
   min-height: calc(100% - var(--header) - var(--footer));
@@ -360,20 +357,19 @@ img {
 .main-nav {
   display: flex;
   margin-top: 5rem;
+  a {
+    font-size: 1.8rem;
+    line-height: 5.5rem;
+    color: var(--white);
+    background: var(--black);
+    border-radius: 0.5rem;
+    padding-inline: 3rem;
+  }
+  .next {
+    margin-left: auto;
+  }
 }
 
-.main-nav a {
-  font-size: 1.8rem;
-  line-height: 5.5rem;
-  color: var(--white);
-  background: var(--black);
-  border-radius: 0.5rem;
-  padding-inline: 3rem;
-}
-
-.main-nav .next {
-  margin-left: auto;
-}
 
 /* Post entry
  -------------------------------------------------- */
@@ -381,14 +377,10 @@ img {
   position: relative;
   padding-block: 2rem;
   transition: transform 0.1s;
-}
 
-.post-entry:first-of-type {
-  margin-top: -2rem;
-}
-
-.post-entry:active {
-  transform: scale(0.99);
+  &:active {
+    transform: scale(0.99);
+  }
 }
 
 .post-entry h2 {
@@ -726,26 +718,20 @@ img {
   font-size: 1.6rem;
   color: var(--lit);
   border-top: 1px solid var(--fog);
+  p + p::before {
+    content: '·';
+    margin-inline: 0.6rem;
+  }
+  a:hover {
+    color: var(--pro);
+    border-bottom: 1px solid var(--pro);
+  }
 }
 
-.footer p + p::before {
-  content: '·';
-  margin-inline: 0.6rem;
-}
-
-.footer a:hover {
-  color: var(--pro);
-  border-bottom: 1px solid var(--pro);
-}
-
-/* 404
- -------------------------------------------------- */
 .title-404 {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  align-content: center;
+  text-align: center;
   height: 100%;
-  padding-bottom: 8rem;
   font-size: 16rem;
 }
 
