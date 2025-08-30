@@ -2,7 +2,7 @@
 <html lang="{{ site.LanguageCode }}">
   {{ partial "head.html" . }}
 
-  <body class="not-ready" data-menu="{{ isset site.Menus `main` }}">
+  <body data-menu="{{ isset site.Menus `main` }}">
     {{ partial "header.html" . }}
 
     <main class="main">{{ block "main" . }}{{ end }}</main>
