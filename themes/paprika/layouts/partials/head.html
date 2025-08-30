@@ -14,11 +14,6 @@
   {{ $app_css := resources.Get "app.css" | minify }}
   <link rel="preload stylesheet" as="style" href="{{ $app_css.Permalink }}" />
   <link rel="preload" as="image" href="/header.svg" />
-  <noscript>
-  {{ $noscript_css := resources.Get "noscript.css" | minify }}
-  <link rel="preload stylesheet" as="style" href="{{ $noscript_css.Permalink }}" />
-  </noscript>
-
   {{ $font := resources.Get "LeagueGothic.ttf" }}
   <link rel="preload" as="font" href="{{ $font.Permalink }}" />
 
