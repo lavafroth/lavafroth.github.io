@@ -6,4 +6,3 @@ layout: "artpiece"
 draft: false
 ---
 
-The sparkles to my life.
