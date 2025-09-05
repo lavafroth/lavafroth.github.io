@@ -72,6 +72,11 @@ math {
   }
 }
 
+.site-name>svg {
+  width: 18rem;
+  fill: var(--dark)
+}
+
 .math {
   padding: var(--gap);
   text-align: center;
@@ -269,15 +274,6 @@ img {
     mask-image: url('header.svg');
     mask-size: 24rem;
   }
-}
-
-.site-name {
-  font-family: LeagueGothic;
-  text-transform: uppercase;
-  letter-spacing: 1rem;
-  font-size: 3.4rem;
-  font-weight: 700;
-  white-space: nowrap;
 }
 
 .header a.active {
@@ -690,12 +686,6 @@ img {
   text-align: center;
   height: 100%;
   font-size: 16rem;
-}
-
-@font-face {
-  font-family: LeagueGothic;
-  src: url(LeagueGothic.ttf);
-  font-display: swap;
 }
 
 @font-face {
