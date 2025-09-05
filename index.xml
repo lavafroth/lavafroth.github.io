@@ -1,14 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 30 Aug 2025 09:00:14 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Privacy Policy</title><link>https://lavafroth.is-a.dev/privacy/</link><pubDate>Sat, 30 Aug 2025 09:00:14 +0530</pubDate><guid>https://lavafroth.is-a.dev/privacy/</guid><description>&lt;p&gt;This site &lt;em&gt;does not&lt;/em&gt; use cookies or &lt;code&gt;&amp;lt;link&amp;gt;&lt;/code&gt; any third party resources to track you.
 The site theme changes based on your theme preference propagated by your browser.&lt;/p&gt;
-&lt;p&gt;Posts here can be viewed without javascript excepting live demos. The only feature relying on javascript is the search.&lt;/p&gt;</description></item><item><title>Shared</title><link>https://lavafroth.is-a.dev/shared/</link><pubDate>Fri, 22 Aug 2025 07:14:39 +0530</pubDate><guid>https://lavafroth.is-a.dev/shared/</guid><description>&lt;p&gt;✨ Shared resources between me and her ✨&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://ocw.mit.edu"&gt;MIT OpenCourseWare&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://course.fast.ai"&gt;fast.ai&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://statquest.org/video-index/"&gt;StatQuest with Josh Starmer&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://online.stat.psu.edu/stat414/"&gt;Stat414 Penn State University&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://stats.libretexts.org/"&gt;Libretexts Stats&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://bio.libretexts.org/"&gt;Libretexts Bio&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;</description></item><item><title>Guide: Changing Recents Provider on /e/OS</title><link>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</link><pubDate>Wed, 20 Aug 2025 09:55:43 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</guid><description>&lt;h1 id="overview"&gt;Overview&lt;/h1&gt;
+&lt;p&gt;Posts here can be viewed without javascript excepting live demos. The only feature relying on javascript is the search.&lt;/p&gt;</description></item><item><title>Guide: Changing Recents Provider on /e/OS</title><link>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</link><pubDate>Wed, 20 Aug 2025 09:55:43 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/</guid><description>&lt;h1 id="overview"&gt;Overview&lt;/h1&gt;
 &lt;p&gt;Over the past month I have been daily driving my new phone, the Nothing CMF 1 flashed with /e/OS after I unlocked its bootloader. It&amp;rsquo;s a very pleasant experience except for the default Bliss launcher (home app).&lt;/p&gt;
 &lt;p&gt;Reasons I do not prefer it:&lt;/p&gt;
 &lt;ul&gt;
