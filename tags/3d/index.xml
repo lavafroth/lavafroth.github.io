@@ -118,7 +118,7 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-const dark = window.matchMedia("(prefers-color-scheme: dark)");
+const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 let width = document.querySelector('#stage').offsetWidth;
 let height = Math.round(9/16 * width);
