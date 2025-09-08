@@ -118,10 +118,10 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-let dark = true
-var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
-var width = document.querySelector('#stage').offsetWidth;
-var height = Math.round(9/16 * width);
+const dark = = window.matchMedia("(prefers-color-scheme: dark)");
+let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+let width = document.querySelector('#stage').offsetWidth;
+let height = Math.round(9/16 * width);
 renderer.setSize(width, height);
 document.querySelector('#stage').appendChild(renderer.domElement);
 
@@ -135,15 +135,15 @@ const maskScene = new THREE.Scene();
 const evolveScene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
 const color = 0xFFFFFF;
-var ambientLight = new THREE.AmbientLight(color, dark ? 1: 10);
+let ambientLight = new THREE.AmbientLight(color, dark ? 1: 10);
 solidScene.add(ambientLight);
-var light = new THREE.PointLight(color, 200);
+let light = new THREE.PointLight(color, 200);
 light.position.set(10, 10, 15);
 solidScene.add(light);
 camera.position.set(6,8,14);
 
-var buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
-var outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+let buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+let outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
 
 const orbit = new OrbitControls(camera, renderer.domElement);
 orbit.update();
@@ -164,7 +164,7 @@ const material = new THREE.ShaderMaterial({
  transparent: true,
 });
 
-var solidMeshMaterial = new THREE.MeshPhysicalMaterial({
+let solidMeshMaterial = new THREE.MeshPhysicalMaterial({
  color: dark ? 0xaaeadb : 0xffffff,
  metalness: 0.8,
  clearcoat: 0.4,
@@ -416,10 +416,7 @@ renderer.setAnimationLoop(animate);
 orbit.addEventListener('change', function() {
  init = true;
 })
-&lt;/script&gt;
-
-
-&lt;p&gt;Try toggling the theme switcher: the sun or moon icon up in the header.&lt;/p&gt;</description></item><item><title>2 Afternoons, 2 Languages, 2 TUIs</title><link>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</link><pubDate>Thu, 23 May 2024 18:37:47 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</guid><description>&lt;p&gt;Yesterday I created a tool in Golang to help me render my animations a little
+&lt;/script&gt;</description></item><item><title>2 Afternoons, 2 Languages, 2 TUIs</title><link>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</link><pubDate>Thu, 23 May 2024 18:37:47 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/2-afternoons-2-languages-2-tuis/</guid><description>&lt;p&gt;Yesterday I created a tool in Golang to help me render my animations a little
 faster. Although the alterior reason was to check my Golang proficiency, today
 I rewrote it in Rust and I was blown away by the differences in the final
 products.&lt;/p&gt;
