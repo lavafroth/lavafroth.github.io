@@ -21,5 +21,3 @@ Frames for the outline animation will be recomputed on the fly! The hardcoded du
 is 5 seconds in this example.
 
 {{< rawhtml "content/post/project_mana.html" >}}
-
-Try toggling the theme switcher: the sun or moon icon up in the header.
