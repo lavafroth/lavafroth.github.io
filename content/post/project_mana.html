@@ -111,7 +111,7 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-let dark = bodyClx.contains("dark")
+let dark = true
 var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
@@ -168,15 +168,6 @@ const solidMesh = new THREE.Mesh(
     geometry,
     solidMeshMaterial,
 );
-
-btnDark.addEventListener('click', () => {
-    dark ^= true
-    solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
-    ambientLight.intensity = dark ? 1: 10;
-    solidMeshMaterial.needsUpdate = true;
-});
-
-
 
 const mesh = new THREE.Mesh(
     geometry,
