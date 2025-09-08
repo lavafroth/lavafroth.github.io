@@ -137,7 +137,7 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-let dark = bodyClx.contains("dark")
+let dark = true
 var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
@@ -1049,7 +1049,7 @@ void main() {
 import * as THREE from 'three';
 import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
 
-let dark = bodyClx.contains("dark")
+let dark = true
 var renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
 var width = document.querySelector('#stage').offsetWidth;
 var height = Math.round(9/16 * width);
