@@ -197,15 +197,6 @@ const solidMesh = new THREE.Mesh(
  solidMeshMaterial,
 );
 
-btnDark.addEventListener('click', () =&gt; {
- dark ^= true
- solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
- ambientLight.intensity = dark ? 1: 10;
- solidMeshMaterial.needsUpdate = true;
-});
-
-
-
 const mesh = new THREE.Mesh(
  geometry,
  material
@@ -1121,15 +1112,6 @@ const solidMesh = new THREE.Mesh(
  geometry,
  solidMeshMaterial,
 );
-
-btnDark.addEventListener('click', () =&gt; {
- dark ^= true
- solidMeshMaterial.color.setHex(dark ? 0xaaeadb : 0xffffff);
- ambientLight.intensity = dark ? 1: 10;
- solidMeshMaterial.needsUpdate = true;
-});
-
-
 
 const mesh = new THREE.Mesh(
  geometry,
