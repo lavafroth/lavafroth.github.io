@@ -80,6 +80,19 @@ With all of that setup out of the way, we can instantiate the class by raising i
 ```python
 raise Read
 ```
+
+```python
+import sys
+class Read(BaseException):
+    __add__ = str
+    __truediv__ = sys.modules["code"].__loader__.get_data
+    __getitem__ = print
+    def __init__(self):
+        self[self + self / "flag"]
+
+raise Read
+```
+
 {{< / collapsable-explanation >}}
 
 ### Update: 2025-09-15

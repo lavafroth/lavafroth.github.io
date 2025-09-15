@@ -35,6 +35,8 @@ We'll then add the image library (crate) using cargo.
 cargo add image
 ```
 
+{{<collapsable-explanation>}}
+
 Now let's get some Rust in action. We'll start by editing the `src/main.rs` file.
 First, we import the required types with the use statement.
 
@@ -70,28 +72,24 @@ Looping over the pixels in the shares,
 
 ```rust
 for ((x, y, p), (_, _, q)) in a.pixels().zip(b.pixels()) {
+    // next 2 code blocks go here ...
 }
 ```
 
 we sum the values in each channel ...
 
 ```rust
-&p.channels()
+let pixel = p.channels()
     .iter()
     .zip(q.channels().iter())
     .map(|(c0, c1)| c0.checked_add(*c1).unwrap_or(*c0))
-    .collect::<Vec<u8>>(),
+    .collect::<Vec<u8>>();
 ```
 
 ... and place the new pixel into the image buffer.
 
 ```rust
-for ((x, y, p), (_, _, q)) in a.pixels().zip(b.pixels()) {
-	imgbuf.put_pixel(x, y, *Pixel::from_slice(
-		// --snip--
-	    ),
-    );
-}
+imgbuf.put_pixel(x, y, *Pixel::from_slice(&pixel));
 ```
 
 Finally, we save the image buffer into "flag.png".
@@ -100,19 +98,15 @@ Finally, we save the image buffer into "flag.png".
 imgbuf.save("flag.png").unwrap();
 ```
 
-The entire code looks like the following:
-
 ```rust
 fn main() {
     let a = image::open("scrambled1.png").unwrap();
     let b = image::open("scrambled2.png").unwrap();
     
-    // the shares must have the same dimensions
     if a.dimensions() != b.dimensions() {
         panic!("Image dimensions don't match.");
     }
     
-    // create an empty buffer for the composite image
     let mut imgbuf: RgbaImage = ImageBuffer::new(a.width(), a.height());
     for ((x, y, p), (_, _, q)) in a.pixels().zip(b.pixels()) {
         imgbuf.put_pixel(
@@ -130,6 +124,7 @@ fn main() {
     imgbuf.save("flag.png").unwrap();
 }
 ```
+{{</collapsable-explanation>}}
 
 After saving this file, we place the images in the current directory. Let's
 compile and run the program.

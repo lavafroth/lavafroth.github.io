@@ -46,36 +46,20 @@ math {
 }
 
 .collapsable-explanation {
-  &:has(input:checked) {
-    p {
+  &:not(:has(input:checked)) {
+    div:nth-last-child(1 of .highlight) {
       display: none;
     }
+  }
 
-    div:nth-child(1 of .highlight) {
-      border-top-left-radius: 0.5rem;
-      border-top-right-radius: 0.5rem;
-
-      code {
-        padding: var(--gap) var(--gap) 0 var(--gap);
-      }
-    }
-
+  &:has(input:checked) {
     div:nth-last-child(1 of .highlight) {
-      border-bottom-left-radius: 0.5rem;
-      border-bottom-right-radius: 0.5rem;
-
-      code {
-        padding: 0 var(--gap) var(--gap) var(--gap);
-      }
+      display: block;
     }
 
+    p,
     .highlight {
-      margin: 0 calc(var(--gap) * -1);
-      border-radius: 0;
-
-      code {
-        padding: 0 var(--gap);
-      }
+      display: none;
     }
   }
 
