@@ -200,7 +200,6 @@ textarea {
   background: transparent;
   border: 0;
   outline: none !important;
-  -webkit-appearance: none;
 }
 
 button,
@@ -557,18 +556,24 @@ img {
       font-size: 2.6rem;
       text-align: left;
     }
-  }
 
-  table th,
-  table:not(.highlighttable) td {
-    word-break: normal;
-    padding: 1.5rem 1rem;
-    line-height: 1.5;
-    border-bottom: 1px solid var(--fog);
-  }
+    th,
+    td {
+      word-break: normal;
+      padding: 1.5rem 1rem;
+      line-height: 1.5;
+      border-bottom: 1px solid var(--fog);
+    }
 
-  table:not(.highlighttable) td code:only-of-type {
-    margin-inline: 0;
+    td:has(code) {
+      inline-size: var(--wide);
+      word-break: break-all;
+      overflow-wrap: break-word;
+    }
+
+    td code:only-of-type {
+      margin-inline: 0;
+    }
   }
 
   .highlight,
@@ -586,37 +591,6 @@ img {
   .highlight pre {
     margin-inline: 0;
     margin-bottom: 0;
-  }
-
-  /* table */
-  .highlighttable {
-    table-layout: fixed;
-
-    td:first-of-type {
-      width: 5rem;
-    }
-
-    td {
-      .linenodiv {
-        padding-right: 0 !important;
-      }
-
-      .linenodiv pre,
-      .highlight {
-        margin-bottom: 0;
-      }
-
-      .highlight pre code::-webkit-scrollbar {
-        display: none;
-      }
-    }
-
-    .highlight span
-
-    /* inline */
-      {
-      background: transparent !important;
-    }
   }
 
   code {
