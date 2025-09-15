@@ -45,6 +45,65 @@ math {
   overflow-y: clip;
 }
 
+.collapsable-explanation {
+  &:has(input:checked) {
+    p {
+      display: none;
+    }
+
+    div:nth-child(1 of .highlight) {
+      border-top-left-radius: 0.5rem;
+      border-top-right-radius: 0.5rem;
+
+      code {
+        padding: var(--gap) var(--gap) 0 var(--gap);
+      }
+    }
+
+    div:nth-last-child(1 of .highlight) {
+      border-bottom-left-radius: 0.5rem;
+      border-bottom-right-radius: 0.5rem;
+
+      code {
+        padding: 0 var(--gap) var(--gap) var(--gap);
+      }
+    }
+
+    .highlight {
+      margin: 0 calc(var(--gap) * -1);
+      border-radius: 0;
+
+      code {
+        padding: 0 var(--gap);
+      }
+    }
+  }
+
+  .container {
+    height: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 1rem;
+
+    &:first-child {
+      margin-bottom: var(--gap);
+    }
+
+    &:last-child {
+      margin: var(--gap) 0;
+    }
+  }
+
+  .rule {
+    height: .2rem;
+    flex: 1;
+    background: var(--fog);
+    border: 0;
+  }
+
+}
+
 .list-tag {
   background: var(--faint);
   color: var(--lit);
