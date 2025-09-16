@@ -10,9 +10,14 @@ tags:
 draft: false
 ---
 
-This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren't any function calls or imports, executes the code. Our goal here is to avoid explicitly calling any functions yet reading the flag located at `flag`. We also can't import any modules explicitly. If we read the source code provided for the challenge, we can observe that the `sys` module is already imported. We can piggyback on this fact to use its modules.
+This challenge asks for python code as an input, converts it into an AST (abstract syntax tree) and if there aren't any function calls or imports, executes the code.
 
-We shall, however, first find all the modules in `sys.modules` that have a `get_data` like function in their `__loader__` attribute. To do so, we run the following locally:
+Our goal here is to avoid explicitly calling any functions yet reading the flag located at `flag`. We also can't import any modules explicitly.
+
+The source code provided with the challenge imports the `sys` module giving us an opportunity to chain its functionalities.
+
+To do so, we find all the modules in `sys.modules` that have a `get_data` like
+function in their `__loader__` attribute. We run the following locally:
 
 ``` python
 import sys
@@ -34,9 +39,7 @@ Now we can slowly assemble our exploit.
 
 {{< collapsable-explanation >}}
 
-```python
-import sys
-```
+> Note: To run this locally we must `import sys`
 
 We create a class called `Read` that inherits from the `BaseException` class.
 
@@ -82,7 +85,6 @@ raise Read
 ```
 
 ```python
-import sys
 class Read(BaseException):
     __add__ = str
     __truediv__ = sys.modules["code"].__loader__.get_data
@@ -97,8 +99,8 @@ raise Read
 
 ### Update: 2025-09-15
 
-I was lurking through my past writeups, here's an ever easier way to achieve the same file read
-without importing the `sys` module.
+I was lurking through my past writeups, here's an even easier way to achieve the
+same file read independent of the `sys` module.
 
 ```python
 class Read(BaseException):
