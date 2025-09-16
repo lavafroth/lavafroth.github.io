@@ -14,7 +14,7 @@ on each other to reconstruct the original image.</p><h2 id=exploration>Explorati
 but I decided to write some code to solve this locally. For the past week, I&rsquo;ve been
 learning the Rust programming language and this was the perfect excuse to test my knowledge.</p><p>First, we will create a cargo project. Let&rsquo;s call it &ldquo;solve&rdquo;.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cargo new solve
 </span></span></code></pre></div><p>We&rsquo;ll then add the image library (crate) using cargo.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cargo add image
-</span></span></code></pre></div><div class=collapsable-explanation><div class=container><div class=rule></div><label><input type=checkbox> Collapse explanation</label></div><p>Now let&rsquo;s get some Rust in action. We&rsquo;ll start by editing the <code>src/main.rs</code> file.
+</span></span></code></pre></div><div class=collapsable-explanation><div class=container><label><input type=checkbox> Collapse explanation</label></div><p>Now let&rsquo;s get some Rust in action. We&rsquo;ll start by editing the <code>src/main.rs</code> file.
 First, we import the required types with the use statement.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>use</span> image::{GenericImageView, ImageBuffer, Pixel, RgbaImage};
 </span></span></code></pre></div><p>We&rsquo;ll now write the main function. Let&rsquo;s open the images and store handles to them
 in variables <code>a</code> and <code>b</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>main</span>() {
@@ -59,7 +59,7 @@ in variables <code>a</code> and <code>b</code>.</p><div class=highlight><pre tab
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>    imgbuf.save(<span style=color:#e6db74>&#34;flag.png&#34;</span>).unwrap();
 </span></span><span style=display:flex><span>}
-</span></span></code></pre></div><div class=container><div class=rule></div></div></div><p>After saving this file, we place the images in the current directory. Let&rsquo;s
+</span></span></code></pre></div><div class=container></div></div><p>After saving this file, we place the images in the current directory. Let&rsquo;s
 compile and run the program.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>cargo run
 </span></span></code></pre></div><p>Viewing &ldquo;flag.png&rdquo; shows us the flag in pixelated text.</p><p><img src=../../picoctf-cryptography-challenge-pixelated.png alt=flag.png></p></section></article><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/cryptography class=list-tag>Cryptography</a>
 <a href=https://lavafroth.is-a.dev/tags/ctf class=list-tag>CTF</a>
