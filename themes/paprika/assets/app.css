@@ -158,6 +158,10 @@ math {
 
     .container label {
       border: var(--narrow-separator) solid var(--pro);
+
+      &::after {
+        content: 'Expand explanation';
+      }
     }
 
   }
@@ -173,6 +177,10 @@ math {
       border: var(--narrow-separator) solid var(--fog);
       padding: var(--narrow-separator) var(--small-gap);
       border-radius: var(--gap);
+
+      &::after {
+        content: 'Collapse explanation';
+      }
     }
 
 
