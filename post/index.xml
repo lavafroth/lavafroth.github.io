@@ -914,9 +914,11 @@ We are provied with the username &lt;code&gt;test&lt;/code&gt; and the password 
 &lt;li&gt;Fine tuning: Hand-pick and remove files deemed unnecessary&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p&gt;
-&lt;p&gt;I chose &lt;a href="https://github.com/jbruchon/jdupes"&gt;jdupes&lt;/a&gt; as my weapon of choice for finding and removing the duplicates.
-It&amp;rsquo;s free and open-source and is cross platform.&lt;/p&gt;
-&lt;p&gt;For a given folder we would run the following to wipe the duplicates:&lt;/p&gt;</description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p&gt;At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
+&lt;p&gt;I chose &lt;a href="https://codeberg.org/jbruchon/jdupes"&gt;jdupes&lt;/a&gt; for deleting the duplicates because it&amp;rsquo;s open-source and is cross platform.&lt;/p&gt;
+&lt;p&gt;For a given folder we would run the following to wipe the duplicates:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jdupes --recurse --delete --no-prompt --zero&lt;span style="color:#f92672"&gt;-match&lt;/span&gt; .
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will recursively delete all the duplicates except the source file without prompting for a confirmation.
+It will also consider zero length files to be duplicates.&lt;/p&gt;</description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p&gt;At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
 After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p&gt;
 &lt;p&gt;The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;&lt;span style="color:#a6e22e"&gt;alert&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
