@@ -313,3 +313,159 @@ $$ min(len(L1), len(L2)) = 6 $$
 
 Total = 6 + 5 + 3 = 14
 
+# GRPAs
+
+### 1. String sorting question
+This has two parts:
+ - Sort with respect to starting letters.
+ - Sort with respect to starting letters, then for each block of common letters, sort the trailing numbers in descending order.
+
+Here's the trick to solve the second part, you always sort fields in the reverse order of what they ask for.
+So first sort by numbers in descending order, then sort by the starting letters.
+
+Sorri this solution is bit big. You could also use the built in `sorted` function in python without implementing
+merge sort like I did here.
+
+```python
+def combinationSort(strList):
+    by_first_letter = lambda v: ord(v[0])
+    by_last_digits = lambda v: int(v[1:])
+    sorted_0 = mergesort(strList, by_first_letter)
+
+    sorted_1 = mergesort(strList, by_last_digits, ascending=False)
+    sorted_1 = mergesort(sorted_1, by_first_letter)
+    return sorted_0, sorted_1
+
+
+def merge(a, b, by, ascending=True):
+    i, j = 0, 0
+    m, n = len(a), len(b)
+    c = []
+    while i + j != m + n:
+        if i == m:
+            return c + b[j:]
+        if j == n:
+            return c + a[i:]
+
+        a_ = a[i]
+        b_ = b[j]
+        # this XOR will flip the comparison
+        if ascending ^ (by(a_) > by(b_)):
+            i += 1
+            c.append(a_)
+        else:
+            j += 1
+            c.append(b_)
+    return c
+
+
+def mergesort(v, by, ascending=True):
+    n = len(v)
+    if n == 1:
+        return v
+
+    l = mergesort(v[: n // 2], by, ascending)
+    r = mergesort(v[n // 2 :], by, ascending)
+    return merge(l, r, by, ascending)
+```
+
+### 2. Given an ascending list is rotated, find the biggest element.
+
+{{< collapsable-explanation >}}
+
+We will do a binary search. to calculate the midpoint, we need to know the start and the end indices.
+I call them head and tail respectively.
+
+```python
+def findLargest(array):
+    head, tail = 0, len(array) - 1
+```
+
+If we want the largest element, it will be found in a slice of the array that is sorted in ascending order.
+We check that as the loop condition.
+
+```python
+    while array[head] > array[tail]:
+```
+
+Calculate the midpoint every iteration.
+
+```python
+        mid = (head + tail) // 2
+```
+
+If the middle element is greater than the last element, it might look like this:
+
+```python
+        if array[mid] > array[tail]:
+            head = mid
+```
+
+![](/midpoint.svg)
+
+Observe that the left half of the midpoint is useless in this case. Therefore, we set the new head to the midpoint.
+
+```python
+        else:
+            tail = mid - 1
+```
+
+The opposite case might look like this:
+
+![](/midpoint-1.svg)
+
+In such a case, the midpoint along with anything to its right is useless. We throw that part away by reassigning tail to mid - 1.
+
+Finally we  return the last (standing) array element.
+
+```python
+    return array[tail]
+```
+
+```python
+def findLargest(array):
+    head, tail = 0, len(array) - 1
+    while array[head] > array[tail]:
+        mid = (head + tail) // 2
+        if array[mid] > array[tail]:
+            head = mid
+        else:
+            tail = mid - 1
+    return array[tail]
+```
+
+{{</ collapsable-explanation >}}
+
+### 3. Perform merge on two lists via swaps only
+
+The swap function works as `list_a.swap(index_a, list_b, index_b)` which is part of their custom implementation.
+
+```python
+# treat A and B as a contiguous array basically
+# returns which array the current contiguous indexer
+# indexes into and at what offset
+def index(A, B, x):
+    if x < len(A):
+        return A, x
+    return B, x - len(A)
+
+def swap(A, B, x, y):
+    source, source_index = index(A, B, x)
+    target, target_index = index(A, B, y)
+    source.swap(source_index, target, target_index)
+
+def mergeInPlace(A, B):
+    # again, value_at treats A + B as contiguous
+    value_at = lambda x: A[x] if x < len(A) else B[x - len(A)]
+    
+    size = len(A) + len(B)
+    for i in range(size-1):
+        smallest = value_at(i)
+        smol_index = i
+        for j in range(i, size):
+            if value_at(j) < smallest:
+                smol_index = j
+                smallest = value_at(j)
+        # swap i and smol_index
+        swap(A, B, i, smol_index)
+```
