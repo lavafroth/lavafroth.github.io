@@ -440,32 +440,28 @@ def findLargest(array):
 
 The swap function works as `list_a.swap(index_a, list_b, index_b)` which is part of their custom implementation.
 
+The trick is to treat A and B as a contiguous array: A + B
+
+Any index `i` smaller than `len(A)` will index into A, anything bigger will index into B at offset `i-len(A)`.
+
+The index function returns which array the current contiguous indexer indexes into and at what offset.
+
+The rest of the `mergeInPlace` function body performs selection sort.
+
 ```python
-# treat A and B as a contiguous array basically
-# returns which array the current contiguous indexer
-# indexes into and at what offset
 def index(A, B, x):
-    if x < len(A):
-        return A, x
-    return B, x - len(A)
+    return (A, x) if x < len(A) else (B, x - len(A))
 
 def swap(A, B, x, y):
-    source, source_index = index(A, B, x)
-    target, target_index = index(A, B, y)
-    source.swap(source_index, target, target_index)
+    source, source_offset = index(A, B, x)
+    target, target_offset = index(A, B, y)
+    source.swap(source_offset, target, target_offset)
 
 def mergeInPlace(A, B):
-    # again, value_at treats A + B as contiguous
     value_at = lambda x: A[x] if x < len(A) else B[x - len(A)]
     
     size = len(A) + len(B)
     for i in range(size-1):
-        smallest = value_at(i)
-        smol_index = i
-        for j in range(i, size):
-            if value_at(j) < smallest:
-                smol_index = j
-                smallest = value_at(j)
-        # swap i and smol_index
-        swap(A, B, i, smol_index)
+        smallest_index = min(range(i, size), key=value_at)
+        swap(A, B, i, smallest_index)
 ```
