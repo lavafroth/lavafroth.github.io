@@ -153,31 +153,19 @@ We check that as the loop condition.</p><div class=highlight><pre tabindex=0 sty
 </span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
 </span></span><span style=display:flex><span>            tail <span style=color:#f92672>=</span> mid <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> array[tail]
-</span></span></code></pre></div><div class=container></div></div><h3 id=3-perform-merge-on-two-lists-via-swaps-only>3. Perform merge on two lists via swaps only</h3><p>The swap function works as <code>list_a.swap(index_a, list_b, index_b)</code> which is part of their custom implementation.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#75715e># treat A and B as a contiguous array basically</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># returns which array the current contiguous indexer</span>
-</span></span><span style=display:flex><span><span style=color:#75715e># indexes into and at what offset</span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>index</span>(A, B, x):
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> len(A):
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> A, x
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> B, x <span style=color:#f92672>-</span> len(A)
+</span></span></code></pre></div><div class=container></div></div><h3 id=3-perform-merge-on-two-lists-via-swaps-only>3. Perform merge on two lists via swaps only</h3><p>The swap function works as <code>list_a.swap(index_a, list_b, index_b)</code> which is part of their custom implementation.</p><p>The trick is to treat A and B as a contiguous array: A + B</p><p>Any index <code>i</code> smaller than <code>len(A)</code> will index into A, anything bigger will index into B at offset <code>i-len(A)</code>.</p><p>The index function returns which array the current contiguous indexer indexes into and at what offset.</p><p>The rest of the <code>mergeInPlace</code> function body performs selection sort.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>index</span>(A, B, x):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> (A, x) <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> len(A) <span style=color:#66d9ef>else</span> (B, x <span style=color:#f92672>-</span> len(A))
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>swap</span>(A, B, x, y):
-</span></span><span style=display:flex><span>    source, source_index <span style=color:#f92672>=</span> index(A, B, x)
-</span></span><span style=display:flex><span>    target, target_index <span style=color:#f92672>=</span> index(A, B, y)
-</span></span><span style=display:flex><span>    source<span style=color:#f92672>.</span>swap(source_index, target, target_index)
+</span></span><span style=display:flex><span>    source, source_offset <span style=color:#f92672>=</span> index(A, B, x)
+</span></span><span style=display:flex><span>    target, target_offset <span style=color:#f92672>=</span> index(A, B, y)
+</span></span><span style=display:flex><span>    source<span style=color:#f92672>.</span>swap(source_offset, target, target_offset)
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>mergeInPlace</span>(A, B):
-</span></span><span style=display:flex><span>    <span style=color:#75715e># again, value_at treats A + B as contiguous</span>
 </span></span><span style=display:flex><span>    value_at <span style=color:#f92672>=</span> <span style=color:#66d9ef>lambda</span> x: A[x] <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> len(A) <span style=color:#66d9ef>else</span> B[x <span style=color:#f92672>-</span> len(A)]
 </span></span><span style=display:flex><span>    
 </span></span><span style=display:flex><span>    size <span style=color:#f92672>=</span> len(A) <span style=color:#f92672>+</span> len(B)
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(size<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>):
-</span></span><span style=display:flex><span>        smallest <span style=color:#f92672>=</span> value_at(i)
-</span></span><span style=display:flex><span>        smol_index <span style=color:#f92672>=</span> i
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i, size):
-</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> value_at(j) <span style=color:#f92672>&lt;</span> smallest:
-</span></span><span style=display:flex><span>                smol_index <span style=color:#f92672>=</span> j
-</span></span><span style=display:flex><span>                smallest <span style=color:#f92672>=</span> value_at(j)
-</span></span><span style=display:flex><span>        <span style=color:#75715e># swap i and smol_index</span>
-</span></span><span style=display:flex><span>        swap(A, B, i, smol_index)
+</span></span><span style=display:flex><span>        smallest_index <span style=color:#f92672>=</span> min(range(i, size), key<span style=color:#f92672>=</span>value_at)
+</span></span><span style=display:flex><span>        swap(A, B, i, smallest_index)
 </span></span></code></pre></div></section></article></main><footer class=footer><p>&copy; 2025 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
