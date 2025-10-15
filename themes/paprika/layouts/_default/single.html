@@ -1,12 +1,12 @@
 {{ define "main" }}
-  <article class="post-single">
+  <article class="post-single" data-pagefind-body>
     <header class="post-title">
-      <p>
+      <p data-pagefind-ignore>
         {{ partial "description" . }}
       </p>
       <h1 data-pagefind-meta="title">{{ .Title }}</h1>
     </header>
-    <section class="post-content" data-pagefind-body>{{ .Content }}</section>
+    <section class="post-content">{{ .Content }}</section>
   </article>
 
   <!-- Post Tags -->
