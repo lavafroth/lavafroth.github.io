@@ -1,24 +1,20 @@
 {
   description = "build lavafroth.is-a.dev locally";
-
-  inputs.flake-utils.url = "github:numtide/flake-utils";
-
   outputs =
     {
-      self,
       nixpkgs,
-      flake-utils,
+      ...
     }:
-    flake-utils.lib.eachDefaultSystem (
-      system:
-      let
-        pkgs = nixpkgs.legacyPackages.${system};
-      in
-      {
-        devShells.default = pkgs.mkShell {
+    let
+      forAllSystems =
+        f:
+        nixpkgs.lib.genAttrs nixpkgs.lib.systems.flakeExposed (system: f nixpkgs.legacyPackages.${system});
+    in
+    {
+      devShells = forAllSystems (pkgs: {
+        default = pkgs.mkShell {
           packages = with pkgs; [
             hugo
-            vscode-css-languageserver
             (writeScriptBin "serve" ''
               ${pkgs.hugo}/bin/hugo -D
               ${pkgs.pagefind}/bin/pagefind --output-path "static/pagefind"
@@ -26,6 +22,6 @@
             '')
           ];
         };
-      }
-    );
+      });
+    };
 }
