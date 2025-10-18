@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Machine Learning on lavafroth</title><link>https://lavafroth.is-a.dev/tags/machine-learning/</link><description>Recent content in Machine Learning on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sat, 10 Aug 2024 08:18:30 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/machine-learning/index.xml" rel="self" type="application/rss+xml"/><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Note: Use the following method only if you wish to have the latest version of CUDA that is
-not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/CUDA"&gt;CUDA&lt;/a&gt; is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.

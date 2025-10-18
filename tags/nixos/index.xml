@@ -12,9 +12,11 @@ Throughout the rest of the post, you will come across the following broad stroke
 &lt;h1 id="deprecated-overridescope"&gt;Deprecated &lt;code&gt;overrideScope'&lt;/code&gt;&lt;/h1&gt;
 &lt;p&gt;For the past few months, I started noticing this new warning when rebuilding my system with &lt;code&gt;nixos-rebuild&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Note: Use the following method only if you wish to have the latest version of CUDA that is
-not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/CUDA"&gt;CUDA&lt;/a&gt; is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.

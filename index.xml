@@ -10,7 +10,8 @@
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;nix build -f ./builder.nix
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>for seshu baby mwa mwa</title><link>https://lavafroth.is-a.dev/ilrlmvakdlx9uwodtocdbg/</link><pubDate>Fri, 03 Oct 2025 16:04:18 +0530</pubDate><guid>https://lavafroth.is-a.dev/ilrlmvakdlx9uwodtocdbg/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Update: I have added the GA 2 sols as well. Please take them with a grain of salt obviously
-I am also fallible to mistakes.&lt;/p&gt;&lt;/blockquote&gt;
+I am also fallible to mistakes.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;h1 id="aq21"&gt;AQ2.1&lt;/h1&gt;
 &lt;ol&gt;
 &lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n^2) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
@@ -58,7 +59,8 @@ The site theme changes based on your theme preference propagated by your browser
 &lt;/ul&gt;
 &lt;p&gt;I started using Lawnchair as my default launcher but this did not change the recents provider (quickstep) from BlissLauncher to Lawnchair.&lt;/p&gt;</description></item><item><title>✨</title><link>https://lavafroth.is-a.dev/art/sparkles/</link><pubDate>Tue, 15 Jul 2025 11:52:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/sparkles/</guid><description/></item><item><title>Easy grep to detect stripped Go binaries</title><link>https://lavafroth.is-a.dev/post/detecting-stripped-go-binaries/</link><pubDate>Fri, 13 Jun 2025 08:39:58 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/detecting-stripped-go-binaries/</guid><description>&lt;p&gt;A couple of days ago when I was reading the &lt;a href="https://tip.golang.org/doc/gc-guide"&gt;guide to the Go garbage collector&lt;/a&gt;, I came across the following excerpt:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;When all else fails, the Go GC provides a few different specific traces that provide much deeper insights into GC behavior. These traces are always printed directly to STDERR, one line per GC cycle, and are configured through the GODEBUG environment variable that all Go programs recognize.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;When all else fails, the Go GC provides a few different specific traces that provide much deeper insights into GC behavior. These traces are always printed directly to STDERR, one line per GC cycle, and are configured through the GODEBUG environment variable that all Go programs recognize.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;An environment variable that all Go programs recognize, you say? I had a sneaking suspicion that I could just perform a string search for this term, given all Go programs would need to look for this environment variable definition. This way, we could guess if a binary was written in Go.&lt;/p&gt;</description></item><item><title>Need a hand?</title><link>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</link><pubDate>Thu, 03 Apr 2025 15:56:04 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/do-you-really-need-a-copilot/</guid><description>&lt;h1 id="the-tides"&gt;The tides&lt;/h1&gt;
 &lt;p&gt;Over the past few months, a sizable fraction of my developer peers have taken to AI tools. Beckoned from under a rock by the light of day, I was taken aback by this rising wave of &lt;em&gt;vibe coding&lt;/em&gt;.&lt;/p&gt;
 &lt;p&gt;They claim AI tools to be phenomenal for frontend technologies like React and NextJS. The selling point? Context aware autocompletes and agent mode.&lt;/p&gt;
@@ -67,7 +69,8 @@ respective complements.&lt;/p&gt;
 &lt;h2 id="problem-statement"&gt;Problem statement&lt;/h2&gt;
 &lt;p&gt;Our goal is rather straightforward. We aim to create a mapping of the characters &lt;code&gt;a&lt;/code&gt;, &lt;code&gt;t&lt;/code&gt;, &lt;code&gt;g&lt;/code&gt;, &lt;code&gt;c&lt;/code&gt; and &lt;code&gt;n&lt;/code&gt; to their respective complements.
 We choose to keep our solution one step behind the classical reverse complement which reverses the string after the mapping.&lt;/p&gt;</description></item><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;A live, in-browser demo of &lt;code&gt;PROJECT_MANA&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p&gt;
 &lt;p&gt;Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
@@ -513,9 +516,11 @@ in a separate repository called &lt;a href="https://github.com/waycrate/sweet"&g
 called &lt;a href="https://pest.rs"&gt;pest.rs&lt;/a&gt;. Quite a lot of time was
 spent in modelling the architecture of the syntax tree for our domain specific language.&lt;/p&gt;</description></item><item><title>Painlessly setting up ML tooling on NixOS</title><link>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</link><pubDate>Sat, 10 Aug 2024 08:18:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/cuda-on-nixos-without-sacrificing-ones-sanity/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;Note: Use the following method only if you wish to have the latest version of CUDA that is
-not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+not yet available in the nix-community cache, otherwise follow &lt;a href="https://nix-community.org/cache"&gt;this&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;TL;DR:&lt;/em&gt; Save &lt;a href="#the-flake"&gt;this flake&lt;/a&gt;, run &lt;code&gt;nix develop&lt;/code&gt; and &lt;a href="#setting-up-pytorch"&gt;setup PyTorch as described&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;&lt;a href="https://en.wikipedia.org/wiki/CUDA"&gt;CUDA&lt;/a&gt; is a proprietary vendor lock-in for machine learning folks.
 Training ML models is incredibly fast with CUDA as compared to CPUs due to the parallel
 processing. So if you&amp;rsquo;re doing something serious, you have no other choice besides CUDA as of writing.
@@ -622,7 +627,8 @@ I must warn you, I was unable to finish all the challenges due to other life eve
 &lt;p&gt;This is a sanity check question to kick the tires. The answer to it simply is
 &lt;code&gt;answer&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Abstracting Structured Patterns in Concurrent Programming</title><link>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</link><pubDate>Wed, 06 Dec 2023 10:58:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;I hope this article provides a solid blueprint for building a concurrency management API.
-If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues"&gt;issue tracker&lt;/a&gt; or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions"&gt;discussion board&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues"&gt;issue tracker&lt;/a&gt; or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions"&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;In recent months, I have come across multiple articles talking about the need
 of structured concurrency in modern programming languages as a built-in. Notably, in the article &lt;a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/"&gt;Notes on structured concurrency, or: Go statement considered harmful&lt;/a&gt;,
 the author compares the &lt;code&gt;go&lt;/code&gt; statement used to spawn coroutines to &lt;code&gt;goto&lt;/code&gt; statements used

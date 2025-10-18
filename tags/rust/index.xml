@@ -88,7 +88,8 @@ was SWHKD (Simple Wayland HotKey Daemon). It&amp;rsquo;s a spiritual successor t
 and in a sense better than the former because it works not only in wayland sessions but also
 under X and TTY sessions!&lt;/p&gt;</description></item><item><title>Abstracting Structured Patterns in Concurrent Programming</title><link>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</link><pubDate>Wed, 06 Dec 2023 10:58:10 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/abstracting-structured-patterns-in-concurrent-programming/</guid><description>&lt;blockquote&gt;
 &lt;p&gt;I hope this article provides a solid blueprint for building a concurrency management API.
-If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues"&gt;issue tracker&lt;/a&gt; or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions"&gt;discussion board&lt;/a&gt;.&lt;/p&gt;&lt;/blockquote&gt;
+If you have questions or feel that I have missed something, feel free to talk about it in this repository&amp;rsquo;s &lt;a href="https://github.com/lavafroth/lavafroth.github.io/issues"&gt;issue tracker&lt;/a&gt; or the &lt;a href="https://github.com/lavafroth/lavafroth.github.io/discussions"&gt;discussion board&lt;/a&gt;.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;In recent months, I have come across multiple articles talking about the need
 of structured concurrency in modern programming languages as a built-in. Notably, in the article &lt;a href="https://vorpus.org/blog/notes-on-structured-concurrency-or-go-statement-considered-harmful/"&gt;Notes on structured concurrency, or: Go statement considered harmful&lt;/a&gt;,
 the author compares the &lt;code&gt;go&lt;/code&gt; statement used to spawn coroutines to &lt;code&gt;goto&lt;/code&gt; statements used

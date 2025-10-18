@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>GLSL on lavafroth</title><link>https://lavafroth.is-a.dev/tags/glsl/</link><description>Recent content in GLSL on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Mon, 20 Jan 2025 19:41:51 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/glsl/index.xml" rel="self" type="application/rss+xml"/><item><title>Building an in-browser Manim clone</title><link>https://lavafroth.is-a.dev/post/project-mana-demo/</link><pubDate>Mon, 20 Jan 2025 19:41:51 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/project-mana-demo/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Note: The following interactive animation requires JavaScript to render. Please enable it if it isn&amp;rsquo;t already.&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;A live, in-browser demo of &lt;code&gt;PROJECT_MANA&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Feel free to look around: rotate, zoom or pan the 3D view.&lt;/p&gt;
 &lt;p&gt;Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
