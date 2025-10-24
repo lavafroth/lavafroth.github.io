@@ -41,3 +41,25 @@ nix-channel --update
 
 Further reading: [NixOS discourse](https://discourse.nixos.org/t/command-not-found-unable-to-open-database/3807).
 
+
+## Check if a package builds (flakes enabled)
+
+- Ensure flakes are enabled
+- Create the package derviation file in `./package.nix`
+- Add the following to `builder.nix`
+
+```nix
+(import <nixpkgs> {}).callPackage ./package.nix { }
+```
+
+- Run `nix build`  on it
+
+```sh
+nix build -f ./builder.nix
+```
+
+## Get current NixOS generation number
+
+```sh
+readlink /nix/var/nix/profiles/system | cut -d- -f2
+```
