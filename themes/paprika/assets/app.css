@@ -320,7 +320,7 @@ header {
   }
 }
 
-.main {
+main {
   max-width: var(--narrow);
   flex: 1;
   padding-top: var(--gap);
