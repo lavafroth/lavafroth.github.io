@@ -14,8 +14,11 @@ menu:
     - identifier: about
       name: about
       url: /about/
+    - identifier: rss
+      name: rss
+      url: /index.xml
 params:
-  description: "Hacker. Artist."
+  description: "smol creator"
   socials:
     - platform: github
       url: https://github.com/lavafroth
