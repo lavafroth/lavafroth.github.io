@@ -31,7 +31,7 @@
 
 .site-name>svg {
   width: 18rem;
-  fill: var(--dark)
+  fill: var(--dark);
 }
 
 .math {
@@ -58,16 +58,14 @@ html {
   font-size: 8px;
 }
 
-.pagefind-ui__search-clear {
-  height: calc(60px * var(--pagefind-ui-scale) - 1px) !important;
-}
-
-.pagefind-ui * {
-  transition: background 0.4s ease-out !important;
-}
-
-.pagefind-ui__search-input::placeholder {
-  opacity: .5 !important;
+#search {
+  margin-bottom: var(--gap);
+  button {
+    background: transparent;
+  }
+  input::placeholder {
+    opacity: .5;
+  }
 }
 
 body {
@@ -97,7 +95,6 @@ body {
   color: var(--pro);
   word-break: break-word;
   background: var(--white);
-  transition: background 0.4s ease-out;
 }
 
 body>* {
@@ -110,10 +107,6 @@ body>* {
   html {
     font-size: 7px;
   }
-}
-
-#search {
-  margin-bottom: var(--gap);
 }
 
 abbr[title] {
@@ -269,7 +262,7 @@ img {
   max-width: 100%;
 }
 
-.header {
+header {
   max-width: var(--wide);
   margin-top: var(--gap);
   display: flex;
@@ -280,30 +273,32 @@ img {
   padding: var(--small-gap);
   gap: 1rem;
 
-  .push {
-    margin-left: auto
-  }
+  nav {
+    display: flex;
+    gap: 1rem;
+    margin-left: auto;
 
-  &>a {
-    width: 4rem;
-    height: 4rem;
-    position: relative;
+    a {
+      width: 4rem;
+      height: 4rem;
+      position: relative;
 
-    &:after {
-      width: 3rem;
-      height: 3rem;
-      top: .5rem;
-      left: .5rem;
+      &:after {
+        width: 3rem;
+        height: 3rem;
+        top: .5rem;
+        left: .5rem;
 
-      background: var(--black);
-      mask-image: var(--url);
-      mask-repeat: no-repeat;
-      mask-size: cover;
+        background: var(--black);
+        mask-image: var(--url);
+        mask-repeat: no-repeat;
+        mask-size: cover;
+      }
     }
   }
 
   /* background mask */
-  &>a:after,
+  nav a:after,
   &:after {
     z-index: -100;
     content: "";
@@ -318,15 +313,15 @@ img {
     mask-image: url('header.svg');
     mask-size: 24rem;
   }
-}
 
-.header a.active {
-  outline: 2px solid var(--air);
-  border-radius: 50%;
+  a.active {
+    outline: 2px solid var(--air);
+    border-radius: 50%;
+  }
 }
 
 @media (max-width: 360px) {
-  .header {
+  header {
     justify-content: space-evenly;
     flex-wrap: wrap;
 
