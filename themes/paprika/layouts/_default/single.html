@@ -1,20 +1,17 @@
 {{ define "main" }}
   <article class="post-single" data-pagefind-body>
-    <header class="post-title">
+    <hgroup>
       <p data-pagefind-ignore>
         {{ partial "description" . }}
       </p>
       <h1 data-pagefind-meta="title">{{ .Title }}</h1>
-    </header>
+    </hgroup>
     <section class="post-content">{{ .Content }}</section>
   </article>
 
-  <!-- Post Tags -->
-  {{ if .Params.tags }}
   <footer class="post-tags" data-pagefind-meta="tags">
     {{ partial "tags" . }}
   </footer>
-  {{ end }}
 
   <!-- Post Nav -->
   {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}

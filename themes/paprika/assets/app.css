@@ -272,11 +272,11 @@ header {
   position: relative;
   padding: var(--small-gap);
   gap: 1rem;
+  justify-content: space-between;
 
   nav {
     display: flex;
     gap: 1rem;
-    margin-left: auto;
 
     a {
       width: 4rem;
@@ -317,22 +317,6 @@ header {
   a.active {
     outline: 2px solid var(--air);
     border-radius: 50%;
-  }
-}
-
-@media (max-width: 360px) {
-  header {
-    justify-content: space-evenly;
-    flex-wrap: wrap;
-
-    .push {
-      display: none;
-    }
-
-    h1 {
-      text-align: center;
-      flex: 100%;
-    }
   }
 }
 
@@ -390,15 +374,15 @@ header {
 }
 
 /* a single post */
-.post-title {
+hgroup {
   margin-bottom: var(--y-gap);
 
   p {
     display: flex;
-    margin-bottom: 1.5rem;
+    margin-top: 0.4rem;
+    margin-bottom: 1.1rem;
     font-size: 1.6rem;
     color: var(--air);
-    transform: translateY(0.4rem);
   }
 
   p span::before {
@@ -408,7 +392,6 @@ header {
 
   h1 {
     font-size: 5rem;
-    transform: translateX(-0.3rem);
   }
 }
 

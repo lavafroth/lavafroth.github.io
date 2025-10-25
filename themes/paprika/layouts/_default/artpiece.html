@@ -1,12 +1,12 @@
 {{ define "main" }}
 
 <article class="post-single">
-  <header class="post-title">
+  <hgroup>
     <p>
     {{ .Date | time.Format ":date_medium" }}
     </p>
     <h1>{{ .Title }}</h1>
-  </header>
+  </hgroup>
   <section class="post-content">{{ .Content }}
     <img src="{{ .Params.image }}" style="border-radius: 1rem">
     {{ if .Params.timelapse }}
