@@ -13,9 +13,8 @@
     {{.Content}}
 </section>
 
-<!-- Articles -->
 {{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
-<article class="post-entry">
+<article>
   <h2>{{ .Title }}</h2>
   {{ partial "description" . }}<br>
   {{ partial "tags" . }}
@@ -23,17 +22,15 @@
 </article>
 {{ end }}
 
-<!-- Main Nav -->
 {{ if gt $paginator.TotalPages 1 }}
-  <nav class="main-nav">
+  <nav data-main>
   {{ if $paginator.HasPrev }}
-  <a class="prev" href="{{ $paginator.Prev.URL }}">← Previous Page</a>
+  <a href="{{ $paginator.Prev.URL }}">Previous Page</a>
   {{ end }}
   {{ if $paginator.HasNext }}
-  <a class="next" href="{{ $paginator.Next.URL }}">Next Page →</a>
+  <a href="{{ $paginator.Next.URL }}">Next Page</a>
   {{ end }}
 </nav>
-{{ end }}
 
 <script>
     window.addEventListener('DOMContentLoaded', (event) => {

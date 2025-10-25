@@ -275,7 +275,6 @@ header {
   justify-content: space-between;
 
   nav {
-    display: flex;
     gap: 1rem;
 
     a {
@@ -327,9 +326,8 @@ main {
   padding-bottom: var(--y-gap);
 }
 
-.main-nav {
-  display: flex;
-  margin-top: 5rem;
+nav[data-main] {
+  margin-top: var(--gap);
 
   a {
     font-size: 1.8rem;
@@ -341,13 +339,13 @@ main {
     padding-inline: 3rem;
   }
 
-  .next {
+  a:last-child {
     margin-left: auto;
   }
 }
 
 
-.post-entry {
+article {
   position: relative;
   padding-block: 2rem;
   transition: transform 0.1s;
@@ -414,8 +412,11 @@ hgroup {
   }
 }
 
-.post-nav {
+nav {
   display: flex;
+}
+
+nav[data-post] {
   justify-content: space-between;
   margin-top: var(--y-gap);
   background: var(--faint);
@@ -423,25 +424,18 @@ hgroup {
 
   a {
     display: flex;
+    gap: 1rem;
     align-items: center;
     width: 50%;
     padding: var(--gap);
     font-size: 2.4rem;
     font-weight: 700;
     line-height: 1.2;
+    padding-inline: 1rem;
   }
 
-  a span+span {
-    margin-left: 1rem;
-  }
-
-  .prev {
-    padding-right: 1rem;
-  }
-
-  .next {
+  a:last-child {
     justify-content: flex-end;
-    padding-left: 1rem;
     margin-left: auto;
   }
 }
