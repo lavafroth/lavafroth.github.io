@@ -48,4 +48,6 @@ markup:
           inline:
           - - \(
             - \)
+          - - $
+            - $
         enable: true
