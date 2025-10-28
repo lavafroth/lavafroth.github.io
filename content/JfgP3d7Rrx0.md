@@ -329,4 +329,152 @@ def IsNegativeWeightCyclePresent(wl):
 
 # GA
 
+## 1
+At each step of Dijkstra's algorithm, after a vertex has been processed, how does the algorithm determine which unvisited vertex to process next? 
 
+Answer: It picks the unvisited vertex that has the smallest current shortest distance from the source.
+
+## 2
+
+Which of the following statements correctly describes how the Bellman-Ford algorithm detects the presence of a negative cycle reachable from the source? Consider that V is the number of vertices in the graph. 
+
+Answer: If, during a Vth pass over all edges, any distance value can still be improved (i.e., an edge relaxation occurs).
+
+## 3
+
+A graph has 4 vertices (V1, V2, V3, V4) and the following edges:
+
+- V1 → V2 (weight = 2) 
+- V2 → V3 (weight = -3) 
+- V3 → V1 (weight = 0) 
+- V1 → V4 (weight = 5) 
+
+If Bellman-Ford starts from V1, after running the algorithm for all necessary passes, how many vertices will have their shortest distance updated in the final (4-th) pass used for negative cycle detection?
+
+Answer: 3
+
+## 4
+
+Consider any connected graph with 4 vertices and 6 edges, where all edge weights are distinct. In such a graph, the three edges with the smallest weights will always be part of its Minimum Spanning Tree (MST).
+
+Answer: False
+
+## 5
+
+A graph can have a unique Minimum Spanning Tree (MST) only if all its edge weights are distinct
+
+Answer: True
+
+## 6
+
+Suppose we run Prim's algorithm and Kruskal's algorithm on a graph G and these two algorithms 
+produce minimum-cost spanning trees $T_P$ and $T_K$, respectively.
+
+(I) $T_P$ may be different from $T_K$ if some pair of edges in G have the same weight.
+
+(II) $T_P$ is always the same as $T_K$ if all edges in G have distinct weights.
+
+Answer: Both (I) and (II) are correct.
+
+## 7
+
+Which one of the following can be the sequence of edges added, in that order, to create a minimum spanning tree using Kruskal’s algorithm?
+
+Answers:
+
+1. (a,b) (d,f) (b,f) (d,c) (d,e)
+2. (a,b) (d,f) (d,c) (b,f) (d,e)
+3. (d,f) (a,b) (d,c) (b,f) (d,e)
+5) (d,f) (a,b) (b,f) (d,c) (d,e)
+
+## 8
+
+Consider the given weighted adjacency matrix $w$ for a complete undirected graph with vertex 
+set $\{0, 1, 2, 3, 4\}$. Where $w[i][j]$, $i \neq j$ in the matrix is the weight of the edge 
+$(i,j)$.
+
+$$w = \begin{pmatrix}
+0 & 1 & 8 & 1 & 4 \\
+1 & 0 & 12 & 4 & 9 \\
+8 & 12 & 0 & 7 & 3 \\
+1 & 4 & 7 & 0 & 2 \\
+4 & 9 & 3 & 2 & 0
+\end{pmatrix}$$
+
+What is the weight of the minimum spanning tree for the given graph?
+
+Answer: 7
+
+## 9
+
+Which of the following statement(s) is/are true about the spanning tree of a connected graph?
+
+Answers:
+
+- A spanning tree is a connected acyclic graph.
+- A spanning tree for an n vertex graph has exactly n-1 edges.
+- Adding an edge to a spanning tree must create a cycle.
+- In a spanning tree, every pair of nodes is connected by a unique path
+
+## 10
+
+Consider the following weighted adjacency list WList for a directed and connected graph. What will be the path weight of the shortest path from 1 to 3?
+
+```python
+WList = {
+  #source: [(destination, weight),...]
+  1: [(2, 10), (8, 8)],
+  2: [(6, 2)],
+  3: [(2, 1), (4, 1)],
+  4: [(5, 3)],
+  5: [(6, -1)],
+  6: [(3, -2)],
+  7: [(2, -4), (6, -1)],
+  8: [(7, 1)]
+}
+```
+
+Answer: 5
+
+## 11
+
+Consider a complete undirected graph with vertex set {0, 1, 2, 3, 4}. Every entry W[i][j] where i≠j in the matrix W below is the weight of the edge from vertex i to vertex j.
+
+$$w = \begin{pmatrix}
+0 & 1 & 8 & 1 & 4 \\
+1 & 0 & 12 & 4 & 9 \\
+8 & 12 & 0 & 7 & 3 \\
+1 & 4 & 7 & 0 & 2 \\
+4 & 9 & 3 & 2 & 0
+\end{pmatrix}$$
+
+Answer: 4
+
+
+## 12
+
+In the given graph, if we try to find the shortest path from node a to all other nodes using Dijkstra's algorithm, in what order do the nodes get included in the visited set?
+
+Answer: a e d c b g f h
+
+## 13
+
+Consider the given graph. Which of the following is the correct sequence of edges added to the minimum spanning tree when Prim's algorithm is applied on this graph with 5 as the source vertex?
+
+Answer: [(5,1),(1,2),(2,3),(3,4)]
+
+
+## 14
+
+In the context of the Floyd-Warshall algorithm, what does it mean if the distance matrix has a negative value in its diagonal?
+
+Answer: The graph has a negative-weight cycle.
+
+## 15
+
+Consider the graph G given. Let 
+α denote the number of minimum spanning trees of G and 
+β denote the weight of such a minimum spanning tree. The value of 
+α+β is 
+
+Answer: 14
