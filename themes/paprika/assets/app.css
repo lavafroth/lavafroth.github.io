@@ -48,6 +48,10 @@
   border: 0;
 }
 
+math * {
+  padding: revert;
+}
+
 html,
 body {
   height: 100%;
