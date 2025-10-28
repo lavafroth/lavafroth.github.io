@@ -339,7 +339,7 @@ nav[data-main] {
     padding-inline: 3rem;
   }
 
-  a:last-child {
+  a:nth-child(2) {
     margin-left: auto;
   }
 }
@@ -434,7 +434,7 @@ nav[data-post] {
     padding-inline: 1rem;
   }
 
-  a:last-child {
+  a:nth-child(2) {
     justify-content: flex-end;
     margin-left: auto;
   }
