@@ -1,8 +1,7 @@
 {{ define "main" }}
 
-<!-- $pages -->
 {{ $pages := union .RegularPages .Sections }}
-<!---->{{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+  {{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{ end }}
 
 <link href="/pagefind/pagefind-ui.css" rel="stylesheet">
@@ -10,32 +9,30 @@
 <search></search>
 
 <section class="post-content">
-    {{.Content}}
+  {{.Content}}
 </section>
 
-{{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
+{{ $paginator := .Paginate $pages }}
+
+{{ range $page := $paginator.Pages }}
 <article>
-  <h2>{{ .Title }}</h2>
+  <a aria-label="{{ .Title }}" href="{{ .Permalink }}"><h2>{{ .Title }}</h2></a>
   {{ partial "description" . }}<br>
   {{ partial "tags" . }}
-  <a class="post-link" href="{{ .Permalink }}"></a>
+  <a class="post-link" aria-label="{{ .Title }}" href="{{ .Permalink }}"></a>
 </article>
 {{ end }}
 
 {{ if gt $paginator.TotalPages 1 }}
   <nav data-main>
-  {{ if $paginator.HasPrev }}
-  <a href="{{ $paginator.Prev.URL }}">Previous Page</a>
-  {{ end }}
-  {{ if $paginator.HasNext }}
-  <a href="{{ $paginator.Next.URL }}">Next Page</a>
-  {{ end }}
-</nav>
+    <a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL }}{{ else }}#{{ end }}">Previous Page</a>
+    <a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ else }}#{{ end }}">Next Page</a>
+  </nav>
+{{ end }}
 
 <script>
     window.addEventListener('DOMContentLoaded', (event) => {
         new PagefindUI({ element: "search" });
     });
 </script>
-{{ end }}
 {{ end }}

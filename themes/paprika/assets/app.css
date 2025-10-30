@@ -331,6 +331,7 @@ main {
 }
 
 nav[data-main] {
+  justify-content: space-between;
   margin-top: var(--gap);
 
   a {
@@ -341,10 +342,9 @@ nav[data-main] {
     color: var(--lit);
     border-radius: 0.5rem;
     padding-inline: 3rem;
-  }
-
-  a:nth-child(2) {
-    margin-left: auto;
+    &[href="#"] {
+      visibility: hidden;
+    }
   }
 }
 

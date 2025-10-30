@@ -17,8 +17,13 @@
   <nav data-post>
     {{ with $pages.Next . }}
     <a href="{{ .Permalink }}"><span>←</span><span>{{ .Name }}</span></a>
-    {{ end }} {{ with $pages.Prev . }}
+    {{ else }}
+    <br>
+    {{ end }}
+    {{ with $pages.Prev . }}
     <a href="{{ .Permalink }}"><span>{{ .Name }}</span><span>→</span></a>
+    {{ else }}
+    <br>
     {{ end }}
   </nav>
   {{ end }}

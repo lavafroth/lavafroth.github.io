@@ -2,33 +2,27 @@
 
 <!-- $pages -->
 {{ $pages := union .RegularPages .Sections }}
-<!---->{{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
+{{ if .IsHome }} {{ $pages = where site.RegularPages "Type" "in" site.Params.mainSections }}
 {{ end }}
 
 <section class="post-content">
   {{.Content}}
 </section>
 
-<!-- Articles -->
 {{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
-<article class="post-entry">
+<article>
   <h2>{{ .Title }}</h2>
   <br>
   <img src="{{ .Params.image }}" style="border-radius: 1rem">
-  <a href="{{ .Permalink }}" class="post-link"></a>
+  <a href="{{ .Permalink }}" aria-label="{{ .Title }}" class="post-link"></a>
 </article>
 {{ end }}
 
-<!-- Main Nav -->
 {{ if gt $paginator.TotalPages 1 }}
-  <nav class="main-nav">
-  {{ if $paginator.HasPrev }}
-  <a class="prev" href="{{ $paginator.Prev.URL }}">← Previous Page</a>
-  {{ end }}
-  {{ if $paginator.HasNext }}
-  <a class="next" href="{{ $paginator.Next.URL }}">Next Page →</a>
-  {{ end }}
-</nav>
+  <nav data-main>
+    <a href="{{ if $paginator.HasPrev }}{{ $paginator.Prev.URL }}{{ end }}">Previous Page</a>
+    <a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ end }}">Next Page</a>
+  </nav>
 {{ end }}
 
 {{ end }}
