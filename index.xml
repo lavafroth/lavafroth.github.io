@@ -996,7 +996,7 @@ After submitting the query, we are redirected to an html page containing the con
 Additionally some might even keep &lt;code&gt;builtins&lt;/code&gt; and &lt;code&gt;eval&lt;/code&gt; out of reach.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0"&gt;Here&lt;/a&gt; is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.&lt;/p&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/post/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/post/project_mana/</guid><description>&lt;div id="stage"&gt;
+Kudos to him for sharing this technique.&lt;/p&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/project_mana/</guid><description>&lt;div id="stage"&gt;
 &lt;/div&gt;
 &lt;style&gt;
 canvas {
