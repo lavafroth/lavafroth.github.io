@@ -8,7 +8,7 @@ tags:
 - Secureboot
 - sbctl
 - lanzaboote
-- Debugging
+- Troubleshooting
 ---
 
 # Key takeaways

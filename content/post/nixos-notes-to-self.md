@@ -2,6 +2,11 @@
 title: "NixOS Notes to Self"
 date: 2025-09-14T18:31:52+05:30
 draft: false
+tags:
+- Nix
+- NixOS
+- Notes
+- Troubleshooting
 ---
 
 A dedicated post collecting solutions to minor NixOS headaches.
