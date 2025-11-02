@@ -13,7 +13,7 @@ As much as I like rust for its ergonomic features, University has forced me to u
 
 One of the biggest things that I missed from the rust experience was enumerable data types whose variants can wrap around different datatypes.
 
-Fortunately, since Python 3.8, creating structs has been a breeze using the dataclass decorator. There's even support for structural match expressions, like in rust, in recent versions of Python. https://peps.python.org/pep-0636/
+Fortunately, since Python 3.8, creating structs has been a breeze using the dataclass decorator. There's even support for structural match expressions, like in rust, in recent versions of [Python](https://peps.python.org/pep-0636/).
 
 To that end, creating the equivalent to Rust's enum types involves Python union types.
 
@@ -40,7 +40,7 @@ This allows us to define functions that ingest the `Glass` datatype.
 ```python
 def report_drink(glass: Glass) -> str:
   match glass:
-    case Empty:
+    case Empty():
       return "Whoops, looks like you've finished your drink!"
     case Full(drink):
       return f"Ah a {drink}, what a fine taste!"
@@ -154,14 +154,14 @@ class Glass:
 
   def report_drink(self) -> str:
     match self:
-      case Glass.Empty:
+      case Glass.Empty():
         return "Whoops, looks like you've finished your drink!"
       case Glass.Full(drink):
         return f"Ah a {drink}, what a fine taste!"
 
   def is_empty(self) -> str:
     match self:
-      case Glass.Empty:
+      case Glass.Empty():
         return True
     return False
 ```
