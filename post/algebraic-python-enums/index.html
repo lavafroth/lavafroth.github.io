@@ -118,12 +118,10 @@ type which is not allowed. Hence the code won&rsquo;t run.</p><div class=highlig
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>class</span> <span style=color:#a6e22e>Full</span>:
 </span></span><span style=display:flex><span>    drink: str
 </span></span></code></pre></div><p>Python will happily run the above code and we can access the &ldquo;variants&rdquo; under the <code>Glass</code> namespace.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>lemonade <span style=color:#f92672>=</span> Glass<span style=color:#f92672>.</span>Full(<span style=color:#e6db74>&#39;lemonade&#39;</span>)
-</span></span></code></pre></div><p>If only we could register the variants as the <code>Glass</code> type itself and inherit all its methods.</p><h3 id=redecorate>Redecorate</h3><p>We can define a decorator that takes all of the nested dataclasses and makes them inherit the outer class.</p><div class=collapsable-explanation><div class=container><label><input type=checkbox></label></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> inspect
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>AlgebraicEnum</span>(cls):
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> subclass_name, subclass <span style=color:#f92672>in</span> inspect<span style=color:#f92672>.</span>getmembers(cls, predicate<span style=color:#f92672>=</span>inspect<span style=color:#f92672>.</span>isclass):
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> subclass_name <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;__class__&#34;</span>:
-</span></span><span style=display:flex><span>            setattr(cls, subclass_name, type(subclass_name, (cls, subclass), {}))
+</span></span></code></pre></div><p>If only we could register the variants as the <code>Glass</code> type itself and inherit all its methods.</p><h3 id=redecorate>Redecorate</h3><p>We can define a decorator that takes all of the nested dataclasses and makes them inherit the outer class.</p><div class=collapsable-explanation><div class=container><label><input type=checkbox></label></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>AlgebraicEnum</span>(cls):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> name, nested <span style=color:#f92672>in</span> cls<span style=color:#f92672>.</span>__dict__<span style=color:#f92672>.</span>items():
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> isinstance(nested, type):
+</span></span><span style=display:flex><span>            setattr(cls, name, type(name, (cls, nested), {}))
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> cls
 </span></span></code></pre></div><p>The inheritance means all methods of the outer class are available on the nested
@@ -158,14 +156,13 @@ compare it with <code>Glass.Empty</code> and <code>Glass.Full</code>.</p><p>Thes
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>print(diet_coke<span style=color:#f92672>.</span>report_drink())
 </span></span><span style=display:flex><span>print(empty<span style=color:#f92672>.</span>is_empty())
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>import</span> inspect
-</span></span><span style=display:flex><span><span style=color:#f92672>from</span> dataclasses <span style=color:#f92672>import</span> dataclass
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#f92672>from</span> dataclasses <span style=color:#f92672>import</span> dataclass
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>AlgebraicEnum</span>(cls):
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> subclass_name, subclass <span style=color:#f92672>in</span> inspect<span style=color:#f92672>.</span>getmembers(cls, predicate<span style=color:#f92672>=</span>inspect<span style=color:#f92672>.</span>isclass):
-</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> subclass_name <span style=color:#f92672>!=</span> <span style=color:#e6db74>&#34;__class__&#34;</span>:
-</span></span><span style=display:flex><span>            setattr(cls, subclass_name, type(subclass_name, (cls, subclass), {}))
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> name, nested <span style=color:#f92672>in</span> cls<span style=color:#f92672>.</span>__dict__<span style=color:#f92672>.</span>items():
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> isinstance(nested, type):
+</span></span><span style=display:flex><span>            setattr(cls, name, type(name, (cls, nested), {}))
 </span></span><span style=display:flex><span>
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> cls
 </span></span><span style=display:flex><span>
