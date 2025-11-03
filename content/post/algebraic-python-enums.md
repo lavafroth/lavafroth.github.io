@@ -231,12 +231,10 @@ We can define a decorator that takes all of the nested dataclasses and makes the
 {{< collapsable-explanation >}}
 
 ```python
-import inspect
-
 def AlgebraicEnum(cls):
-    for subclass_name, subclass in inspect.getmembers(cls, predicate=inspect.isclass):
-        if subclass_name != "__class__":
-            setattr(cls, subclass_name, type(subclass_name, (cls, subclass), {}))
+    for name, nested in cls.__dict__.items():
+        if isinstance(nested, type):
+            setattr(cls, name, type(name, (cls, nested), {}))
 
     return cls
 ```
@@ -292,14 +290,13 @@ print(empty.is_empty())
 ```
 
 ```python
-import inspect
 from dataclasses import dataclass
 
 
 def AlgebraicEnum(cls):
-    for subclass_name, subclass in inspect.getmembers(cls, predicate=inspect.isclass):
-        if subclass_name != "__class__":
-            setattr(cls, subclass_name, type(subclass_name, (cls, subclass), {}))
+    for name, nested in cls.__dict__.items():
+        if isinstance(nested, type):
+            setattr(cls, name, type(name, (cls, nested), {}))
 
     return cls
 
