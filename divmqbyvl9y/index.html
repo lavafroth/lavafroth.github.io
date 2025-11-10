@@ -1,0 +1,263 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>w8 - lavafroth</title><meta name=description content="GRPA 1
+def findOccOf(arr, x):
+    lo = 0
+    hi = len(arr) - 1
+
+    loval = None
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        c = arr[mid]
+        if x < c:
+            hi = mid - 1
+        elif x > c:
+            lo = mid + 1
+        elif x == c:
+            loval = loval or mid
+            loval = min(loval, mid)
+            hi = mid - 1
+
+    lo = 0
+    hi = len(arr) - 1
+    hival = None
+    while lo <= hi:
+        mid = (lo + hi) // 2
+        c = arr[mid]
+        if x < c:
+            hi = mid - 1
+        elif x > c:
+            lo = mid + 1
+        elif x == c:
+            hival = hival or mid
+            hival = max(hival, mid)
+            lo = mid + 1
+
+
+    return loval, hival
+GRPA 2
+def merge_inversion(left, right):
+    merged = []
+    count = 0
+
+    i, j = 0, 0
+
+    m = len(left)
+    n = len(right)
+    while i + j < m + n:
+        if j == n or (i != m and left[i] < right[j]):
+            merged.append(left[i])
+            i += 1
+            continue
+
+        merged.append(right[j])
+        j += 1
+        count += m - i
+
+    return merged, count
+
+
+def sort_and_count(arr):
+    n = len(arr)
+    if n == 1:
+        return arr, 0
+    left = arr[: n // 2]
+    right = arr[n // 2 :]
+
+    left, count_left = sort_and_count(left)
+    right, count_right = sort_and_count(right)
+    merged, count_both = merge_inversion(left, right)
+
+    return (merged, count_left + count_right + count_both)
+
+def countIntersection(a, b):
+    tuples = sorted(zip(a, b))
+    b = [t[1] for t in tuples]
+    return sort_and_count(b)[1]
+GRPA 3
+dist = lambda a, b: ((a[0]-b[0])**2 + (a[1]-b[1])**2)**.5
+
+def closest_pair(Px, Py):
+    n = len(Px)
+    if n <= 3:
+        min_d = float('inf')
+        for i in range(n):
+            for j in range(i + 1, n):
+                min_d = min(min_d, dist(Px[i], Px[j]))
+        return min_d
+
+    mid = n // 2
+    Qx = Px[:mid]
+    Rx = Px[mid:]
+    mid_point = Qx[-1][0]
+
+    Qy = []
+    Ry = []
+    for p in Py:
+        if p[0] <= mid_point:
+            Qy.append(p)
+        else:
+            Ry.append(p)
+
+    min_d = min(closest_pair(Qx, Qy), closest_pair(Rx, Ry))
+
+    Sy = [p for p in Py if mid_point - min_d <= p[0] <= mid_point + min_d]
+    for i in range(len(Sy)):
+        for j in range(i + 1, len(Sy)):
+            if Sy[j][1] - Sy[i][1] >= min_d:
+                break
+            min_d = min(min_d, dist(Sy[i], Sy[j]))
+
+    return min_d
+
+
+def minDistance(points):
+    Px = sorted(points, key=lambda p: p[0])
+    Py = sorted(points, key=lambda p: p[1])
+    return round(closest_pair(Px, Py), 2)
+GRPA 4
+def mid(a):
+    if len(a) <= 7:
+        return sorted(a)[len(a)//2]
+        
+    m = []
+    for i in range(0,len(a), 7):
+        m.append(mid(a[i:i+7]))
+    
+    return mid(m)
+
+def MoM7Pos(arr):
+    m = mid(arr)
+    pos = 0
+    for x in arr:
+        if x < m:
+            pos += 1
+    return pos
+"><meta name=author content><link rel="preload stylesheet" as=style href=https://lavafroth.is-a.dev/app.min.css><link rel=preload as=image href=../header.svg><link as=font href=https://lavafroth.is-a.dev/latinmodern-math.otf><link rel=preload as=image href=https://lavafroth.is-a.dev/github.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/about.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/art.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/rss.svg><link rel=icon href=https://lavafroth.is-a.dev/favicon.png><link rel=blog-icon href=https://lavafroth.is-a.dev/icon.png></head><body><header><a class=site-name href=https://lavafroth.is-a.dev/><svg viewBox="0 0 8790 2080"><path d="M80 1935V465h216v1270h286v2e2zm853 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm1025 528L2014 465h210l108 868 8 142h12l8-142 108-868h210l-224 1470zm813 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm851 528V465h514v222h-298v386h2e2v222h-2e2v640zm910 0V465h216q194 0 286 108 92 107 92 316 0 124-43 215-44 90-106 132l147 699h-216l-122-620h-38v620zm216-820q60 0 95-26 35-27 50-76t15-116q0-105-34-161-35-57-126-57zm1084 836q-90 0-154-42-65-42-99-114-35-72-35-162V767q0-91 35-162 34-72 99-114 64-42 154-42t155 42q64 42 99 114 34 72 34 162v866q0 90-34 162-35 72-99 114-65 42-155 42zm0-210q40 0 56-33 16-34 16-75V767q0-41-17-74-17-34-55-34-37 0-54 34-18 33-18 74v866q0 41 17 75 17 33 55 33zm890 194V687h-204V465h624v222h-204v1248zm828 0V465h216v608h168V465h216v1470h-216v-640h-168v640z"/></svg></a><nav><a style=--url:url(./github.svg) href=https://github.com/lavafroth aria-label=github target=_blank></a><a href=../about/ aria-label=about style=--url:url(./about.svg)></a><a href=../art/ aria-label=art style=--url:url(./art.svg)></a><a href=../index.xml aria-label=rss style=--url:url(./rss.svg)></a><nav></header><main><hgroup data-pagefind-body><p data-pagefind-ignore><time>Oct 3, 2025 | 3 minutes read</time></p><h1 data-pagefind-meta=title>w8</h1></hgroup><section class=post-content data-pagefind-body><h2 id=grpa-1>GRPA 1</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>findOccOf</span>(arr, x):
+</span></span><span style=display:flex><span>    lo <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    hi <span style=color:#f92672>=</span> len(arr) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    loval <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> lo <span style=color:#f92672>&lt;=</span> hi:
+</span></span><span style=display:flex><span>        mid <span style=color:#f92672>=</span> (lo <span style=color:#f92672>+</span> hi) <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        c <span style=color:#f92672>=</span> arr[mid]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> c:
+</span></span><span style=display:flex><span>            hi <span style=color:#f92672>=</span> mid <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elif</span> x <span style=color:#f92672>&gt;</span> c:
+</span></span><span style=display:flex><span>            lo <span style=color:#f92672>=</span> mid <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elif</span> x <span style=color:#f92672>==</span> c:
+</span></span><span style=display:flex><span>            loval <span style=color:#f92672>=</span> loval <span style=color:#f92672>or</span> mid
+</span></span><span style=display:flex><span>            loval <span style=color:#f92672>=</span> min(loval, mid)
+</span></span><span style=display:flex><span>            hi <span style=color:#f92672>=</span> mid <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    lo <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    hi <span style=color:#f92672>=</span> len(arr) <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    hival <span style=color:#f92672>=</span> <span style=color:#66d9ef>None</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> lo <span style=color:#f92672>&lt;=</span> hi:
+</span></span><span style=display:flex><span>        mid <span style=color:#f92672>=</span> (lo <span style=color:#f92672>+</span> hi) <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>        c <span style=color:#f92672>=</span> arr[mid]
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> c:
+</span></span><span style=display:flex><span>            hi <span style=color:#f92672>=</span> mid <span style=color:#f92672>-</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elif</span> x <span style=color:#f92672>&gt;</span> c:
+</span></span><span style=display:flex><span>            lo <span style=color:#f92672>=</span> mid <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>elif</span> x <span style=color:#f92672>==</span> c:
+</span></span><span style=display:flex><span>            hival <span style=color:#f92672>=</span> hival <span style=color:#f92672>or</span> mid
+</span></span><span style=display:flex><span>            hival <span style=color:#f92672>=</span> max(hival, mid)
+</span></span><span style=display:flex><span>            lo <span style=color:#f92672>=</span> mid <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> loval, hival
+</span></span></code></pre></div><h2 id=grpa-2>GRPA 2</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>merge_inversion</span>(left, right):
+</span></span><span style=display:flex><span>    merged <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    count <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    i, j <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>, <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    m <span style=color:#f92672>=</span> len(left)
+</span></span><span style=display:flex><span>    n <span style=color:#f92672>=</span> len(right)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>while</span> i <span style=color:#f92672>+</span> j <span style=color:#f92672>&lt;</span> m <span style=color:#f92672>+</span> n:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> j <span style=color:#f92672>==</span> n <span style=color:#f92672>or</span> (i <span style=color:#f92672>!=</span> m <span style=color:#f92672>and</span> left[i] <span style=color:#f92672>&lt;</span> right[j]):
+</span></span><span style=display:flex><span>            merged<span style=color:#f92672>.</span>append(left[i])
+</span></span><span style=display:flex><span>            i <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>continue</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>        merged<span style=color:#f92672>.</span>append(right[j])
+</span></span><span style=display:flex><span>        j <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        count <span style=color:#f92672>+=</span> m <span style=color:#f92672>-</span> i
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> merged, count
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>sort_and_count</span>(arr):
+</span></span><span style=display:flex><span>    n <span style=color:#f92672>=</span> len(arr)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> arr, <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    left <span style=color:#f92672>=</span> arr[: n <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>    right <span style=color:#f92672>=</span> arr[n <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span> :]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    left, count_left <span style=color:#f92672>=</span> sort_and_count(left)
+</span></span><span style=display:flex><span>    right, count_right <span style=color:#f92672>=</span> sort_and_count(right)
+</span></span><span style=display:flex><span>    merged, count_both <span style=color:#f92672>=</span> merge_inversion(left, right)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> (merged, count_left <span style=color:#f92672>+</span> count_right <span style=color:#f92672>+</span> count_both)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>countIntersection</span>(a, b):
+</span></span><span style=display:flex><span>    tuples <span style=color:#f92672>=</span> sorted(zip(a, b))
+</span></span><span style=display:flex><span>    b <span style=color:#f92672>=</span> [t[<span style=color:#ae81ff>1</span>] <span style=color:#66d9ef>for</span> t <span style=color:#f92672>in</span> tuples]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> sort_and_count(b)[<span style=color:#ae81ff>1</span>]
+</span></span></code></pre></div><h2 id=grpa-3>GRPA 3</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span>dist <span style=color:#f92672>=</span> <span style=color:#66d9ef>lambda</span> a, b: ((a[<span style=color:#ae81ff>0</span>]<span style=color:#f92672>-</span>b[<span style=color:#ae81ff>0</span>])<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span> <span style=color:#f92672>+</span> (a[<span style=color:#ae81ff>1</span>]<span style=color:#f92672>-</span>b[<span style=color:#ae81ff>1</span>])<span style=color:#f92672>**</span><span style=color:#ae81ff>2</span>)<span style=color:#f92672>**</span><span style=color:#ae81ff>.5</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>closest_pair</span>(Px, Py):
+</span></span><span style=display:flex><span>    n <span style=color:#f92672>=</span> len(Px)
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> n <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>3</span>:
+</span></span><span style=display:flex><span>        min_d <span style=color:#f92672>=</span> float(<span style=color:#e6db74>&#39;inf&#39;</span>)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(n):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>, n):
+</span></span><span style=display:flex><span>                min_d <span style=color:#f92672>=</span> min(min_d, dist(Px[i], Px[j]))
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> min_d
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    mid <span style=color:#f92672>=</span> n <span style=color:#f92672>//</span> <span style=color:#ae81ff>2</span>
+</span></span><span style=display:flex><span>    Qx <span style=color:#f92672>=</span> Px[:mid]
+</span></span><span style=display:flex><span>    Rx <span style=color:#f92672>=</span> Px[mid:]
+</span></span><span style=display:flex><span>    mid_point <span style=color:#f92672>=</span> Qx[<span style=color:#f92672>-</span><span style=color:#ae81ff>1</span>][<span style=color:#ae81ff>0</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Qy <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    Ry <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> Py:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> p[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&lt;=</span> mid_point:
+</span></span><span style=display:flex><span>            Qy<span style=color:#f92672>.</span>append(p)
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>:
+</span></span><span style=display:flex><span>            Ry<span style=color:#f92672>.</span>append(p)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    min_d <span style=color:#f92672>=</span> min(closest_pair(Qx, Qy), closest_pair(Rx, Ry))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    Sy <span style=color:#f92672>=</span> [p <span style=color:#66d9ef>for</span> p <span style=color:#f92672>in</span> Py <span style=color:#66d9ef>if</span> mid_point <span style=color:#f92672>-</span> min_d <span style=color:#f92672>&lt;=</span> p[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>&lt;=</span> mid_point <span style=color:#f92672>+</span> min_d]
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(len(Sy)):
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>for</span> j <span style=color:#f92672>in</span> range(i <span style=color:#f92672>+</span> <span style=color:#ae81ff>1</span>, len(Sy)):
+</span></span><span style=display:flex><span>            <span style=color:#66d9ef>if</span> Sy[j][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>-</span> Sy[i][<span style=color:#ae81ff>1</span>] <span style=color:#f92672>&gt;=</span> min_d:
+</span></span><span style=display:flex><span>                <span style=color:#66d9ef>break</span>
+</span></span><span style=display:flex><span>            min_d <span style=color:#f92672>=</span> min(min_d, dist(Sy[i], Sy[j]))
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> min_d
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>minDistance</span>(points):
+</span></span><span style=display:flex><span>    Px <span style=color:#f92672>=</span> sorted(points, key<span style=color:#f92672>=</span><span style=color:#66d9ef>lambda</span> p: p[<span style=color:#ae81ff>0</span>])
+</span></span><span style=display:flex><span>    Py <span style=color:#f92672>=</span> sorted(points, key<span style=color:#f92672>=</span><span style=color:#66d9ef>lambda</span> p: p[<span style=color:#ae81ff>1</span>])
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> round(closest_pair(Px, Py), <span style=color:#ae81ff>2</span>)
+</span></span></code></pre></div><h2 id=grpa-4>GRPA 4</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>mid</span>(a):
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> len(a) <span style=color:#f92672>&lt;=</span> <span style=color:#ae81ff>7</span>:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>return</span> sorted(a)[len(a)<span style=color:#f92672>//</span><span style=color:#ae81ff>2</span>]
+</span></span><span style=display:flex><span>        
+</span></span><span style=display:flex><span>    m <span style=color:#f92672>=</span> []
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i <span style=color:#f92672>in</span> range(<span style=color:#ae81ff>0</span>,len(a), <span style=color:#ae81ff>7</span>):
+</span></span><span style=display:flex><span>        m<span style=color:#f92672>.</span>append(mid(a[i:i<span style=color:#f92672>+</span><span style=color:#ae81ff>7</span>]))
+</span></span><span style=display:flex><span>    
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> mid(m)
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>def</span> <span style=color:#a6e22e>MoM7Pos</span>(arr):
+</span></span><span style=display:flex><span>    m <span style=color:#f92672>=</span> mid(arr)
+</span></span><span style=display:flex><span>    pos <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> arr:
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> x <span style=color:#f92672>&lt;</span> m:
+</span></span><span style=display:flex><span>            pos <span style=color:#f92672>+=</span> <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>return</span> pos
+</span></span></code></pre></div></section><footer class=post-tags data-pagefind-meta=tags></footer></main><footer class=footer><p>&copy; 2025 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
