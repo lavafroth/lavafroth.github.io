@@ -81,9 +81,7 @@ caused by the GPU also deteriorated the signal strength. I mean, what was I
 thinking back when I bought this? I knew I was going to use Linux because I
 distinctly remember my previous Arch + i3wm. The reason behind a gaming laptop
 was not to play games, Linux did not have great tooling for gaming then. No, I
-needed the beefy GPU to crack password hashes for capture the flag challenges
-😉. In retrospect, social engineering and educated guesses turned out to be a
-way less resource intensive means to, ahem, crack password hashes.
+needed the beefy GPU to mine coins.
 
 Speaking of the GPU, I severly underestimated how heavy it would make the box. If not for the shape of the laptop, I could easily use
 it for weights during workouts.

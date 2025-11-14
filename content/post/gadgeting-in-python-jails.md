@@ -12,9 +12,8 @@ Additionally some might even keep `builtins` and `eval` out of reach.
 
 [Here](https://www.youtube.com/watch?v=SN6EVIG4c-0) is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to "gadget" our way out of Flask's Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.
 
-For those of you reluctant to watch a 10 minute video (although I'd highly recommend watching it), here's the gist of it:
+Here's the gist of it:
 
 ```python
 ''.__class__

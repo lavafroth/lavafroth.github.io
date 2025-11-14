@@ -9,12 +9,10 @@ tags:
 - Algebraic Data Types
 ---
 
-As much as I like Rust for its ergonomic features, university has forced me to
-use Python for the past couple of months, especially because of the hype for
-machine learning and data science.
-
-One of the biggest things that I missed from the rust experience was enumerable
-data types whose variants can wrap around different datatypes.
+University has compelled me to utilize Python despite my fondness for Rust,
+primarily due to the  prevalence of machine learning and data science. One
+aspect of Rust that I dearly miss is the  availability of enumerable data types
+that can encapsulate various data types.
 
 Although Python has the answer to creating structs as
 [dataclasses](https://peps.python.org/pep-0557/), including support for
@@ -240,10 +238,12 @@ def AlgebraicEnum(cls):
 ```
 
 The inheritance means all methods of the outer class are available on the nested
-classes _and_ any object of a nested class `isinstance` of the outer class.
+classes via the method resolution order chain _and_ any object of a nested class
+`isinstance` of the outer class.
 
-That's all there is to the magic! Now we can simply add this decorator above the previous class declaration
-and the variants like `Glass.Empty` and `Glass.Full` would be of the type `Glass`.
+That's all there is to the magic! Simply adding this decorator above the
+previous class declaration make variants like `Glass.Empty` and `Glass.Full`
+inherit `Glass`.
 
 ```python
 from dataclasses import dataclass
@@ -272,12 +272,8 @@ class Glass:
     return False
 ```
 
-As a bonus, the variants will also inherit any methods defined on the `Glass` type.
-
 Note how the `report_drink` method accepts a `self` of type `Glass` and the match arms
 compare it with `Glass.Empty` and `Glass.Full`.
-
-These methods get automatically called via the method resolution order chain due to the inheritance.
 
 The following code runs just fine.
 
