@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.is-a.dev/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;As much as I like Rust for its ergonomic features, university has forced me to
-use Python for the past couple of months, especially because of the hype for
-machine learning and data science.&lt;/p&gt;
-&lt;p&gt;One of the biggest things that I missed from the rust experience was enumerable
-data types whose variants can wrap around different datatypes.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on lavafroth</title><link>https://lavafroth.is-a.dev/post/</link><description>Recent content in Posts on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to utilize Python despite my fondness for Rust,
+primarily due to the prevalence of machine learning and data science. One
+aspect of Rust that I dearly miss is the availability of enumerable data types
+that can encapsulate various data types.&lt;/p&gt;
 &lt;p&gt;Although Python has the answer to creating structs as
 &lt;a href="https://peps.python.org/pep-0557/"&gt;dataclasses&lt;/a&gt;, including support for
 &lt;a href="https://peps.python.org/pep-0636/"&gt;structural match expressions&lt;/a&gt; in recent
@@ -950,5 +949,5 @@ After submitting the query, we are redirected to an html page containing the con
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Let&amp;rsquo;s inspect the &lt;code&gt;app.py&lt;/code&gt; source.&lt;/p&gt;</description></item><item><title>Gadgeting in Python Jails</title><link>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</link><pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</guid><description>&lt;p&gt;We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
 Additionally some might even keep &lt;code&gt;builtins&lt;/code&gt; and &lt;code&gt;eval&lt;/code&gt; out of reach.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0"&gt;Here&lt;/a&gt; is a cool video explanation by @pwnfunction on server side template
-injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.&lt;/p&gt;</description></item></channel></rss>
+injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the gist of it:&lt;/p&gt;</description></item></channel></rss>

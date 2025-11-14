@@ -74,5 +74,5 @@ return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no fu
 substitution (backticks) only capture the &lt;code&gt;stdout&lt;/code&gt;.&lt;/p&gt;</description></item><item><title>Gadgeting in Python Jails</title><link>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</link><pubDate>Thu, 09 Dec 2021 09:52:29 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/gadgeting-in-python-jails/</guid><description>&lt;p&gt;We&amp;rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
 Additionally some might even keep &lt;code&gt;builtins&lt;/code&gt; and &lt;code&gt;eval&lt;/code&gt; out of reach.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0"&gt;Here&lt;/a&gt; is a cool video explanation by @pwnfunction on server side template
-injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.
-Kudos to him for sharing this technique.&lt;/p&gt;</description></item></channel></rss>
+injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s the gist of it:&lt;/p&gt;</description></item></channel></rss>

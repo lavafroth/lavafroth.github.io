@@ -1,8 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algebraic Data Types on lavafroth</title><link>https://lavafroth.is-a.dev/tags/algebraic-data-types/</link><description>Recent content in Algebraic Data Types on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/algebraic-data-types/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;As much as I like Rust for its ergonomic features, university has forced me to
-use Python for the past couple of months, especially because of the hype for
-machine learning and data science.&lt;/p&gt;
-&lt;p&gt;One of the biggest things that I missed from the rust experience was enumerable
-data types whose variants can wrap around different datatypes.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algebraic Data Types on lavafroth</title><link>https://lavafroth.is-a.dev/tags/algebraic-data-types/</link><description>Recent content in Algebraic Data Types on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/algebraic-data-types/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to utilize Python despite my fondness for Rust,
+primarily due to the prevalence of machine learning and data science. One
+aspect of Rust that I dearly miss is the availability of enumerable data types
+that can encapsulate various data types.&lt;/p&gt;
 &lt;p&gt;Although Python has the answer to creating structs as
 &lt;a href="https://peps.python.org/pep-0557/"&gt;dataclasses&lt;/a&gt;, including support for
 &lt;a href="https://peps.python.org/pep-0636/"&gt;structural match expressions&lt;/a&gt; in recent
