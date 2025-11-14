@@ -2501,7 +2501,7 @@ echo QzpcV2luZG93c1xTeXN0ZW0zMlxkb3dud2l0aHNhbnRhLmV4ZSAtLXdpcGVhbGwgXFxcXE5vcnR
 
 This decodes to the following powershell command:
 
-```sh
+```powershell
 C:\Windows\System32\downwithsanta.exe --wipeall \\\\NorthPolefileshare\\c$
 ```
 
@@ -2544,28 +2544,23 @@ This decodes to `Beware the Cube that Wombles`. We submit this in our objectives
 Welcome to the Geese Islands Email Security Overview. This page serves as a guide to understanding the key components of email authentication and security for our domain. Below, you will find detailed information about our SPF, DKIM, and DMARC records – the three pillars that fortify our email communications against phishing and spoofing attacks. Each section provides insights into what these records are, their importance in maintaining email integrity, and how they are configured for the utmost security of our digital correspondence.
 
 - SPF Record: Ensures emails are sent from authorized servers.
-
-Domain | Type | Value
--|-|-
-geeseislands.com | TXT | v=spf1 a:mail.geeseislands.com -all
-
+  - Domain: geeseislands.com
+  - Type: TXT
+  - Value: v=spf1 a:mail.geeseislands.com -all
 - DKIM Record: Verifies that the email message is not forged.
-
-Domain | Type | Value
--|-|-
-geeseislands.com | TXT | v=DKIM1;t=s;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjtqsLqwecFGF7AmP+Siln86O1v9NOKJw4ZsEHDV5fo0Vjj0qNPyyARKSkDmnIKjnzLGUUQO31Fr+vdZU61IaI9/ZD39WJKaAeX96uQ65mRQqqPVYxPLN5OvuFRmIHJ/TgOkD6z5/7VM7Zs1kw5Qnl04FmOLwWd00D+uNZnj8TCwIDAQAB
-
+  - Domain: geeseislands.com
+  - Type: TXT
+  - Value: v=DKIM1;t=s;p=MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDjtqsLqwecFGF7AmP+Siln86O1v9NOKJw4ZsEHDV5fo0Vjj0qNPyyARKSkDmnIKjnzLGUUQO31Fr+vdZU61IaI9/ZD39WJKaAeX96uQ65mRQqqPVYxPLN5OvuFRmIHJ/TgOkD6z5/7VM7Zs1kw5Qnl04FmOLwWd00D+uNZnj8TCwIDAQAB
 - DMARC Record: Specifies how an email receiver should handle emails that fail SPF and DKIM checks.
-
-Domain | Type | Value
--|-|-
-geeseislands.com | TXT | v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-reports@geeseislands.com
+  - Domain: geeseislands.com
+  - Type: TXT
+  - Value: v=DMARC1; p=reject; pct=100; rua=mailto:dmarc-reports@geeseislands.com
 
 ![](/kringlecon/2023/phish-01.avif)
 
 For any of the emails having the DKIM domain (`d`) parameter `mail.geeseislands.com`, DMARC as `Pass` and optionally SPF as `pass`,
 we mark them safe. If the values differ or the domain is entirely different, we mark it as phishing.
 
-These were all the challenges that I could solve before other matters took precedence. I hope you learned something or at the very least, were amused by my less elegant way of solving things.
+These were all the challenges that I could solve before other matters took precedence. I hope you learned something or at the very least, were amused by my crude way of solving things.
 
 Bye now.
