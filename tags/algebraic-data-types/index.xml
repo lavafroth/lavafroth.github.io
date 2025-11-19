@@ -1,9 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algebraic Data Types on lavafroth</title><link>https://lavafroth.is-a.dev/tags/algebraic-data-types/</link><description>Recent content in Algebraic Data Types on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/algebraic-data-types/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to utilize Python despite my fondness for Rust,
-primarily due to the prevalence of machine learning and data science. One
-aspect of Rust that I dearly miss is the availability of enumerable data types
-that can encapsulate various data types.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Algebraic Data Types on lavafroth</title><link>https://lavafroth.is-a.dev/tags/algebraic-data-types/</link><description>Recent content in Algebraic Data Types on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/algebraic-data-types/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to use Python despite my preference for Rust,
+primarily due to the machine learning and data science hype. One
+Rust feature that I dearly miss is enumerable data types
+that can encapsulate various other data types.&lt;/p&gt;
 &lt;p&gt;Although Python has the answer to creating structs as
 &lt;a href="https://peps.python.org/pep-0557/"&gt;dataclasses&lt;/a&gt;, including support for
 &lt;a href="https://peps.python.org/pep-0636/"&gt;structural match expressions&lt;/a&gt; in recent
 versions, most tutorials will suggest &lt;code&gt;Union&lt;/code&gt; types as the equivalent to Rust&amp;rsquo;s
-enums.&lt;/p&gt;</description></item></channel></rss>
+enums.&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;I highly encourage you to try out the code snippets and follow along with this article.
+Use the collapse explanation button to copy multiple code blocks in one go.&lt;/p&gt;</description></item></channel></rss>
