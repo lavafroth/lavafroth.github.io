@@ -9,10 +9,10 @@ tags:
 - Algebraic Data Types
 ---
 
-University has compelled me to utilize Python despite my fondness for Rust,
-primarily due to the  prevalence of machine learning and data science. One
-aspect of Rust that I dearly miss is the  availability of enumerable data types
-that can encapsulate various data types.
+University has compelled me to use Python despite my preference for Rust,
+primarily due to the machine learning and data science hype. One
+Rust feature that I dearly miss is enumerable data types
+that can encapsulate various other data types.
 
 Although Python has the answer to creating structs as
 [dataclasses](https://peps.python.org/pep-0557/), including support for
