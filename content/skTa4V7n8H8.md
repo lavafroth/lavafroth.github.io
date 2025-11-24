@@ -7,75 +7,79 @@ draft: false
 # GrPA 1
 
 ```python
-def swap(arr, i, j):
-    arr[i], arr[j] = arr[j], arr[i]
+from typing import List
 
+def constructWord(s: str, chunks: List[str]) -> List[List[str]]:
+    memo = {}
 
-def max_heapify(arr, end, current):
-    left = 2 * current + 1
-    right = left + 1
-    largest = current
+    def solve(remaining_suffix: str) -> List[List[str]]:
+        if not remaining_suffix:
+            return [[]]
+        
+        if remaining_suffix in memo:
+            return memo[remaining_suffix]
 
-    if left < end and arr[left] > arr[largest]:
-        largest = left
-    if right < end and arr[right] > arr[largest]:
-        largest = right
+        possible_combos = []
 
-    if largest != current:
-        swap(arr, current, largest)
-        max_heapify(arr, end, largest)
+        for chunk in chunks:
+            if not remaining_suffix.startswith(chunk):
+                continue
 
+            leftover_results = solve(remaining_suffix[len(chunk):])
+            if not leftover_results:
+                continue
 
-def mergeKLists(arr):
-    arr = [value for subarray in arr for value in subarray]
-    n = len(arr)
-    for i in reversed(range(n // 2)):
-        max_heapify(arr, n, i)
+            for rest in leftover_results:
+                possible_combos.append([chunk] + rest)
 
-    for i in range(n-1,0,-1):
-        swap(arr, 0, i)
-        max_heapify(arr, i, 0)
-    return arr
+        memo[remaining_suffix] = possible_combos
+        return possible_combos
+
+    return solve(s)
 ```
 
 # GrPA 2
 
 
 ```python
-def maxLessThan(root, x):
-    floor = None
-    while not root.isempty():
-        if root.value > x:
-            root = root.left
+import numpy as np
+def MaxCoinPath(M, x1, y1, x2, y2):
+    M = np.array(M, dtype=int)[x1:x2+1, y1:y2+1]
+    cost = np.zeros((M.shape[0]+1, M.shape[1]+1), dtype=int)
     
-        elif root.value <= x:
-            floor = root.value
-            root = root.right
-    return floor
+    for i in range(M.shape[0]-1, -1, -1):
+        for j in range(M.shape[1]-1, -1, -1):
+            cost[i, j] = max(M[i, j] + cost[i+1, j], M[i, j] + cost[i, j+1])
+    return cost[0,0]
 ```
 
 # GrPA 3
 
-Note that this `max_heapify` is a workhorse function which you should learn well
-because you're gonna use it very frequently to implement a priority queue.
-
 ```python
-def max_heapify(arr, end, current):
-    left = 2 * current + 1
-    right = left + 1
-    largest = current
-
-    if left < end and arr[left] > arr[largest]:
-        largest = left
-    if right < end and arr[right] > arr[largest]:
-        largest = right
-
-    if largest != current:
-        swap(arr, current, largest)
-        max_heapify(arr, end, largest)
-
-def min_max(arr):
+def LDS(arr):
     n = len(arr)
-    for i in reversed(range(n // 2)):
-        max_heapify(arr, n, i)
+    if n == 0:
+        return []
+
+    memo = [1] * n
+    parent = [-1] * n
+    max_len = 0
+    end_index = -1
+
+    for i in range(n):
+        for j in range(i):
+            if arr[i] < arr[j] and memo[i] < memo[j] + 1:
+                memo[i] = memo[j] + 1
+                parent[i] = j
+
+        if memo[i] > max_len:
+            max_len = memo[i]
+            end_index = i
+
+    subsequence = []
+    current_index = end_index
+    while current_index != -1:
+        subsequence.append(arr[current_index])
+        current_index = parent[current_index]
+    return subsequence[::-1]
 ```
