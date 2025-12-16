@@ -68,3 +68,14 @@ nix build -f ./builder.nix
 ```sh
 readlink /nix/var/nix/profiles/system | cut -d- -f2
 ```
+
+## crti.o not found
+
+If you are compiling a program with C FFI bindings, you might encounter the following error:
+
+```
+/nix/store/dc9vaz50jg7mibk9xvqw5dqv89cxzla3-binutils-2.44/bin/ld: cannot find crti.o: No such file or directory
+collect2: error: ld returned 1 exit status
+```
+
+You need to add `stdenv.cc.cc.lib` to your flake's `buildInputs`.
