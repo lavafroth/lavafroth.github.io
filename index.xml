@@ -1,4 +1,10 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 02 Nov 2025 19:08:46 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to use Python despite my preference for Rust,
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 01 Jan 2026 07:24:36 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Working With LUKS File Stashes</title><link>https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/</link><pubDate>Thu, 01 Jan 2026 07:24:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/</guid><description>&lt;p&gt;&lt;code&gt;THIS POST IS A DRAFT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;LUKS is an incredible solution for encrypting entire partitions in Linux.
+Often times, however, we can&amp;rsquo;t afford to create new partitions inside a disk
+without having to completely format the drive anew.&lt;/p&gt;
+&lt;p&gt;In this post, I will guide you through the process of creating and working
+with LUKS container files that are encrypted at rest and can be decrypted on
+demand with knowledge of the passphrase.&lt;/p&gt;</description></item><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to use Python despite my preference for Rust,
 primarily due to the machine learning and data science hype. One
 Rust feature that I dearly miss is enumerable data types
 that can encapsulate various other data types.&lt;/p&gt;
@@ -9,246 +15,7 @@ versions, most tutorials will suggest &lt;code&gt;Union&lt;/code&gt; types as th
 enums.&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;I highly encourage you to try out the code snippets and follow along with this article.
-Use the collapse explanation button to copy multiple code blocks in one go.&lt;/p&gt;</description></item><item><title>note skta4v7n8h8</title><link>https://lavafroth.is-a.dev/skta4v7n8h8/</link><pubDate>Fri, 31 Oct 2025 20:24:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/skta4v7n8h8/</guid><description>&lt;h1 id="grpa-1"&gt;GrPA 1&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; List
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;constructWord&lt;/span&gt;(s: str, chunks: List[str]) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; List[List[str]]:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {}
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;solve&lt;/span&gt;(remaining_suffix: str) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; List[List[str]]:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; remaining_suffix:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; [[]]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; remaining_suffix &lt;span style="color:#f92672"&gt;in&lt;/span&gt; memo:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; memo[remaining_suffix]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; possible_combos &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; chunk &lt;span style="color:#f92672"&gt;in&lt;/span&gt; chunks:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; remaining_suffix&lt;span style="color:#f92672"&gt;.&lt;/span&gt;startswith(chunk):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; leftover_results &lt;span style="color:#f92672"&gt;=&lt;/span&gt; solve(remaining_suffix[len(chunk):])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;not&lt;/span&gt; leftover_results:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; rest &lt;span style="color:#f92672"&gt;in&lt;/span&gt; leftover_results:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; possible_combos&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append([chunk] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; rest)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memo[remaining_suffix] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; possible_combos
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; possible_combos
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; solve(s)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="grpa-2"&gt;GrPA 2&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;import&lt;/span&gt; numpy &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; np
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;MaxCoinPath&lt;/span&gt;(M, x1, y1, x2, y2):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; M &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;array(M, dtype&lt;span style="color:#f92672"&gt;=&lt;/span&gt;int)[x1:x2&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, y1:y2&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost &lt;span style="color:#f92672"&gt;=&lt;/span&gt; np&lt;span style="color:#f92672"&gt;.&lt;/span&gt;zeros((M&lt;span style="color:#f92672"&gt;.&lt;/span&gt;shape[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, M&lt;span style="color:#f92672"&gt;.&lt;/span&gt;shape[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;), dtype&lt;span style="color:#f92672"&gt;=&lt;/span&gt;int)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(M&lt;span style="color:#f92672"&gt;.&lt;/span&gt;shape[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; j &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(M&lt;span style="color:#f92672"&gt;.&lt;/span&gt;shape[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; cost[i, j] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max(M[i, j] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; cost[i&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, j], M[i, j] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; cost[i, j&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; cost[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id="grpa-3"&gt;GrPA 3&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;LDS&lt;/span&gt;(arr):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; n &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(arr)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; n &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;*&lt;/span&gt; n
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parent &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;*&lt;/span&gt; n
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; max_len &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end_index &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(n):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; j &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(i):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; arr[i] &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; arr[j] &lt;span style="color:#f92672"&gt;and&lt;/span&gt; memo[i] &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; memo[j] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; memo[i] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; memo[j] &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; parent[i] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; j
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; memo[i] &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; max_len:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; max_len &lt;span style="color:#f92672"&gt;=&lt;/span&gt; memo[i]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; end_index &lt;span style="color:#f92672"&gt;=&lt;/span&gt; i
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; subsequence &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; current_index &lt;span style="color:#f92672"&gt;=&lt;/span&gt; end_index
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; current_index &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; subsequence&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(arr[current_index])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; current_index &lt;span style="color:#f92672"&gt;=&lt;/span&gt; parent[current_index]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; subsequence[::&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>secret note jfgp3d7rrx0</title><link>https://lavafroth.is-a.dev/jfgp3d7rrx0/</link><pubDate>Tue, 28 Oct 2025 16:09:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/jfgp3d7rrx0/</guid><description>&lt;p&gt;There will be an explanation for non-trivial questions.&lt;/p&gt;
-&lt;h1 id="activity-1"&gt;Activity 1&lt;/h1&gt;
-&lt;h2 id="1"&gt;1&lt;/h2&gt;
-&lt;p&gt;Dijkstra&amp;rsquo;s algorithm guarantees finding the shortest path from a single source to all other vertices under which of the following conditions?&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Answer:&lt;/strong&gt; All edge weights must be non-negative.&lt;/p&gt;
-&lt;h2 id="2"&gt;2&lt;/h2&gt;
-&lt;p&gt;Consider an undirected graph with 5 vertices &lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/msub&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/msub&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;(V_0, V_1, V_2, V_3, V_4)&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;. At a certain point
-in Dijkstra&amp;rsquo;s algorithm (starting from &lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/msub&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;V_0&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;), the current tentative distances are:
-&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;d&lt;/mi&gt;&lt;mi&gt;i&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;t&lt;/mi&gt;&lt;mo&gt;=&lt;/mo&gt;&lt;mo stretchy="false"&gt;{&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mn&gt;5&lt;/mn&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mn&gt;8&lt;/mn&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mn&gt;10&lt;/mn&gt;&lt;mo stretchy="false"&gt;}&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;dist = \{V_0:0, V_1:5, V_2:3, V_3:8, V_4:10\}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;. And the processed set is: &lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mo stretchy="false"&gt;{&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;0&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;T&lt;/mi&gt;&lt;mi&gt;r&lt;/mi&gt;&lt;mi&gt;u&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;1&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo separator="true"&gt;,&lt;/mo&gt;&lt;msub&gt;&lt;mi&gt;V&lt;/mi&gt;&lt;mn&gt;4&lt;/mn&gt;&lt;/msub&gt;&lt;mo&gt;:&lt;/mo&gt;&lt;mi&gt;F&lt;/mi&gt;&lt;mi&gt;a&lt;/mi&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;s&lt;/mi&gt;&lt;mi&gt;e&lt;/mi&gt;&lt;mo stretchy="false"&gt;}&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt;\{V_0:True, 
-V_1:False, V_2:False, V_3:False, V_4:False\}&lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;. Assuming the next step is to select an unvisited
-vertex to mark as processed, which vertex will be chosen?&lt;/p&gt;</description></item><item><title>for seshu baby mwa mwa</title><link>https://lavafroth.is-a.dev/ilrlmvakdlx9uwodtocdbg/</link><pubDate>Fri, 03 Oct 2025 16:04:18 +0530</pubDate><guid>https://lavafroth.is-a.dev/ilrlmvakdlx9uwodtocdbg/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;Update: I have added the GA 2 sols as well. Please take them with a grain of salt obviously
-I am also fallible to mistakes.&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;h1 id="aq21"&gt;AQ2.1&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n^2) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n\ log\ n) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;3&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n^3) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo&gt;+&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;m&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n + log\ m) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(log\ n) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n^2\ log\ n) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id="aq22"&gt;AQ2.2&lt;/h1&gt;
-&lt;ol&gt;
-&lt;li&gt;&lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;mi&gt;l&lt;/mi&gt;&lt;mi&gt;o&lt;/mi&gt;&lt;mi&gt;g&lt;/mi&gt;&lt;mtext&gt; &lt;/mtext&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(log\ n) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/li&gt;
-&lt;li&gt;5&lt;/li&gt;
-&lt;li&gt;3&lt;/li&gt;
-&lt;li&gt;3&lt;/li&gt;
-&lt;li&gt;2&lt;/li&gt;
-&lt;li&gt;Multiple options:
-&lt;ul&gt;
-&lt;li&gt;It works only on sorted arrays.&lt;/li&gt;
-&lt;li&gt;It has a best-case time complexity of O(1).&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-&lt;h1 id="aq23"&gt;AQ2.3&lt;/h1&gt;
-&lt;blockquote&gt;
-&lt;p&gt;Selection sort always makes n(n-1)/2 comparisons which is of order &lt;span class="katex"&gt;&lt;math xmlns="http://www.w3.org/1998/Math/MathML"&gt;&lt;semantics&gt;&lt;mrow&gt;&lt;mi&gt;O&lt;/mi&gt;&lt;mo stretchy="false"&gt;(&lt;/mo&gt;&lt;msup&gt;&lt;mi&gt;n&lt;/mi&gt;&lt;mn&gt;2&lt;/mn&gt;&lt;/msup&gt;&lt;mo stretchy="false"&gt;)&lt;/mo&gt;&lt;/mrow&gt;&lt;annotation encoding="application/x-tex"&gt; O(n^2) &lt;/annotation&gt;&lt;/semantics&gt;&lt;/math&gt;&lt;/span&gt;&lt;/p&gt;</description></item><item><title>w8</title><link>https://lavafroth.is-a.dev/divmqbyvl9y/</link><pubDate>Fri, 03 Oct 2025 16:04:18 +0530</pubDate><guid>https://lavafroth.is-a.dev/divmqbyvl9y/</guid><description>&lt;h2 id="grpa-1"&gt;GRPA 1&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;findOccOf&lt;/span&gt;(arr, x):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hi &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(arr) &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; loval &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;None&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; lo &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; hi:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mid &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (lo &lt;span style="color:#f92672"&gt;+&lt;/span&gt; hi) &lt;span style="color:#f92672"&gt;//&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; c &lt;span style="color:#f92672"&gt;=&lt;/span&gt; arr[mid]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; x &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; c:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hi &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; x &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; c:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; x &lt;span style="color:#f92672"&gt;==&lt;/span&gt; c:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; loval &lt;span style="color:#f92672"&gt;=&lt;/span&gt; loval &lt;span style="color:#f92672"&gt;or&lt;/span&gt; mid
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; loval &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(loval, mid)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hi &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hi &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(arr) &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hival &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;None&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; lo &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; hi:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mid &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (lo &lt;span style="color:#f92672"&gt;+&lt;/span&gt; hi) &lt;span style="color:#f92672"&gt;//&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; c &lt;span style="color:#f92672"&gt;=&lt;/span&gt; arr[mid]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; x &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; c:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hi &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid &lt;span style="color:#f92672"&gt;-&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; x &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; c:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;elif&lt;/span&gt; x &lt;span style="color:#f92672"&gt;==&lt;/span&gt; c:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hival &lt;span style="color:#f92672"&gt;=&lt;/span&gt; hival &lt;span style="color:#f92672"&gt;or&lt;/span&gt; mid
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; hival &lt;span style="color:#f92672"&gt;=&lt;/span&gt; max(hival, mid)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; lo &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; loval, hival
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="grpa-2"&gt;GRPA 2&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;merge_inversion&lt;/span&gt;(left, right):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; merged &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; count &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i, j &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; m &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(left)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; n &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(right)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; i &lt;span style="color:#f92672"&gt;+&lt;/span&gt; j &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; m &lt;span style="color:#f92672"&gt;+&lt;/span&gt; n:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; j &lt;span style="color:#f92672"&gt;==&lt;/span&gt; n &lt;span style="color:#f92672"&gt;or&lt;/span&gt; (i &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; m &lt;span style="color:#f92672"&gt;and&lt;/span&gt; left[i] &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; right[j]):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; merged&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(left[i])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; i &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;continue&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; merged&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(right[j])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; j &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; count &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; m &lt;span style="color:#f92672"&gt;-&lt;/span&gt; i
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; merged, count
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;sort_and_count&lt;/span&gt;(arr):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; n &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(arr)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; n &lt;span style="color:#f92672"&gt;==&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; arr, &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; left &lt;span style="color:#f92672"&gt;=&lt;/span&gt; arr[: n &lt;span style="color:#f92672"&gt;//&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; right &lt;span style="color:#f92672"&gt;=&lt;/span&gt; arr[n &lt;span style="color:#f92672"&gt;//&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; :]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; left, count_left &lt;span style="color:#f92672"&gt;=&lt;/span&gt; sort_and_count(left)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; right, count_right &lt;span style="color:#f92672"&gt;=&lt;/span&gt; sort_and_count(right)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; merged, count_both &lt;span style="color:#f92672"&gt;=&lt;/span&gt; merge_inversion(left, right)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; (merged, count_left &lt;span style="color:#f92672"&gt;+&lt;/span&gt; count_right &lt;span style="color:#f92672"&gt;+&lt;/span&gt; count_both)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;countIntersection&lt;/span&gt;(a, b):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; tuples &lt;span style="color:#f92672"&gt;=&lt;/span&gt; sorted(zip(a, b))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; b &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [t[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; t &lt;span style="color:#f92672"&gt;in&lt;/span&gt; tuples]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; sort_and_count(b)[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="grpa-3"&gt;GRPA 3&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;dist &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;lambda&lt;/span&gt; a, b: ((a[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]&lt;span style="color:#f92672"&gt;-&lt;/span&gt;b[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;])&lt;span style="color:#f92672"&gt;**&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt; &lt;span style="color:#f92672"&gt;+&lt;/span&gt; (a[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;]&lt;span style="color:#f92672"&gt;-&lt;/span&gt;b[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;])&lt;span style="color:#f92672"&gt;**&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;)&lt;span style="color:#f92672"&gt;**&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;.5&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;closest_pair&lt;/span&gt;(Px, Py):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; n &lt;span style="color:#f92672"&gt;=&lt;/span&gt; len(Px)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; n &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;3&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; min_d &lt;span style="color:#f92672"&gt;=&lt;/span&gt; float(&lt;span style="color:#e6db74"&gt;&amp;#39;inf&amp;#39;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(n):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; j &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(i &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, n):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; min_d &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(min_d, dist(Px[i], Px[j]))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; min_d
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mid &lt;span style="color:#f92672"&gt;=&lt;/span&gt; n &lt;span style="color:#f92672"&gt;//&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Qx &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Px[:mid]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Rx &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Px[mid:]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; mid_point &lt;span style="color:#f92672"&gt;=&lt;/span&gt; Qx[&lt;span style="color:#f92672"&gt;-&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;][&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Qy &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Ry &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; p &lt;span style="color:#f92672"&gt;in&lt;/span&gt; Py:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; p[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; mid_point:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Qy&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(p)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Ry&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(p)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; min_d &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(closest_pair(Qx, Qy), closest_pair(Rx, Ry))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Sy &lt;span style="color:#f92672"&gt;=&lt;/span&gt; [p &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; p &lt;span style="color:#f92672"&gt;in&lt;/span&gt; Py &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; mid_point &lt;span style="color:#f92672"&gt;-&lt;/span&gt; min_d &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; p[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;] &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; mid_point &lt;span style="color:#f92672"&gt;+&lt;/span&gt; min_d]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(len(Sy)):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; j &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(i &lt;span style="color:#f92672"&gt;+&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;, len(Sy)):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; Sy[j][&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;-&lt;/span&gt; Sy[i][&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;] &lt;span style="color:#f92672"&gt;&amp;gt;=&lt;/span&gt; min_d:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;break&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; min_d &lt;span style="color:#f92672"&gt;=&lt;/span&gt; min(min_d, dist(Sy[i], Sy[j]))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; min_d
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;minDistance&lt;/span&gt;(points):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Px &lt;span style="color:#f92672"&gt;=&lt;/span&gt; sorted(points, key&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;lambda&lt;/span&gt; p: p[&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; Py &lt;span style="color:#f92672"&gt;=&lt;/span&gt; sorted(points, key&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;lambda&lt;/span&gt; p: p[&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;])
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; round(closest_pair(Px, Py), &lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="grpa-4"&gt;GRPA 4&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;mid&lt;/span&gt;(a):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; len(a) &lt;span style="color:#f92672"&gt;&amp;lt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; sorted(a)[len(a)&lt;span style="color:#f92672"&gt;//&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2&lt;/span&gt;]
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; m &lt;span style="color:#f92672"&gt;=&lt;/span&gt; []
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; i &lt;span style="color:#f92672"&gt;in&lt;/span&gt; range(&lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;,len(a), &lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; m&lt;span style="color:#f92672"&gt;.&lt;/span&gt;append(mid(a[i:i&lt;span style="color:#f92672"&gt;+&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;7&lt;/span&gt;]))
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; 
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; mid(m)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;MoM7Pos&lt;/span&gt;(arr):
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; m &lt;span style="color:#f92672"&gt;=&lt;/span&gt; mid(arr)
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pos &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;for&lt;/span&gt; x &lt;span style="color:#f92672"&gt;in&lt;/span&gt; arr:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; x &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; m:
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; pos &lt;span style="color:#f92672"&gt;+=&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; pos
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;</description></item><item><title>NixOS Notes to Self</title><link>https://lavafroth.is-a.dev/post/nixos-notes-to-self/</link><pubDate>Sun, 14 Sep 2025 18:31:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/nixos-notes-to-self/</guid><description>&lt;p&gt;A dedicated post collecting solutions to minor NixOS headaches.&lt;/p&gt;
+Use the collapse explanation button to copy multiple code blocks in one go.&lt;/p&gt;</description></item><item><title>NixOS Notes to Self</title><link>https://lavafroth.is-a.dev/post/nixos-notes-to-self/</link><pubDate>Sun, 14 Sep 2025 18:31:52 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/nixos-notes-to-self/</guid><description>&lt;p&gt;A dedicated post collecting solutions to minor NixOS headaches.&lt;/p&gt;
 &lt;h2 id="nixos-rebuild-shows-no-network-activity"&gt;&lt;code&gt;nixos-rebuild&lt;/code&gt; shows no network activity&lt;/h2&gt;
 &lt;p&gt;On rare occasions, a system rebuild will get stuck while downloading a package from a source.
 No network activity, no timeout, no writes to the nix store.&lt;/p&gt;
@@ -896,7 +663,7 @@ easy to setup Arch for gaming, thanks to programs like &lt;a href="https://lutri
 code for the program running on the remote server:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;static&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;addIntOvf&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; result, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; a, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; b) {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; result &lt;span style="color:#f92672"&gt;=&lt;/span&gt; a &lt;span style="color:#f92672"&gt;+&lt;/span&gt; b;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt;(a &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; b &lt;span style="color:#f92672"&gt;&amp;gt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; &lt;span style="color:#f92672"&gt;&amp;amp;&amp;amp;&lt;/span&gt; result &lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;)

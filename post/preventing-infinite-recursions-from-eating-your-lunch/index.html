@@ -31,12 +31,12 @@ hashing function. Considering that the average setup
 would not wield even a thousand submodules, it&rsquo;s sufficient to store the imports in a set.</p><p>We&rsquo;ll create slightly separate implementations to differentiate between the root module
 and any submodules it imports. For now, let&rsquo;s tackle the implementation for the submodules.</p><p>We create a method for the parser result called <code>as_import</code> for loading any of these aforementioned submodules.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>as_import</span>(input: <span style=color:#a6e22e>ParserInput</span>, seen: <span style=color:#66d9ef>&amp;</span><span style=color:#a6e22e>mut</span> BTreeSet<span style=color:#f92672>&lt;</span>String<span style=color:#f92672>&gt;</span>) -&gt; Result<span style=color:#f92672>&lt;</span>Self, ParseError<span style=color:#f92672>&gt;</span> {
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>The <code>seen</code> argument is how the caller tells the callee about what import paths it has already seen.</p><p>While processing import expressions, we keep adding the imports we have seen so far to a local <code>BTreeSet</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>let</span> <span style=color:#66d9ef>mut</span> imports <span style=color:#f92672>=</span> BTreeSet::new();
 </span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> decl <span style=color:#66d9ef>in</span> contents.into_inner() {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>match</span> decl.as_rule() {
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// other rules like bindings
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        Rule::import <span style=color:#f92672>=&gt;</span> imports.extend(import_parser(decl)),
+</span></span></span><span style=display:flex><span>        Rule::import <span style=color:#f92672>=&gt;</span> imports.extend(import_parser(decl)),
 </span></span><span style=display:flex><span>    }
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Once all the tokens in the current config have been parsed, we can move on to adding the imports to
@@ -70,11 +70,11 @@ call stack of import related functions.</p><p>Lastly, for the sake of backwards 
 root parser result. This was the behavior present in the original parser. Note that the import
 fields in the submodules will all be empty since we popped them one by one in this loop:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>while</span> <span style=color:#66d9ef>let</span> Some(import) <span style=color:#f92672>=</span> imports.pop_first() {
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Okay, that&rsquo;s all for now. See you soon!</p></section><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/ebnf class=list-tag>EBNF</a>
 <a href=https://lavafroth.is-a.dev/tags/google-summer-of-code class=list-tag>Google Summer of Code</a>
 <a href=https://lavafroth.is-a.dev/tags/rust class=list-tag>Rust</a>
 <a href=https://lavafroth.is-a.dev/tags/swhkd class=list-tag>SWHKD</a>
 <a href=https://lavafroth.is-a.dev/tags/waycrate class=list-tag>Waycrate</a>
 <a href=https://lavafroth.is-a.dev/tags/wayland class=list-tag>Wayland</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/><span>←</span><span>Humans Suck at Command Sanitization</span></a>
-<a href=https://lavafroth.is-a.dev/post/test-driven-development-the-pinnacle-of-engineering/><span>Test Driven Development - The Pinnacle of Engineering</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2025 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
+<a href=https://lavafroth.is-a.dev/post/test-driven-development-the-pinnacle-of-engineering/><span>Test Driven Development - The Pinnacle of Engineering</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>

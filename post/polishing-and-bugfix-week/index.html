@@ -46,7 +46,7 @@ we replace the binding&rsquo;s command with the new command.</p><div class=highl
 were not for the tests. The commands, just like keys, must be unescaped when present
 in shorthands. This is so that we can distinguish a comma separating two
 shorthand elements or a dash representing a range from a literal comma or a dash.</p><p>Solution? Simply reuse the unescape function we used in for the keys.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>Rule::command_component <span style=color:#f92672>=&gt;</span> {
+</span></span></span><span style=display:flex><span>Rule::command_component <span style=color:#f92672>=&gt;</span> {
 </span></span><span style=display:flex><span>    command_variants.push(unescape(component.as_str()).to_string())
 </span></span><span style=display:flex><span>}
 </span></span><span style=display:flex><span><span style=color:#75715e>// ...
@@ -75,4 +75,4 @@ actually use SWHKD in my daily workflows. Stay tuned!</p></section><footer class
 <a href=https://lavafroth.is-a.dev/tags/swhkd class=list-tag>SWHKD</a>
 <a href=https://lavafroth.is-a.dev/tags/waycrate class=list-tag>Waycrate</a>
 <a href=https://lavafroth.is-a.dev/tags/wayland class=list-tag>Wayland</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/how-i-use-swhkd-in-my-workflow/><span>←</span><span>How I Use SWHKD in My Workflow</span></a>
-<a href=https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/><span>Humans Suck at Command Sanitization</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2025 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
+<a href=https://lavafroth.is-a.dev/post/humans-suck-at-command-sanitization/><span>Humans Suck at Command Sanitization</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>

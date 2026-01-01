@@ -217,14 +217,14 @@ is an integer.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;backg
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>a</span>;
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>b</span>;
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// if (eqz(e[3]:int)) goto B_a;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>if</span> (<span style=color:#f92672>*</span><span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>if</span> (<span style=color:#f92672>*</span><span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>==</span> <span style=color:#ae81ff>0</span>) {
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// b[1072] = e[3];
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>    <span style=color:#a6e22e>b</span>[<span style=color:#ae81ff>1072</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
+</span></span></span><span style=display:flex><span>    <span style=color:#a6e22e>b</span>[<span style=color:#ae81ff>1072</span>] <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>k</span><span style=color:#f92672>:</span><span style=color:#a6e22e>ubyte_ptr</span> <span style=color:#f92672>=</span> <span style=color:#ae81ff>4</span> <span style=color:#f92672>-</span> (<span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>2</span>] <span style=color:#f92672>%</span> <span style=color:#ae81ff>5</span>);
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// var l:int = k[1067];
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#75715e>// e[3] = e[3] ^ (l &lt;&lt; 24) &gt;&gt; 24;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>l</span><span style=color:#f92672>:</span><span style=color:#66d9ef>byte</span> <span style=color:#f92672>=</span> <span style=color:#f92672>*</span>(<span style=color:#a6e22e>k</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1067</span>);
+</span></span></span><span style=display:flex><span>  <span style=color:#75715e>// e[3] = e[3] ^ (l &lt;&lt; 24) &gt;&gt; 24;
+</span></span></span><span style=display:flex><span>  <span style=color:#66d9ef>var</span> <span style=color:#a6e22e>l</span><span style=color:#f92672>:</span><span style=color:#66d9ef>byte</span> <span style=color:#f92672>=</span> <span style=color:#f92672>*</span>(<span style=color:#a6e22e>k</span> <span style=color:#f92672>+</span> <span style=color:#ae81ff>1067</span>);
 </span></span><span style=display:flex><span>  <span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>=</span> <span style=color:#a6e22e>e</span>[<span style=color:#ae81ff>3</span>] <span style=color:#f92672>^</span> <span style=color:#a6e22e>l</span>;
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>From the beginning of the file, we can infer that some encoded string is
@@ -244,7 +244,7 @@ cargo add hex
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> key <span style=color:#f92672>=</span> hex::decode(<span style=color:#e6db74>&#34;f1a7f007ed&#34;</span>)<span style=color:#f92672>?</span>;
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>let</span> crib: Vec<span style=color:#f92672>&lt;</span><span style=color:#66d9ef>u8</span><span style=color:#f92672>&gt;</span> <span style=color:#f92672>=</span> hex::decode(
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// &#34;\9dn\93\c8\b2\b9A\8b\c5\c6\dda\93\c3\c2\da?\c7\93\c1\8b1\95\93\93\8eb\c8&#34;
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>        <span style=color:#e6db74>&#34;9d6e93c8b2b9418bc5c6dd6193c3c2da3fc793c18b319593938e62c894c9d564c096c4d9379393c2900000&#34;</span>,
+</span></span></span><span style=display:flex><span>        <span style=color:#e6db74>&#34;9d6e93c8b2b9418bc5c6dd6193c3c2da3fc793c18b319593938e62c894c9d564c096c4d9379393c2900000&#34;</span>,
 </span></span><span style=display:flex><span>    )<span style=color:#f92672>?</span>
 </span></span><span style=display:flex><span>    .into_iter()
 </span></span><span style=display:flex><span>    .enumerate()
@@ -269,4 +269,4 @@ cargo add hex
 <a href=https://lavafroth.is-a.dev/tags/reverse-engineering class=list-tag>Reverse Engineering</a>
 <a href=https://lavafroth.is-a.dev/tags/web class=list-tag>Web</a>
 <a href=https://lavafroth.is-a.dev/tags/webassembly class=list-tag>WebAssembly</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/picoctf-web-java-script-kiddie-2/><span>←</span><span>Java Script Kiddie 2</span></a>
-<a href=https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/><span>Kringlecon 2022 Writeup</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2025 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
+<a href=https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/><span>Kringlecon 2022 Writeup</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>

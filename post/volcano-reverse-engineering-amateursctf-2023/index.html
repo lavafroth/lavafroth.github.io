@@ -105,7 +105,7 @@ and stores the result in the <code>ok</code> variable.</p><div class=highlight><
 </span></span><span style=display:flex><span>ok <span style=color:#f92672>=</span> <span style=color:#a6e22e>process_bear</span>(bear);
 </span></span></code></pre></div><p>The next block only executes when <code>ok</code> is true.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=display:flex><span><span style=color:#66d9ef>if</span> (ok) {
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Inside this block, the program for another unsigned long integer as before but calls it a volcano, running
 a check specific to this input.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=display:flex><span><span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Give me a volcano: &#34;</span>);
 </span></span><span style=display:flex><span>volcano <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
@@ -113,7 +113,7 @@ a check specific to this input.</p><div class=highlight><pre tabindex=0 style=co
 </span></span><span style=display:flex><span>_ok <span style=color:#f92672>=</span> <span style=color:#a6e22e>process_volcano</span>(volcano);
 </span></span></code></pre></div><p>The next conditional block executes when this <code>process_volcano</code> subroutine return true.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=display:flex><span><span style=color:#66d9ef>if</span> (_ok) {
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>The program then asks for another unsigned long integer as a proof for the <em>&ldquo;volcano&rdquo;</em> and the <em>&ldquo;bear&rdquo;</em> being the same.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=display:flex><span><span style=color:#a6e22e>printf</span>(<span style=color:#e6db74>&#34;Prove to me they are the same: &#34;</span>);
 </span></span><span style=display:flex><span>proof <span style=color:#f92672>=</span> <span style=color:#ae81ff>0</span>;
 </span></span><span style=display:flex><span>leet <span style=color:#f92672>=</span> <span style=color:#ae81ff>0x1337</span>;
@@ -128,12 +128,12 @@ There&rsquo;s nothing worth explaining about them in particular but you may chec
 </span></span><span style=display:flex><span>n_bear <span style=color:#f92672>=</span> <span style=color:#a6e22e>n_digits</span>(bear);
 </span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (n_volcano <span style=color:#f92672>==</span> n_bear) {
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span> }
+</span></span></span><span style=display:flex><span> }
 </span></span></code></pre></div><p>Our second constraint is that the sum of the digits must equal for the volcano and the bear.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=display:flex><span>n_volcano <span style=color:#f92672>=</span> <span style=color:#a6e22e>sum_of_digits</span>(volcano);
 </span></span><span style=display:flex><span>n_bear <span style=color:#f92672>=</span> <span style=color:#a6e22e>sum_of_digits</span>(bear);
 </span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (n_volcano <span style=color:#f92672>==</span> n_bear) {
 </span></span><span style=display:flex><span>  <span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>}
+</span></span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Finally the happy ending happens when the result of a proof checking function is the same for both the numbers.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-C data-lang=C><span style=display:flex><span>m_v <span style=color:#f92672>=</span> <span style=color:#a6e22e>check_proof</span>(leet,volcano,proof);
 </span></span><span style=display:flex><span>m_b <span style=color:#f92672>=</span> <span style=color:#a6e22e>check_proof</span>(leet,bear,proof);
 </span></span><span style=display:flex><span><span style=color:#66d9ef>if</span> (m_v <span style=color:#f92672>==</span> m_b) {
@@ -209,7 +209,7 @@ The code would look like the following:</p><div class=highlight><pre tabindex=0 
 </span></span><span style=display:flex><span>  <span style=color:#f92672>&amp;&amp;</span> sum_and_number_of_digits(bear) <span style=color:#f92672>==</span> sum_and_number_of_digits(volcano)
 </span></span><span style=display:flex><span>  {
 </span></span><span style=display:flex><span>    <span style=color:#75715e>// do something
-</span></span></span><span style=display:flex><span><span style=color:#75715e></span>  }
+</span></span></span><span style=display:flex><span>  }
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>Since most of the conditions are modulo congruence checks, we can use the Chinese Remainder Theorem
 to solve for the smallest number that leaves the respective remainders and begin from there.</p><p>Let <span class=katex><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>a</mi></mrow><annotation encoding="application/x-tex">a</annotation></semantics></math></span> be a vector of all the moduli and <span class=katex><math xmlns="http://www.w3.org/1998/Math/MathML"><semantics><mrow><mi>r</mi></mrow><annotation encoding="application/x-tex">r</annotation></semantics></math></span> represent the array of the respective remainders.</p><span class=katex><math xmlns="http://www.w3.org/1998/Math/MathML" display="block"><semantics><mrow><mi>a</mi><mo>=</mo><mrow><mo fence="true">[</mo><mtable rowspacing="0.16em" columnalign="center center center center center" columnspacing="1em"><mtr><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>2</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>3</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>5</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>7</mn></mstyle></mtd><mtd><mstyle scriptlevel="0" displaystyle="false"><mn>109</mn></mstyle></mtd></mtr></mtable><mo fence="true">]</mo></mrow></mrow><annotation encoding="application/x-tex">
@@ -316,4 +316,4 @@ amateursCTF{yep_th0se_l00k_th3_s4me_to_m3!_:clueless:}
 <a href=https://lavafroth.is-a.dev/tags/ctf class=list-tag>CTF</a>
 <a href=https://lavafroth.is-a.dev/tags/remainder-theorem class=list-tag>Remainder Theorem</a>
 <a href=https://lavafroth.is-a.dev/tags/reverse-engineering class=list-tag>Reverse Engineering</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/compact-xor-crypto-challenge-amateursctf-2023/><span>←</span><span>Compact XOR</span></a>
-<a href=https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/><span>Waiting an Eternity</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2025 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
+<a href=https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/><span>Waiting an Eternity</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
