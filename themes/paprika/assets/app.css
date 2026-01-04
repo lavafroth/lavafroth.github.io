@@ -596,7 +596,12 @@ nav[data-post] {
 
   .highlight,
   pre {
+    margin: 0 0 3rem;
+    
+    @media screen and (width <= 600px) {
     margin: 0 calc(var(--gap) * -1) 4rem;
+      
+    }
     overflow-x: auto;
     background: var(--code-bg) !important;
     border-radius: 0.5rem;
