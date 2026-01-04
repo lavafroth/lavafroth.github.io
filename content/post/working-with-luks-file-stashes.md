@@ -1,16 +1,19 @@
----
-title: "Working With LUKS File Stashes"
-date: 2026-01-01T07:24:36+05:30
-draft: true
----
-
-`THIS POST IS A DRAFT`
++++
+title = "Working With LUKS File Stashes"
+date = 2026-01-01T07:24:36+05:30
+draft = false
+tags = [
+  "Linux",
+  "LUKS",
+  "Cryptography"
+]
++++
 
 LUKS is an incredible solution for encrypting entire partitions in Linux.
 Often times, however, we can't afford to create new partitions inside a disk
 without having to completely format the drive anew.
 
-In this post, I will guide you through the process of creating and working
+This post will guide you through the process of creating and working
 with LUKS container files that are encrypted at rest and can be decrypted on
 demand with knowledge of the passphrase.
 
@@ -22,6 +25,12 @@ head --bytes=4G /dev/urandom > stash.img
 
 ## Format the image
 
+The image can be formatted by either including the header in the image itself or
+keeping a detached header.
+
+In either case, cryptsetup will ask for passphrase which will secure
+the contents of this container.
+
 ### Including the LUKS header
 
 ```sh
@@ -30,13 +39,27 @@ cryptsetup luksFormat stash.img
 
 ### With a detached LUKS header
 
+> Note: Using a detached LUKS header is unsupported by udisksctl. Mounting such images
+can only be done using `cryptsetup` with super user privileges.
+
 ```sh
 cryptsetup luksFormat stash.img --header stash.img.luks
 ```
 
-In either case, cryptsetup will ask you to supply a passphrase which will secure
-the contents of this container.
+## Formatting the drive with a filesystem
 
+Super user privileges are required for this action. Run the following as root.
+
+```sh
+mkdir -p /mnt/stash
+cryptsetup open stash.img stash # --header stash.img.luks
+mkfs.ext4 /dev/mapper/stash
+mount /dev/mapper/stash /mnt/stash
+chown -R :users /mnt/stash
+chmod -R g+rw /mnt/stash
+umount /mnt/stash
+cryptsetup close stash
+```
 
 ## Interacting with the image
 
@@ -48,9 +71,14 @@ since that's the whole point of portable LUKS file stashes.
 
 #### Mounting
 
+The following commands will
+- Create a mountpoint at `/mnt/stash`
+- Open the image with `cryptsetup` as `/dev/mapper/stash`
+- Mount the the mapper device to the mountpoint
+
 ```sh
 mkdir -p /mnt/stash
-cryptsetup open stash.img stash
+cryptsetup open stash.img stash # --header stash.img.luks
 mount /dev/mapper/stash /mnt/stash
 ```
 
