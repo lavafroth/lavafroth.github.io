@@ -48,18 +48,17 @@
   border: 0;
 }
 
-math * {
-  padding: revert;
-}
-
 html,
 body {
   height: 100%;
 }
 
 html {
-  -webkit-tap-highlight-color: transparent;
   font-size: 8px;
+}
+
+::selection {
+  background: var(--fog);
 }
 
 search {
@@ -99,12 +98,11 @@ body {
   color: var(--pro);
   word-break: break-word;
   background: var(--white);
-}
-
-body>* {
-  flex-shrink: 0;
-  width: 100%;
-  margin-inline: auto;
+  > * {
+    flex-shrink: 0;
+    width: 100%;
+    margin-inline: auto;
+  }
 }
 
 @media (max-width: 1199px) {
@@ -123,6 +121,9 @@ video {
 }
 
 math {
+  * {
+    padding: revert;
+  }
   font-family: LatinModern;
   font-size: 2.5rem;
 }
