@@ -46,7 +46,7 @@ can only be done using `cryptsetup` with super user privileges.
 cryptsetup luksFormat stash.img --header stash.img.luks
 ```
 
-## Fromatting the drive with a filesystem
+## Formatting the drive with a filesystem
 
 Super user privileges are required for this action. Run the following as root.
 
