@@ -1,10 +1,14 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 01 Jan 2026 07:24:36 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Working With LUKS File Stashes</title><link>https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/</link><pubDate>Thu, 01 Jan 2026 07:24:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/</guid><description>&lt;p&gt;&lt;code&gt;THIS POST IS A DRAFT&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;LUKS is an incredible solution for encrypting entire partitions in Linux.
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Thu, 01 Jan 2026 07:24:36 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Working With LUKS File Stashes</title><link>https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/</link><pubDate>Thu, 01 Jan 2026 07:24:36 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/</guid><description>&lt;p&gt;LUKS is an incredible solution for encrypting entire partitions in Linux.
 Often times, however, we can&amp;rsquo;t afford to create new partitions inside a disk
 without having to completely format the drive anew.&lt;/p&gt;
-&lt;p&gt;In this post, I will guide you through the process of creating and working
+&lt;p&gt;This post will guide you through the process of creating and working
 with LUKS container files that are encrypted at rest and can be decrypted on
-demand with knowledge of the passphrase.&lt;/p&gt;</description></item><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to use Python despite my preference for Rust,
+demand with knowledge of the passphrase.&lt;/p&gt;
+&lt;h2 id="creating-the-image-base"&gt;Creating the image base&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;head --bytes&lt;span style="color:#f92672"&gt;=&lt;/span&gt;4G /dev/urandom &amp;gt; stash.img
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="format-the-image"&gt;Format the image&lt;/h2&gt;
+&lt;p&gt;The image can be formatted by either including the header in the image itself or
+keeping a detached header.&lt;/p&gt;</description></item><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to use Python despite my preference for Rust,
 primarily due to the machine learning and data science hype. One
 Rust feature that I dearly miss is enumerable data types
 that can encapsulate various other data types.&lt;/p&gt;
