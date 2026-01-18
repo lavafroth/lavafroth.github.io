@@ -369,6 +369,10 @@ article {
     font-size: 1.7rem;
     color: var(--air);
   }
+
+  img {
+    margin: auto;
+  }
 }
 
 .post-link {
