@@ -1021,11 +1021,7 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
  &lt;meta name="description" content="" /&gt;
  &lt;style&gt;
- * {
- 	padding: 0;
- 	margin: 0;
- 	font-family: monospace;
- }
+ * { font-family: monospace; }
  body {
  	background: oklch(29.3% 0.136 325.661);
  	font-size: 2rem;
@@ -1033,10 +1029,8 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
 
  input {
  	outline: none;
- 	font-size: 2rem;
  	color: #eee;
  	border: none;
- 	padding: .5rem;
  	background: oklch(29.3% 0.136 325.661);
  	&amp;:invalid {
  	 background: oklch(40.8% 0.153 2.432);
@@ -1057,19 +1051,17 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  .grid {
  	display: grid;
  	grid-template-columns: repeat(3, minmax(0, 1fr));
- 	grid-template-rows: repeat(2, minmax(0, 1fr));
- 	grid-auto-flow: column;
+ 	grid-template-rows: repeat(3, minmax(0, 1fr));
 
  	justify-content: space-between;
  	align-items: center;
 
- 	 * {
- 			text-align: center;
- 	 }
+ 	 * { text-align: center; }
 
  	label[for=direction] {
  			user-select: none;
- 			grid-row: -1 / 1;
+ 			grid-row: span 2 / span 2;
+ grid-column-start: 2;
  			color: #eee;
  			&amp;::after {
  				display: block;
@@ -1091,8 +1083,9 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  }
 
  #remotehost {
- width: 62rem;
+			grid-column: span 2 / span 2;
  }
+
  #command {
  		background: oklch(45.2% 0.211 324.591);
  		margin-top: 1rem;
@@ -1106,18 +1099,16 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  &lt;div class="grid"&gt;
 
  &lt;label for="localport"&gt;Local port&lt;/label&gt;
- &lt;input id="localport" type="number" min="0" max="65535" step=1 value=8888&gt;
-
- &lt;input type=checkbox id="direction"&gt;
  &lt;label for="direction"&gt;Traffic direction&lt;/label&gt;
-
  &lt;label for="remoteport"&gt;Remote port&lt;/label&gt;
- &lt;input id="remoteport" type="number" min="0" max="65535" step=1 value=8888&gt;
- &lt;/div&gt;
 
- &lt;div&gt;
+ &lt;input id="localport" type="number" min="0" max="65535" step=1 value=8888&gt;
+ &lt;input type=checkbox id="direction"&gt;
+ &lt;input id="remoteport" type="number" min="0" max="65535" step=1 value=8888&gt;
  &lt;label for="remotehost"&gt;connecting to&lt;/label&gt;
  &lt;input id="remotehost" type="text" placeholder="user@remote.host"&gt;
+ &lt;/div&gt;
+
  &lt;div id='command'&gt;&lt;/div&gt;
  &lt;/div&gt;
 &lt;/body&gt;
