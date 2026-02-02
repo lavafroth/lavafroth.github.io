@@ -6,11 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <style>
-  * {
-  	padding: 0;
-  	margin: 0;
-  	font-family: monospace;
-  }
+  * { font-family: monospace; }
   body {
   	background: oklch(29.3% 0.136 325.661);
   	font-size: 2rem;
@@ -18,10 +14,8 @@
 
   input {
   	outline: none;
-  	font-size: 2rem;
   	color: #eee;
   	border: none;
-  	padding: .5rem;
   	background: oklch(29.3% 0.136 325.661);
   	&:invalid {
   	  background: oklch(40.8% 0.153 2.432);
@@ -42,19 +36,17 @@
   .grid {
   	display: grid;
   	grid-template-columns: repeat(3, minmax(0, 1fr));
-  	grid-template-rows: repeat(2, minmax(0, 1fr));
-  	grid-auto-flow: column;
+  	grid-template-rows: repeat(3, minmax(0, 1fr));
 
   	justify-content: space-between;
   	align-items: center;
 
-  	 * {
-  			text-align: center;
-  	 }
+  	 * { text-align: center; }
 
   	label[for=direction] {
   			user-select: none;
-  			grid-row: -1 / 1;
+  			grid-row: span 2 / span 2;
+        grid-column-start: 2;
   			color: #eee;
   			&::after {
   				display: block;
@@ -76,8 +68,9 @@
   }
 
   #remotehost {
-    width: 62rem;
+			grid-column: span 2 / span 2;
   }
+
   #command {
   		background: oklch(45.2% 0.211 324.591);
   		margin-top: 1rem;
@@ -91,18 +84,16 @@
   <div class="grid">
 
       <label for="localport">Local port</label>
-      <input id="localport" type="number" min="0" max="65535" step=1 value=8888>
-
-      <input type=checkbox id="direction">
       <label for="direction">Traffic direction</label>
-
       <label for="remoteport">Remote port</label>
-      <input id="remoteport" type="number" min="0" max="65535" step=1 value=8888>
-  </div>
 
-  <div>
-    <label for="remotehost">connecting to</label>
-    <input id="remotehost" type="text" placeholder="user@remote.host">
+      <input id="localport" type="number" min="0" max="65535" step=1 value=8888>
+      <input type=checkbox id="direction">
+      <input id="remoteport" type="number" min="0" max="65535" step=1 value=8888>
+      <label for="remotehost">connecting to</label>
+      <input id="remotehost" type="text" placeholder="user@remote.host">
+    </div>
+
     <div id='command'></div>
   </div>
 </body>
