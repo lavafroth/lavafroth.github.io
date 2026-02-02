@@ -1073,7 +1073,7 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  			color: #eee;
  			&amp;::after {
  				display: block;
- 				content: '🡠';
+ 				content: '&lt;';
  			}
  		}
 
@@ -1085,7 +1085,7 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
 
  	&amp;:has(input:checked) {
  		label[for=direction]::after {
- 			content: '🡢';
+ 			content: '&gt;';
  		}
  	}
  }
