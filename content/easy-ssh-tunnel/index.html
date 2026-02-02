@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Easy SSH tunnel</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="description" content="" />
+  <style>
+  * {
+  	padding: 0;
+  	margin: 0;
+  	font-family: monospace;
+  }
+  body {
+  	background: oklch(29.3% 0.136 325.661);
+  	font-size: 2rem;
+  }
+
+  input {
+  	outline: none;
+  	font-size: 2rem;
+  	color: #eee;
+  	border: none;
+  	padding: .5rem;
+  	background: oklch(29.3% 0.136 325.661);
+  	&:invalid {
+  	  background: oklch(40.8% 0.153 2.432);
+  	}
+  }
+
+  .post-content > div {
+  	margin: 1rem auto;
+
+  	label:not([for=direction]) {
+  		padding: .5rem;
+  		background: lab(78.5378% 39.3533 -32.9615);
+      color: oklch(29.3% 0.136 325.661);
+  	}
+
+  }
+
+  .grid {
+  	display: grid;
+  	grid-template-columns: repeat(3, minmax(0, 1fr));
+  	grid-template-rows: repeat(2, minmax(0, 1fr));
+  	grid-auto-flow: column;
+
+  	justify-content: space-between;
+  	align-items: center;
+
+  	 * {
+  			text-align: center;
+  	 }
+
+  	label[for=direction] {
+  			user-select: none;
+  			grid-row: -1 / 1;
+  			color: #eee;
+  			&::after {
+  				display: block;
+  				content: '🡠';
+  			}
+  		}
+
+  		input[type="checkbox"] {
+        opacity: 0;
+        position: absolute;
+        pointer-events: none;
+  		}
+
+  	&:has(input:checked) {
+  		label[for=direction]::after {
+  			content: '🡢';
+  		}
+  	}
+  }
+
+  #remotehost {
+    width: 62rem;
+  }
+  #command {
+  		background: oklch(45.2% 0.211 324.591);
+  		margin-top: 1rem;
+  		padding: 0.5rem;
+  		color: #eee;
+  }
+  </style>
+</head>
+<body>
+
+  <div class="grid">
+
+      <label for="localport">Local port</label>
+      <input id="localport" type="number" min="0" max="65535" step=1 value=8888>
+
+      <input type=checkbox id="direction">
+      <label for="direction">Traffic direction</label>
+
+      <label for="remoteport">Remote port</label>
+      <input id="remoteport" type="number" min="0" max="65535" step=1 value=8888>
+  </div>
+
+  <div>
+    <label for="remotehost">connecting to</label>
+    <input id="remotehost" type="text" placeholder="user@remote.host">
+    <div id='command'></div>
+  </div>
+</body>
+
+<script>
+  const localPort = document.querySelector('#localport');
+  const remotePort = document.querySelector('#remoteport');
+  const remoteHost = document.querySelector('#remotehost');
+  const direction = document.querySelector('#direction');
+  const command = document.querySelector('#command');
+
+  function updateCommand() {
+    const localPortValue = localPort.value;
+    const remotePortValue = remotePort.value;
+    const directionString = direction.checked ? "R" : "L";
+    const remoteHostValue = remoteHost.value || remoteHost.placeholder;
+    command.textContent = `ssh -f -N -${directionString} ${localPortValue}:localhost:${remotePortValue} ${remoteHostValue}`;
+  }
+
+  localPort.addEventListener('input', updateCommand);
+  direction.addEventListener('change', updateCommand);
+  remotePort.addEventListener('input', updateCommand);
+  remoteHost.addEventListener('input', updateCommand);
+
+  updateCommand()
+ </script>
+</html>
