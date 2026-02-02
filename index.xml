@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>lavafroth</title><link>https://lavafroth.is-a.dev/</link><description>Recent content on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Sun, 18 Jan 2026 08:06:06 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/index.xml" rel="self" type="application/rss+xml"/><item><title>Step to the 💗 beat</title><link>https://lavafroth.is-a.dev/art/drawhearts/</link><pubDate>Sun, 18 Jan 2026 08:06:06 +0530</pubDate><guid>https://lavafroth.is-a.dev/art/drawhearts/</guid><description>&lt;p&gt;My first procedurally generated animation using shaders.&lt;/p&gt;
 &lt;p&gt;The shader can be visualized with &lt;code&gt;glslViewer&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-glsl" data-lang="glsl"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;uniform&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;vec2&lt;/span&gt; u_mouse;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-glsl" data-lang="glsl"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;uniform&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;vec2&lt;/span&gt; u_mouse;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;uniform&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;vec2&lt;/span&gt; u_resolution;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;uniform&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;float&lt;/span&gt; u_time;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
@@ -40,7 +40,7 @@ without having to completely format the drive anew.&lt;/p&gt;
 with LUKS container files that are encrypted at rest and can be decrypted on
 demand with knowledge of the passphrase.&lt;/p&gt;
 &lt;h2 id="creating-the-image-base"&gt;Creating the image base&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;head --bytes&lt;span style="color:#f92672"&gt;=&lt;/span&gt;4G /dev/urandom &amp;gt; stash.img
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;head --bytes&lt;span style="color:#f92672"&gt;=&lt;/span&gt;4G /dev/urandom &amp;gt; stash.img
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="format-the-image"&gt;Format the image&lt;/h2&gt;
 &lt;p&gt;The image can be formatted by either including the header in the image itself or
 keeping a detached header.&lt;/p&gt;</description></item><item><title>Algebraic Python Enums</title><link>https://lavafroth.is-a.dev/post/algebraic-python-enums/</link><pubDate>Sun, 02 Nov 2025 19:08:46 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/algebraic-python-enums/</guid><description>&lt;p&gt;University has compelled me to use Python despite my preference for Rust,
@@ -657,12 +657,12 @@ the last branch which returns instead of calling the decryption subroutine.&lt;/
 &lt;p&gt;I found some hex in a file called fleg, but I’m not sure how it’s encoded. I’m pretty sure it’s some kind of xor…&lt;/p&gt;
 &lt;h1 id="exploration"&gt;Exploration&lt;/h1&gt;
 &lt;p&gt;We begin by creating a new rust project.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo new amateurs
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo new amateurs
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cd amateurs
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo add hex
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;cargo add itertools
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Let&amp;rsquo;s decode the hexadecimal contents of the file using the following Rust code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;fn&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() -&amp;gt; Result&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;(), Box&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;dyn&lt;/span&gt; std::error::Error&lt;span style="color:#f92672"&gt;&amp;gt;&amp;gt;&lt;/span&gt; {
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-rust" data-lang="rust"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;fn&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;main&lt;/span&gt;() -&amp;gt; Result&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;(), Box&lt;span style="color:#f92672"&gt;&amp;lt;&lt;/span&gt;&lt;span style="color:#66d9ef"&gt;dyn&lt;/span&gt; std::error::Error&lt;span style="color:#f92672"&gt;&amp;gt;&amp;gt;&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; bytes &lt;span style="color:#f92672"&gt;=&lt;/span&gt; hex::decode(&lt;span style="color:#e6db74"&gt;&amp;#34;610c6115651072014317463d73127613732c73036102653a6217742b701c61086e1a651d742b69075f2f6c0d69075f2c690e681c5f673604650364023944&amp;#34;&lt;/span&gt;)&lt;span style="color:#f92672"&gt;?&lt;/span&gt;;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;let&lt;/span&gt; stream &lt;span style="color:#f92672"&gt;=&lt;/span&gt; String::from_utf8_lossy(&lt;span style="color:#f92672"&gt;&amp;amp;&lt;/span&gt;bytes);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#a6e22e"&gt;println!&lt;/span&gt;(&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;&lt;span style="color:#e6db74"&gt;{:?}&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;, stream);
@@ -677,7 +677,7 @@ reference meant.&lt;/p&gt;
 &lt;p&gt;In the list of functions under the Symbol Tree, we can navigate to the &lt;code&gt;entry&lt;/code&gt; function which looks like:&lt;/p&gt;</description></item><item><title>Waiting an Eternity</title><link>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</link><pubDate>Wed, 19 Jul 2023 07:53:17 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/wait-an-eternity-web-challenge-amateursctf-2023/</guid><description>&lt;p&gt;This was a fairly straightforward and fun challenge that required a bit of common sense to solve.
 We are given the URL &lt;a href="https://waiting-an-eternity.amt.rs"&gt;https://waiting-an-eternity.amt.rs&lt;/a&gt; to begin with.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s use &lt;code&gt;curl&lt;/code&gt; with its verbose flag to fetch this URL.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -v &lt;span style="color:#e6db74"&gt;&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl -v &lt;span style="color:#e6db74"&gt;&amp;#34;https://waiting-an-eternity.amt.rs&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We get a response that tells us to wait an enternity.&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;&amp;gt; GET / HTTP/2
 &amp;gt; Host: waiting-an-eternity.amt.rs
@@ -700,7 +700,7 @@ Tired of this workflow that I somehow spiraled into, I&amp;rsquo;m now seeking t
 Linux way of doing things. It has an amazing package manager as well as &lt;a href="https://aur.archlinux.org"&gt;a user repository&lt;/a&gt; for extra software unavailable in the official repositories. It&amp;rsquo;s rather
 easy to setup Arch for gaming, thanks to programs like &lt;a href="https://lutris.net/"&gt;Lutris&lt;/a&gt; and &lt;a href="https://usebottles.com/"&gt;Bottles&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Twosum</title><link>https://lavafroth.is-a.dev/post/picoctf-binary-exploitation-twosum/</link><pubDate>Mon, 10 Apr 2023 08:44:28 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-binary-exploitation-twosum/</guid><description>&lt;p&gt;This is a rather simple binary exploitation challenge. We are given the following source
 code for the program running on the remote server:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-c" data-lang="c"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdio.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;#include&lt;/span&gt; &lt;span style="color:#75715e"&gt;&amp;lt;stdlib.h&amp;gt;&lt;/span&gt;&lt;span style="color:#75715e"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;static&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;addIntOvf&lt;/span&gt;(&lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; result, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; a, &lt;span style="color:#66d9ef"&gt;int&lt;/span&gt; b) {
@@ -757,7 +757,7 @@ the second. Adding them would cause the result to wrap around and become negativ
 We are also given the source code of the application.&lt;/p&gt;
 &lt;p&gt;Taking a look at the &lt;code&gt;src/main/java/io/github/nandandesai/pico/security&lt;/code&gt; subdirectory of the project, we see that it uses JWT.&lt;/p&gt;
 &lt;p&gt;Interestingly, the file &lt;code&gt;SecretGenerator.java&lt;/code&gt; in the aforementioned directory contains a weak hardcoded &lt;em&gt;&amp;ldquo;random&amp;rdquo;&lt;/em&gt; value 😱.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;@Service&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;@Service&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;SecretGenerator&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;private&lt;/span&gt; Logger logger &lt;span style="color:#f92672"&gt;=&lt;/span&gt; LoggerFactory.&lt;span style="color:#a6e22e"&gt;getLogger&lt;/span&gt;(SecretGenerator.&lt;span style="color:#a6e22e"&gt;class&lt;/span&gt;);
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;private&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;static&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;final&lt;/span&gt; String SERVER_SECRET_FILENAME &lt;span style="color:#f92672"&gt;=&lt;/span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;server_secret.txt&amp;#34;&lt;/span&gt;;
@@ -793,7 +793,7 @@ We are also given the source code of the application.&lt;/p&gt;
 going to be client side. We are asked to visit the &lt;a href="http://jupiter.challenges.picoctf.org:42899/"&gt;challenge
 page&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;From here, we can view the source code of the page.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;html&lt;/span&gt;&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;html&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&amp;lt;&lt;span style="color:#f92672"&gt;head&lt;/span&gt;&amp;gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;jquery-3.3.1.min.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;		&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
@@ -845,7 +845,7 @@ about.&lt;/p&gt;
 &lt;a href="http://mercury.picoctf.net:60022/index.html"&gt;http://mercury.picoctf.net:60022/index.html&lt;/a&gt;
 where we find a simple textbox prompting us to submit the flag.&lt;/p&gt;
 &lt;p&gt;Looking at the page source by pressing &lt;code&gt;ctrl&lt;/code&gt; &lt;code&gt;u&lt;/code&gt;, we see that it is sourcing javascript code from &lt;code&gt;rTEuOmSfG3.js&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;src&lt;/span&gt;&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;rTEuOmSfG3.js&amp;#34;&lt;/span&gt;&amp;gt;&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While examining the javascript, we will notice that it is obfuscated and
 packed. Put this through &lt;a href="https://lelinhtinh.github.io/de4js/"&gt;de4js&lt;/a&gt; to
 prettify it.&lt;/p&gt;</description></item><item><title>Kringlecon 2022 Writeup</title><link>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</link><pubDate>Mon, 09 Jan 2023 10:36:35 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/kringlecon-2022-writeup/</guid><description>&lt;p&gt;This writeup is rather haphazard as I jumped around from one place to another
@@ -855,7 +855,7 @@ before diving in.&lt;/p&gt;
 &lt;h3 id="clone-with-a-difference"&gt;Clone with a Difference&lt;/h3&gt;
 &lt;p&gt;This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
 cloning which doesn&amp;rsquo;t seem to work.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can clone this the HTTPS way:&lt;/p&gt;</description></item><item><title>Pixelated</title><link>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</link><pubDate>Tue, 22 Nov 2022 09:25:20 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-cryptography-pixelated/</guid><description>&lt;p&gt;This challenge gives use two images and asks us if we can make a flag out of them.
 At first glance, both the images look like noise. Upon a quick web lookup of
 &lt;a href="https://en.wikipedia.org/wiki/Visual_cryptography"&gt;visual cryptography&lt;/a&gt;, it appears
@@ -875,17 +875,17 @@ given 2 seconds to SHA512 hash the message represented by the binary provided
 string. We must send the response with the request parameter &lt;code&gt;r&lt;/code&gt;. Let&amp;rsquo;s write
 a go program to do that.&lt;/p&gt;
 &lt;p&gt;First let&amp;rsquo;s declare the url as a constant.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10014/&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We fetch the challenge page and defer closing its body once the program ends.&lt;/p&gt;</description></item><item><title>Hash Me Please</title><link>https://lavafroth.is-a.dev/post/r0-hash-me-please/</link><pubDate>Fri, 19 Aug 2022 09:57:00 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/r0-hash-me-please/</guid><description>&lt;p&gt;In this RingZer0 challenge, we are asked to visit
 &lt;a href="http://challenges.ringzer0team.com:10013/"&gt;http://challenges.ringzer0team.com:10013/&lt;/a&gt; and are given 2 seconds to hash the
 provided message using the SHA512 algorithm. We must send the response as
 &lt;a href="http://challenges.ringzer0team.com:10013/?r=response"&gt;http://challenges.ringzer0team.com:10013/?r=&lt;em&gt;response&lt;/em&gt;&lt;/a&gt;
 and to do that, we&amp;rsquo;ll be using some Golang.&lt;/p&gt;
 &lt;p&gt;Let&amp;rsquo;s declare the URI as a constant.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;const&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt; = &lt;span style="color:#e6db74"&gt;&amp;#34;http://challenges.ringzer0team.com:10013/&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We fetch the challenge page using the &lt;code&gt;Get&lt;/code&gt; function from the &lt;code&gt;http&lt;/code&gt; standard
 library, checking for errors along the way.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;http&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Get&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt;)
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-go" data-lang="go"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;resp&lt;/span&gt;, &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;:=&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;http&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Get&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;uri&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;err&lt;/span&gt; &lt;span style="color:#f92672"&gt;!=&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;nil&lt;/span&gt; {
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;	&lt;span style="color:#a6e22e"&gt;log&lt;/span&gt;.&lt;span style="color:#a6e22e"&gt;Fatalln&lt;/span&gt;(&lt;span style="color:#a6e22e"&gt;err&lt;/span&gt;)
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
@@ -903,7 +903,7 @@ Before you walk away saying, &lt;a href="https://www.youtube.com/watch?v=RXS1sJm
 The redirection, however, is done using javascript instead of regular HTTP status codes like 302.
 This meant, one couldn&amp;rsquo;t simply run the following and expect to see a video.&lt;/p&gt;</description></item><item><title>Bash Jail 3</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/</link><pubDate>Sun, 24 Jul 2022 12:29:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/</guid><description>&lt;h1 id="the-challenge"&gt;The challenge&lt;/h1&gt;
 &lt;p&gt;Logging into the box we are told that the flag is located at &lt;code&gt;/home/level3/flag.txt&lt;/code&gt;.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; check_space &lt;span style="color:#f92672"&gt;{&lt;/span&gt; 
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; check_space &lt;span style="color:#f92672"&gt;{&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;[[&lt;/span&gt; $1 &lt;span style="color:#f92672"&gt;==&lt;/span&gt; *&lt;span style="color:#f92672"&gt;[&lt;/span&gt;bdksc&lt;span style="color:#f92672"&gt;]&lt;/span&gt;* &lt;span style="color:#f92672"&gt;]]&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt; 
@@ -928,7 +928,7 @@ This meant, one couldn&amp;rsquo;t simply run the following and expect to see a 
 which means we cannot exfiltrate the flag from &lt;code&gt;stderr&lt;/code&gt; since it is blocked.&lt;/p&gt;</description></item><item><title>Bash Jail 2</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail2/</link><pubDate>Sun, 24 Jul 2022 12:28:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail2/</guid><description>&lt;h1 id="the-challenge"&gt;The challenge&lt;/h1&gt;
 &lt;p&gt;Logging into the box we are told that the flag is located at &lt;code&gt;/home/level2/flag.txt&lt;/code&gt;&lt;/p&gt;
 &lt;h3 id="challenge-bash-code"&gt;Challenge bash code&lt;/h3&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; check_space &lt;span style="color:#f92672"&gt;{&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;function&lt;/span&gt; check_space &lt;span style="color:#f92672"&gt;{&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; &lt;span style="color:#f92672"&gt;[[&lt;/span&gt; $1 &lt;span style="color:#f92672"&gt;==&lt;/span&gt; *&lt;span style="color:#f92672"&gt;[&lt;/span&gt;bdks&lt;span style="color:#e6db74"&gt;&amp;#39;;&amp;#39;&amp;#39;&amp;amp;&amp;#39;&amp;#39; &amp;#39;&lt;/span&gt;&lt;span style="color:#f92672"&gt;]&lt;/span&gt;* &lt;span style="color:#f92672"&gt;]]&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;then&lt;/span&gt; 
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;0&lt;/span&gt;
@@ -955,7 +955,7 @@ string among &lt;code&gt;b&lt;/code&gt;,&lt;code&gt;d&lt;/code&gt;,&lt;code&gt;k
 return 1, we get a &amp;ldquo;restricted characters&amp;rdquo; message and no further processing happens.&lt;/p&gt;</description></item><item><title>Bash Jail 1</title><link>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail1/</link><pubDate>Sun, 24 Jul 2022 12:27:56 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail1/</guid><description>&lt;h1 id="the-challenge"&gt;The challenge&lt;/h1&gt;
 &lt;p&gt;Upon SSHing into the box, we are told that the flag is located at &lt;code&gt;/home/level1/flag.txt&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;Challenge bash code:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; :
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;while&lt;/span&gt; :
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;do&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; echo &lt;span style="color:#e6db74"&gt;&amp;#34;Your input:&amp;#34;&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; read input
@@ -979,7 +979,7 @@ installing the suite of tools.&lt;/p&gt;
 &lt;h1 id="operation-oni"&gt;Operation Oni&lt;/h1&gt;
 &lt;p&gt;The challenge has an associated instance which we&amp;rsquo;ll need to log into using SSH using
 the following command:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh -i key_file -p &lt;span style="color:#ae81ff"&gt;61948&lt;/span&gt; ctf-player@saturn.picoctf.net
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ssh -i key_file -p &lt;span style="color:#ae81ff"&gt;61948&lt;/span&gt; ctf-player@saturn.picoctf.net
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We are provided with a compressed disk image &lt;code&gt;disk.img.gz&lt;/code&gt; which we&amp;rsquo;ll decompress with:&lt;/p&gt;</description></item><item><title>JAuth</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</link><pubDate>Tue, 22 Feb 2022 14:49:34 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-jauth/</guid><description>&lt;p&gt;The challenge description states that most web application developers use third party components without testing their security.
 It mentions some past affected companies, then asks us to identify and exploit the vulnerable component for the challenge at &lt;a href="http://saturn.picoctf.net:52025/"&gt;http://saturn.picoctf.net:52025/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;The goal is to become an &lt;code&gt;admin&lt;/code&gt;.
@@ -992,12 +992,12 @@ We are provied with the username &lt;code&gt;test&lt;/code&gt; and the password 
 &lt;p&gt;Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p&gt;
 &lt;p&gt;I chose &lt;a href="https://codeberg.org/jbruchon/jdupes"&gt;jdupes&lt;/a&gt; for deleting the duplicates because it&amp;rsquo;s open-source and is cross platform.&lt;/p&gt;
 &lt;p&gt;For a given folder we would run the following to wipe the duplicates:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jdupes --recurse --delete --no-prompt --zero&lt;span style="color:#f92672"&gt;-match&lt;/span&gt; .
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jdupes --recurse --delete --no-prompt --zero&lt;span style="color:#f92672"&gt;-match&lt;/span&gt; .
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will recursively delete all the duplicates except the source file without prompting for a confirmation.
 It will also consider zero length files to be duplicates.&lt;/p&gt;</description></item><item><title>Notepad</title><link>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</link><pubDate>Mon, 21 Feb 2022 09:24:30 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/</guid><description>&lt;p&gt;At first glance the webapp looks like a stripped down version of Pastebin where we can post a text / code snippet.
 After submitting the query, we are redirected to an html page containing the content of the post.&lt;/p&gt;
 &lt;p&gt;The first thing I tried was triggering XSS (cross site scripting) with the following:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;&lt;span style="color:#a6e22e"&gt;alert&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-html" data-lang="html"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&amp;lt;&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;&lt;span style="color:#a6e22e"&gt;alert&lt;/span&gt;(&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;)&amp;lt;/&lt;span style="color:#f92672"&gt;script&lt;/span&gt;&amp;gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The application source directory tree looks like the following:&lt;/p&gt;
 &lt;pre tabindex="0"&gt;&lt;code&gt;.
 ├── app.py
@@ -1013,7 +1013,138 @@ After submitting the query, we are redirected to an html page containing the con
 Additionally some might even keep &lt;code&gt;builtins&lt;/code&gt; and &lt;code&gt;eval&lt;/code&gt; out of reach.&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=SN6EVIG4c-0"&gt;Here&lt;/a&gt; is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out of Flask&amp;rsquo;s Jinja2 backend to get remote code execution.&lt;/p&gt;
-&lt;p&gt;Here&amp;rsquo;s the gist of it:&lt;/p&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/project_mana/</guid><description>&lt;div id="stage"&gt;
+&lt;p&gt;Here&amp;rsquo;s the gist of it:&lt;/p&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/easy-ssh-tunnel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/easy-ssh-tunnel/</guid><description>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+ &lt;meta charset="UTF-8" /&gt;
+ &lt;title&gt;Easy SSH tunnel&lt;/title&gt;
+ &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+ &lt;meta name="description" content="" /&gt;
+ &lt;style&gt;
+ * {
+ 	padding: 0;
+ 	margin: 0;
+ 	font-family: monospace;
+ }
+ body {
+ 	background: oklch(29.3% 0.136 325.661);
+ 	font-size: 2rem;
+ }
+
+ input {
+ 	outline: none;
+ 	font-size: 2rem;
+ 	color: #eee;
+ 	border: none;
+ 	padding: .5rem;
+ 	background: oklch(29.3% 0.136 325.661);
+ 	&amp;:invalid {
+ 	 background: oklch(40.8% 0.153 2.432);
+ 	}
+ }
+
+ .post-content &gt; div {
+ 	margin: 1rem auto;
+
+ 	label:not([for=direction]) {
+ 		padding: .5rem;
+ 		background: lab(78.5378% 39.3533 -32.9615);
+ color: oklch(29.3% 0.136 325.661);
+ 	}
+
+ }
+
+ .grid {
+ 	display: grid;
+ 	grid-template-columns: repeat(3, minmax(0, 1fr));
+ 	grid-template-rows: repeat(2, minmax(0, 1fr));
+ 	grid-auto-flow: column;
+
+ 	justify-content: space-between;
+ 	align-items: center;
+
+ 	 * {
+ 			text-align: center;
+ 	 }
+
+ 	label[for=direction] {
+ 			user-select: none;
+ 			grid-row: -1 / 1;
+ 			color: #eee;
+ 			&amp;::after {
+ 				display: block;
+ 				content: '🡠';
+ 			}
+ 		}
+
+ 		input[type="checkbox"] {
+ opacity: 0;
+ position: absolute;
+ pointer-events: none;
+ 		}
+
+ 	&amp;:has(input:checked) {
+ 		label[for=direction]::after {
+ 			content: '🡢';
+ 		}
+ 	}
+ }
+
+ #remotehost {
+ width: 62rem;
+ }
+ #command {
+ 		background: oklch(45.2% 0.211 324.591);
+ 		margin-top: 1rem;
+ 		padding: 0.5rem;
+ 		color: #eee;
+ }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;div class="grid"&gt;
+
+ &lt;label for="localport"&gt;Local port&lt;/label&gt;
+ &lt;input id="localport" type="number" min="0" max="65535" step=1 value=8888&gt;
+
+ &lt;input type=checkbox id="direction"&gt;
+ &lt;label for="direction"&gt;Traffic direction&lt;/label&gt;
+
+ &lt;label for="remoteport"&gt;Remote port&lt;/label&gt;
+ &lt;input id="remoteport" type="number" min="0" max="65535" step=1 value=8888&gt;
+ &lt;/div&gt;
+
+ &lt;div&gt;
+ &lt;label for="remotehost"&gt;connecting to&lt;/label&gt;
+ &lt;input id="remotehost" type="text" placeholder="user@remote.host"&gt;
+ &lt;div id='command'&gt;&lt;/div&gt;
+ &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+ const localPort = document.querySelector('#localport');
+ const remotePort = document.querySelector('#remoteport');
+ const remoteHost = document.querySelector('#remotehost');
+ const direction = document.querySelector('#direction');
+ const command = document.querySelector('#command');
+
+ function updateCommand() {
+ const localPortValue = localPort.value;
+ const remotePortValue = remotePort.value;
+ const directionString = direction.checked ? "R" : "L";
+ const remoteHostValue = remoteHost.value || remoteHost.placeholder;
+ command.textContent = `ssh -f -N -${directionString} ${localPortValue}:localhost:${remotePortValue} ${remoteHostValue}`;
+ }
+
+ localPort.addEventListener('input', updateCommand);
+ direction.addEventListener('change', updateCommand);
+ remotePort.addEventListener('input', updateCommand);
+ remoteHost.addEventListener('input', updateCommand);
+
+ updateCommand()
+ &lt;/script&gt;
+&lt;/html&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/project_mana/</guid><description>&lt;div id="stage"&gt;
 &lt;/div&gt;
 &lt;style&gt;
 canvas {

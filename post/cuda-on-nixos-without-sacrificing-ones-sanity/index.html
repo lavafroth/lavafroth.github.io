@@ -15,7 +15,7 @@ processing. So if you&rsquo;re doing something serious, you have no other choice
 Although, OpenAI&rsquo;s Triton and ZLUDA are worth keeping an eye on.</p><p>Unlike your average distro, Nix will prevents conflicts between installed packages by storing its <abbr title="packages and libraries">derivations</abbr> in the <a href=https://zero-to-nix.com/concepts/nix-store>Nix store</a> instead of
 locations like <code>/usr/bin</code>, <code>/usr/lib</code> and <code>/usr/lib64</code>.</p><h1 id=how-not-to-add-cuda>How not to add CUDA</h1><p>CUDA, being proprietary junk, does not allow you to redistribute
 binaries that are linked with its blobs. Thus, for CUDA enabled PyTorch, we would have to <a href=https://discourse.nixos.org/t/pytorch-and-cuda-torch-not-compiled-with-cuda-enabled/11272/2>allow unfree
-packages and enable CUDA support</a>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nix data-lang=nix><span style=display:flex><span><span style=color:#f92672>import</span> sources<span style=color:#f92672>.</span>nixpkgs {
+packages and enable CUDA support</a>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-nix data-lang=nix><span style=display:flex><span><span style=color:#f92672>import</span> sources<span style=color:#f92672>.</span>nixpkgs {
 </span></span><span style=display:flex><span>  config <span style=color:#f92672>=</span> {
 </span></span><span style=display:flex><span>    allowUnfree <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
 </span></span><span style=display:flex><span>    cudaSupport <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
@@ -28,7 +28,7 @@ Refer to <a href=https://www.reddit.com/r/NixOS/comments/195pzdb/speeding_up_pyt
 Nix allows you to create such isolated root filesystems using the <a href=https://ryantm.github.io/nixpkgs/builders/special/fhs-environments/><code>pkgs.buildFHSEnv</code></a> function.</p><p>It accepts a <code>name</code> for the environment and a list of <code>targetPkgs</code> with the things we&rsquo;d need for basic NVIDIA support.
 Note the inclusion of <code>micromamba</code> which will do most of the legwork when setting up PyTorch.
 I&rsquo;ve also included the <code>fish</code> shell because that&rsquo;s what I daily drive. You can remove that and the <code>runScript</code> attribute
-to use the default bash.</p><h2 id=the-flake>The flake</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-nix data-lang=nix><span style=display:flex><span>    {
+to use the default bash.</p><h2 id=the-flake>The flake</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-nix data-lang=nix><span style=display:flex><span>    {
 </span></span><span style=display:flex><span>      description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Python 3.11 development environment&#34;</span>;
 </span></span><span style=display:flex><span>      outputs <span style=color:#f92672>=</span> { self<span style=color:#f92672>,</span> nixpkgs }:
 </span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span>
@@ -69,7 +69,7 @@ to use the default bash.</p><h2 id=the-flake>The flake</h2><div class=highlight>
 </span></span><span style=display:flex><span>      };
 </span></span><span style=display:flex><span>    }
 </span></span></code></pre></div><blockquote><p><em>Note:</em> This is <em>NOT</em> the same as containers. The most obvious way to tell is because
-you can access your NVIDIA GPU as is, without any passthrough shenanigans.</p></blockquote><p>Enter this flake development environment using <code>nix develop</code>.</p><h1 id=setting-up-pytorch>Setting up PyTorch</h1><p>Now that we have the scaffolding, we can use <code>micromamba</code> to install CUDA for our ML tooling.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-sh data-lang=sh><span style=display:flex><span>micromamba env create <span style=color:#ae81ff>\
+you can access your NVIDIA GPU as is, without any passthrough shenanigans.</p></blockquote><p>Enter this flake development environment using <code>nix develop</code>.</p><h1 id=setting-up-pytorch>Setting up PyTorch</h1><p>Now that we have the scaffolding, we can use <code>micromamba</code> to install CUDA for our ML tooling.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>micromamba env create <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span>    -n my-environment <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span>    anaconda::cudatoolkit <span style=color:#ae81ff>\
 </span></span></span><span style=display:flex><span>    anaconda::cudnn <span style=color:#ae81ff>\

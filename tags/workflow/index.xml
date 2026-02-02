@@ -30,6 +30,6 @@ easy to setup Arch for gaming, thanks to programs like &lt;a href="https://lutri
 &lt;p&gt;Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p&gt;
 &lt;p&gt;I chose &lt;a href="https://codeberg.org/jbruchon/jdupes"&gt;jdupes&lt;/a&gt; for deleting the duplicates because it&amp;rsquo;s open-source and is cross platform.&lt;/p&gt;
 &lt;p&gt;For a given folder we would run the following to wipe the duplicates:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jdupes --recurse --delete --no-prompt --zero&lt;span style="color:#f92672"&gt;-match&lt;/span&gt; .
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jdupes --recurse --delete --no-prompt --zero&lt;span style="color:#f92672"&gt;-match&lt;/span&gt; .
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will recursively delete all the duplicates except the source file without prompting for a confirmation.
 It will also consider zero length files to be duplicates.&lt;/p&gt;</description></item></channel></rss>

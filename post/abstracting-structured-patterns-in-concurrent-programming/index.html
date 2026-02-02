@@ -40,7 +40,7 @@ multiplexer to pass them to the respective functions. However, this route is
 less ergonomic since the programmer has to define a field in their class or
 struct whose name is decided by the API.</p><p>The second route takes advantage of Rust&rsquo;s type system.
 In Rust, enums can have different structures inside each variant. This allows
-defining a macro that matches an enum variant to its respective function.</p><p>Here&rsquo;s how the use of the API might look like:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>let</span> m <span style=color:#f92672>=</span> <span style=color:#a6e22e>multiplexer!</span>(MyEnum {
+defining a macro that matches an enum variant to its respective function.</p><p>Here&rsquo;s how the use of the API might look like:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>let</span> m <span style=color:#f92672>=</span> <span style=color:#a6e22e>multiplexer!</span>(MyEnum {
 </span></span><span style=display:flex><span>    Left(StructA) <span style=color:#f92672>=&gt;</span> function_a,
 </span></span><span style=display:flex><span>    Right(StructB) <span style=color:#f92672>=&gt;</span> function_b,
 </span></span><span style=display:flex><span>});
@@ -49,7 +49,7 @@ a channel.</li><li>Spawns these wrapped functions in their own coroutines, joini
 them.</li><li>Optionally take a context as an input for cancellation of itself and
 coroutines spawned by it.</li><li>Uses a <code>match</code> block to dispatch the inner value of a struct to the respective
 channel.</li></ul><p>The macro would use the <code>quote!</code> macro to generate the match arm for each
-variant like the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#a6e22e>quote!</span>(
+variant like the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#a6e22e>quote!</span>(
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>match</span> #enum_ident {
 </span></span><span style=display:flex><span>        <span style=color:#75715e>// loop over the arms in the macro call
 </span></span></span><span style=display:flex><span>        #variant(#inner) <span style=color:#f92672>=&gt;</span> #inner_chan_tx.send(#inner);
@@ -67,7 +67,7 @@ is to return an object with an enum attribute inside it or having a 2 element tu
 the enum variant and the struct akin to function return types in <em>Go</em>.</p><p>Another way is to wrap the structures inside enum variants and explicitly tell the API
 which variant implies further processing and which one implies a finalized output.</p><p>I advocate for defining a trait on an enum that wraps the output type of the
 function which allows the API to call the associated method on the object to
-know whether it is a input or a final output.</p><p>Consider the following trait:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>trait</span> PartiallyOpenLoop {
+know whether it is a input or a final output.</p><p>Consider the following trait:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>pub</span> <span style=color:#66d9ef>trait</span> PartiallyOpenLoop {
 </span></span><span style=display:flex><span>  <span style=color:#66d9ef>fn</span> <span style=color:#a6e22e>is_final</span>(<span style=color:#f92672>&amp;</span>self) -&gt; <span style=color:#66d9ef>bool</span>;
 </span></span><span style=display:flex><span>}
 </span></span></code></pre></div><p>This allows the API to call the <code>is_final</code> method of the object after each pass

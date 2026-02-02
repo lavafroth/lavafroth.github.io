@@ -10,11 +10,11 @@ We are provided with a compressed disk image disk.img.gz which we&rsquo;ll decom
 from the PicoCTF competition held in March 2022. Both of these challenges involve
 the use of tools from The Sleuth Kit suite. In order to follow along, I&rsquo;d recommend
 installing the suite of tools.</p><h1 id=operation-oni>Operation Oni</h1><p>The challenge has an associated instance which we&rsquo;ll need to log into using SSH using
-the following command:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ssh -i key_file -p <span style=color:#ae81ff>61948</span> ctf-player@saturn.picoctf.net
-</span></span></code></pre></div><p>We are provided with a compressed disk image <code>disk.img.gz</code> which we&rsquo;ll decompress with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gunzip disk.img.gz
+the following command:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>ssh -i key_file -p <span style=color:#ae81ff>61948</span> ctf-player@saturn.picoctf.net
+</span></span></code></pre></div><p>We are provided with a compressed disk image <code>disk.img.gz</code> which we&rsquo;ll decompress with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>gunzip disk.img.gz
 </span></span></code></pre></div><p>To list the partition table for the given disk image, we will use the <code>mmls</code> command.
 If <code>mmls</code> is unable to properly determine the filesystem of a given volume, we can
-specify it using the <code>-t</code> flag.</p><p>Let&rsquo;s run <code>mmls</code> on the disk image by itself.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mmls disk.img
+specify it using the <code>-t</code> flag.</p><p>Let&rsquo;s run <code>mmls</code> on the disk image by itself.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>mmls disk.img
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>DOS Partition Table
 Offset Sector: 0
 Units are in 512-byte sectors
@@ -25,7 +25,7 @@ Units are in 512-byte sectors
 002:  000:000   0000002048   0000206847   0000204800   Linux (0x83)
 003:  000:001   0000206848   0000471039   0000264192   Linux (0x83)
 </code></pre><p>We can see two linux partitions, one starting at offset <code>2048</code> and another at <code>206848</code></p><p>In order to list the files in a given volume, we can use the <code>fls</code> command. For this,
-we will need to specify the offset of the volume using the <code>-o</code> flag.</p><p>Let&rsquo;s take a look at the first partition at offset <code>2048</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>2048</span> disk.img
+we will need to specify the offset of the volume using the <code>-o</code> flag.</p><p>Let&rsquo;s take a look at the first partition at offset <code>2048</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>2048</span> disk.img
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>d/d 11: lost+found
 r/r 12: ldlinux.sys
 r/r 13: ldlinux.c32
@@ -42,7 +42,7 @@ r/r 14: System.map-virt
 r/r 24: vesamenu.c32
 V/V 25585:      $OrphanFiles
 </code></pre><p>This looks like the boot partition of a linux installation.
-Let&rsquo;s move on to the next partition at offset <code>206848</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>206848</span> disk.img
+Let&rsquo;s move on to the next partition at offset <code>206848</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>206848</span> disk.img
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>d/d 458:        home
 d/d 11: lost+found
 d/d 12: boot
@@ -66,28 +66,28 @@ V/V 33049:      $OrphanFiles
 </code></pre><p>This looks like the standard linux filesystem hierarchy where we can see the <code>/home</code> and <code>/root</code> directories.
 Let&rsquo;s investigate the <code>/root</code> directory. To do so, we will append the inode number associated with the
 directory as an argument to <code>fls</code>.</p><p>The inode number of <code>/root</code> is <code>470</code> here.</p><pre tabindex=0><code>d/d 470:        root
-</code></pre><p>We&rsquo;ll run the previous command with the inode number.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>206848</span> disk.img <span style=color:#ae81ff>470</span>
+</code></pre><p>We&rsquo;ll run the previous command with the inode number.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>206848</span> disk.img <span style=color:#ae81ff>470</span>
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>r/r 2344:       .ash_history
 d/d 3916:       .ssh
 </code></pre><p>Here, we can see the <code>.ssh</code> directory and the root user&rsquo;s shell history file. We&rsquo;ll try listing
-the <code>.ssh</code> directory. Again, we&rsquo;ll supply the associated inode number, here, <code>3916</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>206848</span> disk.img <span style=color:#ae81ff>3916</span>
+the <code>.ssh</code> directory. Again, we&rsquo;ll supply the associated inode number, here, <code>3916</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>206848</span> disk.img <span style=color:#ae81ff>3916</span>
 </span></span></code></pre></div><pre tabindex=0><code>r/r 2345:       id_ed25519
 r/r 2346:       id_ed25519.pub
 </code></pre><p>Here, we can see a pair of SSH private and public keys. The one ending in <code>.pub</code> being the public key.
 Private keys are often used as an alternative to password authentication to SSH into a machine.
 We&rsquo;ll dump the content of this file using the <code>icat</code> command. For using this command, we&rsquo;ll need
-to specify the offset of the volume and the inode number of the file, <code>2345</code> here.</p><p>We&rsquo;ll redirect the output of the command into a file called <code>key_file</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>206848</span> disk.img <span style=color:#ae81ff>2345</span> &gt; key_file
+to specify the offset of the volume and the inode number of the file, <code>2345</code> here.</p><p>We&rsquo;ll redirect the output of the command into a file called <code>key_file</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>206848</span> disk.img <span style=color:#ae81ff>2345</span> &gt; key_file
 </span></span></code></pre></div><p>We can try using the private key to authenticate since this key is not password protected.
 Before running the SSH command, we must set the permissions on the file to read / write only
-by us.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>chmod <span style=color:#ae81ff>600</span> key_file
-</span></span></code></pre></div><p>Let&rsquo;s use the command that was provided with the challenge.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ssh -i key_file -p <span style=color:#ae81ff>61948</span> ctf-player@saturn.picoctf.net
+by us.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>chmod <span style=color:#ae81ff>600</span> key_file
+</span></span></code></pre></div><p>Let&rsquo;s use the command that was provided with the challenge.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>ssh -i key_file -p <span style=color:#ae81ff>61948</span> ctf-player@saturn.picoctf.net
 </span></span></code></pre></div><p>We get a successful login as the user <code>ctf-player</code>. Let&rsquo;s list the files in our
-home directory.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ctf-player@challenge:~$ ls
+home directory.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>ctf-player@challenge:~$ ls
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>flag.txt
-</code></pre><p>We&rsquo;ll view the contents of the <code>flag.txt</code> file.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>ctf-player@challenge:~$ cat flag.txt
+</code></pre><p>We&rsquo;ll view the contents of the <code>flag.txt</code> file.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>ctf-player@challenge:~$ cat flag.txt
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>picoCTF{k3y_5l3u7h_af277f77}
-</code></pre><h1 id=operation-orchid>Operation Orchid</h1><p>We are provided with a disk image <code>disk.flag.img.gz</code> which we&rsquo;ll decompress with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>gunzip disk.flag.img.gz
-</span></span></code></pre></div><p>Let&rsquo;s look at the partition table using <code>mmls</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mmls disk.flag.img
+</code></pre><h1 id=operation-orchid>Operation Orchid</h1><p>We are provided with a disk image <code>disk.flag.img.gz</code> which we&rsquo;ll decompress with:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>gunzip disk.flag.img.gz
+</span></span></code></pre></div><p>Let&rsquo;s look at the partition table using <code>mmls</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>mmls disk.flag.img
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>DOS Partition Table
 Offset Sector: 0
 Units are in 512-byte sectors
@@ -98,7 +98,7 @@ Units are in 512-byte sectors
 002:  000:000   0000002048   0000206847   0000204800   Linux (0x83)
 003:  000:001   0000206848   0000411647   0000204800   Linux Swap / Solaris x86 (0x82)
 004:  000:002   0000411648   0000819199   0000407552   Linux (0x83)
-</code></pre><p>Listing the volume at offset <code>2048</code> using <code>fls</code>, we see a boot partition.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>2048</span> ./disk.flag.img
+</code></pre><p>Listing the volume at offset <code>2048</code> using <code>fls</code>, we see a boot partition.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>2048</span> ./disk.flag.img
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>d/d 11: lost+found
 r/r 12: ldlinux.sys
 r/r 13: ldlinux.c32
@@ -114,7 +114,7 @@ r/r 23: menu.c32
 r/r 14: System.map-virt
 r/r 24: vesamenu.c32
 V/V 25585:      $OrphanFiles
-</code></pre><p>We&rsquo;ll move on to the next Linux partition at offset <code>411648</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>411648</span> ./disk.flag.img
+</code></pre><p>We&rsquo;ll move on to the next Linux partition at offset <code>411648</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>411648</span> ./disk.flag.img
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>d/d 460:        home
 d/d 11: lost+found
 d/d 12: boot
@@ -137,16 +137,16 @@ d/d 476:        sys
 d/d 2041:       swap
 V/V 51001:      $OrphanFiles
 </code></pre><p>Let&rsquo;s try listing the home folder of the root user at <code>/root</code>.</p><pre tabindex=0><code class=language-none data-lang=none>d/d 472:        root
-</code></pre><p>We&rsquo;ll use its inode number, <code>472</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>472</span>
+</code></pre><p>We&rsquo;ll use its inode number, <code>472</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>fls -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>472</span>
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>r/r 1875:       .ash_history
 r/r * 1876(realloc):    flag.txt
 r/r 1782:       flag.txt.enc
 </code></pre><p>We can dump the contents of the <code>flag.txt</code> file using <code>icat</code> like we did
-previously.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>1876</span>
+previously.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>1876</span>
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>           -0.881573            34.311733
 </code></pre><p>A set of coordinates? Latitudes and longitudes? Not very helpful.
-Let&rsquo;s dump <code>flag.txt.enc</code> to a file we can work on later.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>1782</span> &gt; flag.txt.enc
-</span></span></code></pre></div><p>Let&rsquo;s investigate the shell history to see what the root user was upto the last time.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>1875</span>
+Let&rsquo;s dump <code>flag.txt.enc</code> to a file we can work on later.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>1782</span> &gt; flag.txt.enc
+</span></span></code></pre></div><p>Let&rsquo;s investigate the shell history to see what the root user was upto the last time.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>icat -o <span style=color:#ae81ff>411648</span> ./disk.flag.img <span style=color:#ae81ff>1875</span>
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>touch flag.txt
 nano flag.txt 
 apk get nano
@@ -160,7 +160,7 @@ ls -al
 halt
 </code></pre><p>Ah! So they encrypted the original <code>flag.txt</code> with AES256 using the <code>openssl</code> command.
 We can see the key that was supplied to the command with the <code>-k</code> flag.</p><p>Now that we know the key, we can decrypt the <code>flag.txt.enc</code> file.</p><p>We&rsquo;ll use the <code>-d</code> flag for decryption, set the input file, the argument to the <code>-in</code> flag,
-to <code>flag.txt.enc</code> and omit the <code>-out</code> flag so that it outputs to <code>stdout</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>openssl aes256 -d -salt -in flag.txt.enc -k unbreakablepassword1234567
+to <code>flag.txt.enc</code> and omit the <code>-out</code> flag so that it outputs to <code>stdout</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-bash data-lang=bash><span style=display:flex><span>openssl aes256 -d -salt -in flag.txt.enc -k unbreakablepassword1234567
 </span></span></code></pre></div><pre tabindex=0><code class=language-none data-lang=none>*** WARNING : deprecated key derivation used.
 Using -iter or -pbkdf2 would be better.
 bad decrypt

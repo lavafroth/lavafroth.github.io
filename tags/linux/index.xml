@@ -5,7 +5,7 @@ without having to completely format the drive anew.&lt;/p&gt;
 with LUKS container files that are encrypted at rest and can be decrypted on
 demand with knowledge of the passphrase.&lt;/p&gt;
 &lt;h2 id="creating-the-image-base"&gt;Creating the image base&lt;/h2&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;head --bytes&lt;span style="color:#f92672"&gt;=&lt;/span&gt;4G /dev/urandom &amp;gt; stash.img
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;head --bytes&lt;span style="color:#f92672"&gt;=&lt;/span&gt;4G /dev/urandom &amp;gt; stash.img
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="format-the-image"&gt;Format the image&lt;/h2&gt;
 &lt;p&gt;The image can be formatted by either including the header in the image itself or
 keeping a detached header.&lt;/p&gt;</description></item><item><title>I Solemnly Swear to Never Buy a Gaming Laptop Again</title><link>https://lavafroth.is-a.dev/post/i-solemnly-swear-to-never-buy-a-gaming-laptop-again/</link><pubDate>Fri, 07 Jun 2024 17:01:01 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/i-solemnly-swear-to-never-buy-a-gaming-laptop-again/</guid><description>&lt;p&gt;Around half a decade ago, I bought an Asus gaming laptop, one I&amp;rsquo;m currently using to write this article.

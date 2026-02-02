@@ -22,7 +22,7 @@ we have a <code>from</code> function that accepts a single input (raw text or pa
 uses the <code>as_import</code> function on all subsequent inputs.</p><p>Since we know that the upstream crate will only be able to use the public <code>from</code> function,
 we can add the fix right after every import has been parsed. We add the following
 loop to remove any binding in our binding list as long as it also exists in the
-unbinds list.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>for</span> def <span style=color:#66d9ef>in</span> root.unbinds.iter() {
+unbinds list.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>for</span> def <span style=color:#66d9ef>in</span> root.unbinds.iter() {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> Some(i) <span style=color:#f92672>=</span> root.bindings.iter().position(<span style=color:#f92672>|</span>b<span style=color:#f92672>|</span> b.definition.eq(def)) {
 </span></span><span style=display:flex><span>        root.bindings.remove(i);
 </span></span><span style=display:flex><span>    }
@@ -31,7 +31,7 @@ unbinds list.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;backgr
 from imports that get redefined in the root config should be overwritten. After
 some back and forth, we decided to stick with the older behavior of overwriting.</p><p>To implement this, instead of blindly extending the list of bindings with what
 has been parsed, we check if a binding with the same definition exists. If so,
-we replace the binding&rsquo;s command with the new command.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>for</span> binding <span style=color:#66d9ef>in</span> binding_parser(decl)<span style=color:#f92672>?</span> {
+we replace the binding&rsquo;s command with the new command.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>for</span> binding <span style=color:#66d9ef>in</span> binding_parser(decl)<span style=color:#f92672>?</span> {
 </span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> Some(b) <span style=color:#f92672>=</span> bindings
 </span></span><span style=display:flex><span>        .iter_mut()
 </span></span><span style=display:flex><span>        .find(<span style=color:#f92672>|</span>b<span style=color:#f92672>|</span> b.definition <span style=color:#f92672>==</span> binding.definition)
@@ -45,7 +45,7 @@ we replace the binding&rsquo;s command with the new command.</p><div class=highl
 </span></span></code></pre></div><h1 id=unescaping-commands-in-shorthands>Unescaping commands in shorthands</h1><p>This one&rsquo;s a fairly straightforward one but I probably would have missed it if it
 were not for the tests. The commands, just like keys, must be unescaped when present
 in shorthands. This is so that we can distinguish a comma separating two
-shorthand elements or a dash representing a range from a literal comma or a dash.</p><p>Solution? Simply reuse the unescape function we used in for the keys.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>// ...
+shorthand elements or a dash representing a range from a literal comma or a dash.</p><p>Solution? Simply reuse the unescape function we used in for the keys.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>// ...
 </span></span></span><span style=display:flex><span>Rule::command_component <span style=color:#f92672>=&gt;</span> {
 </span></span><span style=display:flex><span>    command_variants.push(unescape(component.as_str()).to_string())
 </span></span><span style=display:flex><span>}
@@ -60,7 +60,7 @@ extra trailing <code>&&</code>.</p><pre tabindex=0><code>echo hi &amp;&amp; ls &
 </code></pre><p>Clearly, the last <code>&&</code> has no problem staying beside the <code>ls</code> while the <code>@enter</code>
 mode instruction was happily extracted away. The result <code>echo hi && ls &&</code> isn&rsquo;t
 a valid command though.</p><p>To fix this, we add a small snippet of code to pop off the last element if it happens
-to be just one <code>&&</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>if</span> comm
+to be just one <code>&&</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>if</span> comm
 </span></span><span style=display:flex><span>    .last()
 </span></span><span style=display:flex><span>    .is_some_and(<span style=color:#f92672>|</span>last<span style=color:#f92672>|</span> last.len() <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> last[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&amp;&amp;&#34;</span>)
 </span></span><span style=display:flex><span>{
