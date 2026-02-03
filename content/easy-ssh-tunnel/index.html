@@ -70,6 +70,12 @@
 			grid-column: span 2 / span 2;
   }
 
+  .post-content:has(input:invalid) {
+    #command {
+      display: none;
+    }
+  }
+
   #command {
   		background: oklch(45.2% 0.211 324.591);
   		margin-top: 1rem;
@@ -89,7 +95,7 @@
       <input id="localport" type="number" min="0" max="65535" step=1 value=8888>
       <input type=checkbox id="direction">
       <input id="remoteport" type="number" min="0" max="65535" step=1 value=8888>
-      <label for="remotehost">connecting to</label>
+      <label for="remotehost">Connect to</label>
       <input id="remotehost" type="text" placeholder="user@remote.host">
     </div>
 
