@@ -8,17 +8,16 @@
   <style>
   * { font-family: monospace; }
   body {
-  	background: oklch(29.3% 0.136 325.661);
+    --purple-dark: oklch(29.3% 0.136 325.661);
+    --purple-light: lab(78.5378% 39.3533 -32.9615);
+  	background: var(--purple-dark);
   }
 
   input {
   	outline: none;
   	color: #eee;
   	border: none;
-  	background: oklch(29.3% 0.136 325.661);
-  	&:invalid {
-  	  background: oklch(40.8% 0.153 2.432);
-  	}
+  	background: var(--purple-dark);
   }
 
   .post-content > div {
@@ -26,20 +25,15 @@
 
   	label:not([for=direction]) {
   		padding: .5rem;
-  		background: lab(78.5378% 39.3533 -32.9615);
-      color: oklch(29.3% 0.136 325.661);
+  		background: var(--purple-light);
+      color: var(--purple-dark);
   	}
-
   }
 
   .grid {
   	display: grid;
   	grid-template-columns: repeat(3, minmax(0, 1fr));
   	grid-template-rows: repeat(3, minmax(0, 1fr));
-
-  	justify-content: space-between;
-  	align-items: center;
-
   	 * { text-align: center; }
 
   	label[for=direction] {
@@ -70,17 +64,22 @@
 			grid-column: span 2 / span 2;
   }
 
-  .post-content:has(input:invalid) {
-    #command {
-      display: none;
-    }
-  }
-
   #command {
   		background: oklch(45.2% 0.211 324.591);
   		margin-top: 1rem;
-  		padding: 0.5rem;
+  		padding-inline: 1rem;
   		color: #eee;
+  }
+
+  #copy {
+    background: var(--purple-light);
+    color: var(--purple-dark);
+    padding-inline: 1rem;
+    float: right;
+    &:active {
+      background: oklch(45.2% 0.211 324.591);
+      color: #eee;
+    }
   }
   </style>
 </head>
@@ -92,14 +91,15 @@
       <label for="direction">Traffic direction</label>
       <label for="remoteport">Remote port</label>
 
-      <input id="localport" type="number" min="0" max="65535" step=1 value=8888>
+      <input id="localport" type="number" min="0" max="65535" step=1 placeholder=8888>
       <input type=checkbox id="direction">
-      <input id="remoteport" type="number" min="0" max="65535" step=1 value=8888>
+      <input id="remoteport" type="number" min="0" max="65535" step=1 placeholder=8888>
       <label for="remotehost">Connect to</label>
       <input id="remotehost" type="text" placeholder="user@remote.host">
     </div>
 
     <div id='command'></div>
+    <button id='copy'>⧉ Copy</button>
   </div>
 </body>
 
@@ -109,19 +109,31 @@
   const remoteHost = document.querySelector('#remotehost');
   const direction = document.querySelector('#direction');
   const command = document.querySelector('#command');
+  const copy = document.querySelector('#copy');
+  const valueOrPlaceholder = (v) => v.value || v.placeholder;
 
   function updateCommand() {
-    const localPortValue = localPort.value;
-    const remotePortValue = remotePort.value;
     const directionString = direction.checked ? "R" : "L";
-    const remoteHostValue = remoteHost.value || remoteHost.placeholder;
-    command.textContent = `ssh -f -N -${directionString} ${localPortValue}:localhost:${remotePortValue} ${remoteHostValue}`;
+    command.textContent = `ssh -f -N -${directionString} ${valueOrPlaceholder(localPort)}:localhost:${valueOrPlaceholder(remotePort)} ${valueOrPlaceholder(remoteHost)}`;
   }
 
-  localPort.addEventListener('input', updateCommand);
-  direction.addEventListener('change', updateCommand);
-  remotePort.addEventListener('input', updateCommand);
-  remoteHost.addEventListener('input', updateCommand);
+  function validatePort(e) {
+    const code = e.keyCode;
+    if (code < 48 || code > 57 || e.target.value * 10 + (code - 48) > 65535) {
+      e.preventDefault()
+    }
+  }
+
+  for (const variable of [localPort, direction, remoteHost, remotePort]) {
+    variable.addEventListener('input', updateCommand);
+  }
+
+  for (const portVariable of [localPort, remotePort]) {
+    portVariable.addEventListener('keypress', validatePort);
+  }
+
+  copy.addEventListener('click', (_) => navigator.clipboard.writeText(command.textContent))
+
 
   updateCommand()
  </script>
