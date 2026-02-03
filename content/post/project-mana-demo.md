@@ -20,4 +20,4 @@ Feel free to look around: rotate, zoom or pan the 3D view.
 Frames for the outline animation will be recomputed on the fly! The hardcoded duration for the animation
 is 5 seconds in this example.
 
-{{< rawhtml "content/project_mana.html" >}}
+{{< rawhtml "content/webapps/project_mana.html" >}}
