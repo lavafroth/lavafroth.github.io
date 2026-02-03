@@ -1,0 +1,551 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Webapps on lavafroth</title><link>https://lavafroth.is-a.dev/webapps/</link><description>Recent content in Webapps on lavafroth</description><generator>Hugo</generator><language>en-us</language><atom:link href="https://lavafroth.is-a.dev/webapps/index.xml" rel="self" type="application/rss+xml"/><item><title/><link>https://lavafroth.is-a.dev/webapps/easy-ssh-tunnel/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/webapps/easy-ssh-tunnel/</guid><description>&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+ &lt;meta charset="UTF-8" /&gt;
+ &lt;title&gt;Easy SSH tunnel&lt;/title&gt;
+ &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+ &lt;meta name="description" content="" /&gt;
+ &lt;style&gt;
+ * { font-family: monospace; }
+ body {
+ --purple-dark: oklch(29.3% 0.136 325.661);
+ --purple-light: lab(78.5378% 39.3533 -32.9615);
+ 	background: var(--purple-dark);
+ }
+
+ input {
+ 	outline: none;
+ 	color: #eee;
+ 	border: none;
+ 	background: var(--purple-dark);
+ }
+
+ .post-content &gt; div {
+ 	margin: 1rem auto;
+
+ 	label:not([for=direction]) {
+ 		padding: .5rem;
+ 		background: var(--purple-light);
+ color: var(--purple-dark);
+ 	}
+ }
+
+ .grid {
+ 	display: grid;
+ 	grid-template-columns: repeat(3, minmax(0, 1fr));
+ 	grid-template-rows: repeat(3, minmax(0, 1fr));
+ 	 * { text-align: center; }
+
+ 	label[for=direction] {
+ 			user-select: none;
+ 			grid-row: span 2 / span 2;
+ grid-column-start: 2;
+ 			color: #eee;
+ 			&amp;::after {
+ 				display: block;
+ 				content: '&lt;';
+ 			}
+ 		}
+
+ 		input[type="checkbox"] {
+ opacity: 0;
+ position: absolute;
+ pointer-events: none;
+ 		}
+
+ 	&amp;:has(input:checked) {
+ 		label[for=direction]::after {
+ 			content: '&gt;';
+ 		}
+ 	}
+ }
+
+ #remotehost {
+			grid-column: span 2 / span 2;
+ }
+
+ #command {
+ 		background: oklch(45.2% 0.211 324.591);
+ 		margin-top: 1rem;
+ 		padding-inline: 1rem;
+ 		color: #eee;
+ }
+
+ #copy {
+ background: var(--purple-light);
+ color: var(--purple-dark);
+ padding-inline: 1rem;
+ float: right;
+ &amp;:active {
+ background: oklch(45.2% 0.211 324.591);
+ color: #eee;
+ }
+ }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;div class="grid"&gt;
+
+ &lt;label for="localport"&gt;Local port&lt;/label&gt;
+ &lt;label for="direction"&gt;Traffic direction&lt;/label&gt;
+ &lt;label for="remoteport"&gt;Remote port&lt;/label&gt;
+
+ &lt;input id="localport" type="number" min="0" max="65535" step=1 placeholder=8888&gt;
+ &lt;input type=checkbox id="direction"&gt;
+ &lt;input id="remoteport" type="number" min="0" max="65535" step=1 placeholder=8888&gt;
+ &lt;label for="remotehost"&gt;Connect to&lt;/label&gt;
+ &lt;input id="remotehost" type="text" placeholder="user@remote.host"&gt;
+ &lt;/div&gt;
+
+ &lt;div id='command'&gt;&lt;/div&gt;
+ &lt;button id='copy'&gt;⧉ Copy&lt;/button&gt;
+ &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+ const localPort = document.querySelector('#localport');
+ const remotePort = document.querySelector('#remoteport');
+ const remoteHost = document.querySelector('#remotehost');
+ const direction = document.querySelector('#direction');
+ const command = document.querySelector('#command');
+ const copy = document.querySelector('#copy');
+ const valueOrPlaceholder = (v) =&gt; v.value || v.placeholder;
+
+ function updateCommand() {
+ const directionString = direction.checked ? "R" : "L";
+ command.textContent = `ssh -f -N -${directionString} ${valueOrPlaceholder(localPort)}:localhost:${valueOrPlaceholder(remotePort)} ${valueOrPlaceholder(remoteHost)}`;
+ }
+
+ function validatePort(e) {
+ const code = e.keyCode;
+ if (code &lt; 48 || code &gt; 57 || e.target.value * 10 + (code - 48) &gt; 65535) {
+ e.preventDefault()
+ }
+ }
+
+ for (const variable of [localPort, direction, remoteHost, remotePort]) {
+ variable.addEventListener('input', updateCommand);
+ }
+
+ for (const portVariable of [localPort, remotePort]) {
+ portVariable.addEventListener('keypress', validatePort);
+ }
+
+ copy.addEventListener('click', (_) =&gt; navigator.clipboard.writeText(command.textContent))
+
+
+ updateCommand()
+ &lt;/script&gt;
+&lt;/html&gt;</description></item><item><title/><link>https://lavafroth.is-a.dev/webapps/project_mana/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://lavafroth.is-a.dev/webapps/project_mana/</guid><description>&lt;div id="stage"&gt;
+&lt;/div&gt;
+&lt;style&gt;
+canvas {
+ background: transparent;
+ border-radius: 1rem;
+ margin-bottom: 1rem;
+}
+&lt;/style&gt;
+&lt;script type="frag" id="evolve-vert"&gt;
+varying vec2 vUv;
+
+void main() {
+ vUv = uv;
+ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ vUv = gl_Position.xy / gl_Position.w;
+ vUv = (vUv + 1.0) * 0.5;
+}
+&lt;/script&gt;
+&lt;script type="frag" id="evolve-frag"&gt;
+varying vec2 vUv;
+
+uniform sampler2D gbufferMask;
+uniform sampler2D initBufferMask;
+
+void main() {
+ gl_FragColor = vec4(texture(initBufferMask, vUv));
+}
+
+&lt;/script&gt;
+&lt;script type="frag" id="outline-frag"&gt;
+ varying vec2 vUv;
+ varying vec2 clipMeshCenter;
+ varying vec2 glPos;
+
+ uniform float time;
+ uniform vec2 viewportSize;
+
+ #define LINE_WEIGHT 2.0
+
+ uniform sampler2D gbufferMask;
+
+ void main() {
+ float dx = (1.0 / viewportSize.x) * LINE_WEIGHT;
+ float dy = (1.0 / viewportSize.y) * LINE_WEIGHT;
+
+ vec2 uvCenter = vUv;
+ vec2 uvRight = vec2(uvCenter.x + dx, uvCenter.y);
+ vec2 uvLeft = vec2(uvCenter.x - dx, uvCenter.y);
+ vec2 uvTop = vec2(uvCenter.x, uvCenter.y - dy);
+ vec2 uvTopRight = vec2(uvCenter.x + dx, uvCenter.y - dy);
+ vec2 uvDown = vec2(uvCenter.x, uvCenter.y + dy);
+ vec2 uvDownLeft = vec2(uvCenter.x - dx, uvCenter.y + dy);
+
+ float mCenter = texture(gbufferMask, uvCenter).r;
+ float mTop = texture(gbufferMask, uvTop).r;
+ float mRight = texture(gbufferMask, uvRight).r;
+ float mTopRight = texture(gbufferMask, uvTopRight).r;
+ float mLeft = texture(gbufferMask, uvLeft).r;
+ float mDown = texture(gbufferMask, uvDown).r;
+ float mDownLeft = texture(gbufferMask, uvDownLeft).r;
+
+ float dT = abs(mCenter - mTop);
+ float dR = abs(mCenter - mRight);
+ float dTR = abs(mCenter - mTopRight);
+ float dD = abs(mCenter - mDown);
+ float dL = abs(mCenter - mLeft);
+ float dDL = abs(mCenter - mDownLeft);
+
+ float delta = 0.0;
+ delta = max(delta, dT);
+ delta = max(delta, dR);
+ delta = max(delta, dTR);
+ delta = max(delta, dD);
+ delta = max(delta, dL);
+ delta = max(delta, dDL);
+
+ float threshold = 0.0;
+ float isOutline = clamp((delta * 2.0) - threshold, 0.0, 1.0);
+
+ vec4 outline = vec4(isOutline);
+ gl_FragColor = outline;
+ }
+&lt;/script&gt;
+&lt;script type="vert" id="outline-vert"&gt;
+ varying vec2 vUv;
+ uniform vec3 meshCenter;
+ varying vec2 clipMeshCenter;
+ uniform float time;
+ varying vec2 glPos;
+
+ void main() {
+ clipMeshCenter = (projectionMatrix * modelViewMatrix * vec4(meshCenter, 1.0)).xy;
+ vUv = uv;
+ gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0);
+ vUv = gl_Position.xy / gl_Position.w;
+ vUv = (vUv + 1.0) * 0.5;
+ glPos = gl_Position.xy;
+ }
+&lt;/script&gt;
+&lt;script type="importmap"&gt;
+ {
+ "imports": {
+ "three": "https://cdn.jsdelivr.net/npm/three@0.172.0/build/three.module.js",
+ "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.172.0/examples/jsm/"
+ }
+ }
+&lt;/script&gt;
+
+&lt;script type="module"&gt;
+import * as THREE from 'three';
+import {OrbitControls} from 'three/addons/controls/OrbitControls.js';
+
+const dark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+let renderer = new THREE.WebGLRenderer({antialias: true, alpha: true});
+let width = document.querySelector('#stage').offsetWidth;
+let height = Math.round(9/16 * width);
+renderer.setSize(width, height);
+document.querySelector('#stage').appendChild(renderer.domElement);
+
+function get(path) {
+ return document.querySelector('#' + path).textContent;
+};
+
+const scene = new THREE.Scene();
+const solidScene = new THREE.Scene();
+const maskScene = new THREE.Scene();
+const evolveScene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, width / height, 0.1, 1000);
+const color = 0xFFFFFF;
+let ambientLight = new THREE.AmbientLight(color, dark ? 1: 10);
+solidScene.add(ambientLight);
+let light = new THREE.PointLight(color, 200);
+light.position.set(10, 10, 15);
+solidScene.add(light);
+camera.position.set(6,8,14);
+
+let buffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+let outlineBuffer = new THREE.WebGLRenderTarget(width, height, {format: THREE.RGBAFormat})
+
+const orbit = new OrbitControls(camera, renderer.domElement);
+orbit.update();
+
+const geometry = new THREE.TorusGeometry( 10, 3, 20, 100 );
+geometry.translate(2, 2, 2);
+
+const shadowMesh = new THREE.Mesh(geometry);
+const uniforms = {
+ gbufferMask: { value: buffer.texture },
+ viewportSize: { value: new THREE.Vector2(width, height) },
+}
+
+const material = new THREE.ShaderMaterial({
+ vertexShader: get('outline-vert'),
+ fragmentShader: get('outline-frag'),
+ uniforms,
+ transparent: true,
+});
+
+let solidMeshMaterial = new THREE.MeshPhysicalMaterial({
+ color: dark ? 0xaaeadb : 0xffffff,
+ metalness: 0.8,
+ clearcoat: 0.4,
+ clearcoatRoughness: 0.1,
+});
+
+const solidMesh = new THREE.Mesh(
+ geometry,
+ solidMeshMaterial,
+);
+
+const mesh = new THREE.Mesh(
+ geometry,
+ material
+);
+solidScene.add(solidMesh);
+scene.add(mesh);
+maskScene.add(shadowMesh);
+
+
+const evoUniforms = {
+ initBufferMask: { value: null },
+}
+
+const evoMaterial = new THREE.ShaderMaterial({
+ // this is a copy shader
+ vertexShader: get('evolve-vert'),
+ fragmentShader: get('evolve-frag'),
+ uniforms: evoUniforms,
+ transparent: true,
+});
+
+const evolveMesh = new THREE.Mesh(
+ geometry,
+ evoMaterial
+);
+
+evolveScene.add(evolveMesh)
+
+function continuity(bitmap, width, height) {
+ const visited = Array.from({length: height}, () =&gt; Array(width).fill(false));
+
+ function valid(row, col) {
+ return row &gt;= 0 &amp;&amp; row &lt; height &amp;&amp; col &gt;= 0 &amp;&amp; col &lt;= width
+ }
+
+ function valid_1(row, col) {
+ return valid(row, col) ? 1 : 0
+ }
+
+ // for a point to be on the screen edge, it must have at least three invalid neighbors.
+ // It must have at least six valid neighbors.
+ function isSentinel(row, col) {
+ return (
+ valid_1(row - 1, col - 1) +
+ valid_1(row - 1, col) +
+ valid_1(row - 1, col + 1) +
+
+ valid_1(row, col - 1) +
+ valid_1(row, col + 1) +
+
+ valid_1(row + 1, col - 1) +
+ valid_1(row + 1, col) +
+ valid_1(row + 1, col + 1)
+ ) &lt; 6
+ }
+
+ var sentinels = [];
+ var cyclic = [];
+
+ function dfs_queue(rootRow, rootCol) {
+ var stack = [];
+ stack.push([rootRow, rootCol]);
+
+ var steps = 0;
+
+ for(; ; steps++) {
+ let p = stack.pop();
+ if (p === undefined) {
+ return
+ }
+ let [row, col] = p
+ if (isSentinel(row, col)) {
+ sentinels.push([row, col]);
+ return
+ }
+
+ if (steps &gt; 0 &amp;&amp; row == rootRow &amp;&amp; col == rootCol) {
+ cyclic.push([row, col])
+ return
+ }
+
+ if (!valid(row, col) || visited[row][col]) {
+ return
+ }
+
+ // is this point switched off?
+ visited[row][col] = true;
+ var point = 4 * (row * width + col);
+ if (bitmap[point] == 0 &amp;&amp; bitmap[point+1] == 0 &amp;&amp; bitmap[point+2] == 0) {
+ continue;
+ }
+
+ stack.push([row + 1, col])
+ stack.push([row, col + 1])
+ stack.push([row - 1, col])
+ stack.push([row, col - 1])
+
+ }
+ }
+
+ for (let row = 0; row &lt; height; row++) {
+ for(let col = 0; col &lt; width; col++) {
+ if (visited[row][col]) {
+ continue;
+ }
+ var point = 4 * (row * width + col);
+ if (bitmap[point] == 1 &amp;&amp; bitmap[point+1] == 1 &amp;&amp; bitmap[point+2] == 1) {
+ dfs_queue(row, col);
+ }
+ }
+ }
+
+ // Always prefer the sentinels to the cyclics
+ // since walking back a line also ends up in a cycle.
+ // Start waveforms from the sentinels (endpoints),
+ // mark all the visited points. If there remain unvisited
+ // points, those are legitimately parts of cyclic paths.
+ return sentinels.concat(cyclic);
+}
+
+var durationInSeconds = 5;
+
+// @param {Float32Array[]} points
+// @param {Uint32Array} allThePixels
+// Number all the points as we stumble along the outline.
+// Akin to a wavefront. The pixels switched on (value = 1)
+// touching the wavefront at time t will have a value t + 2
+//
+// This way we can quickly zero out all the pixels below a
+// threshold when timing the animation.
+function dijkstraNumber(points, buf) {
+ var longestStrand = 2;
+ points.forEach((point) =&gt; {
+ longestStrand = Math.max(longestStrand, dijkstraPropagate(point, buf, 2))
+ })
+ return longestStrand
+}
+
+function dijkstraPropagate(point, buf, value) {
+ var queue = [[point]];
+ for (; ;) {
+ let neighbors = queue.pop()
+ if (neighbors === undefined) {
+ return value
+ }
+ neighbors.forEach(([row, col]) =&gt; {
+ let pos = 4 * (row * buffer.width + col);
+ if (buf[pos] != 1) {
+ return
+ }
+
+ buf[pos] = value;
+ buf[pos+1] = value;
+ buf[pos+2] = value;
+ buf[pos+3] = value;
+ value += 1
+
+ // package all the neighboring points and
+ // push them onto the stack
+ queue.push([
+ [row + 1, col],
+ [row + 1, col + 1],
+ [row, col + 1],
+ [row - 1, col + 1],
+ [row - 1, col],
+ [row - 1, col - 1],
+ [row, col - 1],
+ [row + 1, col - 1]
+ ])
+ })
+ }
+}
+
+const clock = new THREE.Clock();
+var longestPixelStrand = 0;
+var init = true;
+const allThePixels = new Uint8Array(buffer.width * buffer.height * 4);
+const dijkstraBuffer = new Uint32Array(buffer.width * buffer.height * 4);
+function animate() {
+
+ if (init) {
+ renderer.setRenderTarget(buffer);
+ renderer.render(maskScene, camera);
+
+ renderer.setRenderTarget(outlineBuffer);
+ renderer.render(scene, camera);
+
+ renderer.readRenderTargetPixels(outlineBuffer, 0, 0, buffer.width, buffer.height, allThePixels);
+ for (let i = 0; i &lt; allThePixels.length; i++) {
+ dijkstraBuffer[i] = allThePixels[i] == 255 ? 1 : 0;
+ }
+
+ 		let points = continuity(dijkstraBuffer, width, height)
+ 		longestPixelStrand = dijkstraNumber(points, dijkstraBuffer)
+
+ let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
+ points.forEach((point) =&gt; {
+ let pos = 4 * (point[0] * buffer.width + point[1]);
+ initBuffer[pos] = 255;
+ initBuffer[pos+1] = 255;
+ initBuffer[pos+2] = 255;
+ initBuffer[pos+3] = 255;
+ })
+
+ let ephemeralTex = new THREE.DataTexture(initBuffer, width, height);
+ ephemeralTex.needsUpdate = true;
+ evoUniforms.initBufferMask.value = ephemeralTex;
+ init = false;
+ }
+		let fractionAnimated = (clock.getElapsedTime() % durationInSeconds) / durationInSeconds;
+		let pixelsAnimated = Math.round(longestPixelStrand * fractionAnimated);
+ let initBuffer = new Uint8Array(buffer.width * buffer.height * 4);
+ for (let row = 0; row &lt; height; row++) {
+ for(let col=0; col&lt;width; col++) {
+ var point = 4 * (row * width + col);
+ if (dijkstraBuffer[point] &gt; 1 &amp;&amp; dijkstraBuffer[point] &lt; pixelsAnimated) {
+ initBuffer[point] = dark ? 255: 22;
+ initBuffer[point+1] = dark ? 255: 22;
+ initBuffer[point+2] = dark ? 255 : 22;
+ initBuffer[point+3] = 255;
+ }
+ }
+ }
+ let ephemeralTex = new THREE.DataTexture(initBuffer, width, height);
+ ephemeralTex.needsUpdate = true;
+ evoUniforms.initBufferMask.value = ephemeralTex;
+
+ renderer.setRenderTarget(null);
+ renderer.render(solidScene, camera);
+ renderer.autoClear = false;
+ renderer.clearDepth();
+ renderer.render(evolveScene, camera);
+ renderer.autoClear = true;
+}
+
+renderer.setAnimationLoop(animate);
+
+orbit.addEventListener('change', function() {
+ init = true;
+})
+&lt;/script&gt;</description></item></channel></rss>

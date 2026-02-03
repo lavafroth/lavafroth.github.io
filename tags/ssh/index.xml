@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>SSH on lavafroth</title><link>https://lavafroth.is-a.dev/tags/ssh/</link><description>Recent content in SSH on lavafroth</description><generator>Hugo</generator><language>en-us</language><lastBuildDate>Tue, 03 Feb 2026 17:14:13 +0530</lastBuildDate><atom:link href="https://lavafroth.is-a.dev/tags/ssh/index.xml" rel="self" type="application/rss+xml"/><item><title>Easy SSH Tunnel</title><link>https://lavafroth.is-a.dev/post/easy-ssh-tunnel/</link><pubDate>Tue, 03 Feb 2026 17:14:13 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/easy-ssh-tunnel/</guid><description>&lt;p&gt;Sometimes I forget the correct syntax to tunnel a port through SSH but I don&amp;rsquo;t want to read through a bunch of AD infested websites.&lt;/p&gt;
+&lt;p&gt;This simple tool outputs the command to run on the local machine.&lt;/p&gt;
+&lt;p&gt;You can edit the local port, remote host and port, and traffic direction.&lt;/p&gt;
+
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+ &lt;meta charset="UTF-8" /&gt;
+ &lt;title&gt;Easy SSH tunnel&lt;/title&gt;
+ &lt;meta name="viewport" content="width=device-width,initial-scale=1" /&gt;
+ &lt;meta name="description" content="" /&gt;
+ &lt;style&gt;
+ * { font-family: monospace; }
+ body {
+ --purple-dark: oklch(29.3% 0.136 325.661);
+ --purple-light: lab(78.5378% 39.3533 -32.9615);
+ 	background: var(--purple-dark);
+ }
+
+ input {
+ 	outline: none;
+ 	color: #eee;
+ 	border: none;
+ 	background: var(--purple-dark);
+ }
+
+ .post-content &gt; div {
+ 	margin: 1rem auto;
+
+ 	label:not([for=direction]) {
+ 		padding: .5rem;
+ 		background: var(--purple-light);
+ color: var(--purple-dark);
+ 	}
+ }
+
+ .grid {
+ 	display: grid;
+ 	grid-template-columns: repeat(3, minmax(0, 1fr));
+ 	grid-template-rows: repeat(3, minmax(0, 1fr));
+ 	 * { text-align: center; }
+
+ 	label[for=direction] {
+ 			user-select: none;
+ 			grid-row: span 2 / span 2;
+ grid-column-start: 2;
+ 			color: #eee;
+ 			&amp;::after {
+ 				display: block;
+ 				content: '&lt;';
+ 			}
+ 		}
+
+ 		input[type="checkbox"] {
+ opacity: 0;
+ position: absolute;
+ pointer-events: none;
+ 		}
+
+ 	&amp;:has(input:checked) {
+ 		label[for=direction]::after {
+ 			content: '&gt;';
+ 		}
+ 	}
+ }
+
+ #remotehost {
+			grid-column: span 2 / span 2;
+ }
+
+ #command {
+ 		background: oklch(45.2% 0.211 324.591);
+ 		margin-top: 1rem;
+ 		padding-inline: 1rem;
+ 		color: #eee;
+ }
+
+ #copy {
+ background: var(--purple-light);
+ color: var(--purple-dark);
+ padding-inline: 1rem;
+ float: right;
+ &amp;:active {
+ background: oklch(45.2% 0.211 324.591);
+ color: #eee;
+ }
+ }
+ &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+
+ &lt;div class="grid"&gt;
+
+ &lt;label for="localport"&gt;Local port&lt;/label&gt;
+ &lt;label for="direction"&gt;Traffic direction&lt;/label&gt;
+ &lt;label for="remoteport"&gt;Remote port&lt;/label&gt;
+
+ &lt;input id="localport" type="number" min="0" max="65535" step=1 placeholder=8888&gt;
+ &lt;input type=checkbox id="direction"&gt;
+ &lt;input id="remoteport" type="number" min="0" max="65535" step=1 placeholder=8888&gt;
+ &lt;label for="remotehost"&gt;Connect to&lt;/label&gt;
+ &lt;input id="remotehost" type="text" placeholder="user@remote.host"&gt;
+ &lt;/div&gt;
+
+ &lt;div id='command'&gt;&lt;/div&gt;
+ &lt;button id='copy'&gt;⧉ Copy&lt;/button&gt;
+ &lt;/div&gt;
+&lt;/body&gt;
+
+&lt;script&gt;
+ const localPort = document.querySelector('#localport');
+ const remotePort = document.querySelector('#remoteport');
+ const remoteHost = document.querySelector('#remotehost');
+ const direction = document.querySelector('#direction');
+ const command = document.querySelector('#command');
+ const copy = document.querySelector('#copy');
+ const valueOrPlaceholder = (v) =&gt; v.value || v.placeholder;
+
+ function updateCommand() {
+ const directionString = direction.checked ? "R" : "L";
+ command.textContent = `ssh -f -N -${directionString} ${valueOrPlaceholder(localPort)}:localhost:${valueOrPlaceholder(remotePort)} ${valueOrPlaceholder(remoteHost)}`;
+ }
+
+ function validatePort(e) {
+ const code = e.keyCode;
+ if (code &lt; 48 || code &gt; 57 || e.target.value * 10 + (code - 48) &gt; 65535) {
+ e.preventDefault()
+ }
+ }
+
+ for (const variable of [localPort, direction, remoteHost, remotePort]) {
+ variable.addEventListener('input', updateCommand);
+ }
+
+ for (const portVariable of [localPort, remotePort]) {
+ portVariable.addEventListener('keypress', validatePort);
+ }
+
+ copy.addEventListener('click', (_) =&gt; navigator.clipboard.writeText(command.textContent))
+
+
+ updateCommand()
+ &lt;/script&gt;
+&lt;/html&gt;</description></item></channel></rss>

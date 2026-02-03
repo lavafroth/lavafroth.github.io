@@ -1,0 +1,45 @@
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Easy SSH Tunnel - lavafroth</title><meta name=description content='Sometimes I forget the correct syntax to tunnel a port through SSH but I don&rsquo;t want to read through a bunch of AD infested websites.
+This simple tool outputs the command to run on the local machine.
+You can edit the local port, remote host and port, and traffic direction.
+
+<!DOCTYPE html>
+
+
+  
+  Easy SSH tunnel
+  
+  
+  
+
+
+
+  
+
+      Local port
+      Traffic direction
+      Remote port
+
+      
+      
+      
+      Connect to
+      
+    
+
+    
+    ⧉ Copy
+  
+
+
+
+'><meta name=author content><link rel="preload stylesheet" as=style href=https://lavafroth.is-a.dev/app.min.css><link rel=preload as=image href=../../header.svg><link as=font href=https://lavafroth.is-a.dev/latinmodern-math.otf><link rel=preload as=image href=https://lavafroth.is-a.dev/github.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/about.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/art.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/rss.svg><link rel=icon href=https://lavafroth.is-a.dev/favicon.png><link rel=blog-icon href=https://lavafroth.is-a.dev/icon.png></head><body><header><a class=site-name href=https://lavafroth.is-a.dev/><svg viewBox="0 0 8790 2080"><path d="M80 1935V465h216v1270h286v2e2zm853 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm1025 528L2014 465h210l108 868 8 142h12l8-142 108-868h210l-224 1470zm813 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm851 528V465h514v222h-298v386h2e2v222h-2e2v640zm910 0V465h216q194 0 286 108 92 107 92 316 0 124-43 215-44 90-106 132l147 699h-216l-122-620h-38v620zm216-820q60 0 95-26 35-27 50-76t15-116q0-105-34-161-35-57-126-57zm1084 836q-90 0-154-42-65-42-99-114-35-72-35-162V767q0-91 35-162 34-72 99-114 64-42 154-42t155 42q64 42 99 114 34 72 34 162v866q0 90-34 162-35 72-99 114-65 42-155 42zm0-210q40 0 56-33 16-34 16-75V767q0-41-17-74-17-34-55-34-37 0-54 34-18 33-18 74v866q0 41 17 75 17 33 55 33zm890 194V687h-204V465h624v222h-204v1248zm828 0V465h216v608h168V465h216v1470h-216v-640h-168v640z"/></svg></a><nav><a style=--url:url(./github.svg) href=https://github.com/lavafroth aria-label=github target=_blank></a><a href=../../about/ aria-label=about style=--url:url(./about.svg)></a><a href=../../art/ aria-label=art style=--url:url(./art.svg)></a><a href=../../index.xml aria-label=rss style=--url:url(./rss.svg)></a><nav></header><main><hgroup data-pagefind-body><p data-pagefind-ignore><time>Feb 3, 2026 | 1 minute read</time></p><h1 data-pagefind-meta=title>Easy SSH Tunnel</h1></hgroup><section class=post-content data-pagefind-body><p>Sometimes I forget the correct syntax to tunnel a port through SSH but I don&rsquo;t want to read through a bunch of AD infested websites.</p><p>This simple tool outputs the command to run on the local machine.</p><p>You can edit the local port, remote host and port, and traffic direction.</p><!doctype html><html lang=en><head><meta charset=UTF-8><title>Easy SSH tunnel</title><meta name=viewport content="width=device-width,initial-scale=1"><meta name=description content><style>*{font-family:monospace}body{--purple-dark:oklch(29.3% 0.136 325.661);--purple-light:lab(78.5378% 39.3533 -32.9615);background:var(--purple-dark)}input{outline:none;color:#eee;border:none;background:var(--purple-dark)}.post-content>div{margin:1rem auto;label:not([for=direction]) { padding:.5rem; background:var(--purple-light); color:var(--purple-dark); }}.grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,minmax(0,1fr)); *{ text-align: center; } label[for=direction] { user-select: none; grid-row: span 2 / span 2; grid-column-start: 2; color: #eee; &::after { display: block; content: '<'; } } input[type="checkbox"] { opacity: 0; position: absolute; pointer-events: none; } &:has(input:checked) { label[for=direction]::after { content: '>'; } }}#remotehost{grid-column:span 2/span 2}#command{background:oklch(45.2% .211 324.591);margin-top:1rem;padding-inline:1rem;color:#eee}#copy{background:var(--purple-light);color:var(--purple-dark);padding-inline:1rem;float:right;&:active { background:oklch(45.2% 0.211 324.591); color:#eee; }}</style></head><body><div class=grid><label for=localport>Local port</label>
+<label for=direction>Traffic direction</label>
+<label for=remoteport>Remote port</label>
+<input id=localport type=number min=0 max=65535 step=1 placeholder=8888>
+<input type=checkbox id=direction>
+<input id=remoteport type=number min=0 max=65535 step=1 placeholder=8888>
+<label for=remotehost>Connect to</label>
+<input id=remotehost type=text placeholder=user@remote.host></div><div id=command></div><button id=copy>⧉ Copy</button></div></body><script>const localPort=document.querySelector("#localport"),remotePort=document.querySelector("#remoteport"),remoteHost=document.querySelector("#remotehost"),direction=document.querySelector("#direction"),command=document.querySelector("#command"),copy=document.querySelector("#copy"),valueOrPlaceholder=e=>e.value||e.placeholder;function updateCommand(){const e=direction.checked?"R":"L";command.textContent=`ssh -f -N -${e} ${valueOrPlaceholder(localPort)}:localhost:${valueOrPlaceholder(remotePort)} ${valueOrPlaceholder(remoteHost)}`}function validatePort(e){const t=e.keyCode;(t<48||t>57||e.target.value*10+(t-48)>65535)&&e.preventDefault()}for(const e of[localPort,direction,remoteHost,remotePort])e.addEventListener("input",updateCommand);for(const e of[localPort,remotePort])e.addEventListener("keypress",validatePort);copy.addEventListener("click",e=>navigator.clipboard.writeText(command.textContent)),updateCommand()</script></html></section><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/ssh class=list-tag>SSH</a>
+<a href=https://lavafroth.is-a.dev/tags/proxy class=list-tag>Proxy</a>
+<a href=https://lavafroth.is-a.dev/tags/tools class=list-tag>Tools</a>
+<a href=https://lavafroth.is-a.dev/tags/webapp class=list-tag>Webapp</a></footer><nav data-post><br><a href=https://lavafroth.is-a.dev/post/working-with-luks-file-stashes/><span>Working With LUKS File Stashes</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
