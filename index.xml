@@ -1024,7 +1024,6 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  * { font-family: monospace; }
  body {
  	background: oklch(29.3% 0.136 325.661);
- 	font-size: 2rem;
  }
 
  input {
