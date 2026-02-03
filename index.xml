@@ -1085,6 +1085,12 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
 			grid-column: span 2 / span 2;
  }
 
+ .post-content:has(input:invalid) {
+ #command {
+ display: none;
+ }
+ }
+
  #command {
  		background: oklch(45.2% 0.211 324.591);
  		margin-top: 1rem;
@@ -1104,7 +1110,7 @@ injection wherein he mentions a way to &amp;ldquo;gadget&amp;rdquo; our way out 
  &lt;input id="localport" type="number" min="0" max="65535" step=1 value=8888&gt;
  &lt;input type=checkbox id="direction"&gt;
  &lt;input id="remoteport" type="number" min="0" max="65535" step=1 value=8888&gt;
- &lt;label for="remotehost"&gt;connecting to&lt;/label&gt;
+ &lt;label for="remotehost"&gt;Connect to&lt;/label&gt;
  &lt;input id="remotehost" type="text" placeholder="user@remote.host"&gt;
  &lt;/div&gt;
 
