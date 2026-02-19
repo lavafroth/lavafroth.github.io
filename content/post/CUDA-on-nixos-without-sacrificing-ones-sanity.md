@@ -136,7 +136,7 @@ Once the env gets created, use `micromamba activate my-environment` to hop right
 
 # Conclusion
 
-Although this is not the Nix way of doing things, with micromamba being imeperative, this is probably the quickest
+Although this is not the Nix way of doing things, with micromamba being imperative, this is probably the quickest
 and most hassle free experience to start ML stuff on NixOS. I've seen quite a lot of friends giving up on NixOS because of how annoying closed source libraries like CUDA can be.
 
 Share this article around if you found this hacky approach to have improved your developer experience. I'm banking on open source alternatives to pick up steam
