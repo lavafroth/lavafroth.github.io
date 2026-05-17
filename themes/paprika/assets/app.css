@@ -129,6 +129,7 @@ math {
 }
 
 .katex:has(math[display="block"]) {
+  margin-bottom: var(--gap);
   display: block;
   overflow-x: auto;
   overflow-y: clip;
