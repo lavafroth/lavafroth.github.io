@@ -11,7 +11,11 @@
   <meta name="author" content="{{ site.Params.Author }}" />
 
   <!-- Styles -->
-  {{ $app_css := resources.Get "app.css" | minify }}
+  {{ $opts := dict 
+      "target" "es2020" 
+      "externals" (slice "*.svg") 
+  }}
+  {{ $app_css := resources.Get "app.css" | css.Build $opts | minify }}
   <link rel="preload stylesheet" as="style" href="{{ $app_css.Permalink }}" />
   <link rel="preload" as="image" href="/header.svg" />
 

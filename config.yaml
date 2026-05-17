@@ -32,7 +32,7 @@ markup:
     lineAnchors: ""
     lineNos: false
     lineNumbersInTable: true
-    noClasses: true
+    noClasses: false
     noHl: false
     style: monokai
     tabWidth: 4

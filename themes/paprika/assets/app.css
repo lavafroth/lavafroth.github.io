@@ -1,3 +1,5 @@
+@import "highlight.css";
+
 :root {
   --small-gap: 2rem;
   --gap: 2.5rem;
@@ -7,7 +9,6 @@
   --side: calc((var(--wide) - var(--narrow)) / 2);
   --header: 10rem;
   --footer: calc(8rem + var(--safe-bottom));
-  --code-bg: #282828;
   --narrow-separator: 0.2rem;
 
   color-scheme: light dark;
@@ -603,14 +604,7 @@ nav[data-post] {
   .highlight,
   pre {
     margin: 0 0 3rem;
-    border-radius: 0.5rem;
-    
-    @media screen and (width <= 600px) {
-      margin: 0 calc(var(--gap) * -1) 4rem;
-      border-radius: 0;
-    }
     overflow-x: auto;
-    background: var(--code-bg) !important;
   }
 
   ul pre {
@@ -634,11 +628,9 @@ nav[data-post] {
 
   pre code {
     display: block;
-    padding: var(--gap);
+    padding: var(--gap) 0;
     margin-inline: 0;
-    color: rgba(255, 255, 255, 0.8);
     background: transparent;
-    border-radius: 0;
   }
 
   blockquote {
