@@ -5,7 +5,7 @@ before diving in.&lt;/p&gt;
 &lt;h3 id="clone-with-a-difference"&gt;Clone with a Difference&lt;/h3&gt;
 &lt;p&gt;This challenge wants us to clone a git repository. It&amp;rsquo;s using git with ssh for
 cloning which doesn&amp;rsquo;t seem to work.&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-sh" data-lang="sh"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git clone git@haugfactory.com:asnowball/aws_scripts.git
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;We can clone this the HTTPS way:&lt;/p&gt;</description></item><item><title>Liberating 14GiB of disk space</title><link>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</link><pubDate>Mon, 21 Feb 2022 13:15:26 +0530</pubDate><guid>https://lavafroth.is-a.dev/post/liberating-14gib-of-space/</guid><description>&lt;p&gt;The idea is simple:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Remove all duplicates, including zero length files&lt;/li&gt;
@@ -14,6 +14,6 @@ cloning which doesn&amp;rsquo;t seem to work.&lt;/p&gt;
 &lt;p&gt;Since the mileage for second step might vary from person to person, I&amp;rsquo;ll elaborate on the first step.&lt;/p&gt;
 &lt;p&gt;I chose &lt;a href="https://codeberg.org/jbruchon/jdupes"&gt;jdupes&lt;/a&gt; for deleting the duplicates because it&amp;rsquo;s open-source and is cross platform.&lt;/p&gt;
 &lt;p&gt;For a given folder we would run the following to wipe the duplicates:&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;jdupes --recurse --delete --no-prompt --zero&lt;span style="color:#f92672"&gt;-match&lt;/span&gt; .
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-powershell" data-lang="powershell"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;jdupes&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;-recurse&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;-delete&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;-no-prompt&lt;/span&gt; &lt;span class="p"&gt;-&lt;/span&gt;&lt;span class="n"&gt;-zero&lt;/span&gt;&lt;span class="o"&gt;-match&lt;/span&gt; &lt;span class="p"&gt;.&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This will recursively delete all the duplicates except the source file without prompting for a confirmation.
 It will also consider zero length files to be duplicates.&lt;/p&gt;</description></item></channel></rss>

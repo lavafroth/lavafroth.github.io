@@ -15,12 +15,12 @@ processing. So if you&rsquo;re doing something serious, you have no other choice
 Although, OpenAI&rsquo;s Triton and ZLUDA are worth keeping an eye on.</p><p>Unlike your average distro, Nix will prevents conflicts between installed packages by storing its <abbr title="packages and libraries">derivations</abbr> in the <a href=https://zero-to-nix.com/concepts/nix-store>Nix store</a> instead of
 locations like <code>/usr/bin</code>, <code>/usr/lib</code> and <code>/usr/lib64</code>.</p><h1 id=how-not-to-add-cuda>How not to add CUDA</h1><p>CUDA, being proprietary junk, does not allow you to redistribute
 binaries that are linked with its blobs. Thus, for CUDA enabled PyTorch, we would have to <a href=https://discourse.nixos.org/t/pytorch-and-cuda-torch-not-compiled-with-cuda-enabled/11272/2>allow unfree
-packages and enable CUDA support</a>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-nix data-lang=nix><span style=display:flex><span><span style=color:#f92672>import</span> sources<span style=color:#f92672>.</span>nixpkgs {
-</span></span><span style=display:flex><span>  config <span style=color:#f92672>=</span> {
-</span></span><span style=display:flex><span>    allowUnfree <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
-</span></span><span style=display:flex><span>    cudaSupport <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
-</span></span><span style=display:flex><span>  };
-</span></span><span style=display:flex><span>}
+packages and enable CUDA support</a>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl><span class=kn>import</span> <span class=n>sources</span><span class=o>.</span><span class=n>nixpkgs</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>  <span class=n>config</span> <span class=o>=</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>    <span class=n>allowUnfree</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>    <span class=n>cudaSupport</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>  <span class=p>};</span>
+</span></span><span class=line><span class=cl><span class=p>}</span>
 </span></span></code></pre></div><p>Adding this to our <code>flake.nix</code> allows us the include these packages:</p><ul><li><code>linuxPackages.nvidia_x11</code></li><li><code>cudatoolkit</code></li><li><code>cudnn</code></li></ul><p>Now we can install PyTorch by either adding</p><ul><li><code>python311Packages.pytorch</code> to build PyTorch from source with CUDA support. This will take time longer than the heat death of the universe and more likely freeze low end PCs.
 Refer to <a href="https://news.ycombinator.com/item?id=32931486">this hackernews post</a>.</li><li><code>python311Packages.pytorch-bin</code> which some people claim to have slightly faster builds at it
 fetches the PyTorch binary from pytorch.org and patches it with the CUDA from <code>/nix/store</code>.
@@ -28,52 +28,52 @@ Refer to <a href=https://www.reddit.com/r/NixOS/comments/195pzdb/speeding_up_pyt
 Nix allows you to create such isolated root filesystems using the <a href=https://ryantm.github.io/nixpkgs/builders/special/fhs-environments/><code>pkgs.buildFHSEnv</code></a> function.</p><p>It accepts a <code>name</code> for the environment and a list of <code>targetPkgs</code> with the things we&rsquo;d need for basic NVIDIA support.
 Note the inclusion of <code>micromamba</code> which will do most of the legwork when setting up PyTorch.
 I&rsquo;ve also included the <code>fish</code> shell because that&rsquo;s what I daily drive. You can remove that and the <code>runScript</code> attribute
-to use the default bash.</p><h2 id=the-flake>The flake</h2><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-nix data-lang=nix><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>      description <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;Python 3.11 development environment&#34;</span>;
-</span></span><span style=display:flex><span>      outputs <span style=color:#f92672>=</span> { self<span style=color:#f92672>,</span> nixpkgs }:
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>let</span>
-</span></span><span style=display:flex><span>        system <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;x86_64-linux&#34;</span>;
-</span></span><span style=display:flex><span>        pkgs <span style=color:#f92672>=</span> <span style=color:#f92672>import</span> nixpkgs {
-</span></span><span style=display:flex><span>          <span style=color:#66d9ef>inherit</span> system;
-</span></span><span style=display:flex><span>          config<span style=color:#f92672>.</span>allowUnfree <span style=color:#f92672>=</span> <span style=color:#66d9ef>true</span>;
-</span></span><span style=display:flex><span>        };
-</span></span><span style=display:flex><span>      <span style=color:#66d9ef>in</span> {
-</span></span><span style=display:flex><span>        devShells<span style=color:#f92672>.</span><span style=color:#e6db74>${</span>system<span style=color:#e6db74>}</span><span style=color:#f92672>.</span>default <span style=color:#f92672>=</span> (pkgs<span style=color:#f92672>.</span>buildFHSEnv {
-</span></span><span style=display:flex><span>          name <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;nvidia-fuck-you&#34;</span>;
-</span></span><span style=display:flex><span>          targetPkgs <span style=color:#f92672>=</span> pkgs: (<span style=color:#66d9ef>with</span> pkgs; [
-</span></span><span style=display:flex><span>            linuxPackages<span style=color:#f92672>.</span>nvidia_x11
-</span></span><span style=display:flex><span>            libGLU libGL
-</span></span><span style=display:flex><span>            xorg<span style=color:#f92672>.</span>libXi xorg<span style=color:#f92672>.</span>libXmu freeglut
-</span></span><span style=display:flex><span>            xorg<span style=color:#f92672>.</span>libXext xorg<span style=color:#f92672>.</span>libX11 xorg<span style=color:#f92672>.</span>libXv xorg<span style=color:#f92672>.</span>libXrandr zlib 
-</span></span><span style=display:flex><span>            ncurses5 stdenv<span style=color:#f92672>.</span>cc binutils
-</span></span><span style=display:flex><span>            ffmpeg
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            <span style=color:#75715e># I daily drive the fish shell</span>
-</span></span><span style=display:flex><span>            <span style=color:#75715e># you can remove this, the default is bash</span>
-</span></span><span style=display:flex><span>            fish
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>            <span style=color:#75715e># Micromamba does the real legwork</span>
-</span></span><span style=display:flex><span>            micromamba
-</span></span><span style=display:flex><span>          ]);
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>          profile <span style=color:#f92672>=</span> <span style=color:#e6db74>&#39;&#39;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>              export LD_LIBRARY_PATH=&#34;</span><span style=color:#e6db74>${</span>pkgs<span style=color:#f92672>.</span>linuxPackages<span style=color:#f92672>.</span>nvidia_x11<span style=color:#e6db74>}</span><span style=color:#e6db74>/lib&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>              export CUDA_PATH=&#34;</span><span style=color:#e6db74>${</span>pkgs<span style=color:#f92672>.</span>cudatoolkit<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>              export EXTRA_LDFLAGS=&#34;-L/lib -L</span><span style=color:#e6db74>${</span>pkgs<span style=color:#f92672>.</span>linuxPackages<span style=color:#f92672>.</span>nvidia_x11<span style=color:#e6db74>}</span><span style=color:#e6db74>/lib&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>              export EXTRA_CCFLAGS=&#34;-I/usr/include&#34;
-</span></span></span><span style=display:flex><span><span style=color:#e6db74>          &#39;&#39;</span>;
-</span></span><span style=display:flex><span>
-</span></span><span style=display:flex><span>          <span style=color:#75715e># again, you can remove this if you like bash</span>
-</span></span><span style=display:flex><span>          runScript <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;fish&#34;</span>;
-</span></span><span style=display:flex><span>        })<span style=color:#f92672>.</span>env;
-</span></span><span style=display:flex><span>      };
-</span></span><span style=display:flex><span>    }
+to use the default bash.</p><h2 id=the-flake>The flake</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-nix data-lang=nix><span class=line><span class=cl>    <span class=p>{</span>
+</span></span><span class=line><span class=cl>      <span class=n>description</span> <span class=o>=</span> <span class=s2>&#34;Python 3.11 development environment&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=n>outputs</span> <span class=o>=</span> <span class=p>{</span> <span class=n>self</span><span class=o>,</span> <span class=n>nixpkgs</span> <span class=p>}:</span>
+</span></span><span class=line><span class=cl>      <span class=k>let</span>
+</span></span><span class=line><span class=cl>        <span class=n>system</span> <span class=o>=</span> <span class=s2>&#34;x86_64-linux&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=n>pkgs</span> <span class=o>=</span> <span class=kn>import</span> <span class=n>nixpkgs</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=k>inherit</span> <span class=n>system</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=n>config</span><span class=o>.</span><span class=n>allowUnfree</span> <span class=o>=</span> <span class=no>true</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>};</span>
+</span></span><span class=line><span class=cl>      <span class=k>in</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>        <span class=n>devShells</span><span class=o>.</span><span class=si>${</span><span class=n>system</span><span class=si>}</span><span class=o>.</span><span class=n>default</span> <span class=o>=</span> <span class=p>(</span><span class=n>pkgs</span><span class=o>.</span><span class=n>buildFHSEnv</span> <span class=p>{</span>
+</span></span><span class=line><span class=cl>          <span class=n>name</span> <span class=o>=</span> <span class=s2>&#34;nvidia-fuck-you&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>          <span class=n>targetPkgs</span> <span class=o>=</span> <span class=n>pkgs</span><span class=p>:</span> <span class=p>(</span><span class=k>with</span> <span class=n>pkgs</span><span class=p>;</span> <span class=p>[</span>
+</span></span><span class=line><span class=cl>            <span class=n>linuxPackages</span><span class=o>.</span><span class=n>nvidia_x11</span>
+</span></span><span class=line><span class=cl>            <span class=n>libGLU</span> <span class=n>libGL</span>
+</span></span><span class=line><span class=cl>            <span class=n>xorg</span><span class=o>.</span><span class=n>libXi</span> <span class=n>xorg</span><span class=o>.</span><span class=n>libXmu</span> <span class=n>freeglut</span>
+</span></span><span class=line><span class=cl>            <span class=n>xorg</span><span class=o>.</span><span class=n>libXext</span> <span class=n>xorg</span><span class=o>.</span><span class=n>libX11</span> <span class=n>xorg</span><span class=o>.</span><span class=n>libXv</span> <span class=n>xorg</span><span class=o>.</span><span class=n>libXrandr</span> <span class=n>zlib</span> 
+</span></span><span class=line><span class=cl>            <span class=n>ncurses5</span> <span class=n>stdenv</span><span class=o>.</span><span class=n>cc</span> <span class=n>binutils</span>
+</span></span><span class=line><span class=cl>            <span class=n>ffmpeg</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># I daily drive the fish shell</span>
+</span></span><span class=line><span class=cl>            <span class=c1># you can remove this, the default is bash</span>
+</span></span><span class=line><span class=cl>            <span class=n>fish</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>            <span class=c1># Micromamba does the real legwork</span>
+</span></span><span class=line><span class=cl>            <span class=n>micromamba</span>
+</span></span><span class=line><span class=cl>          <span class=p>]);</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=n>profile</span> <span class=o>=</span> <span class=s1>&#39;&#39;
+</span></span></span><span class=line><span class=cl><span class=s1>              export LD_LIBRARY_PATH=&#34;</span><span class=si>${</span><span class=n>pkgs</span><span class=o>.</span><span class=n>linuxPackages</span><span class=o>.</span><span class=n>nvidia_x11</span><span class=si>}</span><span class=s1>/lib&#34;
+</span></span></span><span class=line><span class=cl><span class=s1>              export CUDA_PATH=&#34;</span><span class=si>${</span><span class=n>pkgs</span><span class=o>.</span><span class=n>cudatoolkit</span><span class=si>}</span><span class=s1>&#34;
+</span></span></span><span class=line><span class=cl><span class=s1>              export EXTRA_LDFLAGS=&#34;-L/lib -L</span><span class=si>${</span><span class=n>pkgs</span><span class=o>.</span><span class=n>linuxPackages</span><span class=o>.</span><span class=n>nvidia_x11</span><span class=si>}</span><span class=s1>/lib&#34;
+</span></span></span><span class=line><span class=cl><span class=s1>              export EXTRA_CCFLAGS=&#34;-I/usr/include&#34;
+</span></span></span><span class=line><span class=cl><span class=s1>          &#39;&#39;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>
+</span></span><span class=line><span class=cl>          <span class=c1># again, you can remove this if you like bash</span>
+</span></span><span class=line><span class=cl>          <span class=n>runScript</span> <span class=o>=</span> <span class=s2>&#34;fish&#34;</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>        <span class=p>})</span><span class=o>.</span><span class=n>env</span><span class=p>;</span>
+</span></span><span class=line><span class=cl>      <span class=p>};</span>
+</span></span><span class=line><span class=cl>    <span class=p>}</span>
 </span></span></code></pre></div><blockquote><p><em>Note:</em> This is <em>NOT</em> the same as containers. The most obvious way to tell is because
-you can access your NVIDIA GPU as is, without any passthrough shenanigans.</p></blockquote><p>Enter this flake development environment using <code>nix develop</code>.</p><h1 id=setting-up-pytorch>Setting up PyTorch</h1><p>Now that we have the scaffolding, we can use <code>micromamba</code> to install CUDA for our ML tooling.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-sh data-lang=sh><span style=display:flex><span>micromamba env create <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    -n my-environment <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    anaconda::cudatoolkit <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    anaconda::cudnn <span style=color:#ae81ff>\
-</span></span></span><span style=display:flex><span>    <span style=color:#e6db74>&#34;anaconda::pytorch=*=*cuda*&#34;</span>
+you can access your NVIDIA GPU as is, without any passthrough shenanigans.</p></blockquote><p>Enter this flake development environment using <code>nix develop</code>.</p><h1 id=setting-up-pytorch>Setting up PyTorch</h1><p>Now that we have the scaffolding, we can use <code>micromamba</code> to install CUDA for our ML tooling.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>micromamba env create <span class=se>\
+</span></span></span><span class=line><span class=cl>    -n my-environment <span class=se>\
+</span></span></span><span class=line><span class=cl>    anaconda::cudatoolkit <span class=se>\
+</span></span></span><span class=line><span class=cl>    anaconda::cudnn <span class=se>\
+</span></span></span><span class=line><span class=cl>    <span class=s2>&#34;anaconda::pytorch=*=*cuda*&#34;</span>
 </span></span></code></pre></div><p>Here I&rsquo;m creating an environment called <code>my-environment</code> with <code>cudatoolkit</code>, <code>cudnn</code> and PyTorch. While installing PyTorch, make sure to
 pick a version whose name contains &ldquo;cuda&rdquo; like I did here, otherwise, it defaults to the CPU version.</p><p>You can also define a <code>micromamba</code> environment with a config file. Read more about it <a href=https://conda.io/projects/conda/en/latest/user-guide/manage-environments.html>here</a>.</p><p>Once the env gets created, use <code>micromamba activate my-environment</code> to hop right in. Profit!</p><h1 id=conclusion>Conclusion</h1><p>Although this is not the Nix way of doing things, with micromamba being imperative, this is probably the quickest
 and most hassle free experience to start ML stuff on NixOS. I&rsquo;ve seen quite a lot of friends giving up on NixOS because of how annoying closed source libraries like CUDA can be.</p><p>Share this article around if you found this hacky approach to have improved your developer experience. I&rsquo;m banking on open source alternatives to pick up steam

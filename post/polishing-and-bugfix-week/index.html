@@ -22,34 +22,34 @@ we have a <code>from</code> function that accepts a single input (raw text or pa
 uses the <code>as_import</code> function on all subsequent inputs.</p><p>Since we know that the upstream crate will only be able to use the public <code>from</code> function,
 we can add the fix right after every import has been parsed. We add the following
 loop to remove any binding in our binding list as long as it also exists in the
-unbinds list.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>for</span> def <span style=color:#66d9ef>in</span> root.unbinds.iter() {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> Some(i) <span style=color:#f92672>=</span> root.bindings.iter().position(<span style=color:#f92672>|</span>b<span style=color:#f92672>|</span> b.definition.eq(def)) {
-</span></span><span style=display:flex><span>        root.bindings.remove(i);
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h1 id=overwriting-bindings-that-are-redefined>Overwriting bindings that are redefined</h1><p>I had a talk with my GSoC mentor last week where we discussed whether bindings
+unbinds list.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=k>for</span><span class=w> </span><span class=n>def</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=n>root</span><span class=p>.</span><span class=n>unbinds</span><span class=p>.</span><span class=n>iter</span><span class=p>()</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=n>i</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>root</span><span class=p>.</span><span class=n>bindings</span><span class=p>.</span><span class=n>iter</span><span class=p>().</span><span class=n>position</span><span class=p>(</span><span class=o>|</span><span class=n>b</span><span class=o>|</span><span class=w> </span><span class=n>b</span><span class=p>.</span><span class=n>definition</span><span class=p>.</span><span class=n>eq</span><span class=p>(</span><span class=n>def</span><span class=p>))</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>root</span><span class=p>.</span><span class=n>bindings</span><span class=p>.</span><span class=n>remove</span><span class=p>(</span><span class=n>i</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><h1 id=overwriting-bindings-that-are-redefined>Overwriting bindings that are redefined</h1><p>I had a talk with my GSoC mentor last week where we discussed whether bindings
 from imports that get redefined in the root config should be overwritten. After
 some back and forth, we decided to stick with the older behavior of overwriting.</p><p>To implement this, instead of blindly extending the list of bindings with what
 has been parsed, we check if a binding with the same definition exists. If so,
-we replace the binding&rsquo;s command with the new command.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>for</span> binding <span style=color:#66d9ef>in</span> binding_parser(decl)<span style=color:#f92672>?</span> {
-</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#66d9ef>let</span> Some(b) <span style=color:#f92672>=</span> bindings
-</span></span><span style=display:flex><span>        .iter_mut()
-</span></span><span style=display:flex><span>        .find(<span style=color:#f92672>|</span>b<span style=color:#f92672>|</span> b.definition <span style=color:#f92672>==</span> binding.definition)
-</span></span><span style=display:flex><span>    {
-</span></span><span style=display:flex><span>        b.command <span style=color:#f92672>=</span> binding.command;
-</span></span><span style=display:flex><span>        b.mode_instructions <span style=color:#f92672>=</span> binding.mode_instructions;
-</span></span><span style=display:flex><span>    } <span style=color:#66d9ef>else</span> {
-</span></span><span style=display:flex><span>        bindings.push(binding);
-</span></span><span style=display:flex><span>    }
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h1 id=unescaping-commands-in-shorthands>Unescaping commands in shorthands</h1><p>This one&rsquo;s a fairly straightforward one but I probably would have missed it if it
+we replace the binding&rsquo;s command with the new command.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=k>for</span><span class=w> </span><span class=n>binding</span><span class=w> </span><span class=k>in</span><span class=w> </span><span class=n>binding_parser</span><span class=p>(</span><span class=n>decl</span><span class=p>)</span><span class=o>?</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=k>if</span><span class=w> </span><span class=kd>let</span><span class=w> </span><span class=nb>Some</span><span class=p>(</span><span class=n>b</span><span class=p>)</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>bindings</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>.</span><span class=n>iter_mut</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=p>.</span><span class=n>find</span><span class=p>(</span><span class=o>|</span><span class=n>b</span><span class=o>|</span><span class=w> </span><span class=n>b</span><span class=p>.</span><span class=n>definition</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=n>binding</span><span class=p>.</span><span class=n>definition</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>b</span><span class=p>.</span><span class=n>command</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>binding</span><span class=p>.</span><span class=n>command</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>b</span><span class=p>.</span><span class=n>mode_instructions</span><span class=w> </span><span class=o>=</span><span class=w> </span><span class=n>binding</span><span class=p>.</span><span class=n>mode_instructions</span><span class=p>;</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w> </span><span class=k>else</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>        </span><span class=n>bindings</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=n>binding</span><span class=p>);</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><h1 id=unescaping-commands-in-shorthands>Unescaping commands in shorthands</h1><p>This one&rsquo;s a fairly straightforward one but I probably would have missed it if it
 were not for the tests. The commands, just like keys, must be unescaped when present
 in shorthands. This is so that we can distinguish a comma separating two
-shorthand elements or a dash representing a range from a literal comma or a dash.</p><p>Solution? Simply reuse the unescape function we used in for the keys.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#75715e>// ...
-</span></span></span><span style=display:flex><span>Rule::command_component <span style=color:#f92672>=&gt;</span> {
-</span></span><span style=display:flex><span>    command_variants.push(unescape(component.as_str()).to_string())
-</span></span><span style=display:flex><span>}
-</span></span><span style=display:flex><span><span style=color:#75715e>// ...
+shorthand elements or a dash representing a range from a literal comma or a dash.</p><p>Solution? Simply reuse the unescape function we used in for the keys.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=c1>// ...
+</span></span></span><span class=line><span class=cl><span class=n>Rule</span>::<span class=n>command_component</span><span class=w> </span><span class=o>=&gt;</span><span class=w> </span><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=n>command_variants</span><span class=p>.</span><span class=n>push</span><span class=p>(</span><span class=n>unescape</span><span class=p>(</span><span class=n>component</span><span class=p>.</span><span class=n>as_str</span><span class=p>()).</span><span class=n>to_string</span><span class=p>())</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>}</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=c1>// ...
 </span></span></span></code></pre></div><h1 id=removing-trailing-double-ampersands-from-commands>Removing trailing double ampersands from commands</h1><p>When defining commands for bindings, swhkd allows us to chain commands with
 double ampersands (<code>&&</code>). Not only that, we can also invoke modes with special
 syntax. If the <code>&&</code> is followed by a <code>@enter</code> and a modename, we enter a mode
@@ -60,13 +60,13 @@ extra trailing <code>&&</code>.</p><pre tabindex=0><code>echo hi &amp;&amp; ls &
 </code></pre><p>Clearly, the last <code>&&</code> has no problem staying beside the <code>ls</code> while the <code>@enter</code>
 mode instruction was happily extracted away. The result <code>echo hi && ls &&</code> isn&rsquo;t
 a valid command though.</p><p>To fix this, we add a small snippet of code to pop off the last element if it happens
-to be just one <code>&&</code>.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none><code class=language-rust data-lang=rust><span style=display:flex><span><span style=color:#66d9ef>if</span> comm
-</span></span><span style=display:flex><span>    .last()
-</span></span><span style=display:flex><span>    .is_some_and(<span style=color:#f92672>|</span>last<span style=color:#f92672>|</span> last.len() <span style=color:#f92672>==</span> <span style=color:#ae81ff>1</span> <span style=color:#f92672>&amp;&amp;</span> last[<span style=color:#ae81ff>0</span>] <span style=color:#f92672>==</span> <span style=color:#e6db74>&#34;&amp;&amp;&#34;</span>)
-</span></span><span style=display:flex><span>{
-</span></span><span style=display:flex><span>    comm.pop();
-</span></span><span style=display:flex><span>}
-</span></span></code></pre></div><h1 id=wrapping-up>Wrapping up</h1><p>So yeah, those were the small bugs that needed to be squashed and with that all
+to be just one <code>&&</code>.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-rust data-lang=rust><span class=line><span class=cl><span class=k>if</span><span class=w> </span><span class=n>comm</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>.</span><span class=n>last</span><span class=p>()</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=p>.</span><span class=n>is_some_and</span><span class=p>(</span><span class=o>|</span><span class=n>last</span><span class=o>|</span><span class=w> </span><span class=n>last</span><span class=p>.</span><span class=n>len</span><span class=p>()</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=mi>1</span><span class=w> </span><span class=o>&amp;&amp;</span><span class=w> </span><span class=n>last</span><span class=p>[</span><span class=mi>0</span><span class=p>]</span><span class=w> </span><span class=o>==</span><span class=w> </span><span class=s>&#34;&amp;&amp;&#34;</span><span class=p>)</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>{</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=w>    </span><span class=n>comm</span><span class=p>.</span><span class=n>pop</span><span class=p>();</span><span class=w>
+</span></span></span><span class=line><span class=cl><span class=p>}</span><span class=w>
+</span></span></span></code></pre></div><h1 id=wrapping-up>Wrapping up</h1><p>So yeah, those were the small bugs that needed to be squashed and with that all
 the previous tests as well as new tests are passing. This also marks the end of
 the development phase on my end. Perhaps in a next post, I&rsquo;ll talk about how I
 actually use SWHKD in my daily workflows. Stay tuned!</p></section><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/ebnf class=list-tag>EBNF</a>
