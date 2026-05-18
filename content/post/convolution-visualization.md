@@ -9,10 +9,9 @@ tags:
 - Convolution
 ---
 
-
-Please enable JavaScript to enjoy this demo.
-
 {{< rawhtml "content/webapps/convolution-visualization/index.html" >}}
+
+This interactive tour is [open-source](https://github.com/lavafroth/conv2d-visualization) and can be run locally.
 
 ## Following Along
 
