@@ -1,7 +1,7 @@
 baseURL: https://lavafroth.is-a.dev/
+locale: en-us
 pageinate: 5
 relativeURLs: true
-languageCode: en-us
 title: lavafroth
 theme: paprika
 taxonomies:
