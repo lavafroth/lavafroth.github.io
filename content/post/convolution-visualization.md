@@ -66,7 +66,7 @@ of the resulting feature map.
 
 ### In Full Swing
 
-This dot product operation is repeat over and over as the kernel strides over the source image, generating the complete output feature map.
+This dot product operation is repeated over and over as the kernel strides across the source image, generating the complete output feature map.
 
 You can play around with the grid size, the kernel size and the stride, which is by how many pixels the kernel slides each iteration. The padding slider allows you to add 0 valued pixels surrounding the image.
 
