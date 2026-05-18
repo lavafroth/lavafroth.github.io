@@ -12,8 +12,10 @@
   --narrow-separator: 0.2rem;
 
   color-scheme: light dark;
+
   --light: light-dark(#efefef, #161616);
   --dark: light-dark(#161616, #efefef);
+
 
   --safe-bottom: 0;
 }
@@ -28,6 +30,28 @@
   :root {
     --safe-bottom: env(safe-area-inset-bottom);
   }
+}
+
+pagefind-input,
+pagefind-results,
+pagefind-summary
+{
+  color-scheme: light dark !important;
+  --pf-background: var(--light);
+  --pf-text: var(--dark);
+  --pf-input-height: 6rem;
+
+
+  --pf-text-secondary: var(--lit);
+  --pf-text-muted: var(--air);
+  --pf-border: var(--fog);
+  --pf-mark: var(--dark);
+  --pf-outline-focus: var(--fog);
+  --pf-border-focus: var(--lit);
+}
+
+.pagefind-wrapper > *+* {
+  padding-top: 1rem;
 }
 
 .site-name>svg {
@@ -81,13 +105,6 @@ body {
   --air: color-mix(in lab, var(--dark) 48%, transparent);
   --fog: color-mix(in lab, var(--dark) 12%, transparent);
   --faint: color-mix(in lab, var(--dark) 5%, transparent);
-
-  --pagefind-ui-text: var(--pro) !important;
-  --pagefind-ui-primary: var(--pro) !important;
-  --pagefind-ui-background: var(--white) !important;
-  --pagefind-ui-border: var(--fog) !important;
-  --pagefind-ui-font: -apple-system, BlinkMacSystemFont, segoe ui, Roboto, Oxygen, Ubuntu, Cantarell, open sans, helvetica neue, sans-serif !important;
-  --pagefind-ui-tag: var(--faint) !important;
 
   display: flex;
   flex-direction: column;
