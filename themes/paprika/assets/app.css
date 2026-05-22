@@ -213,6 +213,7 @@ math {
 
 }
 
+
 .list-tag {
   background: var(--faint);
   color: var(--lit);
@@ -385,6 +386,44 @@ article {
 
   img {
     margin: auto;
+  }
+
+}
+
+.gallery {
+  img {
+    break-inside: avoid;
+    border-radius: 1rem;
+    box-sizing: border-box;
+    width: 100%;
+  }
+
+  figure {
+    position: relative;
+  }
+
+  column-count: if(media(width > 768px): 2; else: 1);
+  column-gap: var(--small-gap);
+
+  figure+figure {
+    margin-top: var(--gap);
+  }
+
+  .post-link {
+    position: absolute;
+    border-radius: 1rem;
+    display: grid;
+    place-content: center;
+    font-weight: 600;
+    font-size: if(media(width > 768px): 2.5rem; else: 4rem);
+    background: color-mix(in lab, var(--background) 40%, transparent);
+    opacity: 0;
+
+    transition: opacity 200ms;
+
+    &:hover {
+      opacity: 1;
+    }
   }
 }
 

@@ -9,14 +9,15 @@
   {{.Content}}
 </section>
 
-{{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
-<article>
-  <h2>{{ .Title }}</h2>
-  <br>
-  <img src="{{ .Params.image }}" style="border-radius: 1rem">
-  <a href="{{ .Permalink }}" aria-label="{{ .Title }}" class="post-link"></a>
-</article>
-{{ end }}
+<section class="gallery auto-grid">
+  {{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
+  <figure>
+    <!-- <h2>{{ .Title }}</h2> -->
+    <img src="{{ .Params.image }}">
+    <a href="{{ .Permalink }}" aria-label="{{ .Title }}" class="post-link">{{ .Title }}</a>
+  </figure>
+  {{ end }}
+</section>
 
 {{ if gt $paginator.TotalPages 1 }}
   <nav data-main>
