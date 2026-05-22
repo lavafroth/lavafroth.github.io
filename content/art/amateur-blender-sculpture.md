@@ -1,5 +1,5 @@
 ---
-title: "Amateur Blender Sculpture"
+title: "sculpt.blend"
 date: 2024-08-03T17:50:00+05:30
 image: "/nichole-sebastian-render-0.avif"
 layout: "artpiece"
