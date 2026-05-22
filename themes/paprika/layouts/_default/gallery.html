@@ -9,10 +9,9 @@
   {{.Content}}
 </section>
 
-<section class="gallery auto-grid">
+<section class="gallery">
   {{ $paginator := .Paginate $pages }} {{ range $index, $page := $paginator.Pages }}
   <figure>
-    <!-- <h2>{{ .Title }}</h2> -->
     <img src="{{ .Params.image }}">
     <a href="{{ .Permalink }}" aria-label="{{ .Title }}" class="post-link">{{ .Title }}</a>
   </figure>

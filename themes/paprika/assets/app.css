@@ -343,6 +343,10 @@ main {
   flex: 1;
   padding-top: var(--gap);
   padding-bottom: var(--y-gap);
+
+  &:has(.gallery) {
+    max-width: var(--wide);
+  }
 }
 
 nav[data-main] {
@@ -402,7 +406,7 @@ article {
     position: relative;
   }
 
-  column-count: if(media(width > 768px): 2; else: 1);
+  column-count: if(media(width >= 768px): 2; else: 1);
   column-gap: var(--small-gap);
 
   figure+figure {
@@ -415,7 +419,7 @@ article {
     display: grid;
     place-content: center;
     font-weight: 600;
-    font-size: if(media(width > 768px): 2.5rem; else: 4rem);
+    font-size: 3rem;
     background: color-mix(in lab, var(--background) 40%, transparent);
     opacity: 0;
 
