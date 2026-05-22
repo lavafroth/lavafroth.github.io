@@ -6,47 +6,50 @@
   --y-gap: 8rem;
   --wide: 140rem;
   --narrow: 80rem;
-  --side: calc((var(--wide) - var(--narrow)) / 2);
   --header: 10rem;
-  --footer: calc(8rem + var(--safe-bottom));
+  --footer: calc(var(--y-gap) + var(--safe-bottom));
   --narrow-separator: 0.2rem;
 
   color-scheme: light dark;
 
-  --light: light-dark(#efefef, #161616);
-  --dark: light-dark(#161616, #efefef);
+  --background: light-dark(#efefef, #161616);
+  --foreground: light-dark(#161616, #efefef);
+
+  --lit: color-mix(in lab, var(--foreground) 64%, transparent);
+  --air: color-mix(in lab, var(--foreground) 48%, transparent);
+  --fog: color-mix(in lab, var(--foreground) 12%, transparent);
+  --faint: color-mix(in lab, var(--foreground) 5%, transparent);
 
 
   --safe-bottom: 0;
-}
 
-@supports (bottom: constant(safe-area-inset-bottom)) {
-  :root {
-    --safe-bottom: constant(safe-area-inset-bottom);
+  @supports (bottom: constant(safe-area-inset-bottom)) {
+      --safe-bottom: constant(safe-area-inset-bottom);
+  }
+
+  @supports (bottom: env(safe-area-inset-bottom)) {
+      --safe-bottom: env(safe-area-inset-bottom);
   }
 }
 
-@supports (bottom: env(safe-area-inset-bottom)) {
-  :root {
-    --safe-bottom: env(safe-area-inset-bottom);
-  }
-}
+
 
 pagefind-input,
 pagefind-results,
 pagefind-summary
 {
   color-scheme: light dark !important;
-  --pf-background: var(--light);
-  --pf-text: var(--dark);
+  --pf-background: var(--background);
+  --pf-text: var(--foreground);
   --pf-input-height: 6rem;
 
 
   --pf-text-secondary: var(--lit);
   --pf-text-muted: var(--air);
   --pf-border: var(--fog);
-  --pf-mark: var(--dark);
+  --pf-mark: var(--foreground);
   --pf-outline-focus: var(--fog);
+  --pf-hover: var(--fog);
   --pf-border-focus: var(--lit);
 }
 
@@ -56,7 +59,7 @@ pagefind-summary
 
 .site-name>svg {
   width: 18rem;
-  fill: var(--dark);
+  fill: var(--foreground);
 }
 
 .math {
@@ -97,15 +100,6 @@ search {
 }
 
 body {
-  --white: var(--light);
-  --black: var(--dark);
-
-  --pro: var(--dark);
-  --lit: color-mix(in lab, var(--dark) 64%, transparent);
-  --air: color-mix(in lab, var(--dark) 48%, transparent);
-  --fog: color-mix(in lab, var(--dark) 12%, transparent);
-  --faint: color-mix(in lab, var(--dark) 5%, transparent);
-
   display: flex;
   flex-direction: column;
   padding: 0 var(--gap);
@@ -113,9 +107,9 @@ body {
     'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: 2rem;
   line-height: 1.8;
-  color: var(--pro);
+  color: var(--foreground);
   word-break: break-word;
-  background: var(--white);
+  background: var(--background);
   > * {
     flex-shrink: 0;
     width: 100%;
@@ -174,7 +168,7 @@ math {
     }
 
     .container label {
-      border: var(--narrow-separator) solid var(--pro);
+      border: var(--narrow-separator) solid var(--foreground);
 
       &::after {
         content: 'Expand explanation';
@@ -278,7 +272,7 @@ input[type='submit'] {
 
 input:-webkit-autofill,
 textarea:-webkit-autofill {
-  box-shadow: 0 0 0 6rem var(--white) inset;
+  box-shadow: 0 0 0 6rem var(--background) inset;
 }
 
 img {
@@ -312,7 +306,7 @@ header {
         top: .5rem;
         left: .5rem;
 
-        background: var(--black);
+        background: var(--foreground);
         mask-image: var(--url);
         mask-repeat: no-repeat;
         mask-size: cover;
@@ -537,7 +531,7 @@ nav[data-post] {
   a {
     padding-bottom: 0.2rem;
     font-weight: 500;
-    border-bottom: 2px solid var(--pro);
+    border-bottom: 2px solid var(--foreground);
 
     code {
       margin-inline: 0;
@@ -548,7 +542,7 @@ nav[data-post] {
 
   del {
     text-decoration: none;
-    background: linear-gradient(to right, var(--pro) 100%, transparent 0) 0 50% / 1px 1px repeat-x;
+    background: linear-gradient(to right, var(--foreground) 100%, transparent 0) 0 50% / 1px 1px repeat-x;
   }
 
   p,
@@ -653,7 +647,7 @@ nav[data-post] {
   blockquote {
     padding: 0 0 0 calc(var(--gap) - 0.4rem);
     margin: 0 0 0 calc(var(--gap) * -1);
-    border-left: 0.4rem solid var(--pro);
+    border-left: 0.4rem solid var(--foreground);
   }
 
   hr {
@@ -664,7 +658,7 @@ nav[data-post] {
 
   iframe {
     width: 100%;
-    background: var(--black);
+    background: var(--foreground);
   }
 }
 
@@ -687,8 +681,8 @@ nav[data-post] {
   }
 
   a:hover {
-    color: var(--pro);
-    border-bottom: 1px solid var(--pro);
+    color: var(--foreground);
+    border-bottom: 1px solid var(--foreground);
   }
 }
 
