@@ -26,12 +26,9 @@
 
   <h2>{{ .Title }}</h2>
   {{ partial "description" . }}
-  <nav>
-    {{ range .Params.tags }}
-      <a href="/tags/{{ . | urlize }}">{{ . }}</a>
-    {{ end }}
-  </nav>
+  <nav>{{ partial "tags" . }}</nav>
 </article>
+
 {{ end }}
 
 {{ if gt $paginator.TotalPages 1 }}

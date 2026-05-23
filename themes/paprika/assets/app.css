@@ -387,22 +387,28 @@ article {
     white-space: nowrap;
     scrollbar-width: none;
 
-    a {
-      position: relative;
-      z-index: 2; /* above the inset link */
-  
-      display: inline-block;
-      color: var(--lit);
-      padding: 0.4rem 1rem;
-      border-radius: 0.5rem;
-      transition: background-color 200ms, color 200ms;
-      border: 0.35rem solid var(--fog);
+  }
+}
 
-      &:hover {
-        background-color: var(--fog);
-        color: var(--foreground);
-      }
-    }
+nav[data-tag] {
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.tag {
+  position: relative;
+  z-index: 2; /* above the inset link */
+
+  display: inline-block;
+  color: var(--lit);
+  padding: 0.4rem 1rem;
+  border-radius: 0.5rem;
+  transition: background-color 200ms, color 200ms;
+  border: 0.35rem solid var(--fog);
+
+  &:hover {
+    background-color: var(--fog);
+    color: var(--foreground);
   }
 }
 
