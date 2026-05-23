@@ -372,7 +372,7 @@ article {
     color: var(--air);
   }
 
-  a {
+  > a {
     position: absolute;
     inset: 0;
     z-index: 1;
@@ -396,10 +396,7 @@ nav[data-tag] {
 }
 
 .tag {
-  position: relative;
   z-index: 2; /* above the inset link */
-
-  display: inline-block;
   color: var(--lit);
   padding: 0.4rem 1rem;
   border-radius: 0.5rem;
