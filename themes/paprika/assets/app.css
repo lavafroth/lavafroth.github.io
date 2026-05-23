@@ -501,10 +501,6 @@ nav[data-post] {
   }
 }
 
-.post-comments {
-  margin-top: var(--y-gap);
-}
-
 @media (max-width: 1199px) {
   .post-title {
     display: block;
