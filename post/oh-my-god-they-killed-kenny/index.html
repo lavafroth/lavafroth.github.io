@@ -22,8 +22,8 @@ To do this, we can use Nu&rsquo;s <code>parse</code> command which allows regula
 </span></span></code></pre></div><pre tabindex=0><code>wpmnpk
 </code></pre><p>All we are left with now is to append this to the episodes URL path and pass it to <code>mpv</code>.
 We will use the <code>$"string"</code> syntax to interpolate the short ID into the URL.</p><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>mpv <span class=s2>$&#34;https://southpark.cc.com/episodes/((http get https://southpark.cc.com/random-episode | parse -r &#39;&#34;</span>shortId<span class=s2>&#34;:&#34;</span><span class=o>(</span>.+?<span class=o>)</span><span class=s2>&#34;&#39;).capture0.0)&#34;</span>
-</span></span></code></pre></div></section><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/nushell class=list-tag>Nushell</a>
-<a href=https://lavafroth.is-a.dev/tags/south-park class=list-tag>South Park</a>
-<a href=https://lavafroth.is-a.dev/tags/streaming class=list-tag>Streaming</a>
-<a href=https://lavafroth.is-a.dev/tags/web-parsing class=list-tag>Web Parsing</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/r0-hash-me-please/><span>←</span><span>Hash Me Please</span></a>
+</span></span></code></pre></div></section><nav data-tag><a href=https://lavafroth.is-a.dev/tags/nushell class=tag>Nushell</a>
+<a href=https://lavafroth.is-a.dev/tags/south-park class=tag>South Park</a>
+<a href=https://lavafroth.is-a.dev/tags/streaming class=tag>Streaming</a>
+<a href=https://lavafroth.is-a.dev/tags/web-parsing class=tag>Web Parsing</a></nav><nav data-post><a href=https://lavafroth.is-a.dev/post/r0-hash-me-please/><span>←</span><span>Hash Me Please</span></a>
 <a href=https://lavafroth.is-a.dev/post/ringzer0ctf-bash-jail3/><span>Bash Jail 3</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>

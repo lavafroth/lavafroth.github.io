@@ -23,8 +23,8 @@ ensure you use the unstable channel using these commands as root:</p><div class=
 </span></span></code></pre></div><h2 id=get-current-nixos-generation-number>Get current NixOS generation number</h2><div class=highlight><pre tabindex=0 class=chroma><code class=language-sh data-lang=sh><span class=line><span class=cl>readlink /nix/var/nix/profiles/system <span class=p>|</span> cut -d- -f2
 </span></span></code></pre></div><h2 id=crtio-not-found>crti.o not found</h2><p>If you are compiling a program with C FFI bindings, you might encounter the following error:</p><pre tabindex=0><code>/nix/store/dc9vaz50jg7mibk9xvqw5dqv89cxzla3-binutils-2.44/bin/ld: cannot find crti.o: No such file or directory
 collect2: error: ld returned 1 exit status
-</code></pre><p>You need to add <code>stdenv.cc.cc.lib</code> to your flake&rsquo;s <code>buildInputs</code>.</p></section><footer class=post-tags data-pagefind-meta=tags><a href=https://lavafroth.is-a.dev/tags/nix class=list-tag>Nix</a>
-<a href=https://lavafroth.is-a.dev/tags/nixos class=list-tag>NixOS</a>
-<a href=https://lavafroth.is-a.dev/tags/notes class=list-tag>Notes</a>
-<a href=https://lavafroth.is-a.dev/tags/troubleshooting class=list-tag>Troubleshooting</a></footer><nav data-post><a href=https://lavafroth.is-a.dev/post/algebraic-python-enums/><span>←</span><span>Algebraic Python Enums</span></a>
+</code></pre><p>You need to add <code>stdenv.cc.cc.lib</code> to your flake&rsquo;s <code>buildInputs</code>.</p></section><nav data-tag><a href=https://lavafroth.is-a.dev/tags/nix class=tag>Nix</a>
+<a href=https://lavafroth.is-a.dev/tags/nixos class=tag>NixOS</a>
+<a href=https://lavafroth.is-a.dev/tags/notes class=tag>Notes</a>
+<a href=https://lavafroth.is-a.dev/tags/troubleshooting class=tag>Troubleshooting</a></nav><nav data-post><a href=https://lavafroth.is-a.dev/post/algebraic-python-enums/><span>←</span><span>Algebraic Python Enums</span></a>
 <a href=https://lavafroth.is-a.dev/post/changing-recents-provider-on-eos/><span>Guide: Changing Recents Provider on /e/OS</span><span>→</span></a></nav></main><footer class=footer><p>&copy; 2026 <a href=https://lavafroth.is-a.dev/>lavafroth</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/issues/new/choose>Report an issue</a></p><p><a href=https://github.com/lavafroth/lavafroth.github.io/discussions/>Discuss</a></p><p><a href=https://lavafroth.is-a.dev/privacy>Privacy</a></p><p><a href=https://creativecommons.org/licenses/by-sa/4.0/legalcode>License</a></p></footer></body></html>
