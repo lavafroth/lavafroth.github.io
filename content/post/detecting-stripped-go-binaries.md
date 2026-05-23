@@ -1,11 +1,11 @@
 ---
 title: "Easy grep to detect stripped Go binaries"
 date: 2025-06-13T08:39:58+05:30
-tags:
-  - Go
-  - Reverse Engieering
-  - TIL
 draft: false
+tags:
+  - Golang
+  - Reverse Engieering
+  - Today I Learned
 ---
 
 A couple of days ago when I was reading the [guide to the Go garbage collector](https://tip.golang.org/doc/gc-guide), I came across the following excerpt:
@@ -34,4 +34,4 @@ So if you have a hunch that a binary is written in Go 1.19 and above, try `grep`
 grep -P '(GOGC|GOMEMLIMIT|GODEBUG)' hello
 ```
 
-Ok bye.
+Take care.

@@ -4,9 +4,9 @@ date: 2024-05-23T18:37:47+05:30
 draft: false
 tags:
 - Rust
-- Go
+- Golang
 - Terminal
-- UI
+- User Interfaces
 - YouTube
 - Animation
 - Manim
