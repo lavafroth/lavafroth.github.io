@@ -388,34 +388,32 @@ article {
     color: var(--air);
   }
 
-  img {
-    margin: auto;
-  }
-
 }
 
 .gallery {
   img {
     break-inside: avoid;
-    border-radius: 1rem;
     box-sizing: border-box;
     width: 100%;
   }
 
-  figure {
-    position: relative;
+  img, .post-link {
+    border-radius: 1rem;
   }
 
   column-count: if(media(width >= 768px): 2; else: 1);
   column-gap: var(--small-gap);
 
-  figure+figure {
+  article+article {
     margin-top: var(--gap);
+  }
+
+  article {
+    padding-block: 0;
   }
 
   .post-link {
     position: absolute;
-    border-radius: 1rem;
     display: grid;
     place-content: center;
     font-weight: 600;
@@ -572,7 +570,6 @@ nav[data-post] {
   }
 
   a {
-    padding-bottom: 0.2rem;
     font-weight: 500;
     border-bottom: 2px solid var(--foreground);
 
