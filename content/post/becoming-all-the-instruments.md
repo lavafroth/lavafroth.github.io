@@ -1,7 +1,7 @@
 ---
 title: "Becoming All the Instruments"
 date: 2026-06-08T19:52:23+05:30
-draft: true
+draft: false
 ---
 
 In this post, I talk about a tool I've been making using very rudimentary math
