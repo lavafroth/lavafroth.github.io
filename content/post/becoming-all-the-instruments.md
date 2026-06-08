@@ -1,22 +1,26 @@
 ---
 title: "Becoming All the Instruments"
 date: 2026-06-08T19:52:23+05:30
+tags:
+  - Python
+  - Music
+  - Instruments
 draft: false
 ---
 
 In this post, I talk about a tool I've been making using very rudimentary math
-to  convert humming or human whistles into musical notes, specifically MIDI
+to convert humming or human whistles into musical notes, specifically MIDI
 notes.
 
-First, I tried using Fourier transform over chunks of 
-the audio, which is known as the STFT. I wanted to get straight or close 
-to straight lines for each humming pattern or whistle. Since the note 
-boundaries were not very clear, I needed a way to figure out the note 
-boundary without using any neural networks or fancy math. Instead, I 
-wanted to use something simple, something the human who is whistling or 
-humming can supply.
+First, I tried using Fourier transform over chunks of the audio, which is
+known as the STFT. I wanted to get straight or close to straight lines for each
+humming pattern or whistle. Since the note boundaries were not very clear the
+first step was to find those, preferably without using any neural networks or
+fancy math. I wanted to something simple that the human can supply.
 
-Human humming, music in general, is very rhythmic. Whenever you are going 
+## Finding Note Boundaries
+
+Human humming and music in general is very rhythmic. Whenever you are going 
 from one note to another, you can tap or snap your fingers. This is 
 something I do when I record videos for YouTube. If there is an outtake, I 
 will snap my fingers, and in the spectrogram, it shows a large spike, 
@@ -33,6 +37,8 @@ take any extra processing power for that, so that was the next evolution.
 I recorded the timesteps and chunked up the audio into pieces where there 
 would hopefully be just one single straight line representing a note.
 
+## Making It Sound like Notes
+
 Is human humming perfect? No. Is it going to get something wrong? 
 Absolutely. Human humming can curve upwards or downwards while you are 
 humming or whistling. For both humming and whistling, the note is slightly 
@@ -40,10 +46,10 @@ slanted.
 
 The next thing I tried was trying to quantize these notes into 
 blocks, single note chunks, like notes on a piano or a keyboard. To do 
-that, I used something known as the Constant Q Transform, or CQT. It also 
+that, I used the Constant Q Transform, or CQT. It also 
 has a lesser-known sibling called VQT, but I tried it, and it was lacking.
 
-So, I stuck with the Constant Q Transform (CQT). I took the arg max, which 
+So, I stuck with the CQT. I took the argmax, which 
 is the maximum of each row in the audio spectrogram, to figure out the 
 local maximum of each row. Then, I took the argmax of those in a single 
 column to figure out which column was the most energetic.
@@ -55,6 +61,8 @@ or whistle too fast, it gives up, and the noise takes over.
 To make it work, I used the concept of musical intervals. I found the 
 frequency of the note and then calculated the closest standard musical 
 note.
+
+## Decreasing the Search Space
 
 I came to learn that musical octaves are structured such that when you go 
 to the next octave, you multiply the frequencies of the current octave by 
@@ -80,6 +88,8 @@ distinguish. Higher notes, on the other hand, while increasingly difficult
 to sing or whistle, are spaced out enough that they are very easy to 
 distinguish.
 
+## Semitone Snapping
+
 Lastly, to further perfect the note, we take the resultant frequency, 
 divide it by the baseline, and take the logarithm of that base two. 
 Remember, going from one octave to another is multiplying by two. We then 
@@ -89,7 +99,7 @@ octave. Since you cannot press a key that is 1.5, we round this to the
 nearest integer. Essentially, we take the resultant frequency and snap it 
 to the nearest note in the octave. That is what my program does.
 
-It is open source on GitHub and is barely 200 lines of code. It was a fun 
+It is [open source](https://github.com/lavafroth/hum) on GitHub and is barely 200 lines of code. It was a fun 
 side project. I wanted to make this because I want to make music, but I 
 don't want to go through the pain of learning an instrument. Human humming 
 or singing is the root of everything else; every other instrument is 
