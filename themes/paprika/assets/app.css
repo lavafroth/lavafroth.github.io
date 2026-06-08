@@ -696,7 +696,7 @@ nav[data-post] {
   }
 }
 
-footer {
+.footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;

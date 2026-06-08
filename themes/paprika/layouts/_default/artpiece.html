@@ -17,6 +17,16 @@
     {{ end }}
   </section>
 
+  <!-- Post Tags -->
+  {{ if .Params.tags }}
+  <footer class="post-tags">
+    {{ range .Params.tags }} {{ $href := print (absURL "tags/") (urlize .) }}
+      <a href="{{ $href }}">{{ . }}</a>
+    {{ end }}
+  </footer>
+  {{ end }}
+
+  <!-- Post Nav -->
   {{ $pages := where site.RegularPages "Type" "in" site.Params.mainSections }}
   {{ if and (gt (len $pages) 1) (in $pages . ) }}
   <nav class="post-nav">
