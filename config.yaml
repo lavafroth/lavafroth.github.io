@@ -51,3 +51,6 @@ markup:
           - - $
             - $
         enable: true
+security:
+  allowContent:
+    - '^text/html$'
