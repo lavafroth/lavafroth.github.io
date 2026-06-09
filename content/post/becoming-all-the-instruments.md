@@ -8,31 +8,29 @@ tags:
 draft: false
 ---
 
-In this post, I talk about a tool I've been making using very rudimentary math
-to convert humming or human whistles into musical notes, specifically MIDI
-notes.
+I've been working on a tool using very simple math
+to convert humming or human whistles into musical MIDI notes.
 
-First, I tried using Fourier transform over chunks of the audio, which is
-known as the STFT. I wanted to get straight or close to straight lines for each
-humming pattern or whistle. Since the note boundaries were not very clear the
-first step was to find those, preferably without using any neural networks or
-fancy math. I wanted to something simple that the human can supply.
+Here's how the idea morphed into its current form.
+
+First, I tried using Fourier transform over chunks of the audio, which is known
+as the STFT. I wanted to get close to straight lines for each humming pattern
+or whistle. To isolate these lines, we could chunk the audio by note boundaries.
+I wanted to something simple that the user can supply, preferably without using
+any neural networks or fancy math.
 
 ## Finding Note Boundaries
 
-Human humming and music in general is very rhythmic. Whenever you are going 
-from one note to another, you can tap or snap your fingers. This is 
-something I do when I record videos for YouTube. If there is an outtake, I 
-will snap my fingers, and in the spectrogram, it shows a large spike, 
-which tells me where I should cut the audio.
+Human humming and music in general is very rhythmic. Whenever you are going
+from one note to another, you can tap or snap your fingers. When I record videos
+for YouTube, if there is an outtake, I snap my fingers which shows a large
+spike in the spectrogram, telling me where to cut the audio.
 
-The first thing I tried was snapping my fingers every time I switched a 
-note, but that often wasn't good because the snapping would interfere with 
-the frequencies of the notes I was whistling. The next idea was to tap a 
-key on the keyboard while I was humming each note. This feels very natural 
-because the brain is excellent at these rhythmic patterns. When you are 
-pressing a key and humming, you can easily sync the two. Your mind doesn't 
-take any extra processing power for that, so that was the next evolution.
+I tried snapping my fingers every time I switched a note, but the snapping
+would often interfere with the frequencies of the notes I was whistling. The
+next idea was to tap a key on the keyboard while I was humming each note: way
+more natural because the brain is excellent at these rhythmic patterns. You can
+easily sync pressing a key and humming without extra processing.
 
 I recorded the timesteps and chunked up the audio into pieces where there 
 would hopefully be just one single straight line representing a note.
@@ -44,7 +42,7 @@ Absolutely. Human humming can curve upwards or downwards while you are
 humming or whistling. For both humming and whistling, the note is slightly 
 slanted.
 
-The next thing I tried was trying to quantize these notes into 
+The next thing I tried was quantizing these notes into 
 blocks, single note chunks, like notes on a piano or a keyboard. To do 
 that, I used the Constant Q Transform, or CQT. It also 
 has a lesser-known sibling called VQT, but I tried it, and it was lacking.
