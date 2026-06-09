@@ -1,31 +1,27 @@
-<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Becoming All the Instruments - lavafroth</title><meta name=description content='In this post, I talk about a tool I&rsquo;ve been making using very rudimentary math
-to convert humming or human whistles into musical notes, specifically MIDI
-notes.
-First, I tried using Fourier transform over chunks of the audio, which is
-known as the STFT. I wanted to get straight or close to straight lines for each
-humming pattern or whistle. Since the note boundaries were not very clear the
-first step was to find those, preferably without using any neural networks or
-fancy math. I wanted to something simple that the human can supply.'><meta name=author content><link rel="preload stylesheet" as=style href=https://lavafroth.is-a.dev/app.min.css><link rel=preload as=image href=../../header.svg><link as=font href=https://lavafroth.is-a.dev/latinmodern-math.otf><link rel=preload as=image href=https://lavafroth.is-a.dev/github.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/about.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/art.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/rss.svg><link rel=icon href=https://lavafroth.is-a.dev/favicon.svg></head><body><header><a class=site-name href=https://lavafroth.is-a.dev/ aria-label=Home><svg viewBox="0 0 8790 2080"><path d="M80 1935V465h216v1270h286v2e2zm853 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm1025 528L2014 465h210l108 868 8 142h12l8-142 108-868h210l-224 1470zm813 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm851 528V465h514v222h-298v386h2e2v222h-2e2v640zm910 0V465h216q194 0 286 108 92 107 92 316 0 124-43 215-44 90-106 132l147 699h-216l-122-620h-38v620zm216-820q60 0 95-26 35-27 50-76t15-116q0-105-34-161-35-57-126-57zm1084 836q-90 0-154-42-65-42-99-114-35-72-35-162V767q0-91 35-162 34-72 99-114 64-42 154-42t155 42q64 42 99 114 34 72 34 162v866q0 90-34 162-35 72-99 114-65 42-155 42zm0-210q40 0 56-33 16-34 16-75V767q0-41-17-74-17-34-55-34-37 0-54 34-18 33-18 74v866q0 41 17 75 17 33 55 33zm890 194V687h-204V465h624v222h-204v1248zm828 0V465h216v608h168V465h216v1470h-216v-640h-168v640z"/></svg></a><nav><a style=--url:url(./github.svg) href=https://github.com/lavafroth aria-label=github target=_blank></a><a href=../../about/ aria-label=about style=--url:url(./about.svg)></a><a href=../../art/ aria-label=art style=--url:url(./art.svg)></a><a href=../../index.xml aria-label=rss style=--url:url(./rss.svg)></a><nav></header><main><hgroup data-pagefind-body><p data-pagefind-ignore><time>Jun 8, 2026 | 5 minutes read</time></p><h1 data-pagefind-meta=title>Becoming All the Instruments</h1></hgroup><section class=post-content data-pagefind-body><p>In this post, I talk about a tool I&rsquo;ve been making using very rudimentary math
-to convert humming or human whistles into musical notes, specifically MIDI
-notes.</p><p>First, I tried using Fourier transform over chunks of the audio, which is
-known as the STFT. I wanted to get straight or close to straight lines for each
-humming pattern or whistle. Since the note boundaries were not very clear the
-first step was to find those, preferably without using any neural networks or
-fancy math. I wanted to something simple that the human can supply.</p><h2 id=finding-note-boundaries>Finding Note Boundaries</h2><p>Human humming and music in general is very rhythmic. Whenever you are going
-from one note to another, you can tap or snap your fingers. This is
-something I do when I record videos for YouTube. If there is an outtake, I
-will snap my fingers, and in the spectrogram, it shows a large spike,
-which tells me where I should cut the audio.</p><p>The first thing I tried was snapping my fingers every time I switched a
-note, but that often wasn&rsquo;t good because the snapping would interfere with
-the frequencies of the notes I was whistling. The next idea was to tap a
-key on the keyboard while I was humming each note. This feels very natural
-because the brain is excellent at these rhythmic patterns. When you are
-pressing a key and humming, you can easily sync the two. Your mind doesn&rsquo;t
-take any extra processing power for that, so that was the next evolution.</p><p>I recorded the timesteps and chunked up the audio into pieces where there
+<!doctype html><html lang=en-us><head><meta charset=utf-8><meta http-equiv=X-UA-Compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Becoming All the Instruments - lavafroth</title><meta name=description content='I&rsquo;ve been working on a tool using very simple math
+to convert humming or human whistles into musical MIDI notes.
+Here&rsquo;s how the idea morphed into its current form.
+First, I tried using Fourier transform over chunks of the audio, which is known
+as the STFT. I wanted to get close to straight lines for each humming pattern
+or whistle. To isolate these lines, we could chunk the audio by note boundaries.
+I wanted to something simple that the user can supply, preferably without using
+any neural networks or fancy math.'><meta name=author content><link rel="preload stylesheet" as=style href=https://lavafroth.is-a.dev/app.min.css><link rel=preload as=image href=../../header.svg><link as=font href=https://lavafroth.is-a.dev/latinmodern-math.otf><link rel=preload as=image href=https://lavafroth.is-a.dev/github.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/about.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/art.svg><link rel=preload as=image href=https://lavafroth.is-a.dev/rss.svg><link rel=icon href=https://lavafroth.is-a.dev/favicon.svg></head><body><header><a class=site-name href=https://lavafroth.is-a.dev/ aria-label=Home><svg viewBox="0 0 8790 2080"><path d="M80 1935V465h216v1270h286v2e2zm853 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm1025 528L2014 465h210l108 868 8 142h12l8-142 108-868h210l-224 1470zm813 0 222-1470h264l222 1470h-210l-40-3e2h-208l-40 3e2zm280-528h148l-62-494-6-78h-12l-6 78zm851 528V465h514v222h-298v386h2e2v222h-2e2v640zm910 0V465h216q194 0 286 108 92 107 92 316 0 124-43 215-44 90-106 132l147 699h-216l-122-620h-38v620zm216-820q60 0 95-26 35-27 50-76t15-116q0-105-34-161-35-57-126-57zm1084 836q-90 0-154-42-65-42-99-114-35-72-35-162V767q0-91 35-162 34-72 99-114 64-42 154-42t155 42q64 42 99 114 34 72 34 162v866q0 90-34 162-35 72-99 114-65 42-155 42zm0-210q40 0 56-33 16-34 16-75V767q0-41-17-74-17-34-55-34-37 0-54 34-18 33-18 74v866q0 41 17 75 17 33 55 33zm890 194V687h-204V465h624v222h-204v1248zm828 0V465h216v608h168V465h216v1470h-216v-640h-168v640z"/></svg></a><nav><a style=--url:url(./github.svg) href=https://github.com/lavafroth aria-label=github target=_blank></a><a href=../../about/ aria-label=about style=--url:url(./about.svg)></a><a href=../../art/ aria-label=art style=--url:url(./art.svg)></a><a href=../../index.xml aria-label=rss style=--url:url(./rss.svg)></a><nav></header><main><hgroup data-pagefind-body><p data-pagefind-ignore><time>Jun 8, 2026 | 5 minutes read</time></p><h1 data-pagefind-meta=title>Becoming All the Instruments</h1></hgroup><section class=post-content data-pagefind-body><p>I&rsquo;ve been working on a tool using very simple math
+to convert humming or human whistles into musical MIDI notes.</p><p>Here&rsquo;s how the idea morphed into its current form.</p><p>First, I tried using Fourier transform over chunks of the audio, which is known
+as the STFT. I wanted to get close to straight lines for each humming pattern
+or whistle. To isolate these lines, we could chunk the audio by note boundaries.
+I wanted to something simple that the user can supply, preferably without using
+any neural networks or fancy math.</p><h2 id=finding-note-boundaries>Finding Note Boundaries</h2><p>Human humming and music in general is very rhythmic. Whenever you are going
+from one note to another, you can tap or snap your fingers. When I record videos
+for YouTube, if there is an outtake, I snap my fingers which shows a large
+spike in the spectrogram, telling me where to cut the audio.</p><p>I tried snapping my fingers every time I switched a note, but the snapping
+would often interfere with the frequencies of the notes I was whistling. The
+next idea was to tap a key on the keyboard while I was humming each note: way
+more natural because the brain is excellent at these rhythmic patterns. You can
+easily sync pressing a key and humming without extra processing.</p><p>I recorded the timesteps and chunked up the audio into pieces where there
 would hopefully be just one single straight line representing a note.</p><h2 id=making-it-sound-like-notes>Making It Sound like Notes</h2><p>Is human humming perfect? No. Is it going to get something wrong?
 Absolutely. Human humming can curve upwards or downwards while you are
 humming or whistling. For both humming and whistling, the note is slightly
-slanted.</p><p>The next thing I tried was trying to quantize these notes into
+slanted.</p><p>The next thing I tried was quantizing these notes into
 blocks, single note chunks, like notes on a piano or a keyboard. To do
 that, I used the Constant Q Transform, or CQT. It also
 has a lesser-known sibling called VQT, but I tried it, and it was lacking.</p><p>So, I stuck with the CQT. I took the argmax, which
