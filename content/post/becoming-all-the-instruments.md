@@ -37,27 +37,29 @@ would hopefully be just one single straight line representing a note.
 
 ## Making It Sound like Notes
 
-Is human humming perfect? No. Is it going to get something wrong? 
-Absolutely. Human humming can curve upwards or downwards while you are 
-humming or whistling. For both humming and whistling, the note is slightly 
-slanted.
+Is human humming perfect? No. Human humming can curve near the edges making the note slightly 
+slanted. This phenomenon is a little less prominent in whistles.
 
-The next thing I tried was quantizing these notes into 
-blocks, single note chunks, like notes on a piano or a keyboard. To do 
-that, I used the Constant Q Transform, or CQT. It also 
-has a lesser-known sibling called VQT, but I tried it, and it was lacking.
+I tried was quantizing these notes into blocks: single note chunks, like notes
+on a piano. For this, I used the Constant Q Transform, or CQT and a lesser-known
+sibling called VQT. VQT was lacking so, I stuck with the CQT.
 
-So, I stuck with the CQT. I took the argmax, which 
-is the maximum of each row in the audio spectrogram, to figure out the 
-local maximum of each row. Then, I took the argmax of those in a single 
-column to figure out which column was the most energetic.
+The spectrogram has time as the horizontal axis or each columns and
+frequencies as the vertical axis or each rows. Each element represents the
+amplitude or energy.
 
-Will this give us false positives? Yes. If the input chunk is very tiny, 
-that's what I struggled to combat in the next few iterations. If you hum 
+I took the argmax, which 
+is the maximum of each row in the audio spectrogram.
+This gives us a single column comprising local maximum of each row.
+
+We took the argmax of the column to figure out which frequency was the most energetic.
+
+If the input chunk is very tiny, it might yield false positives.
+That's what I struggled to combat in the next few iterations. If you hum 
 or whistle too fast, it gives up, and the noise takes over.
 
 To make it work, I used the concept of musical intervals. I found the 
-frequency of the note and then calculated the closest standard musical 
+frequency of a baseline note and then calculated the closest standard musical 
 note.
 
 ## Decreasing the Search Space
@@ -65,47 +67,73 @@ note.
 I came to learn that musical octaves are structured such that when you go 
 to the next octave, you multiply the frequencies of the current octave by 
 two. For example, if you are on a C, the next C in the next octave would 
-have twice the frequency. An octave has 12 keys, and these keys are in a 
+have twice the frequency.
+
+An octave has 12 semitones with frequencies in a 
 geometric progression. If going from one C to the next C doubles the 
-frequency, going from one C to the next key C-sharp must be 
-$2^{1/12}$. Raising this number to the power of 12 gives you two, 
-which is how much the frequency increases every octave.
+frequency, going from one C to the next key C-sharp we must break the doubling into 12
+steps,
 
-Armed with this knowledge, you can find specific frequency bins where the 
-user can land to sound musically accurate. This narrows the search space 
-and reduces the probability of noise being introduced. If we have noise in 
-some of the bands, it doesn't affect us because we are using discrete 
-bands instead of something continuous like the entirety of the spectrum.
+$$
+x^{12} = 2
+\implies x = 2^{1/12}
+$$
 
+We need to go to $2^{1/12}$ times the frequency.
+
+Now we can find specific frequency bins where the 
+user can possibly land to sound musically accurate.
+
+This narrows the search space and reduces the probability of noise being introduced.
 To implement this, we must first collect a baseline frequency from the 
-user's humming or whistling. Once that's collected, we can multiply that 
-frequency by the correct number to extrapolate into one or two octaves 
-above, and perhaps half an octave below. I chose half an octave below 
+user's humming or whistling. Once collected, we can multiply that 
+frequency by the number we found earlier to extrapolate into one or two octaves 
+above, and perhaps half an octave below.
+
+I chose half an octave below 
 because lower notes are more crowded, making them difficult to 
-distinguish. Higher notes, on the other hand, while increasingly difficult 
-to sing or whistle, are spaced out enough that they are very easy to 
+distinguish. Higher notes, while increasingly difficult 
+to hum or whistle, are spaced out enough that they are very easy to 
 distinguish.
 
 ## Semitone Snapping
 
-Lastly, to further perfect the note, we take the resultant frequency, 
-divide it by the baseline, and take the logarithm of that base two. 
-Remember, going from one octave to another is multiplying by two. We then 
-multiply that logarithm by twelve, which gives us a number between zero 
-and twelve, a number that corresponds to a key on the piano within an 
-octave. Since you cannot press a key that is 1.5, we round this to the 
-nearest integer. Essentially, we take the resultant frequency and snap it 
-to the nearest note in the octave. That is what my program does.
+To further perfect the note, we take the resultant frequency $f$, 
+divide it by the baseline $b$, and take the logarithm of that base two. 
 
-It is [open source](https://github.com/lavafroth/hum) on GitHub and is barely 200 lines of code. It was a fun 
-side project. I wanted to make this because I want to make music, but I 
-don't want to go through the pain of learning an instrument. Human humming 
-or singing is the root of everything else; every other instrument is 
-trying to mimic or extend what a human sings. It is natural to embrace 
-this technology. The best takeaway is that this doesn't require any fancy 
-neural networks, and it is very fast. It can run on a small computer, like 
-a Raspberry Pi, in a headless server tucked into your cupboard or closet. 
-It is highly efficient. For people who just want to get a melody out of 
-their brain, to turn their thoughts into playable MIDI notes that they can 
-share, this is a decent tool. That's about it.
+$$
+v = log_2 \left(\frac{f}{b}\right)
+$$
+
+Whenever $v$ is a whole number
+- The frequency $f$ is some power of 2 times the baseline $b$
+- The frequency lies $v$ octaves above the baseline $b$
+
+When $v$ has a fractional part, it represents the semitone numbers 0 through 12 in the squashed range of 0 through 1.
+
+To reconstruct the semitone numbers we multiply the fraction by 12.
+
+Since you cannot press a key that is 1.5 semitones, we round this to the 
+nearest integer.
+
+$$
+w = \lfloor 12 v \rceil
+$$
+
+We essentially snap the resultant frequency to the nearest semitone $w$.
+
+## Where You Can Find It
+
+This was a fun side project and I have made it [open source](https://github.com/lavafroth/hum) on GitHub having barely 200 lines of code.
+
+I made this tool because I want to make music without having to go through the
+pain of learning an instrument (I still am, but that's beside the point). Since every instrument is trying to mimic or
+extend what a human sings, it felt natural to embrace this technology.
+
+The best takeaway is that this doesn't require any fancy neural networks, and
+it is very fast. It can run on a small computer, like a Raspberry Pi, in a
+headless server tucked into your closet.
+
+For people who just want to get a melody out of their brain into playable MIDI
+notes that they can share, this is a decent tool. That's about it.
 
