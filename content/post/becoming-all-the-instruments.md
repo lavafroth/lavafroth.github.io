@@ -5,6 +5,8 @@ tags:
   - Python
   - Music
   - Instruments
+  - librosa
+  - MIDI
 draft: false
 ---
 
