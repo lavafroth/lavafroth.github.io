@@ -5,8 +5,6 @@
 {{ end }}
 
 <link href="/pagefind/pagefind-component-ui.css" rel="stylesheet">
-<script src="/pagefind/pagefind-component-ui.js" type="module"></script>
-
 <div class="pagefind-wrapper">
   <pagefind-input></pagefind-input>
   <pagefind-summary></pagefind-summary>
@@ -37,5 +35,7 @@
     <a href="{{ if $paginator.HasNext }}{{ $paginator.Next.URL }}{{ else }}#{{ end }}">Next Page</a>
   </nav>
 {{ end }}
+
+<script src="/pagefind/pagefind-component-ui.js" type="module"></script>
 
 {{ end }}
