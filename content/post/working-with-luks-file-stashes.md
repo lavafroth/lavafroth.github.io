@@ -17,38 +17,38 @@ This post will guide you through the process of creating and working
 with LUKS container files that are encrypted at rest and can be decrypted on
 demand with knowledge of the passphrase.
 
-## Creating the image base
+## Creating the Image Base
 
 ```sh
 head --bytes=4G /dev/urandom > stash.img
 ```
 
-## Format the image
+## Format the Image
 
 The image can be formatted by either including the header in the image itself or
 keeping a detached header.
 
-In either case, cryptsetup will ask for passphrase which will secure
+In either case, `cryptsetup` will ask for passphrase which will secure
 the contents of this container.
 
-### Including the LUKS header
+### Including the LUKS Header
 
 ```sh
 cryptsetup luksFormat stash.img
 ```
 
-### With a detached LUKS header
+### With a Detached LUKS Header
 
-> Note: Using a detached LUKS header is unsupported by udisksctl. Mounting such images
-can only be done using `cryptsetup` with super user privileges.
+> Note: Using a detached LUKS header is unsupported by `udisksctl`. Mounting such images
+can only be done using `cryptsetup` with superuser privileges.
 
 ```sh
 cryptsetup luksFormat stash.img --header stash.img.luks
 ```
 
-## Formatting the drive with a filesystem
+## Formatting the Drive with a Filesystem
 
-Super user privileges are required for this action. Run the following as root.
+Superuser privileges are required for this action. Run the following as root.
 
 ```sh
 mkdir -p /mnt/stash
@@ -61,20 +61,20 @@ umount /mnt/stash
 cryptsetup close stash
 ```
 
-## Interacting with the image
+## Interacting with the Image
 
 This section shall describe mounting and unmounting the stash both with and without
-super user privileges, although, I suppose most readers will be interested in latter
+superuser privileges, although, I suppose most readers will be interested in latter
 since that's the whole point of portable LUKS file stashes.
 
-### With super user privileges
+### With Superuser Privileges
 
 #### Mounting
 
 The following commands will
-- Create a mountpoint at `/mnt/stash`
+- Create a mount point at `/mnt/stash`
 - Open the image with `cryptsetup` as `/dev/mapper/stash`
-- Mount the the mapper device to the mountpoint
+- Mount the mapper device to the mount point
 
 ```sh
 mkdir -p /mnt/stash
@@ -89,7 +89,7 @@ umount /dev/mapper/stash
 cryptsetup close stash
 ```
 
-### Without super user privileges
+### Without Superuser Privileges
 
 #### Mounting
 
