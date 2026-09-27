@@ -14,9 +14,9 @@ While my PC did have a decent microphone, the built-in camera has been damaged t
 
 ![A blurry image taken from my scuffed camera](/pc-camera.avif)
 
-No, it's not a close-up of the moon, it's the refraction caused by the scuffs to the lens plus other sciency stuff I'm not qualified enough to explain to you.
+No, it's not a close-up of the moon, it's the refraction caused by the scuffs to the lens.
 
-I was aware that one can use ADB to use an Android phone's camera as a makeshift webcam. Since I would need this ability for any future meetings as well, it was worth having the functionality packaged into a one click tool.
+I knew that one can use ADB to use an Android phone's camera as a makeshift webcam. Since I would need this ability for any future meetings as well, it was worth having the functionality packaged into a one click tool.
 
 Enter NixOS. I have praised NixOS before and I'll do it again because of the sheer ease with which it allows me to create desktop entries for small scripts.
 This is going to be relevant later but I'm going to assume that you're running NixOS with home-manager enabled if you're following along. First we have to [enable developer mode and USB debugging on our phone](https://developer.android.com/studio/debug/dev-options#enable).
@@ -94,7 +94,7 @@ Here's a breakdown of the script:
 - The second line runs `scrcpy` to pass the phone's camera to the dummy virtual camera spawned by the `v4l2loopback` kernel module.
 
 We can use a named camera with the `--camera-facing` flag as I did here for
-the back camera using `--camera-facing=back`. If you noted a camera ID eariler,
+the back camera using `--camera-facing=back`. If you noted a camera ID earlier,
 you can replace the `--camera-facing=back` with `--camera-id=` followed by the
 identifying number.
 
