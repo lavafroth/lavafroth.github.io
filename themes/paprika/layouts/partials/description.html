@@ -1,1 +1,1 @@
-<time>{{ .Date | time.Format ":date_medium" }} | {{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{end}} read </time>
+<time datetime="{{ .Date | time.Format "2006-01-02" }}">{{ .Date | time.Format ":date_medium" }}</time><time datetime="{{ .ReadingTime }}m">{{ .ReadingTime }} minute{{ if gt .ReadingTime 1 }}s{{end}} read</time>

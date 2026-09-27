@@ -390,6 +390,11 @@ article {
   }
 }
 
+time+time::before {
+  content: '|';
+  margin-inline: 0.6rem;
+}
+
 nav[data-tag] {
   flex-wrap: wrap;
   gap: 1rem;
