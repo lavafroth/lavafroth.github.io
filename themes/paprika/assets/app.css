@@ -32,7 +32,7 @@
   }
 }
 
-
+@view-transition { navigation: auto; }
 
 pagefind-input,
 pagefind-results,
