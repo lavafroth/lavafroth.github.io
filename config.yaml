@@ -15,7 +15,7 @@ menu:
       name: about
       url: /about/
     - identifier: rss
-      name: rss
+      name: "subscribe via RSS"
       url: /index.xml
 params:
   description: "smol creator"
