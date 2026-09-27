@@ -20,11 +20,11 @@
 {{ range $page := $paginator.Pages }}
 
 <article>
-  <a href="{{ .Permalink }}" aria-label="Read {{ .Title }}"></a>
+  <a href="{{ .Permalink }}" aria-label="Read article: {{ .Title }}"></a>
 
-  <h2>{{ .Title }}</h2>
+  <h2 aria-hidden="true">{{ .Title }}</h2>
   {{ partial "description" . }}
-  <nav>{{ partial "tags" . }}</nav>
+  <nav aria-label="Tagged as">{{ partial "tags" . }}</nav>
 </article>
 
 {{ end }}
